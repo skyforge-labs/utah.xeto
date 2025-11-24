@@ -1,0 +1,27 @@
+pragma: Lib <
+doc: "Utah Haystack Tagging Standard - Equips"
+version: "0.0.1"
+depends: {
+    {
+    lib: "sys", versions: "0.1.x"
+  }
+  {
+    lib: "ph", versions: "0.1.x"
+  }
+  {
+    lib: "ph.points", versions: "0.1.x"
+  }
+  {
+    lib: "ph.points.elec", versions: "0.1.x"
+  }
+  {
+    lib: "ph.equips", versions: "0.1.x"
+  }
+}
+
+org: {
+  dis: "SkyForge Labs"
+  uri: "TODO"
+}
+
+>
