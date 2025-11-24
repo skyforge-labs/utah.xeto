@@ -1,0 +1,442 @@
+// Copyright (c) 2011-2025, Project-Haystack
+// Licensed under the Academic Free License version 3.0
+// Auto-generated 29-May-2025 // Placeholder date, will update if possible
+
+// === Equipment Definition ===
+Chiller: ph::Equip {
+  chiller
+  navName: "Chiller"
+  doc: "Chiller"
+  chilledWaterPlantRef: Ref
+  points: {
+    // Commands
+    ChWFlow
+    ChWVol
+    ChWDP
+    ChlrEnab
+    ChlrCmd
+    ChlrStg1Cmd
+    ChlrStg2Cmd
+    CwIsoVlvCmd
+    CwcPCmd
+    ChwIsoVlvCmd
+    ChlrOilHeatCmd
+    // Statuses
+    ChlrSts
+    ChlrStg1Sts
+    ChlrStg2Sts
+    CwIsoVlvPosSts
+    ChwIsoVlvPosSts
+    ChlrOilHeatSts
+    // Counts & loads
+    ChlrStg
+    ChlrLoad
+    ChlrTons
+    // Condenser water
+    CWETemp
+    CWLTemp
+    // Chilled water
+    ChWETemp
+    ChWLTemp
+    ChWLTempSp
+    // Oil
+    ChlrOilTemp
+    // Electrical energy
+    ChlrAmps
+    ChlrVolts
+    ChlrEnergyTot
+    ChlrPower
+    ChlrPF
+    // Water energy
+    ChWEnergy
+    ChWPower
+  }
+}
+
+// === Unit Definitions ===
+// These are standard Project Haystack / SkySpark units
+
+// === Commands ===
+
+// Enable/disable chiller
+ChlrEnab: ph.points::BoolPoint {
+  chiller
+  enable
+  cmd
+  navName: "ChlrEnab"
+  doc: "Chiller Enable"
+  hisMode: "cov"
+  hisCollectInterval: "1min"
+}
+
+// Start/stop chiller
+ChlrCmd: ph.points::BoolPoint {
+  chiller
+  run
+  cmd
+  navName: "ChlrCmd"
+  doc: "Chiller Command"
+  hisMode: "cov"
+  hisCollectInterval: "1min"
+}
+
+//  1 command
+ChlrStg1Cmd: ph.points::BoolPoint {
+  chiller
+  stage: 1
+  cmd
+  navName: "ChlrStg1Cmd"
+  doc: "Chiller Compressor Stage Command"
+  hisMode: "cov"
+  hisCollectInterval: "1min"
+}
+
+//  2 command (assuming from pattern and example)
+ChlrStg2Cmd: ph.points::BoolPoint {
+  chiller
+  stage: 2
+  cmd
+  navName: "ChlrStg2Cmd"
+  doc: "Chiller Compressor Stage Command"
+  hisMode: "cov"
+  hisCollectInterval: "1min"
+}
+
+// Condenser water isolation valve command
+CwIsoVlvCmd: ph.points::BoolPoint {
+  condenser
+  water
+  isolation
+  valve
+  cmd
+  navName: "CWIsoVlvCmd"
+  doc: "Condenser Water Isolation Valve"
+  hisMode: "cov"
+  hisCollectInterval: "1min"
+}
+
+// Condenser water circulation pump command
+CwcPCmd: ph.points::BoolPoint {
+  condenser
+  water
+  circ
+  pump
+  cmd
+  navName: "CWCPCmd"
+  doc: "Condenser Water Circulation Pump"
+  hisMode: "cov"
+  hisCollectInterval: "1min"
+}
+
+// Chilled water isolation valve command
+ChwIsoVlvCmd: ph.points::BoolPoint {
+  chilled
+  water
+  isolation
+  valve
+  cmd
+  navName: "ChWIsoVlvCmd"
+  doc: "Chilled Water Isolation Valve"
+  hisMode: "cov"
+  hisCollectInterval: "1min"
+}
+
+// Oil heater on/off
+ChlrOilHeatCmd: ph.points::BoolPoint {
+  oil
+  heater
+  run
+  cmd
+  navName: "ChlrOilHeatCmd"
+  doc: "Oil Heater Command"
+  hisMode: "cov"
+  hisCollectInterval: "1min"
+}
+
+// === Statuses & Flags ===
+
+// Chiller running status
+ChlrSts: ph.points::BoolPoint {
+  chiller
+  run
+  sensor
+  navName: "ChlrSts"
+  doc: "Chiller Status"
+  hisMode: "cov"
+  hisCollectInterval: "1min"
+}
+
+//  1 running status
+ChlrStg1Sts: ph.points::BoolPoint {
+  chiller
+  stage: 1
+  sensor
+  navName: "ChlrStg1Sts"
+  doc: "Chiller Compressor Stage Status"
+  hisMode: "cov"
+  hisCollectInterval: "1min"
+}
+
+//  2 running status (assuming from pattern and example)
+ChlrStg2Sts: ph.points::BoolPoint {
+  chiller
+  stage: 2
+  sensor
+  navName: "ChlrStg2Sts"
+  doc: "Chiller Compressor Stage Status"
+  hisMode: "cov"
+  hisCollectInterval: "1min"
+}
+
+// Condenser valve position status
+CwIsoVlvPosSts: ph.points::NumberPoint {
+  condenser
+  water
+  isolation
+  valve
+  sensor
+  cxStatus
+  navName: "CWIsoVlvPosSts"
+  doc: "Condenser Water Isolation Valve Position Status"
+  unit: "%"
+  hisMode: "sampled"
+  hisCollectInterval: "1min"
+}
+
+// Chilled valve position status
+ChwIsoVlvPosSts: ph.points::NumberPoint {
+  chilled
+  water
+  isolation
+  valve
+  sensor
+  cxStatus
+  navName: "CWIsoVlvPosSts"
+  doc: "Chilled Water Isolation Valve Position Status"
+  unit: "%"
+  hisMode: "sampled"
+  hisCollectInterval: "1min"
+}
+
+// Oil heater status sensor
+ChlrOilHeatSts: ph.points::BoolPoint {
+  oil
+  heater
+  run
+  sensor
+  navName: "ChlrOilHeatSts"
+  doc: "Oil Heater Status"
+  hisMode: "cov"
+  hisCollectInterval: "1min"
+}
+
+// === Counts & Loads ===
+
+// Number of active stages
+ChlrStg: ph.points::NumberPoint {
+  chiller
+  stage: 1
+  sensor
+  navName: "ChlrStg"
+  doc: "Chiller Compressor Stage Status"
+  hisMode: "sampled"
+  hisCollectInterval: "1min"
+}
+
+// Current load percentage
+ChlrLoad: ph.points::NumberPoint {
+  chiller
+  load
+  sensor
+  navName: "ChlrLoad"
+  doc: "Chiller Load"
+  unit: "%"
+  hisMode: "sampled"
+  hisCollectInterval: "1min"
+}
+
+// Cooling capacity in tons
+ChlrTons: ph.points::NumberPoint {
+  chilled
+  water
+  power
+  sensor
+  navName: "ChlrTons"
+  doc: "Tons"
+  unit: "ton"
+  hisMode: "sampled"
+  hisCollectInterval: "1min"
+}
+
+// === Condenser Water Temperatures ===
+
+// Entering condenser water temperature
+CWETemp: ph.points::NumberPoint {
+  condenser
+  water
+  entering
+  temp
+  sensor
+  navName: "CWETemp"
+  doc: "Condenser Water Entering Temperature"
+  unit: "°F"
+  hisMode: "sampled"
+  hisCollectInterval: "1min"
+}
+
+// Leaving condenser water temperature
+CWLTemp: ph.points::NumberPoint {
+  condenser
+  water
+  leaving
+  temp
+  sensor
+  navName: "CWLTemp"
+  doc: "Condenser Water Leaving Temperature"
+  unit: "°F"
+  hisMode: "sampled"
+  hisCollectInterval: "1min"
+}
+
+// === Chilled Water Temperatures & Flow ===
+
+// Entering chilled water temperature
+ChWETemp: ph.points::NumberPoint {
+  chilled
+  water
+  entering
+  temp
+  sensor
+  navName: "ChWETemp"
+  doc: "Chilled Water Temperature Entering"
+  unit: "°F"
+  hisMode: "sampled"
+  hisCollectInterval: "1min"
+}
+
+// Leaving chilled water temperature
+ChWLTemp: ph.points::NumberPoint {
+  chilled
+  water
+  leaving
+  temp
+  sensor
+  navName: "ChWLTemp"
+  doc: "Chilled Water Temperature Leaving"
+  unit: "°F"
+  hisMode: "sampled"
+  hisCollectInterval: "1min"
+}
+
+// Chilled water leaving temperature setpoint
+ChWLTempSp: ph.points::NumberPoint {
+  chilled
+  water
+  leaving
+  temp
+  sp
+  navName: "ChWLTempSp"
+  doc: "Chilled Water Leaving Temp Setpoint"
+  unit: "°F"
+  hisMode: "cov"
+  hisCollectInterval: "1min"
+}
+
+// === Oil ===
+
+// Oil temperature sensor
+ChlrOilTemp: ph.points::NumberPoint {
+  oil
+  temp
+  sensor
+  navName: "ChlrOilTemp"
+  doc: "Oil Temp"
+  unit: "°F"
+  hisMode: "sampled"
+  hisCollectInterval: "1min"
+}
+
+// === Electrical Energy ===
+
+// Compressor current draw
+ChlrAmps: ph.points::NumberPoint {
+  current
+  mag
+  sensor
+  navName: "ChlrAmps"
+  doc: "Current"
+  unit: "A"
+  hisMode: "sampled"
+  hisCollectInterval: "1min"
+}
+
+// Compressor voltage
+ChlrVolts: ph.points::NumberPoint {
+  volt
+  mag
+  sensor
+  navName: "ChlrVolts"
+  doc: "Volts"
+  unit: "V"
+  hisMode: "sampled"
+  hisCollectInterval: "1min"
+}
+
+// Total energy consumption
+ChlrEnergyTot: ph.points::NumberPoint {
+  elec
+  energy
+  total
+  sensor
+  hisTotalized
+  navName: "ChlrEnergyTot"
+  doc: "Energy Total (accumulated)"
+  unit: "kWh"
+  hisMode: "sampled"
+  hisCollectInterval: "1min"
+}
+
+// Total active power
+ChlrPower: ph.points::NumberPoint {
+  elec
+  power
+  total
+  active
+  sensor
+  navName: "ChlrPower"
+  doc: "Power Total"
+  unit: "kW"
+  hisMode: "sampled"
+  hisCollectInterval: "1min"
+}
+
+// Power factor
+ChlrPF: ph.points::NumberPoint {
+  pf
+  total
+  sensor
+  navName: "ChlrPF"
+  doc: "Power Factor Total"
+  unit: "pf"
+  hisMode: "sampled"
+  hisCollectInterval: "1min"
+}
+
+// === Water Energy ===
+// Note: ChWEtemp from original file (Chilled Water Temperature Entering) seems redundant with ChWETemp, omitting.
+
+// Chilled water energy totalized
+ChWEnergy: ph.points::NumberPoint {
+  chilled
+  water
+  energy
+  hisTotalized
+  sensor
+  navName: "ChWEnergy"
+  doc: "Chilled Water Energy (accumulated)"
+  unit: "BTU"
+  hisMode: "sampled"
+  hisCollectInterval: "1min"
+}
+
+// Chilled water power

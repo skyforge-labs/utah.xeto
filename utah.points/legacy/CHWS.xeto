@@ -1,0 +1,461 @@
+// Copyright (c) 2011-2025, Project-Haystack
+// Licensed under the Academic Free License version 3.0
+// Auto-generated 29-May-2025
+
+// === Equipment Definition ===
+CHWS: ph::Plant {
+  chilledWaterPlant
+  navName: "CHWS"
+  doc: "Chilled Water System"
+  points: {
+    // Water Flow & Volume
+    ChWFlow
+    ChWVol
+    // Temperature Points
+    ChWSupTemp
+    ChWSupTempSp
+    ChWRetTemp
+    // Pressure Points
+    ChWDP
+    ChWDPSp
+    ChWSupPress
+    // Condenser Water Points
+    CWSupTemp
+    CWSupTempSp
+    CWRetTemp
+    // Valve Points
+    BldgMaxChWVlvPos
+    ChWMUWVlvCmd
+    // Energy Points
+    ChWEnergy
+    ChWPower
+    ChWTons
+    // Building Loop Pump Points
+    ChWPEnab
+    ChWPCmd
+    ChWPSts
+    ChWPVFDSpd
+    ChWPVFDFreq
+    ChWPVFDPower
+    ChWRetVlvCmd
+    ChWRetVlvSts
+    // VFD Energy Points
+    ChWPVFDEnergy
+    ChWPVFDPower
+    // Heat Exchanger Points
+    HxChWEnab
+    HxChWCmd
+    HXChWRun
+    HxChWETemp
+    HxChWLTemp
+    HxChWIsoVlvCmd
+    HxChWCPCmd
+    HxChWCPSts
+    HxCWETemp
+    HxCWLTemp
+    HxCWIsoVlvCmd
+    HxCWCPCmd
+    HxCWCPSts
+  }
+}
+
+// === Point Definitions ===
+// Only keep points not defined in points.xeto
+
+// Temperature Points
+ChWSupTemp: ph.points::NumberPoint {
+  chilled
+  water
+  leaving
+  supply
+  temp
+  sensor
+  navName: "ChWSupTemp"
+  doc: "Chilled Water Supply Temperature"
+  unit: "°F"
+  hisMode: "cov"
+  hisCollectInterval: "10min"
+}
+
+ChWSupTempSp: ph.points::NumberPoint {
+  chilled
+  water
+  leaving
+  supply
+  temp
+  sp
+  navName: "ChWSupTempSp"
+  doc: "Chilled Water Supply Temperature Setpoint"
+  unit: "°F"
+  hisMode: "cov"
+  hisCollectInterval: "24h"
+}
+
+ChWRetTemp: ph.points::NumberPoint {
+  chilled
+  water
+  entering
+  return
+  temp
+  sensor
+  navName: "ChWRetTemp"
+  doc: "Chilled Water Return Temperature"
+  unit: "°F"
+  hisMode: "cov"
+  hisCollectInterval: "10min"
+}
+
+// Pressure Points
+ChWDPSp: ph.points::NumberPoint {
+  chilled
+  water
+  pressure
+  delta
+  sp
+  navName: "ChWDPSp"
+  doc: "Chilled Water Differential Pressure Setpoint"
+  unit: "psi"
+  hisMode: "cov"
+  hisCollectInterval: "24h"
+}
+
+ChWSupPress: ph.points::NumberPoint {
+  chilled
+  water
+  discharge
+  pressure
+  sensor
+  navName: "ChWSupPress"
+  doc: "Chilled Water Supply Pressure"
+  unit: "psi"
+  hisMode: "cov"
+  hisCollectInterval: "10min"
+}
+
+// Building Loop Pump Points
+ChWPEnab: ph.points::BoolPoint {
+  chilled
+  water
+  pump
+  enable
+  cmd
+  navName: "ChWPEnab"
+  doc: "Building Loop Pump Enable"
+  hisMode: "cov"
+  hisCollectInterval: "24h"
+}
+
+ChWPVFDSpd: ph.points::NumberPoint {
+  chilled
+  water
+  pump
+  speed
+  cmd
+  navName: "ChWPVFDSpd"
+  doc: "Building Loop Pump VFD Speed"
+  unit: "%"
+  hisMode: "cov"
+  hisCollectInterval: "10min"
+}
+
+ChWPVFDFreq: ph.points::NumberPoint {
+  chilled
+  water
+  pump
+  vfd
+  freq
+  sensor
+  navName: "ChWPVFDFreq"
+  doc: "Building Loop Pump VFD Frequency"
+  unit: "Hz"
+  hisMode: "cov"
+  hisCollectInterval: "10min"
+}
+
+ChWPVFDPower: ph.points::NumberPoint {
+  chilled
+  water
+  pump
+  power
+  active
+  sensor
+  navName: "ChWPVFDPower"
+  doc: "Building Loop Pump VFD Power"
+  unit: "kW"
+  hisMode: "cov"
+  hisCollectInterval: "10min"
+}
+
+// VFD Energy Points
+ChWPVFDEnergy: ph.points::NumberPoint {
+  chilled
+  water
+  pump
+  elec
+  energy
+  total
+  sensor
+  hisTotalized
+  navName: "ChWPVFDEnergy"
+  doc: "VFD Energy Total (accumulated)"
+  unit: "kWh"
+  hisMode: "cov"
+  hisCollectInterval: "10min"
+}
+
+// Heat Exchanger Points
+HxChWEnab: ph.points::BoolPoint {
+  enable
+  cmd
+  navName: "HxChWEnab"
+  doc: "Chilled Water Heat Exchanger Enable"
+  hisMode: "cov"
+  hisCollectInterval: "24h"
+}
+
+HxChWCmd: ph.points::BoolPoint {
+  run
+  cmd
+  navName: "HxChWCmd"
+  doc: "Chilled Water Heat Exchanger Command"
+  hisMode: "cov"
+  hisCollectInterval: "24h"
+}
+
+HXChWRun: ph.points::NumberPoint {
+  chilled
+  water
+  total
+  sensor
+  navName: "HXChWRun"
+  doc: "Chilled Water Heat Exchanger Runtime"
+  unit: "hr"
+  hisMode: "cov"
+  hisCollectInterval: "10min"
+}
+
+HxChWETemp: ph.points::NumberPoint {
+  chilled
+  water
+  entering
+  temp
+  navName: "HxChWETemp"
+  doc: "Chilled Water Entering Temperature"
+  unit: "F"
+  hisMode: "cov"
+  hisCollectInterval: "1min"
+}
+
+HxChWLTemp: ph.points::NumberPoint {
+  chilled
+  water
+  leaving
+  temp
+  navName: "HxChWLTemp"
+  doc: "Chilled Water Leaving Temperature"
+  unit: "F"
+  hisMode: "cov"
+  hisCollectInterval: "1min"
+}
+
+HxChWIsoVlvCmd: ph.points::BoolPoint {
+  chilled
+  water
+  isolation
+  valve
+  cmd
+  navName: "HxChWIsoVlvCmd"
+  doc: "Chilled Water Isolation Valve"
+  hisMode: "cov"
+  hisCollectInterval: "1min"
+}
+
+HxChWCPCmd: ph.points::BoolPoint {
+  chilled
+  water
+  circ
+  pump
+  run
+  cmd
+  navName: "HxChWCPCmd"
+  doc: "Chilled Water Circulation Pump Command"
+  hisMode: "cov"
+  hisCollectInterval: "1min"
+}
+
+HxChWCPSts: ph.points::BoolPoint {
+  chilled
+  water
+  circ
+  pump
+  run
+  sensor
+  navName: "HxChWCPSts"
+  doc: "Chilled Water Circulation Pump Status"
+  hisMode: "cov"
+  hisCollectInterval: "1min"
+}
+
+HxCWETemp: ph.points::NumberPoint {
+  condenser
+  entering
+  water
+  temp
+  navName: "HxCWETemp"
+  doc: "Condenser Water Entering Temperature"
+  unit: "F"
+  hisMode: "cov"
+  hisCollectInterval: "1min"
+}
+
+HxCWLTemp: ph.points::NumberPoint {
+  condenser
+  leaving
+  water
+  temp
+  navName: "HxCWLTemp"
+  doc: "Condenser Water Leaving Temperature"
+  unit: "F"
+  hisMode: "cov"
+  hisCollectInterval: "1min"
+}
+
+HxCWIsoVlvCmd: ph.points::BoolPoint {
+  condenser
+  isolation
+  valve
+  cmd
+  navName: "HxCWIsoVlvCmd"
+  doc: "Condenser Water Isolation Valve"
+  hisMode: "cov"
+  hisCollectInterval: "1min"
+}
+
+HxCWCPCmd: ph.points::BoolPoint {
+  condenser
+  water
+  circ
+  pump
+  cmd
+  navName: "HxCWCPCmd"
+  doc: "Condenser Circ Pump Command"
+  hisMode: "cov"
+  hisCollectInterval: "1min"
+}
+
+HxCWCPSts: ph.points::BoolPoint {
+  condenser
+  water
+  circ
+  pump
+  sensor
+  navName: "HxCWCPSts"
+  doc: "Condenser Circ Pump Status"
+  hisMode: "cov"
+  hisCollectInterval: "1min"
+}
+
+// Condenser Water Points
+CWSupTemp: ph.points::NumberPoint {
+  condenser
+  water
+  supply
+  temp
+  sensor
+  navName: "CWSupTemp"
+  doc: "Condenser Water Supply Temperature"
+  unit: "°F"
+  hisMode: "cov"
+  hisCollectInterval: "10min"
+}
+
+CWSupTempSp: ph.points::NumberPoint {
+  condenser
+  water
+  supply
+  temp
+  sp
+  navName: "CWSupTempSp"
+  doc: "Condenser Water Supply Temperature Setpoint"
+  unit: "°F"
+  hisMode: "cov"
+  hisCollectInterval: "24h"
+}
+
+CWRetTemp: ph.points::NumberPoint {
+  condenser
+  water
+  return
+  temp
+  sensor
+  navName: "CWRetTemp"
+  doc: "Condenser Water Return Temperature"
+  unit: "°F"
+  hisMode: "cov"
+  hisCollectInterval: "10min"
+}
+
+// Valve Points
+BldgMaxChWVlvPos: ph.points::NumberPoint {
+  chilled
+  water
+  valve
+  pos
+  max
+  sensor
+  navName: "BldgMaxChWVlvPos"
+  doc: "Building Maximum Chilled Water Valve Position"
+  unit: "%"
+  hisMode: "cov"
+  hisCollectInterval: "10min"
+}
+
+ChWMUWVlvCmd: ph.points::BoolPoint {
+  chilled
+  water
+  makeup
+  valve
+  cmd
+  navName: "ChWMUWVlvCmd"
+  doc: "Chilled Water Makeup Valve Command"
+  hisMode: "cov"
+  hisCollectInterval: "10min"
+}
+
+// Energy Points
+ChWTons: ph.points::NumberPoint {
+  chilled
+  water
+  power
+  sensor
+  navName: "ChWTons"
+  doc: "Chilled Water Cooling Power"
+  unit: "ton"
+  hisMode: "cov"
+  hisCollectInterval: "10min"
+}
+
+// Valve Commands and Status
+ChWRetVlvCmd: ph.points::BoolPoint {
+  chilled
+  water
+  return
+  valve
+  cmd
+  navName: "ChWRetVlvCmd"
+  doc: "Chilled Water Return Valve Command"
+  hisMode: "cov"
+  hisCollectInterval: "10min"
+}
+
+ChWRetVlvSts: ph.points::BoolPoint {
+  chilled
+  water
+  return
+  valve
+  sensor
+  navName: "ChWRetVlvSts"
+  doc: "Chilled Water Return Valve Status"
+  hisMode: "cov"
+  hisCollectInterval: "10min"
+}

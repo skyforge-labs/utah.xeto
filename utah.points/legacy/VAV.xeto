@@ -1,0 +1,465 @@
+// Copyright (c) 2011-2025, Project-Haystack
+// Licensed under the Academic Free License version 3.0
+// Auto-generated from Utah Standard Library
+
+// === Equipment Definition ===
+VAV: ph::AirTerminalUnit {
+    equip
+    vav
+    ahuRef
+    // Fan Configuration
+    fanPowered
+    series
+    parallel
+    // Duct Configuration
+    singleDuct
+    dualDuct
+    // Heating Types
+    hotWaterReheat
+    elecReheat
+    coolOnly
+    points: {
+        // Occupancy Points
+        OccCmd
+        OccMode
+        // Flow Points
+        DaFlow
+        DaFlowSp
+        DaFlowOvrd
+        DaFlowPctOvrd
+        DaFlowOvrdState
+        // Damper Points
+        DmprPos
+        DmprPosOvrd
+        // Reheat Points
+        ReheatVlvPos
+        // Temperature Points
+        DaTemp
+        SpcTemp
+        SpcTempSp
+        SpcTempOvrd
+        // Setpoint Points
+        OccCoolSp
+        OccHeatSp
+        UnoccCoolSp
+        UnoccHeatSp
+        CoolEffSp
+        HeatEffSp
+        // Humidity Points
+        SpcHum
+        SpcHumSp
+        // CO2 Points
+        SpcCO2
+        SpcCO2Sp
+        // Occupancy Sensor
+        SpcOcc
+        // Dual-Duct Points
+        CDFlow
+        CDFlowSp
+        HDFlow
+        HDFlowSp
+        TotFlow
+        TotFlowSp
+        CDDmprPos
+        HDDmprPos
+        HDPress
+        // Commissioning Points
+        CoolMaxFlow
+        CoolMinFlow
+        HeatMaxFlow
+        HeatMinFlow
+        ReheatMaxFlow
+        ReheatMinFlow
+        StbyCoolSp
+        StbyHeatSp
+        Load
+        BypTime
+        HvacMode
+        // Fan Powered Box Points
+        FanCmd
+        FanSpd
+        FanSpdHigh
+        FanSpdMed
+        FanSpdLow
+    }
+}
+
+// === Flow Points ===
+
+DaFlowSp: ph.points::NumberPoint {
+    discharge
+    air
+    flow
+    effective
+    sp
+    navName: "DaFlowSp"
+    doc: "Discharge Air Flow Setpoint"
+    unit: "cfm"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+DaFlowOvrd: ph.points::NumberPoint {
+    discharge
+    air
+    flow
+    navName: "DaFlowOvrd"
+    doc: "Discharge Air Flow Override"
+    unit: "cfm"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+DaFlowPctOvrd: ph.points::NumberPoint {
+    discharge
+    air
+    flow
+    navName: "DaFlowPctOvrd"
+    doc: "Discharge Air Flow Percent Override"
+    unit: "%"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+DaFlowOvrdState: ph.points::NumberPoint {
+    discharge
+    air
+    flow
+    navName: "DaFlowOvrdState"
+    doc: "Discharge Air Flow Override State"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// === Damper Points ===
+
+DmprPos: ph.points::NumberPoint {
+    air
+    damper
+    cmd
+    navName: "DmprPos"
+    doc: "Damper Position"
+    unit: "%"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+DmprPosOvrd: ph.points::NumberPoint {
+    air
+    damper
+    cmd
+    navName: "DmprPosOvrd"
+    doc: "Damper Position Override"
+    unit: "%"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// === Reheat Points ===
+
+ReheatVlvPos: ph.points::NumberPoint {
+    reheat
+    water
+    valve
+    cmd
+    navName: "ReheatVlvPos"
+    doc: "Reheat Valve Position"
+    unit: "%"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// === Temperature Points ===
+
+SpcTempOvrd: ph.points::NumberPoint {
+    zone
+    air
+    temp
+    navName: "SpcTempOvrd"
+    doc: "Space Temperature Override"
+    unit: "F"
+    hisMode: "cov"
+    hisCollectInterval: "24Hr"
+}
+
+// === Setpoint Points ===
+
+CoolEffSp: ph.points::NumberPoint {
+    occ
+    cooling
+    zone
+    air
+    temp
+    sp
+    hisMode: "cov"
+    navName: "CoolEffSp"
+    doc: "Effective Cool Setpoint"
+    unit: "F"
+    hisCollectInterval: "24hr"
+}
+
+HeatEffSp: ph.points::NumberPoint {
+    occ
+    heating
+    zone
+    air
+    temp
+    sp
+    hisMode: "cov"
+    navName: "HeatEffSp"
+    doc: "Effective Heat Setpoint"
+    unit: "F"
+    hisCollectInterval: "24hr"
+}
+
+// === Humidity Points ===
+
+SpcHumSp: ph.points::NumberPoint {
+    zone
+    air
+    humidity
+    sp
+    hisMode: "cov"
+    navName: "SpcHumSp"
+    doc: "Space Humidity Setpoint"
+    unit: "%RH"
+    hisCollectInterval: "10min"
+}
+
+// === Occupancy Sensor ===
+
+SpcOcc: ph.points::BoolPoint {
+    zone
+    occupied
+    sensor
+    navName: "SpcOcc"
+    doc: "Space Occupancy"
+    hisMode: "cov"
+    hisCollectInterval: "24Hr"
+}
+
+// === Dual-Duct Points ===
+
+CDFlowSp: ph.points::NumberPoint {
+    coldDeck
+    air
+    flow
+    effective
+    sp
+    navName: "CDFlowSp"
+    doc: "Cold Deck Flow Setpoint (dual duct)"
+    unit: "cfm"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+HDFlowSp: ph.points::NumberPoint {
+    hotDeck
+    air
+    flow
+    effective
+    sp
+    navName: "HDFlowSp"
+    doc: "Hot Deck Flow Setpoint (dual duct)"
+    unit: "cfm"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+TotFlow: ph.points::NumberPoint {
+    total
+    discharge
+    air
+    flow
+    sensor
+    navName: "TotFlow"
+    doc: "Total Box Flow (dual duct)"
+    unit: "cfm"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+TotFlowSp: ph.points::NumberPoint {
+    total
+    discharge
+    air
+    flow
+    effective
+    sp
+    navName: "TotFlowSp"
+    doc: "Total Box Flow Setpoint (dual duct)"
+    unit: "cfm"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+HDPress: ph.points::NumberPoint {
+    hotDeck
+    air
+    pressure
+    sensor
+    navName: "HDPress"
+    doc: "Hot Deck Pressure (dual duct)"
+    unit: "inH₂O"
+    precision: 0.01
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// === Commissioning Points ===
+
+CoolMaxFlow: ph.points::NumberPoint {
+    cooling
+    max
+    flow
+    sp
+    navName: "CoolMaxFlow"
+    doc: "Cooling Max Flow"
+    unit: "cfm"
+    hisMode: "cov"
+    hisCollectInterval: "24hr"
+}
+
+CoolMinFlow: ph.points::NumberPoint {
+    cooling
+    min
+    flow
+    sp
+    navName: "CoolMinFlow"
+    doc: "Cooling Min Flow"
+    unit: "cfm"
+    hisMode: "cov"
+    hisCollectInterval: "24hr"
+}
+
+HeatMaxFlow: ph.points::NumberPoint {
+    heating
+    max
+    flow
+    sp
+    navName: "HeatMaxFlow"
+    doc: "Heating Max Flow"
+    unit: "cfm"
+    hisMode: "cov"
+    hisCollectInterval: "24hr"
+}
+
+HeatMinFlow: ph.points::NumberPoint {
+    heating
+    min
+    flow
+    sp
+    navName: "HeatMinFlow"
+    doc: "Heating Min Flow"
+    unit: "cfm"
+    hisMode: "cov"
+    hisCollectInterval: "24hr"
+}
+
+ReheatMaxFlow: ph.points::NumberPoint {
+    reheat
+    max
+    flow
+    sp
+    navName: "ReheatMaxFlow"
+    doc: "Reheat Max Flow"
+    unit: "cfm"
+    hisMode: "cov"
+    hisCollectInterval: "24hr"
+}
+
+ReheatMinFlow: ph.points::NumberPoint {
+    reheat
+    min
+    flow
+    sp
+    navName: "ReheatMinFlow"
+    doc: "Reheat Min Flow"
+    unit: "cfm"
+    hisMode: "cov"
+    hisCollectInterval: "24hr"
+}
+
+StbyCoolSp: ph.points::NumberPoint {
+    occ
+    cooling
+    zone
+    air
+    temp
+    sp
+    hisMode: "cov"
+    navName: "StbyCoolSp"
+    doc: "Standby Cooling Setpoint"
+    unit: "F"
+    hisCollectInterval: "24hr"
+}
+
+StbyHeatSp: ph.points::NumberPoint {
+    occ
+    heating
+    zone
+    air
+    temp
+    sp
+    hisMode: "cov"
+    navName: "StbyHeatSp"
+    doc: "Standby Heating Setpoint"
+    unit: "F"
+    hisCollectInterval: "24hr"
+}
+
+Load: ph.points::NumberPoint {
+    navName: "Load"
+    doc: "Percent of Load"
+}
+
+BypTime: ph.points::NumberPoint {
+    navName: "BypTime"
+    doc: "Bypass Time"
+}
+
+HvacMode: ph.points::EnumPoint {
+    hvacMode
+    navName: "HvacMode"
+    doc: "HVAC Mode"
+    hisMode: "cov"
+    hisCollectInterval: "24hr"
+}
+
+// === Fan Powered Box Points ===
+
+FanSpdHigh: ph.points::BoolPoint {
+    fan
+    speed
+    high
+    run
+    cmd
+    navName: "FanSpdHigh"
+    doc: "Fan High Speed"
+    hisMode: "cov"
+    hisCollectInterval: "24Hr"
+}
+
+FanSpdMed: ph.points::BoolPoint {
+    fan
+    speed
+    med
+    run
+    cmd
+    navName: "FanSpdMed"
+    doc: "Fan Medium Speed"
+    hisMode: "cov"
+    hisCollectInterval: "24Hr"
+}
+
+FanSpdLow: ph.points::BoolPoint {
+    fan
+    speed
+    low
+    run
+    cmd
+    navName: "FanSpdLow"
+    doc: "Fan Low Speed"
+    hisMode: "cov"
+    hisCollectInterval: "24Hr"
+} 

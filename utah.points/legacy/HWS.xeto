@@ -1,0 +1,355 @@
+// Copyright (c) 2011-2025, Project-Haystack
+// Licensed under the Academic Free License version 3.0
+// Auto-generated from Utah Standard Library
+
+// === Equipment Definition ===
+HotWaterSystem: ph::Plant {
+    hotWaterPlant
+    navName: "Hot Water System"
+    doc: "Hot Water System"
+    points: {
+        // Flow and Volume
+        HWFlow
+        HWVol
+        // Temperatures
+        HWSupTemp
+        HWSupTempSp
+        HWRetTemp
+        HWRetTempSp
+        HWTnkTemp
+        HWTnkTempSp
+        // Pressure Points
+        HWDP
+        HWDPSp
+        HWSupPress
+        // Energy Points - Water
+        HWETemp
+        HWLTemp
+        HWFlow
+        HWVol
+        HWEnergy
+        HWPower
+        // Building Loop Pumps
+        HWPEnab
+        HWPCmd
+        HWPSts
+        HWPVFDSpd
+        HWPVFDFreq
+        HWPVFDPower
+        HWBypVlvPos
+        // Energy Points - Electric
+        HWPVFDEnergy
+        HWPVFDPower
+    }
+}
+
+// === Flow and Volume Points ===
+
+// Hot water flow
+
+// Hot water volume
+HWVol: ph.points::NumberPoint {
+    hot
+    water
+    volume
+    sensor
+    hisTotalized
+    navName: "HWVol"
+    doc: "Hot Water Volume (accumulated)"
+    unit: "gal"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// === Temperature Points ===
+
+// Hot water supply temperature
+HWSupTemp: ph.points::NumberPoint {
+    hot
+    water
+    leaving
+    temp
+    sensor
+    navName: "HWSupTemp"
+    doc: "Hot Water Supply Temperature"
+    unit: "°F"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// Hot water supply temperature setpoint
+HWSupTempSp: ph.points::NumberPoint {
+    hot
+    water
+    leaving
+    temp
+    sp
+    navName: "HWSupTempSp"
+    doc: "Hot Water Supply Temperature Setpoint"
+    unit: "°F"
+    hisMode: "cov"
+    hisCollectInterval: "24hr"
+}
+
+// Hot water return temperature
+HWRetTemp: ph.points::NumberPoint {
+    hot
+    water
+    entering
+    temp
+    sensor
+    navName: "HWRetTemp"
+    doc: "Hot Water Return Temperature"
+    unit: "°F"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// Hot water return temperature setpoint
+HWRetTempSp: ph.points::NumberPoint {
+    hot
+    water
+    entering
+    temp
+    sp
+    navName: "HWRetTempSp"
+    doc: "Hot Water Return Temperature Setpoint"
+    unit: "°F"
+    hisMode: "cov"
+    hisCollectInterval: "24hr"
+}
+
+// Hot water tank temperature
+HWTnkTemp: ph.points::NumberPoint {
+    hot
+    water
+    tank
+    temp
+    sensor
+    navName: "HWTnkTemp"
+    doc: "Hot Water Tank Temperature"
+    unit: "°F"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// Hot water tank temperature setpoint
+HWTnkTempSp: ph.points::NumberPoint {
+    hot
+    water
+    tank
+    temp
+    sp
+    navName: "HWTnkTempSp"
+    doc: "Hot Water Tank Temperature Setpoint"
+    unit: "°F"
+    hisMode: "cov"
+    hisCollectInterval: "24hr"
+}
+
+// === Pressure Points ===
+
+// Hot water differential pressure
+HWDP: ph.points::NumberPoint {
+    hot
+    water
+    pressure
+    delta
+    sensor
+    navName: "HWDP"
+    doc: "Hot Water Differential Pressure"
+    unit: "psi"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// Hot water differential pressure setpoint
+HWDPSp: ph.points::NumberPoint {
+    hot
+    water
+    pressure
+    delta
+    sp
+    navName: "HWDPSp"
+    doc: "Hot Water Differential Pressure Setpoint"
+    unit: "psi"
+    hisMode: "cov"
+    hisCollectInterval: "24hr"
+}
+
+// Hot water supply pressure
+HWSupPress: ph.points::NumberPoint {
+    hot
+    water
+    discharge
+    pressure
+    sensor
+    navName: "HWSupPress"
+    doc: "Hot Water Supply Pressure"
+    unit: "psi"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// === Energy Points - Water ===
+
+// Hot water entering temperature
+HWETemp: ph.points::NumberPoint {
+    hot
+    water
+    temp
+    entering
+    sensor
+    navName: "HWETemp"
+    doc: "Hot Water Temperature Entering"
+    unit: "°F"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// Hot water leaving temperature
+HWLTemp: ph.points::NumberPoint {
+    hot
+    water
+    temp
+    leaving
+    sensor
+    navName: "HWLTemp"
+    doc: "Hot Water Temperature Leaving"
+    unit: "°F"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// Hot water energy
+HWEnergy: ph.points::NumberPoint {
+    hot
+    water
+    energy
+    sensor
+    hisTotalized
+    navName: "HWEnergy"
+    doc: "Hot Water Energy (accumulated)"
+    unit: "MMBTU"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// === Building Loop Pumps ===
+
+// Pump enable command
+HWPEnab: ph.points::BoolPoint {
+    hot
+    water
+    pump
+    enable
+    cmd
+    navName: "HWPEnab"
+    doc: "Building Loop Pump Enable"
+    hisMode: "cov"
+    hisCollectInterval: "24hr"
+}
+
+// Pump command
+HWPCmd: ph.points::BoolPoint {
+    hot
+    water
+    pump
+    run
+    cmd
+    navName: "HWPCmd"
+    doc: "Building Loop Pump Command"
+    hisMode: "cov"
+    hisCollectInterval: "24hr"
+}
+
+// Pump status
+HWPSts: ph.points::BoolPoint {
+    hot
+    water
+    pump
+    run
+    sensor
+    navName: "HWPSts"
+    doc: "Building Loop Pump Status"
+    hisMode: "cov"
+    hisCollectInterval: "24hr"
+}
+
+// Pump VFD speed
+HWPVFDSpd: ph.points::NumberPoint {
+    hot
+    water
+    pump
+    speed
+    cmd
+    navName: "HWPVFDSpd"
+    doc: "Building Loop Pump VFD Speed"
+    unit: "%"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// Pump VFD frequency
+HWPVFDFreq: ph.points::NumberPoint {
+    hot
+    water
+    pump
+    freq
+    sensor
+    navName: "HWPVFDFreq"
+    doc: "Building Loop Pump VFD Frequency"
+    unit: "Hz"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// Bypass valve position
+HWBypVlvPos: ph.points::NumberPoint {
+    hot
+    water
+    bypass
+    valve
+    cmd
+    navName: "HWBypVlvPos"
+    doc: "Building HW Loop Bypass/Bridge Valve Position"
+    unit: "%"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// === Energy Points - Electric ===
+
+// VFD energy total
+HWPVFDEnergy: ph.points::NumberPoint {
+    hot
+    water
+    pump
+    elec
+    energy
+    total
+    sensor
+    hisTotalized
+    navName: "HWPVFDEnergy"
+    doc: "VFD Energy Total (accumulated)"
+    unit: "kWh"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// VFD power total
+HWPVFDPower: ph.points::NumberPoint {
+    hot
+    water
+    pump
+    elec
+    power
+    total
+    active
+    sensor
+    navName: "HWPVFDPower"
+    doc: "VFD Power Total"
+    unit: "kW"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+} 

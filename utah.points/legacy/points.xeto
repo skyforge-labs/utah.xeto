@@ -1,0 +1,937 @@
+// Copyright (c) 2011-2025, Project-Haystack
+// Licensed under the Academic Free License version 3.0
+// Auto-generated from Utah Standard Library
+
+// === Heat Recovery Water Points ===
+
+// Heat recovery water entering temperature
+HRUWETemp: ph.points::NumberPoint {
+    water
+    temp
+    entering
+    sensor
+    navName: "HRUWETemp"
+    doc: "Heat Recovery Water Temperature Entering"
+    unit: "°F"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// Heat recovery water leaving temperature
+HRUWLTemp: ph.points::NumberPoint {
+    water
+    temp
+    leaving
+    sensor
+    navName: "HRUWLTemp"
+    doc: "Heat Recovery Water Temperature Leaving"
+    unit: "°F"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// Heat recovery water flow
+HRUWFlow: ph.points::NumberPoint {
+    water
+    flow
+    sensor
+    navName: "HRUWFlow"
+    doc: "Heat Recovery Water Flow"
+    unit: "gal/min"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// Heat recovery water volume
+HRUWVol: ph.points::NumberPoint {
+    water
+    volume
+    total
+    sensor
+    navName: "HRUWVol"
+    doc: "Heat Recovery Water Volume (accumulated)"
+    unit: "gal"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// Heat recovery water energy
+HRUWEnergy: ph.points::NumberPoint {
+    water
+    energy
+    sensor
+    hisTotalized
+    navName: "HRUWEnergy"
+    doc: "Heat Recovery Water Energy (accumulated)"
+    unit: "MMBTU"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// Heat recovery water power
+HRUWPower: ph.points::NumberPoint {
+    water
+    power
+    sensor
+    navName: "HRUWPower"
+    doc: "Heat Recovery Water Power"
+    unit: "MMBTU/h"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// === Base Point Types ===
+
+// Chilled Water Flow Point
+ChWFlow: ph.points::NumberPoint {
+    chilled
+    water
+    flow
+    sensor
+    navName: "ChWFlow"
+    doc: "Chilled Water Flow"
+    unit: "gal/min"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// Chilled Water Volume Point
+ChWVol: ph.points::NumberPoint {
+    chilled
+    water
+    volume
+    sensor
+    hisTotalized
+    navName: "ChWVol"
+    doc: "Chilled Water Volume (accumulated)"
+    unit: "gal"
+    hisMode: "cov"
+    hisCollectInterval: "10min"
+}
+
+// Chilled Water Differential Pressure Point
+ChWDP: ph.points::NumberPoint {
+    chilled
+    water
+    pressure
+    delta
+    sensor
+    navName: "ChWDP"
+    doc: "Chilled Water Differential Pressure"
+    unit: "psi"
+    hisMode: "cov"
+    hisCollectInterval: "10min"
+}
+
+// === Steam Points ===
+
+// Steam valve position
+StmVlvPos: ph.points::NumberPoint {
+    steam
+    valve
+    cmd
+    navName: "StmVlvPos"
+    doc: "Steam Valve Position"
+    unit: "%"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// === Chilled Water Points ===
+
+// Chilled water pump command
+ChWPCmd: ph.points::BoolPoint {
+    chilled
+    water
+    pump
+    run
+    cmd
+    navName: "ChWPCmd"
+    doc: "Building Loop Pump Command"
+    hisMode: "cov"
+    hisCollectInterval: "24hr"
+}
+
+// Chilled water pump status
+ChWPSts: ph.points::BoolPoint {
+    chilled
+    water
+    pump
+    run
+    sensor
+    navName: "ChWPSts"
+    doc: "Building Loop Pump Status"
+    hisMode: "cov"
+    hisCollectInterval: "24hr"
+}
+
+// === Heat Recovery Points ===
+
+// Heat recovery pump command
+HRUCPCmd: ph.points::BoolPoint {
+    hru
+    circ
+    pump
+    run
+    cmd
+    navName: "HRUCPCmd"
+    doc: "Heat Recovery Pump Command"
+    hisMode: "cov"
+    hisCollectInterval: "24hr"
+}
+
+// === Common Points ===
+
+// Occupancy command
+OccCmd: ph.points::BoolPoint {
+    occupied
+    cmd
+    navName: "OccCmd"
+    doc: "Occupied Mode Command"
+    hisMode: "cov"
+    hisCollectInterval: "24hr"
+}
+
+// Occupancy mode
+OccMode: ph.points::EnumPoint {
+    occupied
+    cmd
+    navName: "OccMode"
+    doc: "Occupied Mode"
+    hisMode: "cov"
+    hisCollectInterval: "24hr"
+}
+
+// Discharge air flow
+DaFlow: ph.points::NumberPoint {
+    discharge
+    air
+    flow
+    sensor
+    navName: "DaFlow"
+    doc: "Discharge Air Flow"
+    unit: "cfm"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// Unoccupied cooling setpoint
+UnoccCoolSp: ph.points::NumberPoint {
+    unocc
+    cooling
+    zone
+    air
+    temp
+    sp
+    hisMode: "cov"
+    navName: "UnoccCoolSp"
+    doc: "Unoccupied Cooling Setpoint"
+    unit: "F"
+    hisCollectInterval: "24hr"
+}
+
+// Unoccupied heating setpoint
+UnoccHeatSp: ph.points::NumberPoint {
+    unocc
+    heating
+    zone
+    air
+    temp
+    sp
+    hisMode: "cov"
+    navName: "UnoccHeatSp"
+    doc: "Unoccupied Heating Setpoint"
+    unit: "F"
+    hisCollectInterval: "24hr"
+}
+
+// Space humidity
+SpcHum: ph.points::NumberPoint {
+    zone
+    air
+    humidity
+    sensor
+    navName: "SpcHum"
+    doc: "Space Humidity"
+    unit: "%RH"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// Space CO2
+SpcCO2: ph.points::NumberPoint {
+    zone
+    air
+    co2
+    sensor
+    navName: "SpcCO2"
+    doc: "Space CO2"
+    unit: "ppm"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// Space CO2 setpoint
+SpcCO2Sp: ph.points::NumberPoint {
+    zone
+    air
+    co2
+    sp
+    hisMode: "cov"
+    navName: "SpcCO2Sp"
+    doc: "Space CO2 Setpoint"
+    unit: "ppm"
+    hisCollectInterval: "10min"
+}
+
+// Cold deck flow
+CDFlow: ph.points::NumberPoint {
+    coldDeck
+    air
+    flow
+    sensor
+    navName: "CDFlow"
+    doc: "Cold Deck Flow (dual duct)"
+    unit: "cfm"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// Hot deck flow
+HDFlow: ph.points::NumberPoint {
+    hotDeck
+    air
+    flow
+    sensor
+    navName: "HDFlow"
+    doc: "Hot Deck Flow (dual duct)"
+    unit: "cfm"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// Cold deck damper position
+CDDmprPos: ph.points::NumberPoint {
+    coldDeck
+    air
+    damper
+    cmd
+    navName: "CDDmprPos"
+    doc: "Cold Deck Damper Position (dual duct)"
+    unit: "%"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// Hot deck damper position
+HDDmprPos: ph.points::NumberPoint {
+    hotDeck
+    air
+    damper
+    cmd
+    navName: "HDDmprPos"
+    doc: "Hot Deck Damper Position (dual duct)"
+    unit: "%"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// Discharge air temperature
+DaTemp: ph.points::NumberPoint {
+    discharge
+    air
+    temp
+    sensor
+    navName: "DaTemp"
+    doc: "Discharge Air Temperature"
+    unit: "F"
+    precision: 1
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// Space temperature
+SpcTemp: ph.points::NumberPoint {
+    zone
+    air
+    temp
+    sensor
+    navName: "SpcTemp"
+    doc: "Space Temperature"
+    unit: "F"
+    precision: 1
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// Space temperature setpoint
+SpcTempSp: ph.points::NumberPoint {
+    zone
+    air
+    temp
+    effective
+    sp
+    hisMode: "cov"
+    navName: "SpcTempSp"
+    doc: "Space Temperature Setpoint (effective)"
+    unit: "F"
+    hisCollectInterval: "24Hr"
+}
+
+// Occupied cooling setpoint
+OccCoolSp: ph.points::NumberPoint {
+    occ
+    cooling
+    zone
+    air
+    temp
+    sp
+    hisMode: "cov"
+    navName: "OccCoolSp"
+    doc: "Occupied Cooling Setpoint"
+    unit: "F"
+    hisCollectInterval: "24hr"
+}
+
+// Occupied heating setpoint
+OccHeatSp: ph.points::NumberPoint {
+    occ
+    heating
+    zone
+    air
+    temp
+    sp
+    hisMode: "cov"
+    navName: "OccHeatSp"
+    doc: "Occupied Heating Setpoint"
+    unit: "F"
+    hisCollectInterval: "24hr"
+}
+
+// === Valve Points ===
+
+// Chilled water valve position
+ChWVlvPos: ph.points::NumberPoint {
+    chilled
+    water
+    valve
+    cmd
+    navName: "ChWVlvPos"
+    doc: "Chilled Water Valve"
+    unit: "%"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// Hot water valve position
+HWVlvPos: ph.points::NumberPoint {
+    hot
+    water
+    valve
+    cmd
+    navName: "HWVlvPos"
+    doc: "Hot Water Valve"
+    unit: "%"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// === Fan Points ===
+
+// DA Fan command
+DaFanCmd: ph.points::BoolPoint {
+    discharge
+    air
+    fan
+    run
+    cmd
+    navName: "DaFanCmd"
+    doc: "DA Fan Command (single or common)"
+    hisMode: "cov"
+    hisCollectInterval: "24hr"
+}
+
+// DA Fan status
+DaFanSts: ph.points::BoolPoint {
+    discharge
+    air
+    fan
+    run
+    sensor
+    navName: "DaFanSts"
+    doc: "DA Fan Status (single or common)"
+    hisMode: "cov"
+    hisCollectInterval: "24hr"
+}
+
+// DA Fan speed
+DaFanSpd: ph.points::NumberPoint {
+    discharge
+    air
+    fan
+    speed
+    cmd
+    navName: "DaFanSpd"
+    doc: "DA Fan Speed (single or common)"
+    unit: "%"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// === Temperature Points ===
+
+// Space temperature setpoint
+SpaceTempSp: ph.points::NumberPoint {
+    zone
+    air
+    effective
+    temp
+    sp
+    hisMode: "cov"
+    navName: "SpaceTempSp"
+    doc: "Space Temperature Setpoint (effective)"
+    unit: "F"
+    hisCollectInterval: "24hr"
+}
+
+// DA temperature setpoint
+DaTempSp: ph.points::NumberPoint {
+    discharge
+    air
+    temp
+    sp
+    hisMode: "cov"
+    navName: "DaTempSp"
+    doc: "DA Temp Setpoint"
+    unit: "F"
+    precision: 1
+    hisCollectInterval: "24hr"
+}
+
+// === Fan Points ===
+
+// DA Fan alarm
+DaFanAlrm: ph.points::BoolPoint {
+    discharge
+    air
+    fan
+    navName: "DaFanAlrm"
+    doc: "DA Fan Alarm (single or common)"
+    hisMode: "cov"
+    hisCollectInterval: "24hr"
+}
+
+// DA Fan frequency
+DaFanFreq: ph.points::NumberPoint {
+    discharge
+    air
+    fan
+    freq
+    sensor
+    navName: "DaFanFreq"
+    doc: "DA Fan Frequency (single or common)"
+    unit: "Hz"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// === Humidity Points ===
+
+// DA humidity
+DaHum: ph.points::NumberPoint {
+    discharge
+    air
+    humidity
+    sensor
+    navName: "DaHum"
+    doc: "DA Humidity"
+    unit: "%RH"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// DA humidity high limit
+DaHumHiLmt: ph.points::NumberPoint {
+    discharge
+    air
+    humidity
+    high
+    sp
+    hisMode: "cov"
+    navName: "DaHumHiLmt"
+    doc: "DA Humidity High Limit"
+    unit: "%RH"
+    hisCollectInterval: "24hr"
+}
+
+// RA humidity setpoint
+RaHumiditySp: ph.points::NumberPoint {
+    return
+    air
+    humidity
+    sp
+    hisMode: "cov"
+    navName: "RaHumiditySp"
+    doc: "RA Humidity Setpoint"
+    unit: "%RH"
+    hisCollectInterval: "24hr"
+}
+
+// RA humidity
+RaHum: ph.points::NumberPoint {
+    return
+    air
+    humidity
+    sensor
+    navName: "RaHum"
+    doc: "RA Humidity"
+    unit: "%RH"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// === Valve Points ===
+
+// Chilled water valve status
+ChWVlvSts: ph.points::NumberPoint {
+    chilled
+    water
+    valve
+    run
+    sensor
+    navName: "ChWVlvSts"
+    doc: "Chilled Water Valve Status"
+    unit: "%"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// === Cooling Coil Points ===
+
+// Cooling coil water entering temperature
+CCWtrETemp: ph.points::NumberPoint {
+    chilled
+    water
+    temp
+    entering
+    sensor
+    navName: "CCWtrETemp"
+    doc: "Cooling Coil Chilled Water Entering Temp"
+    unit: "F"
+    precision: 1
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// Cooling coil water leaving temperature
+CCWtrLTemp: ph.points::NumberPoint {
+    chilled
+    water
+    temp
+    leaving
+    sensor
+    navName: "CCWtrLTemp"
+    doc: "Cooling Coil Chilled Water Leaving Temp"
+    unit: "F"
+    precision: 1
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// Cooling coil air leaving temperature
+CCALTemp: ph.points::NumberPoint {
+    cool
+    air
+    temp
+    leaving
+    sensor
+    navName: "CCALTemp"
+    doc: "Cooling Coil Air Leaving Temp"
+    unit: "F"
+    precision: 1
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// Cooling coil air leaving humidity
+CCALHum: ph.points::NumberPoint {
+    cool
+    air
+    humidity
+    leaving
+    sensor
+    navName: "CCALHum"
+    doc: "Cooling Coil Air Leaving Humidity"
+    unit: "F"
+    precision: 1
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// === Cooling Stage Points ===
+
+// Cooling stage 1 status
+ClgStg1Sts: ph.points::BoolPoint {
+    cooling
+    stage : 1
+    sensor
+    navName: "ClgStg1Sts"
+    doc: "Cooling Stage Status"
+    hisMode: "cov"
+    hisCollectInterval: "24hr"
+}
+
+// Cooling stage status
+ClgStg: ph.points::NumberPoint {
+    cooling
+    stage : 1
+    sensor
+    navName: "ClgStg"
+    doc: "Cooling Stage Status"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// === Economizer Points ===
+
+// Economizer mode
+EconMode: ph.points::BoolPoint {
+    economizing
+    run
+    cmd
+    navName: "EconMode"
+    doc: "Economize Mode"
+    hisMode: "cov"
+}
+
+// === Humidifier Points ===
+
+// Humidifier enable
+HumidifierEnab: ph.points::BoolPoint {
+    humidifier
+    enable
+    cmd
+    navName: "HumidifierEnab"
+    doc: "Humidifier Enable"
+    hisMode: "cov"
+}
+
+// Humidifier command
+HumidifierCmd: ph.points::BoolPoint {
+    humidifier
+    run
+    cmd
+    navName: "HumidifierCmd"
+    doc: "Humidifier Command"
+    hisMode: "cov"
+}
+
+// Humidifier valve position
+HumidifierVlvPos: ph.points::NumberPoint {
+    humidifier
+    steam
+    valve
+    cmd
+    navName: "HumidifierVlvPos"
+    doc: "Humidifier Valve Position"
+    unit: "%"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// Humidifier fan command
+HumidifierFanCmd: ph.points::NumberPoint {
+    humidifier
+    fan
+    speed
+    cmd
+    navName: "HumidifierFanCmd"
+    doc: "Humidifier Fan Command"
+    unit: "%"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// === Dehumidifier Points ===
+
+// Dehumidifier mode
+DeHumidifyMode: ph.points::BoolPoint {
+    deHumidify
+    run
+    cmd
+    navName: "DeHumidifyMode"
+    doc: "DeHumidify Mode"
+    hisMode: "cov"
+}
+
+// Fan Points
+FanCmd: ph.points::BoolPoint {
+    fan
+    run
+    cmd
+    navName: "FanCmd"
+    doc: "Fan Command"
+    hisMode: "cov"
+    hisCollectInterval: "24hr"
+}
+
+FanSpd: ph.points::EnumPoint {
+    fan
+    speed
+    cmd
+    navName: "FanSpd"
+    doc: "Fan Speed"
+    enum: "Off/Low/Med/High"
+    hisMode: "cov"
+    hisCollectInterval: "24hr"
+}
+
+FanSts: ph.points::BoolPoint {
+    fan
+    run
+    sensor
+    navName: "FanSts"
+    doc: "Fan Status"
+    hisMode: "cov"
+    hisCollectInterval: "24hr"
+}
+
+// VFD Power Total
+VFDPower: ph.points::NumberPoint {
+    fan
+    elec
+    power
+    total
+    active
+    sensor
+    navName: "VFDPower"
+    doc: "VFD Power Total"
+    unit: "kW"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+} 
+
+// VFD Energy Total
+VFDEnergy: ph.points::NumberPoint {
+    fan
+    elec
+    energy
+    total
+    sensor
+    hisTotalized
+    navName: "VFDEnergy"
+    doc: "VFD Energy Total (accumulated)"
+    unit: "kWh"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// Occupancy Points
+Occ: ph.points::BoolPoint {
+    occupied
+    cmd
+    navName: "Occ"
+    doc: "Occupied Mode"
+    hisMode: "cov"
+    hisCollectInterval: "24hr"
+}
+
+HWFlow: ph.points::NumberPoint {
+    hot
+    water
+    flow
+    sensor
+    navName: "HWFlow"
+    doc: "Hot Water Flow"
+    unit: "gal/min"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+ChWPower: ph.points::NumberPoint {
+    chilled
+    water
+    power
+    sensor
+    navName: "ChWPower"
+    doc: "Chilled Water Power"
+    unit: "BTU/h"
+    hisMode: "sampled"
+    hisCollectInterval: "1min"
+}
+
+// Hot water power
+HWPower: ph.points::NumberPoint {
+    hot
+    water
+    power
+    sensor
+    navName: "HWPower"
+    doc: "Hot Water Power"
+    unit: "MMBTU/h"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// Water Volume
+Vol: ph.points::NumberPoint {
+    water
+    volume
+    sensor
+    hisTotalized
+    navName: "Vol"
+    doc: "Water Volume (accumulated)"
+    unit: "gal"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+OaTemp: ph.points::NumberPoint {
+    outside
+    air
+    temp
+    sensor
+    navName: "OaTemp"
+    doc: "Outside Air Temperature - Dry Bulb"
+    unit: "F"
+    precision: 1
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+OaHum: ph.points::NumberPoint {
+    outside
+    air
+    humidity
+    sensor
+    navName: "OaHum"
+    doc: "Outside Air Humidity - Relative Humidity"
+    unit: "%RH"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// Outside air wet bulb temperature
+OaWBTemp: ph.points::NumberPoint {
+    wetBulb
+    temp
+    sensor
+    navName: "OaWBTemp"
+    doc: "Outside Air Wet Bulb Temperature"
+    unit: "°F"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// Outside air dew point temperature
+OaDewPTemp: ph.points::NumberPoint {
+    dewPoint
+    temp
+    sensor
+    navName: "OaDewPTemp"
+    doc: "Outside Air Dew Point Temperature"
+    unit: "°F"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+

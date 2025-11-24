@@ -1,0 +1,83 @@
+// Copyright (c) 2011-2025, Project-Haystack
+// Licensed under the Academic Free License version 3.0
+// Auto-generated from Utah Standard Library
+
+// === Base Fan Equipment ===
+Fan: ph::Point {
+    equip
+    fan
+}
+
+   // points: {
+   //     FanCmd
+   //     FanSts
+   //     FanSpd
+   //     FanVFDSpd
+   //     FanVFDFreq
+   //     VFDEnergy
+   //     VFDPower
+   // }
+// === Discharge Fan ===
+DischargeFan: Fan {
+    equip
+    discharge
+    fan
+}
+
+// === Return Fan ===
+ReturnFan: Fan {
+    equip
+    return
+    fan
+}
+
+// === Relief Fan ===
+ReliefFan: Fan {
+    equip
+    relief
+    fan
+}
+
+// === FCU Fan ===
+FCUFan: Fan {
+    equip
+    fcu
+    fan
+}
+
+// === Cooling Tower Fan ===
+CoolingTowerFan: Fan {
+    equip
+    coolingTower
+    fan
+}
+
+// === Point Definitions ===
+
+// Fan Command
+
+// Fan VFD Speed
+FanVFDSpd: ph.points::NumberPoint {
+    fan
+    speed
+    cmd
+    navName: "FanVFDSpd"
+    doc: "Fan VFD Speed"
+    unit: "%"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// Fan VFD Frequency
+FanVFDFreq: ph.points::NumberPoint {
+    fan
+    elec
+    freq
+    sensor
+    navName: "FanVFDFreq"
+    doc: "Fan VFD Frequency"
+    unit: "Hz"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+

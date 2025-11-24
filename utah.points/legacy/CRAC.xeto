@@ -1,0 +1,82 @@
+// Copyright (c) 2011-2025, Project-Haystack
+// Licensed under the Academic Free License version 3.0
+// Auto-generated from Utah Standard Library
+
+// === Equipment Definition ===
+CRAC: ph::Fcu {
+    equip
+    crac
+    ahu
+    // Cooling Types
+    chilledWaterCooling
+    dxCooling
+    // Optional Features
+    humidifier
+    points: {
+        // Temperature Points
+        SpcTemp
+        SpcTempSp
+        DaTemp
+        DaTempSp
+        // Fan Points
+        DaFanCmd
+        DaFanSts
+        DaFanAlrm
+        DaFanSpd
+        DaFanFreq
+        // Humidity Points
+        DaHum
+        DaHumHiLmt
+        RaHumiditySp
+        RaHum
+        // Valve Points
+        ChWVlvPos
+        ChWVlvSts
+        // Cooling Coil Points
+        CCWtrETemp
+        CCWtrLTemp
+        ChWFlow
+        CCALTemp
+        CCALHum
+        // Compressor Points
+        CompCmd
+        CompSpd
+        // Cooling Stage Points
+        ClgStg1Sts
+        ClgStg
+        // Economizer Points
+        EconMode
+        // Humidifier Points
+        HumidifierEnab
+        HumidifierCmd
+        HumidifierVlvPos
+        HumidifierFanCmd
+        // Dehumidifier Points
+        DeHumidifyMode
+    }
+}
+
+// === Point Definitions ===
+// Only define points not already in points.xeto
+
+// Compressor Points
+CompCmd: ph.points::BoolPoint {
+    compressor
+    run
+    cmd
+    navName: "CompCmd"
+    doc: "Compressor Command (DX)"
+    hisMode: "cov"
+    hisCollectInterval: "24hr"
+}
+
+CompSpd: ph.points::NumberPoint {
+    compressor
+    speed
+    cmd
+    navName: "CompSpd"
+    doc: "Compressor Speed"
+    unit: "%"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}

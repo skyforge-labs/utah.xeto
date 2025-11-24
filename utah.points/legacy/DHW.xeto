@@ -1,0 +1,384 @@
+// Copyright (c) 2011-2025, Project-Haystack
+// Licensed under the Academic Free License version 3.0
+// Auto-generated from Utah Standard Library
+
+// === Equipment Definition ===
+DomesticHotWater: ph::Plant {
+    equip
+    domestic
+    hotWaterPlant
+    navName: "Domestic Hot Water"
+    doc: "Domestic Hot Water System"
+    points: {
+        // Flow & Volume Points
+        DHWFlow
+        DHWVol
+        // Temperature Points
+        DHWSupTemp
+        DHWSupTempSp
+        DHWRetTemp
+        // Pressure Points
+        DHWDP
+        DHWDPSp
+        // Building Loop Pump Points
+        DHWPEnab
+        DHWPCmd
+        DHWPSts
+        DHWPVFDSpd
+        DHWPVFDFreq
+        // Heat Exchanger Points
+        HxDHWEnab
+        HxDHWCmd
+        HxDHWRun
+        HxDHWETemp
+        HxDHWLTemp
+        HxDHWIsoVlvCmd
+        HxDHWCPCmd
+        HxDHWCPSts
+        // Energy Points - Water
+        DHWEnergy
+        DHWPower
+        // Energy Points - Heat Recovery Water
+        HRUWETemp {
+            domestic 
+        }
+        HRUWLTemp {
+            domestic 
+        }
+        HRUWFlow {
+            domestic 
+        }
+        HRUWVol {
+            domestic 
+        }
+        HRUWEnergy {
+            domestic 
+        }
+        HRUWPower {
+            domestic 
+        }
+    }
+}
+
+// === Flow & Volume Points ===
+
+// Water flow
+DHWFlow: ph.points::NumberPoint {
+    domestic
+    hot
+    water
+    flow
+    sensor
+    navName: "DHWFlow"
+    doc: "Water Flow"
+    unit: "gal/min"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// Water volume
+DHWVol: ph.points::NumberPoint {
+    domestic
+    hot
+    water
+    volume
+    sensor
+    hisTotalized
+    navName: "DHWVol"
+    doc: "Water Volume (accumulated)"
+    unit: "gal"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// === Temperature Points ===
+
+// Supply temperature
+DHWSupTemp: ph.points::NumberPoint {
+    domestic
+    hot
+    water
+    leaving
+    temp
+    sensor
+    navName: "DHWSupTemp"
+    doc: "Supply Temperature"
+    unit: "°F"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// Supply temperature setpoint
+DHWSupTempSp: ph.points::NumberPoint {
+    domestic
+    hot
+    water
+    leaving
+    temp
+    sp
+    navName: "DHWSupTempSp"
+    doc: "Supply Temperature Setpoint"
+    unit: "°F"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// Return temperature
+DHWRetTemp: ph.points::NumberPoint {
+    domestic
+    hot
+    water
+    entering
+    temp
+    sensor
+    navName: "DHWRetTemp"
+    doc: "Return Temperature"
+    unit: "°F"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// === Pressure Points ===
+
+// Differential pressure
+DHWDP: ph.points::NumberPoint {
+    domestic
+    hot
+    water
+    pressure
+    delta
+    sensor
+    navName: "DHWDP"
+    doc: "Differential Pressure"
+    unit: "psi"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// Differential pressure setpoint
+DHWDPSp: ph.points::NumberPoint {
+    domestic
+    hot
+    water
+    pressure
+    delta
+    sp
+    navName: "DHWDPSp"
+    doc: "Differential Pressure Setpoint"
+    unit: "psi"
+    hisMode: "cov"
+    hisCollectInterval: "24hr"
+}
+
+// === Building Loop Pump Points ===
+
+// Building loop pump enable
+DHWPEnab: ph.points::BoolPoint {
+    domestic
+    hot
+    water
+    pump
+    enable
+    cmd
+    navName: "DHWPEnab"
+    doc: "Building Loop Pump Enable"
+    hisMode: "cov"
+    hisCollectInterval: "24hr"
+}
+
+// Building loop pump command
+DHWPCmd: ph.points::BoolPoint {
+    domestic
+    hot
+    water
+    pump
+    run
+    cmd
+    navName: "DHWPCmd"
+    doc: "Building Loop Pump Command"
+    hisMode: "cov"
+    hisCollectInterval: "24hr"
+}
+
+// Building loop pump status
+DHWPSts: ph.points::BoolPoint {
+    domestic
+    hot
+    water
+    pump
+    run
+    sensor
+    navName: "DHWPSts"
+    doc: "Building Loop Pump Status"
+    hisMode: "cov"
+    hisCollectInterval: "24hr"
+}
+
+// Building loop pump VFD speed
+DHWPVFDSpd: ph.points::NumberPoint {
+    domestic
+    hot
+    water
+    pump
+    speed
+    cmd
+    navName: "DHWPVFDSpd"
+    doc: "Building Loop Pump VFD Speed"
+    unit: "%"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// Building loop pump VFD frequency
+DHWPVFDFreq: ph.points::NumberPoint {
+    domestic
+    hot
+    water
+    pump
+    freq
+    sensor
+    navName: "DHWPVFDFreq"
+    doc: "Building Loop Pump VFD Frequency"
+    unit: "Hz"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// === Heat Exchanger Points ===
+
+// Heat exchanger enable
+HxDHWEnab: ph.points::BoolPoint {
+    domestic
+    heatExchanger
+    enable
+    cmd
+    navName: "HxDHWEnab"
+    doc: "DHW Heat Exchanger Enabled"
+    hisMode: "cov"
+    hisCollectInterval: "24hr"
+}
+
+// Heat exchanger command
+HxDHWCmd: ph.points::BoolPoint {
+    domestic
+    heatExchanger
+    run
+    cmd
+    navName: "HxDHWCmd"
+    doc: "DHW Heat Exchanger Command"
+    hisMode: "cov"
+    hisCollectInterval: "24hr"
+}
+
+// Heat exchanger runtime
+HxDHWRun: ph.points::NumberPoint {
+    domestic
+    heatExchanger
+    total
+    sensor
+    navName: "HxDHWRun"
+    doc: "DHW Heat Exchanger Runtime"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// Heat exchanger entering temperature
+HxDHWETemp: ph.points::NumberPoint {
+    domestic
+    heatExchanger
+    entering
+    water
+    temp
+    navName: "HxDHWETemp"
+    doc: "DHW Water Entering Temperature"
+    unit: "°F"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// Heat exchanger leaving temperature
+HxDHWLTemp: ph.points::NumberPoint {
+    domestic
+    heatExchanger
+    leaving
+    water
+    temp
+    navName: "HxDHWLTemp"
+    doc: "DHW Water Leaving Temperature"
+    unit: "°F"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// Heat exchanger isolation valve command
+HxDHWIsoVlvCmd: ph.points::BoolPoint {
+    domestic
+    heatExchanger
+    isolation
+    valve
+    cmd
+    navName: "HxDHWIsoVlvCmd"
+    doc: "DHW Water Isolation Valve"
+    hisMode: "cov"
+    hisCollectInterval: "24hr"
+}
+
+// Heat exchanger circulation pump command
+HxDHWCPCmd: ph.points::BoolPoint {
+    domestic
+    heatExchanger
+    water
+    circ
+    pump
+    cmd
+    navName: "HxDHWCPCmd"
+    doc: "DHW Circulation Pump Command"
+    hisMode: "cov"
+    hisCollectInterval: "24hr"
+}
+
+// Heat exchanger circulation pump status
+HxDHWCPSts: ph.points::BoolPoint {
+    domestic
+    heatExchanger
+    water
+    circ
+    pump
+    sensor
+    navName: "HxDHWCPSts"
+    doc: "DHW Circulation Pump Status"
+    hisMode: "cov"
+    hisCollectInterval: "24hr"
+}
+
+// === Energy Points - Water ===
+
+// Domestic hot water energy
+DHWEnergy: ph.points::NumberPoint {
+    domestic
+    water
+    energy
+    sensor
+    hisTotalized
+    navName: "DHWEnergy"
+    doc: "Domestic Hot Water Energy (accumulated)"
+    unit: "MMBTU"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// Domestic hot water power
+DHWPower: ph.points::NumberPoint {
+    domestic
+    water
+    power
+    sensor
+    navName: "DHWPower"
+    doc: "Domestic Hot Water Power"
+    unit: "MMBTU/h"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// === Energy Points - Heat Recovery Water ===
+

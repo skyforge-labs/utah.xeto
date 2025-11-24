@@ -1,0 +1,5 @@
+// === Custom Units ===
+
+shortInterval: "1min"
+longInterval: "15min"
+

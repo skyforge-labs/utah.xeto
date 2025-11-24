@@ -1,0 +1,226 @@
+// Copyright (c) 2011-2025, Project-Haystack
+// Licensed under the Academic Free License version 3.0
+// Auto-generated from Utah Standard Library
+
+// === Base Pump Equipment ===
+Pump: ph::Motor {
+    equip
+    pump
+    points: {
+        PumpEnab
+        PumpCmd
+        PumpSts
+        PumpVFDSpd
+        PumpVFDFreq
+        PumpPress
+        VFDEnergy
+        VFDPower
+        ETemp
+        LTemp
+        Flow
+        Vol
+        WtrEnergy
+        WtrPower
+    }
+}
+
+// === Chiller Circulation Pump ===
+ChillerCircPump: Pump {
+    equip
+    pump
+    chiller
+    circ
+    primary
+}
+
+// === Chilled Water Pump ===
+ChWPump: Pump {
+    equip
+    pump
+    chilled
+    secondary
+}
+
+// === Boiler Circulation Pump ===
+BoilerCircPump: Pump {
+    equip
+    pump
+    boiler
+    circ
+    primary
+}
+
+// === Hot Water Loop Pump ===
+HWLoopPump: Pump {
+    equip
+    pump
+    hot
+    secondary
+}
+
+// === Domestic Hot Water Loop Pump ===
+DHWLoopPump: Pump {
+    equip
+    pump
+    domestic
+    hot
+}
+
+// === Glycol Hot Water Pump ===
+GHWPump: Pump {
+    equip
+    pump
+    glycol
+    hot
+}
+
+// === Cooling Tower Pump ===
+CTPump: Pump {
+    equip
+    pump
+    coolingTower
+}
+
+// === Condenser Water Pump ===
+CWPump: Pump {
+    equip
+    pump
+    condenser
+}
+
+// === Point Definitions ===
+
+// Pump Enable
+PumpEnab: ph.points::BoolPoint {
+    pump
+    enable
+    cmd
+    navName: "PumpEnab"
+    doc: "Pump Enable"
+    hisMode: "cov"
+    hisCollectInterval: "24hr"
+}
+
+// Pump Command
+PumpCmd: ph.points::BoolPoint {
+    pump
+    run
+    cmd
+    navName: "PumpCmd"
+    doc: "Pump Command"
+    hisMode: "cov"
+    hisCollectInterval: "24hr"
+}
+
+// Pump Status
+PumpSts: ph.points::BoolPoint {
+    pump
+    run
+    sensor
+    navName: "PumpSts"
+    doc: "Pump Status"
+    hisMode: "cov"
+    hisCollectInterval: "24hr"
+}
+
+// Pump VFD Speed
+PumpVFDSpd: ph.points::NumberPoint {
+    pump
+    speed
+    cmd
+    navName: "PumpVFDSpd"
+    doc: "Pump VFD Speed"
+    unit: "%"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// Pump VFD Frequency
+PumpVFDFreq: ph.points::NumberPoint {
+    pump
+    freq
+    sensor
+    navName: "PumpVFDFreq"
+    doc: "Pump VFD Frequency"
+    unit: "Hz"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// Pump Discharge Pressure
+PumpPress: ph.points::NumberPoint {
+    discharge
+    pressure
+    sensor
+    navName: "PumpPress"
+    doc: "Pump Discharge Pressure"
+    unit: "psi"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// Water Temperature Entering
+ETemp: ph.points::NumberPoint {
+    water
+    temp
+    entering
+    sensor
+    navName: "ETemp"
+    doc: "Water Temperature Entering"
+    unit: "F"
+    precision: 1
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// Water Temperature Leaving
+LTemp: ph.points::NumberPoint {
+    water
+    temp
+    leaving
+    sensor
+    navName: "LTemp"
+    doc: "Water Temperature Leaving"
+    unit: "F"
+    precision: 1
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// Water Flow
+Flow: ph.points::NumberPoint {
+    water
+    flow
+    sensor
+    navName: "Flow"
+    doc: "Water Flow"
+    unit: "gal/min"
+    precision: 1
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// Water Energy
+WtrEnergy: ph.points::NumberPoint {
+    water
+    energy
+    hisTotalized
+    sensor
+    navName: "WtrEnergy"
+    doc: "Water Energy (accumulated)"
+    unit: "MMBTU"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+}
+
+// Water Power
+WtrPower: ph.points::NumberPoint {
+    water
+    power
+    sensor
+    navName: "WtrPower"
+    doc: "Water Power"
+    unit: "MMBTU" // or "MMBTU/h"
+    hisMode: "sampled"
+    hisCollectInterval: "10min"
+} 
