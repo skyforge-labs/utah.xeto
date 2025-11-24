@@ -1,0 +1,13 @@
+UtahHvacLoad: UtahPoint {
+    hvacLoad
+    navName: "Load"
+    hisMode: "cov"
+    hisCollectInterval: Str? "24hr"
+}
+
+UtahBypassTime: UtahPoint {
+    bypassTime
+    navName: "BypTime"
+    hisMode: "cov"
+    hisCollectInterval: Str? "24hr"
+}

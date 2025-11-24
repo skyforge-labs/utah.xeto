@@ -1,0 +1,17 @@
+pragma: Lib <
+  doc: "State Of Utah VAV Equipment Library"
+  version: "0.0.1"
+  depends: {
+    { lib: "sys", versions: "0.1.x" },
+    { lib: "ph",  versions: "0.1.x" },
+    { lib: "ph.equips", versions: "0.1.x" },
+    { lib: "ph.points", versions: "0.1.x" },
+    { lib: "ph.attrs", versions: "0.1.x" },
+
+
+  }
+  org: {
+    dis: "Ontologent"
+    uri: "https://ontologent.ai"
+  }
+>

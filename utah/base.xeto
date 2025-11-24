@@ -1,0 +1,35 @@
+UtahPoint: Point {}
+UtahHisPoint: UtahPoint & HisPoint {
+  hisMode: HisMode
+}
+
+UtahEquip: Equip {
+  attrs: Query<of:Attr, via:"equipRef+"> {}
+}
+
+PointStyle: Dict {
+  color: Str?
+  chartGroup: Str?
+  subtitle: Str?
+  chartType: ChartType?
+  chartAreaMode: ChartAreaMode?
+  strokeWidth: Number?
+  strokeDasharray: Str?
+}
+
+ChartType: Enum {
+  line
+  bar
+  scatter
+  runtime
+  stackedBar
+}
+
+ChartAreaMode: Enum {
+  none
+  axisMin
+  axisMax
+  zero
+  nextSeries
+  prevSeries
+}

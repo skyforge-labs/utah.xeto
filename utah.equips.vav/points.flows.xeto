@@ -1,0 +1,73 @@
+FlowStyles: PointStyle {
+  chartGroup: Str? "Flows"
+  subtitle: Str? "Flows"
+}
+
+UtahDischargeAirFlowSensor: DischargeAirFlowSensor & UtahPoint & FlowStyles {
+    navName: "DaFlow"
+    unit: "cfm"
+    hisMode: "sampled"
+    hisCollectInterval: Str? "10min"
+    color: Str? "#ff66ff"
+}
+
+UtahDischargeAirFlowSp: DischargeAirFlowSp & UtahPoint & FlowStyles {
+    navName: "DaFlowSp"
+    unit: "cfm"
+    hisMode: "sampled"
+    hisCollectInterval: Str? "10min"
+    color: Str? "#ff66ff"
+    strokeDasharray: Str? "2,2"
+}
+
+MaxAirFlowSp: AirFlowSp {
+    maxLimit
+}
+
+MinAirFlowSp: AirFlowSp {
+    minLimit
+}
+
+CoolingAirFlowSp: AirFlowSp {
+    cooling
+}
+
+HeatingAirFlowSp: AirFlowSp {
+    heating
+}
+
+ReheatAirFlowSp: AirFlowSp {
+    reheat
+}
+
+UtahMaxAirFlowSpReheatMaxFlow: MaxAirFlowSp & ReheatAirFlowSp & UtahPoint {
+    navName: "ReheatMaxFlow"
+}
+
+UtahMinAirFlowSpReheatMinFlow: MinAirFlowSp & ReheatAirFlowSp & UtahPoint {
+    navName: "ReheatMinFlow"
+}
+
+UtahMaxAirFlowSpCoolMaxFlow: MaxAirFlowSp & CoolingAirFlowSp & UtahPoint {
+    navName: "CoolMaxFlow"
+}
+
+UtahMinAirFlowSpCoolMinFlow: MinAirFlowSp & CoolingAirFlowSp & UtahPoint {
+    navName: "CoolMinFlow"
+}
+
+UtahMaxAirFlowSpHeatMaxFlow: MaxAirFlowSp & HeatingAirFlowSp & UtahPoint {
+    navName: "HeatMaxFlow"
+}
+
+UtahMinAirFlowSpHeatMinFlow: MinAirFlowSp & HeatingAirFlowSp & UtahPoint {
+    navName: "HeatMinFlow"
+}
+
+UtahReheatMaxFlow: MaxAirFlowSp & ReheatAirFlowSp & UtahPoint {
+    navName: "ReheatMaxFlow"
+}
+
+UtahReheatMinFlow: MinAirFlowSp & ReheatAirFlowSp & UtahPoint {
+    navName: "ReheatMinFlow"
+}

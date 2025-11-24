@@ -1,0 +1,36 @@
+
+
+// Reheat VAV
+UtahVavReheat: UtahVav {
+  airRef: MultiRef?<of:Ahu>
+  points: {
+
+    occ: UtahZoneOccupiedSensor
+    occCmd: UtahZoneOccupiedSp?
+    occMode: UtahZoneOccupiedMode?
+    hvacMode: UtahZoneAirHvacModeSp?
+
+    daFlow: UtahDischargeAirFlowSensor
+    daFlowSp: UtahDischargeAirFlowSp?
+
+    dmprPos: UtahDischargeDamperSensor
+    dmprCmd: UtahDischargeDamperCmd?
+
+    reheatVlvPos: UtahHotWaterValveSensor
+    reheatVlvCmd: UtahHotWaterValveCmd?
+
+    daTemp: UtahDischargeAirTempSensor
+    spcTemp: UtahZoneAirTempSensor
+    spcTempSp: UtahZoneAirTempEffectiveSp?
+
+    coolEffSp: UtahZoneAirTempCoolingSp?
+    heatEffSp: UtahZoneAirTempHeatingSp?
+
+    spcHum: UtahZoneAirHumiditySensor?
+    spcHumSp: UtahZoneAirHumiditySp?
+
+    spcCO2: UtahZoneCo2Sensor?
+    spcCO2Sp: UtahZoneCo2Sp?
+
+  }
+}

@@ -1,0 +1,32 @@
+OccupancyStyles: PointStyle {
+  color: Str? "gray"
+  chartGroup: Str? "Occupied"
+  subtitle: Str? "Occupancy"
+  hisMode: "cov"
+}
+
+UtahZoneOccupiedSp: ZoneOccupiedSp & UtahPoint & OccupancyStyles {
+    navName: "OccCmd"
+    hisCollectInterval: Str? "24hr"
+}
+
+UtahZoneAirHvacModeSp: ZoneAirHvacModeSp & EnumPoint & UtahPoint & OccupancyStyles {
+    navName: "HvacMode"
+    hisCollectInterval: Str? "24hr"
+    enum: Str? "Auto,Cool,Heat,Standby,Off"
+}
+
+UtahZoneOccupiedMode: EnumPoint & UtahPoint & OccupancyStyles {
+    zone
+    occupied
+    mode
+    cmd
+    navName: "OccMode"
+    hisCollectInterval: Str? "24hr"
+    enum: Str? "Occupied,Unoccupied,Standby"
+}
+
+UtahZoneOccupiedSensor: ZoneOccupiedSensor & UtahPoint & OccupancyStyles {
+    navName: "SpaceOccupied"
+    hisCollectInterval: Str? "10min"
+}

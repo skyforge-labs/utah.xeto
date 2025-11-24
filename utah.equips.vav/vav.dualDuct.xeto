@@ -1,0 +1,39 @@
+// Dual-Duct VAV
+UtahVavDualDuct: Vav {
+  airRef: MultiRef?<of:Ahu>
+  points: {
+
+    occ: UtahZoneOccupiedSensor
+    occCmd: UtahZoneOccupiedSp?
+    occMode: UtahZoneOccupiedMode?
+    hvacMode: UtahZoneAirHvacModeSp?
+
+    // (No single-duct discharge flow; use deck flows)
+    cdFlow: UtahColdDeckDischargeAirFlowSensor
+    cdFlowSp: UtahColdDeckDischargeAirFlowSp?
+    hdFlow: UtahHotDeckDischargeAirFlowSensor
+    hdFlowSp: UtahHotDeckDischargeAirFlowSp?
+    totFlow: UtahDualDeckTotalFlowSensor?
+    totFlowSp: UtahDualDeckTotalFlowSp?
+
+    // (No single discharge damper; use deck dampers)
+    cdDmprPos: UtahColdDeckDischargeDamperSensor
+    hdDmprPos: UtahHotDeckDischargeDamperSensor
+    hdPress: UtahHotDeckDischargeAirFlowSensorHDPress?
+
+    // Temperature Points
+    daTemp: UtahDischargeAirTempSensor?
+    spcTemp: UtahZoneAirTempSensor
+    spcTempSp: UtahZoneAirTempEffectiveSp?
+
+    coolEffSp: UtahZoneAirTempCoolingSp?
+    heatEffSp: UtahZoneAirTempHeatingSp?
+
+    spcHum: UtahZoneAirHumiditySensor?
+    spcHumSp: UtahZoneAirHumiditySp?
+
+    spcCO2: UtahZoneCo2Sensor?
+    spcCO2Sp: UtahZoneCo2Sp?
+
+  }
+}

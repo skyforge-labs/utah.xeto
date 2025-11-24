@@ -1,0 +1,39 @@
+// Fan-Powered VAV
+UtahVavFanPowered: UtahVav {
+  points: {
+
+    occ: UtahZoneOccupiedSensor
+    occCmd: UtahZoneOccupiedSp?
+    occMode: UtahZoneOccupiedMode?
+    hvacMode: UtahZoneAirHvacModeSp?
+
+    daFlow: UtahDischargeAirFlowSensor
+    daFlowSp: UtahDischargeAirFlowSp?
+
+    dmprPos: UtahDischargeDamperSensor
+    dmprCmd: UtahDischargeDamperCmd?
+
+    reheatVlvPos: UtahHotWaterValveSensor?
+    reheatVlvCmd: UtahHotWaterValveCmd?
+
+    daTemp: UtahDischargeAirTempSensor
+    spcTemp: UtahZoneAirTempSensor
+    spcTempSp: UtahZoneAirTempEffectiveSp?
+
+    coolEffSp: UtahZoneAirTempCoolingSp?
+    heatEffSp: UtahZoneAirTempHeatingSp?
+
+    spcHum: UtahZoneAirHumiditySensor?
+    spcHumSp: UtahZoneAirHumiditySp?
+
+    spcCO2: UtahZoneCo2Sensor?
+    spcCO2Sp: UtahZoneCo2Sp?
+
+    // Fan Powered Box Points
+    fanCmd: UtahFanRunCmd
+    fanSpd: UtahFanSpeedSensorFanSpd?
+    fanSpdHigh: UtahFanSpeedSensorFanSpdHigh?
+    fanSpdMed: UtahFanSpeedSensorFanSpdMed?
+    fanSpdLow: UtahFanSpeedSensorFanSpdLow?
+  }
+}

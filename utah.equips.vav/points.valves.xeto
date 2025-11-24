@@ -1,0 +1,15 @@
+UtahHotWaterValveSensor: HotWaterValveSensor & UtahPoint {
+    navName: "ReheatVlvPos"
+    //unit: "%"
+    hisMode: "sampled"
+    hisCollectInterval: Str? "10min"
+    color: Str? "red"
+}
+
+UtahHotWaterValveCmd: HotWaterValveCmd & UtahPoint {
+    navName: "ReheatVlvCmd"
+    hisMode: "cov"
+    hisCollectInterval: Str? "24hr"
+    color: Str? "red"
+    strokeDasharray: Str? "2,2"
+}

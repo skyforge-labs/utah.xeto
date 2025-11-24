@@ -1,0 +1,23 @@
+UtahZoneAirHumiditySensor: ZoneAirHumiditySensor & UtahPoint {
+    navName: "SpcHum"
+    hisMode: "sampled"
+    hisCollectInterval: Str? "10min"
+}
+
+UtahZoneAirHumiditySp: ZoneAirHumiditySp & UtahPoint {
+    hisMode: "cov"
+    navName: "SpcHumSp"
+    hisCollectInterval: Str? "10min"
+}
+
+UtahZoneCo2Sensor: ZoneCo2Sensor & UtahPoint {
+    navName: "SpcCO2"
+    hisMode: "sampled"
+    hisCollectInterval: Str? "10min"
+}
+
+UtahZoneCo2Sp: ZoneCo2Sp & UtahPoint {
+    hisMode: "cov"
+    navName: "SpcCO2Sp"
+    hisCollectInterval: Str? "10min"
+}

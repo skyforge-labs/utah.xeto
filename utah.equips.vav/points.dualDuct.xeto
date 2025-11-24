@@ -1,0 +1,62 @@
+UtahColdDeckDischargeAirFlowSensor: ColdDeckDischargeAirFlowSensor & UtahPoint {
+    navName: "CDFlow"
+    unit: "cfm"
+    hisMode: "sampled"
+    hisCollectInterval: Str? "10min"
+}
+
+UtahColdDeckDischargeAirFlowSp: ColdDeckDischargeAirFlowSp & UtahPoint {
+    navName: "CDFlowSp"
+    unit: "cfm"
+    hisMode: "sampled"
+    hisCollectInterval: Str? "10min"
+}
+
+UtahHotDeckDischargeAirFlowSensor: HotDeckDischargeAirFlowSensor & UtahPoint {
+    navName: "HDFlow"
+    unit: "cfm"
+    hisMode: "sampled"
+    hisCollectInterval: Str? "10min"
+}
+
+UtahHotDeckDischargeAirFlowSp: HotDeckDischargeAirFlowSp & UtahPoint {
+    navName: "HDFlowSp"
+    hisMode: "sampled"
+    hisCollectInterval: Str? "10min"
+}
+
+UtahColdDeckDischargeDamperSensor: ColdDeckDischargeDamperSensor & UtahPoint {
+    navName: "CDDmprPos"
+   //unit: "%"
+    hisMode: "sampled"
+    hisCollectInterval: Str? "10min"
+}
+
+UtahHotDeckDischargeDamperSensor: HotDeckDischargeDamperSensor & UtahPoint {
+    navName: "HDDmprPos"
+    //unit: "%"
+    hisMode: "sampled"
+    hisCollectInterval: Str? "10min"
+}
+
+UtahHotDeckDischargeAirFlowSensorHDPress: HotDeckDischargeAirFlowSensor & UtahPoint {
+    navName: "HDPress"
+    unit: "inH₂O"
+    precision: 0.01
+    hisMode: "sampled"
+    hisCollectInterval: Str? "10min"
+}
+
+UtahDualDeckTotalFlowSensor: DischargeAirFlowSensor & UtahPoint {
+    navName: "TotFlow"
+    unit: "cfm"
+    hisMode: "sampled"
+    hisCollectInterval: Str? "10min"
+}
+
+UtahDualDeckTotalFlowSp: DischargeAirFlowSp & UtahPoint {
+    navName: "TotFlowSp"
+    unit: "cfm"
+    hisMode: "sampled"
+    hisCollectInterval: Str? "10min"
+}

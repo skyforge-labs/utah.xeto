@@ -1,0 +1,77 @@
+UtahVav: Vav <abstract> {
+  airRef: MultiRef?<of:Ahu>
+
+  points: {
+
+    occ: UtahZoneOccupiedSensor?
+    occCmd: UtahZoneOccupiedSp?
+    occMode: UtahZoneOccupiedMode?
+    hvacMode: UtahZoneAirHvacModeSp?
+
+    daFlow: UtahDischargeAirFlowSensor
+    daFlowSp: UtahDischargeAirFlowSp?
+    daFlowOvrd: UtahDischargeAirFlowOvrd?
+    daFlowPctOvrd: UtahDischargeAirFlowPercentOvrd?
+    daFlowOvrdState: UtahDischargeAirFlowOvrdState?
+
+
+    dmprPos: UtahDischargeDamperSensor
+    dmprCmd: UtahDischargeDamperCmd?
+    dmprPosOvrd: UtahDmprPosOvrd?
+
+    reheatVlvPos: UtahHotWaterValveSensor
+    reheatVlvCmd: UtahHotWaterValveCmd?
+
+    daTemp: UtahDischargeAirTempSensor
+    spcTemp: UtahZoneAirTempSensor
+    spcTempSp: UtahZoneAirTempEffectiveSp?
+    spcTempOvrd: UtahSpcTempOvrd?
+
+    occCoolSp: UtahZoneAirTempOccCoolingSp?
+    occHeatSp: UtahZoneAirTempOccHeatingSp?
+    unoccCoolSp: UtahZoneAirTempUnoccCoolingSp?
+    unoccHeatSp: UtahZoneAirTempUnoccHeatingSp?
+    stbyCoolSp: UtahZoneAirTempStandbyCoolingSp?
+    stbyHeatSp: UtahZoneAirTempStandbyHeatingSp?
+
+    coolEffSp: UtahZoneAirTempCoolingSp?
+    heatEffSp: UtahZoneAirTempHeatingSp?
+
+    spcHum: UtahZoneAirHumiditySensor?
+    spcHumSp: UtahZoneAirHumiditySp?
+
+    spcCO2: UtahZoneCo2Sensor?
+    spcCO2Sp: UtahZoneCo2Sp?
+
+    // Dual-Duct Points
+    cdFlow: UtahColdDeckDischargeAirFlowSensor?
+    cdFlowSp: UtahColdDeckDischargeAirFlowSp?
+    hdFlow: UtahHotDeckDischargeAirFlowSensor?
+    hdFlowSp: UtahHotDeckDischargeAirFlowSp?
+    totFlow: UtahDualDeckTotalFlowSensor?
+    totFlowSp: UtahDualDeckTotalFlowSp?
+
+    cdDmprPos: UtahColdDeckDischargeDamperSensor?
+    hdDmprPos: UtahHotDeckDischargeDamperSensor?
+    hdPress: UtahHotDeckDischargeAirFlowSensorHDPress?
+
+   // Commissioning Points
+    coolMaxFlow: UtahMaxAirFlowSpCoolMaxFlow?
+    coolMinFlow: UtahMinAirFlowSpCoolMinFlow?
+    heatMaxFlow: UtahMaxAirFlowSpHeatMaxFlow?
+    heatMinFlow: UtahMinAirFlowSpHeatMinFlow?
+    reheatMaxFlow: UtahReheatMaxFlow?
+    reheatMinFlow: UtahReheatMinFlow?
+
+    load: UtahHvacLoad?
+    bypTime: UtahBypassTime?
+
+    // Fan Powered Box Points
+    fanCmd: UtahFanRunCmd?
+    fanSpd: UtahFanSpeedSensorFanSpd?
+    fanSpdHigh: UtahFanSpeedSensorFanSpdHigh?
+    fanSpdMed: UtahFanSpeedSensorFanSpdMed?
+    fanSpdLow: UtahFanSpeedSensorFanSpdLow?
+  }
+}
+
