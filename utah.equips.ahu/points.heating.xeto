@@ -1,0 +1,103 @@
+// Hot Water Heating System Points - Pump, Valve, Temperatures
+
+
+
+UtahHWCCmd: EnableCmd & UtahPoint {
+  hot
+  water
+  circ
+  pump
+  run
+  navName: "HWCCmd"
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+}
+
+UtahHWCPts: RunSensor & UtahPoint {
+  hot
+  water
+  circ
+  pump
+  navName: "HWCPts"
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+}
+
+UtahHWIsoVlvCmd: ValveCmd & UtahPoint {
+  hot
+  water
+  isolation
+  navName: "HWIsoVlvCmd"
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+}
+
+UtahHWIsoVlvPos: ValveSensor & UtahPoint {
+  hot
+  water
+  isolation
+  navName: "HWIsoVlvPos"
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+}
+
+UtahHWVlvPos: ValveSensor & UtahPoint {
+  hot
+  water
+  cmd
+  navName: "HWVlvPos"
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+}
+
+UtahHWVlvPosSts: ValveSensor & UtahPoint {
+  hot
+  water
+  navName: "HWVlvPosSts"
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+}
+
+UtahHCALTemp: AirTempSensor & UtahPoint {
+  heat
+  leaving
+  navName: "HCALTemp"
+  unit: "F"
+  precision: 1
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+  color: Str? "orange"
+}
+
+UtahHCWLTemp: NumberPoint & UtahPoint {
+  heating
+  coil
+  heat
+  hot
+  water
+  temp
+  leaving
+  sensor
+  navName: "HCWLTemp"
+  unit: "F"
+  precision: 1
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+}
+
+UtahHCWETemp: NumberPoint & UtahPoint {
+  heating
+  coil
+  heat
+  hot
+  water
+  temp
+  entering
+  sensor
+  navName: "HCWETemp"
+  unit: "F"
+  precision: 1
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+}
+

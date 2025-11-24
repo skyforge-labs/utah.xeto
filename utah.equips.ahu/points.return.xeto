@@ -1,0 +1,111 @@
+// Return Air Points - Temperature, Humidity, Fan, Damper, Pressure
+
+UtahRaTemp: ReturnAirTempSensor & UtahPoint {
+  navName: "RaTemp"
+  precision: 1
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+  color: Str? "brown"
+}
+
+UtahRaHum: AirHumiditySensor & UtahPoint {
+  return
+  navName: "RaHum"
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+}
+
+UtahRaHumSp: AirHumiditySp & UtahPoint {
+  return
+  dehumidify
+  navName: "RaHumSp"
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+}
+
+UtahRaDehumidifyHsp: AirHumiditySp & UtahPoint {
+  return
+  dehumidify
+  navName: "RaDehumidifyHsp"
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+}
+
+UtahRaDmprPos: DamperSensor & UtahPoint {
+  return
+  navName: "RaDmprPos"
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+}
+
+UtahRaFanCmd: ReturnFanEnableCmd & UtahPoint {
+  run
+  navName: "RaFanCmd"
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+}
+
+UtahRaFanSts: ReturnFanRunSensor & UtahPoint {
+  navName: "RaFanSts"
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+}
+
+UtahRaFanAlrm: AlarmSensor & UtahPoint {
+  return
+  air
+  fan
+  navName: "RaFanAlrm"
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+}
+
+UtahRaFanSpd: ReturnFanSpeedSensor & UtahPoint {
+  navName: "RaFanSpd"
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+}
+
+UtahRaFanFreq: NumberPoint & UtahPoint {
+  return
+  air
+  fan
+  freq
+  sensor
+  navName: "RaFanFreq"
+  unit: "Hz"
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+}
+
+UtahRaPress: ReturnAirPressureSensor & UtahPoint {
+  navName: "RaPress"
+  precision: 0.01
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+}
+
+UtahRaPressSp: ReturnAirPressureSp & UtahPoint {
+  navName: "RaPressSp"
+  precision: 0.01
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+}
+
+UtahRaPressHiAlrm: AlarmSensor & UtahPoint {
+  return
+  air
+  pressure
+  high
+  navName: "RaPressHiAlrm"
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+}
+
+UtahRaTempSp: ReturnAirTempSp & UtahPoint {
+  navName: "RaTempSp"
+  precision: 1
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+}
+

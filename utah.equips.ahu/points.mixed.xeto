@@ -1,0 +1,32 @@
+// Mixed Air Points - Temperature, Damper, Flow, Humidity
+
+
+UtahMaTemp: MixedAirTempSensor & UtahPoint {
+  navName: "MaTemp"
+  precision: 1
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+  color: Str? "purple"
+}
+
+UtahMaDmprPos: DamperSensor & UtahPoint {
+  mixed
+  navName: "MaDmprPos"
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+}
+
+UtahMaFlow: AirFlowSensor & UtahPoint {
+  mixed
+  navName: "MaFlow"
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+}
+
+UtahMaHum: AirHumiditySensor & UtahPoint {
+  mixed
+  navName: "MaHum"
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+}
+

@@ -1,0 +1,19 @@
+// Dehumidifier Points - Mode, Setpoint
+
+
+UtahDehumidifyMode: EnumPoint & UtahPoint {
+  dehumidify
+  run
+  cmd
+  navName: "DehumidifyMode"
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+}
+
+UtahDehumidifyHsp: AirHumiditySp & UtahPoint {
+  dehumidify
+  navName: "DehumidifyHsp"
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+}
+

@@ -1,0 +1,34 @@
+// Humidifier Points - Enable, Command, Valve, Fan Speed
+
+
+UtahHumidifierEnable: EnableCmd & UtahPoint {
+  humidifier
+  navName: "HumidifierEnable"
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+}
+
+UtahHumidifierCmd: EnableCmd & UtahPoint {
+  humidifier
+  run
+  navName: "HumidifierCmd"
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+}
+
+UtahHumidifierStmVlv: ValveCmd & UtahPoint {
+  humidifier
+  steam
+  navName: "HumidifierStmVlv"
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+}
+
+UtahHumidifierFanSpd: FanSpeedSensor & UtahPoint {
+  humidifier
+  cmd
+  navName: "HumidifierFanSpd"
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+}
+

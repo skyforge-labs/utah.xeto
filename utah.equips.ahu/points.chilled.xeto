@@ -1,0 +1,82 @@
+// Chilled Water System Points - Pump, Valve, Temperatures
+
+UtahCWPts: RunSensor & UtahPoint {
+  chilled
+  water
+  pump
+  navName: "CWPts"
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+}
+
+UtahCWCmd: EnableCmd & UtahPoint {
+  chilled
+  water
+  pump
+  run
+  navName: "CWCmd"
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+}
+
+UtahCWIsoVlvCmd: ValveCmd & UtahPoint {
+  chilled
+  water
+  isolation
+  navName: "CWIsoVlvCmd"
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+}
+
+UtahCWVlvPos: ValveSensor & UtahPoint {
+  chilled
+  water
+  cmd
+  navName: "CWVlvPos"
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+}
+
+UtahCWVlvPosSts: ValveSensor & UtahPoint {
+  chilled
+  water
+  navName: "CWVlvPosSts"
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+}
+
+UtahCCWLTemp: NumberPoint & UtahPoint {
+  chilled
+  water
+  temp
+  leaving
+  sensor
+  navName: "CCWLTemp"
+  unit: "F"
+  precision: 1
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+  color: Str? "blue"
+}
+
+UtahCCWETemp: NumberPoint & UtahPoint {
+  chilled
+  water
+  temp
+  entering
+  sensor
+  navName: "CCWETemp"
+  unit: "F"
+  precision: 1
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+  color: Str? "lightblue"
+}
+
+UtahCCWFlow: WaterFlowSensor & UtahPoint {
+  chilled
+  navName: "CCWFlow"
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+}
+

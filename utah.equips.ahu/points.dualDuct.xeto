@@ -1,0 +1,135 @@
+// Dual-Duct Systems - Hot & Cold Deck Points
+
+
+// Cold Deck
+UtahCDDaTemp: DischargeAirTempSensor & UtahPoint {
+  coldDeck
+  navName: "CDDaTemp"
+  precision: 1
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+  color: Str? "blue"
+}
+
+UtahCDDaTempSp: DischargeAirTempSp & UtahPoint {
+  coldDeck
+  navName: "CDDaTempSp"
+  precision: 1
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  color: Str? "blue"
+  strokeDasharray: Str? "2,2"
+}
+
+UtahCDDaFlow: DischargeAirFlowSensor & UtahPoint {
+  coldDeck
+  navName: "CDDaFlow"
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+}
+
+UtahCDDaFlowSp: DischargeAirFlowSp & UtahPoint {
+  coldDeck
+  navName: "CDDaFlowSp"
+  hisMode: "cov"
+  hisCollectInterval: "10min"
+}
+
+UtahCDDmprPos: DamperSensor & UtahPoint {
+  coldDeck
+  cmd
+  navName: "CDDmprPos"
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+}
+
+UtahCDDmprCmd: DamperCmd & UtahPoint {
+  coldDeck
+  min
+  navName: "CDDmprCmd"
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+}
+
+UtahCDPress: AirPressureSensor & UtahPoint {
+  coldDeck
+  navName: "CDPress"
+  precision: 0.01
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+}
+
+UtahCDPressSp: AirPressureSp & UtahPoint {
+  coldDeck
+  navName: "CDPressSp"
+  precision: 0.01
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+}
+
+// Hot Deck
+UtahHDDaTemp: DischargeAirTempSensor & UtahPoint {
+  hotDeck
+  navName: "HDDaTemp"
+  precision: 1
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+  color: Str? "red"
+}
+
+UtahHDDaTempSp: DischargeAirTempSp & UtahPoint {
+  hotDeck
+  navName: "HDDaTempSp"
+  precision: 1
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  color: Str? "red"
+  strokeDasharray: Str? "2,2"
+}
+
+UtahHDHum: AirHumiditySensor & UtahPoint {
+  hotDeck
+  discharge
+  navName: "HDHum"
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+}
+
+UtahHDDmprPos: DamperSensor & UtahPoint {
+  hotDeck
+  discharge
+  navName: "HDDmprPos"
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+}
+
+UtahHDPress: AirPressureSensor & UtahPoint {
+  hotDeck
+  navName: "HDPress"
+  precision: 0.01
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+}
+
+UtahHDPressSp: AirPressureSp & UtahPoint {
+  hotDeck
+  navName: "HDPressSp"
+  precision: 0.01
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+}
+
+UtahHDFlow: DischargeAirFlowSensor & UtahPoint {
+  hotDeck
+  navName: "HDFlow"
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+}
+
+UtahHDFlowSp: DischargeAirFlowSp & UtahPoint {
+  hotDeck
+  navName: "HDFlowSp"
+  hisMode: "cov"
+  hisCollectInterval: "10min"
+}
+

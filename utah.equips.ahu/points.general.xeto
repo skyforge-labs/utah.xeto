@@ -1,0 +1,64 @@
+// General AHU Points - Occupancy, Building Pressure, Safety
+
+
+
+UtahOccCmd: ZoneOccupiedSp & UtahPoint {
+  cmd
+  navName: "OccCmd"
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+}
+
+UtahOccMode: EnumPoint & UtahPoint {
+  occupied
+  navName: "OccMode"
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+}
+
+UtahBldgPress: AirPressureSensor & UtahPoint {
+  building
+  navName: "BldgPress"
+  precision: 0.01
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+}
+
+UtahBldgPressSp: AirPressureSp & UtahPoint {
+  building
+  navName: "BldgPressSp"
+  precision: 0.01
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+}
+
+UtahFrzStat: BoolPoint & UtahPoint {
+  freeze
+  air
+  temp
+  sensor
+  navName: "FrzStat"
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+}
+
+UtahFireAlrmShutdwn: AlarmSensor & UtahPoint {
+  fire
+  navName: "FireAlrmShutdwn"
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+}
+
+UtahKillSwitch: EnableCmd & UtahPoint {
+  navName: "KillSwitch"
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+}
+
+UtahWtrAlrm: AlarmSensor & UtahPoint {
+  water
+  navName: "WtrAlrm"
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+}
+

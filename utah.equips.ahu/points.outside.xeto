@@ -1,0 +1,76 @@
+// Outside Air Points - Temperature, Humidity, Damper, Flow, Pressure
+
+UtahOaTemp: OutsideAirTempSensor & UtahPoint {
+  navName: "OaTemp"
+  precision: 1
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+  color: Str? "gray"
+}
+
+UtahOaHum: AirHumiditySensor & UtahPoint {
+  outside
+  navName: "OaHum"
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+}
+
+UtahOaDmprPos: DamperSensor & UtahPoint {
+  outside
+  navName: "OaDmprPos"
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+}
+
+UtahOaDmprCmd: DamperCmd & UtahPoint {
+  outside
+  min
+  navName: "OaDmprCmd"
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+}
+
+UtahOaMinDmprPos: DamperCmd & UtahPoint {
+  outside
+  min
+  navName: "OaMinDmprPos"
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+}
+
+UtahOaFlow: OutsideAirFlowSensor & UtahPoint {
+  navName: "OaFlow"
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+}
+
+UtahOaFlowSp: OutsideAirFlowSp & UtahPoint {
+  navName: "OaFlowSp"
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+}
+
+UtahOaPress: AirPressureSensor & UtahPoint {
+  outside
+  navName: "OaPress"
+  precision: 0.01
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+}
+
+UtahOaPressSp: AirPressureSp & UtahPoint {
+  outside
+  navName: "OaPressSp"
+  precision: 0.01
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+}
+
+UtahOaTempSp: AirTempSp & UtahPoint {
+  outside
+  navName: "OaTempSp"
+  precision: 1
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+}
+

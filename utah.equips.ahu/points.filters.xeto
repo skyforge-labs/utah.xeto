@@ -1,0 +1,54 @@
+// Filter Points - Alarm, Status, Pressure Differential
+
+
+
+UtahFilterAlrm: AlarmSensor & UtahPoint {
+  filter
+  navName: "FilterAlrm"
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+}
+
+UtahFilterSts: RunSensor & UtahPoint {
+  filter
+  navName: "FilterSts"
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+}
+
+UtahFilterDP: NumberPoint & UtahPoint {
+  filter
+  pressure
+  delta
+  sensor
+  navName: "FilterDP"
+  unit: "inH₂O"
+  precision: 0.01
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+}
+
+UtahPreFilterDP: NumberPoint & UtahPoint {
+  filter
+  pressure
+  delta
+  sensor
+  navName: "PreFilterDP"
+  unit: "inH₂O"
+  precision: 0.01
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+}
+
+UtahFinalFilterDP: NumberPoint & UtahPoint {
+  filter
+  pressure
+  delta
+  sensor
+  navName: "FinalFilterDP"
+  unit: "inH₂O"
+  precision: 0.01
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+}
+

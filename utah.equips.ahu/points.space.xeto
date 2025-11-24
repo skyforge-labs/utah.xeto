@@ -1,0 +1,84 @@
+// Space/Zone Points - for single-zone direct AHUs
+
+
+UtahSpcCO2: ZoneCo2Sensor & UtahPoint {
+  navName: "SpcCO2"
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+}
+
+UtahSpcCO2Sp: ZoneCo2Sp & UtahPoint {
+  navName: "SpcCO2Sp"
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+}
+
+UtahSpcHum: ZoneAirHumiditySensor & UtahPoint {
+  navName: "SpcHum"
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+}
+
+UtahSpcPress: AirPressureSensor & UtahPoint {
+  zone
+  navName: "SpcPress"
+  precision: 0.01
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+}
+
+UtahSpcPressSp: AirPressureSp & UtahPoint {
+  zone
+  navName: "SpcPressSp"
+  precision: 0.01
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+}
+
+UtahSpcTemp: ZoneAirTempSensor & UtahPoint {
+  navName: "SpcTemp"
+  precision: 1
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+  color: Str? "green"
+}
+
+UtahSpcTempSp: ZoneAirTempEffectiveSp & UtahPoint {
+  navName: "SpcTempSp"
+  precision: 1
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  color: Str? "darkGreen"
+  strokeDasharray: Str? "2,2"
+}
+
+UtahOccCoolSp: ZoneAirTempOccCoolingSp & UtahPoint {
+  navName: "OccCoolSp"
+  precision: 1
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  color: Str? "blue"
+}
+
+UtahOccHeatSp: ZoneAirTempOccHeatingSp & UtahPoint {
+  navName: "OccHeatSp"
+  precision: 1
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  color: Str? "orange"
+}
+
+UtahUnoccCoolSp: ZoneAirTempUnoccCoolingSp & UtahPoint {
+  navName: "UnoccCoolSp"
+  precision: 1
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+}
+
+UtahUnoccHeatSp: ZoneAirTempUnoccHeatingSp & UtahPoint {
+  navName: "UnoccHeatSp"
+  precision: 1
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+}
+

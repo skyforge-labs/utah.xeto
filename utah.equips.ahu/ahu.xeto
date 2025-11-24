@@ -1,0 +1,173 @@
+// Abstract Base AHU with all possible points (optional)
+// Concrete implementations tighten requirements for specific AHU types
+
+UtahAhu: Ahu <abstract> {
+  ahuRef: Ref?
+  hvacRef: Ref?
+  rtuRef: Ref?
+  hotWaterPlantRef: Ref?
+  chilledWaterPlantRef: Ref?
+
+  points: {
+    // General Points
+    occCmd: UtahOccCmd?
+    occMode: UtahOccMode?
+    bldgPress: UtahBldgPress?
+    bldgPressSp: UtahBldgPressSp?
+    frzStat: UtahFrzStat?
+    fireAlrmShutdwn: UtahFireAlrmShutdwn?
+    killSwitch: UtahKillSwitch?
+    wtrAlrm: UtahWtrAlrm?
+
+    // Filter Points
+    filterAlrm: UtahFilterAlrm?
+    filterSts: UtahFilterSts?
+    filterDP: UtahFilterDP?
+    preFilterDP: UtahPreFilterDP?
+    finalFilterDP: UtahFinalFilterDP?
+
+    // Space/Zone Points (for single-zone direct AHUs)
+    spcCO2: UtahSpcCO2?
+    spcCO2Sp: UtahSpcCO2Sp?
+    spcHum: UtahSpcHum?
+    spcPress: UtahSpcPress?
+    spcPressSp: UtahSpcPressSp?
+    spcTemp: UtahSpcTemp?
+    spcTempSp: UtahSpcTempSp?
+    occCoolSp: UtahOccCoolSp?
+    occHeatSp: UtahOccHeatSp?
+    unoccCoolSp: UtahUnoccCoolSp?
+    unoccHeatSp: UtahUnoccHeatSp?
+
+    // Discharge Air Points
+    daFanCmd: UtahDaFanCmd?
+    daFanSts: UtahDaFanSts?
+    daFanAlrm: UtahDaFanAlrm?
+    daFanSpd: UtahDaFanSpd?
+    daFanFreq: UtahDaFanFreq?
+    daFlow: UtahDaFlow?
+    daHum: UtahDaHum?
+    daHumHiLmt: UtahDaHumHiLmt?
+    daPress: UtahDaPress?
+    daPressSp: UtahDaPressSp?
+    daPressHiAlrm: UtahDaPressHiAlrm?
+    daTemp: UtahDaTemp?
+    daTempSp: UtahDaTempSp?
+    daTempEffSp: UtahDaTempEffSp?
+    daTempHiLmt: UtahDaTempHiLmt?
+
+    // Dual-Duct Points
+    cdDaTemp: UtahCDDaTemp?
+    cdDaTempSp: UtahCDDaTempSp?
+    cdDaFlow: UtahCDDaFlow?
+    cdDaFlowSp: UtahCDDaFlowSp?
+    cdDmprPos: UtahCDDmprPos?
+    cdDmprCmd: UtahCDDmprCmd?
+    cdPress: UtahCDPress?
+    cdPressSp: UtahCDPressSp?
+    hdDaTemp: UtahHDDaTemp?
+    hdDaTempSp: UtahHDDaTempSp?
+    hdHum: UtahHDHum?
+    hdDmprPos: UtahHDDmprPos?
+    hdPress: UtahHDPress?
+    hdPressSp: UtahHDPressSp?
+    hdFlow: UtahHDFlow?
+    hdFlowSp: UtahHDFlowSp?
+
+    // Return Air Points
+    raTemp: UtahRaTemp?
+    raHum: UtahRaHum?
+    raHumSp: UtahRaHumSp?
+    raDehumidifyHsp: UtahRaDehumidifyHsp?
+    raDmprPos: UtahRaDmprPos?
+    raFanCmd: UtahRaFanCmd?
+    raFanSts: UtahRaFanSts?
+    raFanAlrm: UtahRaFanAlrm?
+    raFanSpd: UtahRaFanSpd?
+    raFanFreq: UtahRaFanFreq?
+    raPress: UtahRaPress?
+    raPressSp: UtahRaPressSp?
+    raPressHiAlrm: UtahRaPressHiAlrm?
+    raTempSp: UtahRaTempSp?
+
+    // Relief/Exhaust Air Points
+    rlfFanCmd: UtahRlfFanCmd?
+    rlfFanSts: UtahRlfFanSts?
+    rlfFanSpd: UtahRlfFanSpd?
+    rlfDmprPos: UtahRlfDmprPos?
+    rlfDmprCmd: UtahRlfDmprCmd?
+
+    // Outside Air Points
+    oaTemp: UtahOaTemp?
+    oaHum: UtahOaHum?
+    oaDmprPos: UtahOaDmprPos?
+    oaDmprCmd: UtahOaDmprCmd?
+    oaMinDmprPos: UtahOaMinDmprPos?
+    oaFlow: UtahOaFlow?
+    oaFlowSp: UtahOaFlowSp?
+    oaPress: UtahOaPress?
+    oaPressSp: UtahOaPressSp?
+    oaTempSp: UtahOaTempSp?
+
+    // Mixed Air Points
+    maTemp: UtahMaTemp?
+    maDmprPos: UtahMaDmprPos?
+    maFlow: UtahMaFlow?
+    maHum: UtahMaHum?
+
+    // Hot Water Heating Points
+    hwcCmd: UtahHWCCmd?
+    hwcPts: UtahHWCPts?
+    hwIsoVlvCmd: UtahHWIsoVlvCmd?
+    hwIsoVlvPos: UtahHWIsoVlvPos?
+    hwVlvPos: UtahHWVlvPos?
+    hwVlvPosSts: UtahHWVlvPosSts?
+    hcalTemp: UtahHCALTemp?
+    hcwlTemp: UtahHCWLTemp?
+    hcweTemp: UtahHCWETemp?
+
+    // Chilled Water Points
+    cwPts: UtahCWPts?
+    cwCmd: UtahCWCmd?
+    cwIsoVlvCmd: UtahCWIsoVlvCmd?
+    cwVlvPos: UtahCWVlvPos?
+    cwVlvPosSts: UtahCWVlvPosSts?
+    ccwlTemp: UtahCCWLTemp?
+    ccweTemp: UtahCCWETemp?
+    ccwFlow: UtahCCWFlow?
+
+    // Cooling Coil Air Points
+    ccalHum: UtahCCALHum?
+    ccfbdCmd: UtahCCFBDCmd?
+    ccfbdPos: UtahCCFBDPos?
+    ccfbdTemp: UtahCCFBDTemp?
+    ccfbdTempAlt2: UtahCCFBDTempAlt2?
+    ccalTemp: UtahCCALTemp?
+    ccstageSts: UtahCCStageSts?
+    ccstageCmd: UtahCCStageCmd?
+    ccalTempSp: UtahCCALTempSp?
+
+    // Economizer Points
+    econMode: UtahEconMode?
+
+    // Humidifier Points
+    humidifierEnable: UtahHumidifierEnable?
+    humidifierCmd: UtahHumidifierCmd?
+    humidifierStmVlv: UtahHumidifierStmVlv?
+    humidifierFanSpd: UtahHumidifierFanSpd?
+
+    // Dehumidifier Points
+    dehumidifyMode: UtahDehumidifyMode?
+    dehumidifyHsp: UtahDehumidifyHsp?
+
+    // Heat Recovery Water Points
+    hrwetTemp: UtahHRWETTemp?
+    hrwltTemp: UtahHRWLTTemp?
+    hrwFlow: UtahHRWFlow?
+    hrwVolFlow: UtahHRWVolFlow?
+    hrwMassFlow: UtahHRWMassFlow?
+    hrwPower: UtahHRWPower?
+    hrwEnergy: UtahHRWEnergy?
+    hrwCmd: UtahHRWCmd?
+  }
+}

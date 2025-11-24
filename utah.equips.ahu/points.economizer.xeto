@@ -1,0 +1,11 @@
+// Economizer System Points
+
+UtahEconMode: EnumPoint & UtahPoint {
+  economizer
+  run
+  cmd
+  navName: "EconMode"
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+}
+

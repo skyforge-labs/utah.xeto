@@ -1,0 +1,82 @@
+// Heat Recovery Water System Points - Temperatures, Flow, Power, Energy
+
+
+UtahHRWETTemp: NumberPoint & UtahPoint {
+  equip
+  water
+  temp
+  entering
+  hru
+  navName: "HRWETTemp"
+  unit: "F"
+  precision: 1
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+}
+
+UtahHRWLTTemp: NumberPoint & UtahPoint {
+  water
+  temp
+  leaving
+  hru
+  sensor
+  navName: "HRWLTTemp"
+  unit: "F"
+  precision: 1
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+}
+
+UtahHRWFlow: WaterFlowSensor & UtahPoint {
+  hru
+  navName: "HRWFlow"
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+}
+
+UtahHRWVolFlow: WaterFlowSensor & UtahPoint {
+  volumetric
+  hru
+  navName: "HRWVolFlow"
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+}
+
+UtahHRWMassFlow: WaterFlowSensor & UtahPoint {
+  massFlow
+  navName: "HRWMassFlow"
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+}
+
+UtahHRWPower: NumberPoint & UtahPoint {
+  water
+  power
+  sensor
+  navName: "HRWPower"
+  unit: "kW"
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+}
+
+UtahHRWEnergy: NumberPoint & UtahPoint {
+  water
+  energy
+  accumulated
+  sensor
+  navName: "HRWEnergy"
+  unit: "kWh"
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+}
+
+UtahHRWCmd: EnableCmd & UtahPoint {
+  water
+  circ
+  pump
+  run
+  navName: "HRWCmd"
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+}
+

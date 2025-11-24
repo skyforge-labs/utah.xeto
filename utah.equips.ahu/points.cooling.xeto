@@ -1,0 +1,90 @@
+// Cooling Coil Air Points - Air Leaving, Fan+Bypass Damper, Humidity, Stage
+
+
+UtahCCALHum: AirHumiditySensor & UtahPoint {
+  coolingCoil
+  cool
+  leaving
+  navName: "CCALHum"
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+}
+
+UtahCCFBDCmd: DamperCmd & UtahPoint {
+  coolingCoil
+  fanBypass
+  navName: "CCFBDCmd"
+  hisMode: "cov"
+  hisCollectInterval: "10min"
+}
+
+UtahCCFBDPos: DamperSensor & UtahPoint {
+  coolingCoil
+  fanBypass
+  cmd
+  navName: "CCFBDPos"
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+}
+
+UtahCCFBDTemp: AirTempSensor & UtahPoint {
+  coolingCoil
+  fanBypass
+  damper
+  alternate
+  navName: "CCFBDTemp"
+  precision: 1
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+}
+
+UtahCCFBDTempAlt2: AirTempSensor & UtahPoint {
+  coolingCoil
+  fanBypass
+  damper
+  alternate
+  navName: "CCFBDTempAlt2"
+  precision: 1
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+}
+
+UtahCCALTemp: AirTempSensor & UtahPoint {
+  coolingCoil
+  cool
+  leaving
+  navName: "CCALTemp"
+  precision: 1
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+  color: Str? "lightblue"
+}
+
+UtahCCStageSts: NumberPoint & UtahPoint {
+  cooling
+  stage: Number
+  sensor
+  navName: "CCStageSts"
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+}
+
+UtahCCStageCmd: NumberPoint & UtahPoint {
+  cooling
+  stage: Number
+  cmd
+  navName: "CCStageCmd"
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+}
+
+UtahCCALTempSp: AirTempSp & UtahPoint {
+  coolingCoil
+  cool
+  leaving
+  navName: "CCALTempSp"
+  precision: 1
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+}
+

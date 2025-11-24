@@ -1,0 +1,121 @@
+// Discharge Air Points - Fan, Flow, Humidity, Pressure, Temperature
+
+
+UtahDaFanCmd: DischargeFanEnableCmd & UtahPoint {
+  run
+  navName: "DaFanCmd"
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+}
+
+UtahDaFanSts: DischargeFanRunSensor & UtahPoint {
+  navName: "DaFanSts"
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+}
+
+UtahDaFanAlrm: AlarmSensor & UtahPoint {
+  discharge
+  air
+  fan
+  navName: "DaFanAlrm"
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+}
+
+UtahDaFanSpd: DischargeFanSpeedSensor & UtahPoint {
+  navName: "DaFanSpd"
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+}
+
+UtahDaFanFreq: NumberPoint & UtahPoint {
+  discharge
+  air
+  fan
+  freq
+  sensor
+  navName: "DaFanFreq"
+  unit: "Hz"
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+}
+
+UtahDaFlow: DischargeAirFlowSensor & UtahPoint {
+  navName: "DaFlow"
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+  color: Str? "#ff66ff"
+}
+
+UtahDaHum: DischargeAirHumiditySensor & UtahPoint {
+  navName: "DaHum"
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+}
+
+UtahDaHumHiLmt: DischargeAirHumiditySp & UtahPoint {
+  high
+  navName: "DaHumHiLmt"
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+}
+
+UtahDaPress: DischargeAirPressureSensor & UtahPoint {
+  navName: "DaPress"
+  precision: 0.01
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+}
+
+UtahDaPressSp: DischargeAirPressureSp & UtahPoint {
+  navName: "DaPressSp"
+  precision: 0.01
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+}
+
+UtahDaPressHiAlrm: AlarmSensor & UtahPoint {
+  discharge
+  air
+  pressure
+  high
+  navName: "DaPressHiAlrm"
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+}
+
+UtahDaTemp: DischargeAirTempSensor & UtahPoint {
+  navName: "DaTemp"
+  precision: 1
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+  color: Str? "#ff66ff"
+}
+
+UtahDaTempSp: DischargeAirTempSp & UtahPoint {
+  navName: "DaTempSp"
+  unit: "F"
+  precision: 1
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+  color: Str? "#ff66ff"
+  strokeDasharray: Str? "2,2"
+}
+
+UtahDaTempEffSp: DischargeAirTempSp & UtahPoint {
+  effective
+  navName: "DaTempEffSp"
+  precision: 1
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+}
+
+UtahDaTempHiLmt: DischargeAirTempSp & UtahPoint {
+  high
+  navName: "DaTempHiLmt"
+  precision: 1
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+}
+
