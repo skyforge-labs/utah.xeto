@@ -1,8 +1,4 @@
-UtahPoint: Point {}
-UtahHisPoint: UtahPoint & HisPoint {
-  hisMode: HisMode
-}
-
+// Utah Equip
 UtahEquip: Equip {
   attrs: Query<of:Attr, via:"equipRef+"> {}
 }

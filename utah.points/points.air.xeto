@@ -1,0 +1,124 @@
+// Utah Abstract points
+
+// Air Temperatures
+UtahAirTemp: Air & Temp <abstract> {
+    doc: "Air Temperature"
+    }
+
+UtahAirTempPoint: UtahAirTemp & NumberPoint & SensorPoint <abstract> {
+    doc: "Air Temperature Sensor"
+    }
+ 
+ UtahAirTempSpPoint: UtahAirTemp & NumberPoint & SpPoint <abstract> {
+    doc: "Air Temperature Setpoint"
+    }
+  
+UtahAirTempEntering: UtahAirTempPoint <abstract> {
+    entering
+    doc: "Air Temperature entering a device"
+    color: Str "lightblue"
+    }
+
+UtahAirTempLeaving: UtahAirTempPoint <abstract> {
+    leaving
+    doc: "Air Temperature leaving a device"
+    color: Str "blue"
+    }
+
+UtahAirTempLeavingSp: UtahAirTempSpPoint <abstract> {
+    leaving
+    doc: "Air Temperature leaving a device setpoint"
+    color: Str "green"
+    }
+
+// Deleted. Combination of UtahDischarge and UtahAirTempPoint at end point
+//UtahAirTempDischarge: UtahAirTempPoint <abstract> { 
+//    discharge
+//    doc: "Air Temperature leaving air handling equipment"
+//    color: Str "fuchsia"
+//    }
+
+UtahAirTempSupply: UtahAirTempPoint <abstract> {
+    supply
+    doc: "Air Temperature supply coming from another device"
+    color: Str "purple"
+    }
+
+UtahAirTempReturn: UtahAirTempPoint <abstract> {
+    return
+    doc: "Air Temperature returning to air handling equipment"
+    color: Str "orange"
+    }
+
+UtahAirTempMixed: UtahAirTempPoint <abstract> {
+    mixed
+    doc: "Air Temperature mixed within a device"
+    color: Str "purple"
+    }
+
+UtahAirTempOutside: UtahAirTempPoint <abstract> {
+    outside
+    doc: "Ambient outside air temperature - dry bulb"
+    color: Str "aqua"
+    }
+
+// Air Humidity
+UtahAirHumidity: Air & Humidity <abstract> {
+    doc: "Air Humidity"
+    }
+
+UtahAirHumidityPoint: UtahAirHumidity & NumberPoint & SensorPoint <abstract> {
+    doc: "Air Humidity Sensor"
+    }
+
+// Deleted. Combination of UtahDischarge and UtahAirHumidityPoint at end point
+//UtahAirHumidityDischarge: UtahAirHumidityPoint <abstract> {
+//    discharge
+//    doc: "Air Temperature leaving a device"
+//    }
+    
+UtahAirHumidityLeavinging: UtahAirHumidityPoint <abstract> {
+    leaving
+    doc: "Air Temperature leaving a device"
+    }
+
+// Air Dehumidify
+UtahDehumidifyPoint: UtahDehumidify & NumberPoint <abstract> {
+    doc: "Air Dehumidify point"
+    }
+    
+// Air Humidify
+UtahHumidifyPoint: UtahHumidify & NumberPoint <abstract> {
+    doc: "Air Humidify point"
+    }
+    
+// Air Flow
+UtahAirFlow: Air & Flow <abstract> {
+    doc: "Generic Air Flow"
+    }
+
+UtahAirFlowPoint: UtahAirFlow & NumberPoint & SensorPoint <abstract> {
+    doc: "Generic Air Flow"
+    }
+
+UtahAirFlowSpPoint: UtahAirFlow & NumberPoint & SpPoint <abstract> {
+    doc: "Generic Air Flow Setpoint"
+    }
+    
+// Air Pressure
+UtahAirPressure: Air & Pressure <abstract> {
+    doc: "Generic Air Pressure"
+    }
+
+UtahAirPressurePoint: UtahAirPressure & NumberPoint & SensorPoint <abstract> {
+    doc: "Generic Air Pressure"
+    }
+     
+UtahAirPressureSpPoint: UtahAirPressure & NumberPoint & SpPoint <abstract> {
+    doc: "Generic Air Pressure Setpoint"
+    }
+
+UtahAirPressureAlarmPoint: UtahAirPressure & BoolPoint <abstract> {
+    alarm
+    doc: "Generic Air Pressure Alarm"
+    }

@@ -8,7 +8,7 @@ pragma: Lib <
     { lib: "ph.points", versions: "0.1.x" },
     { lib: "ph.attrs", versions: "0.1.x" },
     { lib: "utah", versions: "0.0.x" },
-
+    { lib: "utah.points", versions: "0.0.x" }
 
   }
   org: {

@@ -1,0 +1,62 @@
+//Developer License – Not for production use –More Info
+
+// Utah Abstract points
+
+// Water Points
+// Water Flow
+UtahWaterFlow: ph::Water & ph::Flow <abstract> {
+    doc: "Water Flow"
+    }
+    
+UtahWaterFlowPoint: ph.points::NumberPoint & utah.points::UtahWaterFlow <abstract> {
+    unit: "gal/min"
+    doc: "Water Flow"
+    }
+    
+UtahWaterFlowSensor: utah.points::UtahWaterFlowPoint & ph.points::SensorPoint <abstract> {
+    doc: "Water Flow Sensor"
+    }
+
+UtahWaterFlowSp: utah.points::UtahWaterFlowPoint & ph.points::SpPoint <abstract> {
+    doc: "Water Flow Sp"
+    }
+
+// Water Temp
+UtahWaterTemp: ph::Water & ph::Temp <abstract> {
+    doc: "Water Temp"
+    }
+
+UtahWaterTempPoint: ph.points::NumberPoint & utah.points::UtahWaterTemp <abstract> {
+    unit: "°F"
+    doc: "Water Temperature Point"
+    }
+
+UtahWaterTempSensor: utah.points::UtahWaterTempPoint & ph.points::SensorPoint <abstract> {
+    doc: "Water Temperature Sensor"
+    }
+
+UtahWaterTempSp: utah.points::UtahWaterTempPoint & ph.points::SpPoint <abstract> {
+    doc: "Water Temperature Setpoint"
+    }
+    
+// Water Temperatures
+UtahWaterTempEntering: utah.points::UtahWaterTempSensor <abstract> {
+    entering
+    doc: "Water Temperature entering a device"
+    }
+
+UtahWaterTempLeaving: utah.points::UtahWaterTempSensor <abstract> {
+    leaving
+    doc: "Water Temperature leaving a device"
+    }
+
+UtahWaterTempSupply: utah.points::UtahWaterTempSensor <abstract> {
+    supply
+    doc: "Water Temperature Supply"
+    }
+    
+UtahWaterTempReturn: utah.points::UtahWaterTempSensor <abstract> {
+    return
+    doc: "Water Temperature Supply"
+    }
+    

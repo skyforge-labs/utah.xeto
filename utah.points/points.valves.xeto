@@ -1,0 +1,51 @@
+//Developer License – Not for production use –More Info
+
+// Utah Abstract points
+
+// Valves Bool
+UtahValveCmdPoint: ph.points::BoolPoint <abstract> {
+    valve
+    doc: "Generic valve. Number or Bool"
+    }
+
+UtahValveCmd: utah.points::UtahValveCmdPoint & CmdPoint <abstract> {
+    run
+    doc: "Open/Closed valve"
+    }
+
+UtahValveCmdSts: utah.points::UtahValveCmdPoint & SensorPoint <abstract> {
+    run
+    doc: "Open/Closed valve feedback status sensor"
+    }
+
+// Valves Number
+UtahValvePosPoint: ph.points::NumberPoint <abstract> {
+    valve
+    doc: "0-100% valve"
+    }
+
+UtahValvePos: utah.points::UtahValvePosPoint & CmdPoint <abstract> {
+    run
+    doc: "0-100% valve"
+    }
+    
+UtahValvePosSts: utah.points::UtahValvePosPoint & SensorPoint <abstract> {
+    run
+    doc: "0-100% valve feedback status sensor"
+    }
+
+// Valves Dx
+UtahDxPoint: ph.points::BoolPoint <abstract> {
+    stage: Number
+    doc: "Generic Dx point"
+    }
+
+UtahDxStageCmd: utah.points::UtahDxPoint & CmdPoint <abstract> {
+    run
+    doc: "Dx command point"
+    }
+
+UtahDxStageCmdSts: utah.points::UtahDxPoint & SensorPoint <abstract> {
+    run
+    doc: "Dx feedback status sensor"
+    }

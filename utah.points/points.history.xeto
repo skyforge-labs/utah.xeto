@@ -1,0 +1,18 @@
+//  History Collection options
+
+UtahHisCov: HisPoint {
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+}
+UtahHisSampledDefault: HisPoint {
+  hisMode: "sampled"
+  hisCollectInterval: "10min"
+}
+UtahHisSampledMajorEquip: HisPoint {
+  hisMode: "sampled"
+  hisCollectInterval: "5min"
+}
+UtahHisConsumptionBase: HisPoint {
+  hisMode: "consumption"
+  hisCollectInterval: "10min"
+}

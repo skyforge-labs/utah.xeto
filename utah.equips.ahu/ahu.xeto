@@ -41,16 +41,17 @@ UtahAhu: Ahu <abstract> {
 
     // Discharge Air Points
     daFanCmd: UtahDaFanCmd?
-    daFanSts: UtahDaFanSts?
+    daFanCmdSts: UtahDaFanCmdSts?
     daFanAlrm: UtahDaFanAlrm?
     daFanSpd: UtahDaFanSpd?
     daFanFreq: UtahDaFanFreq?
     daFlow: UtahDaFlow?
     daHum: UtahDaHum?
-    daHumHiLmt: UtahDaHumHiLmt?
+    daHumLmtHi: UtahDaHumLmtHi?
+    daHumLmtLow: UtahDaHumLmtLow?    
     daPress: UtahDaPress?
     daPressSp: UtahDaPressSp?
-    daPressHiAlrm: UtahDaPressHiAlrm?
+    daPressAlrmHi: UtahDaPressAlarmHi?
     daTemp: UtahDaTemp?
     daTempSp: UtahDaTempSp?
     daTempEffSp: UtahDaTempEffSp?
@@ -127,25 +128,24 @@ UtahAhu: Ahu <abstract> {
     hcweTemp: UtahHCWETemp?
 
     // Chilled Water Points
-    cwPts: UtahCWPts?
-    cwCmd: UtahCWCmd?
-    cwIsoVlvCmd: UtahCWIsoVlvCmd?
-    cwVlvPos: UtahCWVlvPos?
-    cwVlvPosSts: UtahCWVlvPosSts?
-    ccwlTemp: UtahCCWLTemp?
-    ccweTemp: UtahCCWETemp?
-    ccwFlow: UtahCCWFlow?
+    chwCPCmdSts: UtahChWCPCmdSts?
+    chwCPCmd: UtahChWCPCmd?
+    cwIsoVlvCmd: UtahChWIsoVlvCmd?
+    cwVlvPos: UtahChWVlvPos?
+    cwVlvPosSts: UtahChWVlvPosSts?
+    ccwlTemp: UtahChWCWLTemp?
+    ccweTemp: UtahChWCWETemp?
+    ccalHum: UtahChWCALHum?    
+    ccwFlow: UtahChWFlow?
 
     // Cooling Coil Air Points
-    ccalHum: UtahCCALHum?
-    ccfbdCmd: UtahCCFBDCmd?
-    ccfbdPos: UtahCCFBDPos?
-    ccfbdTemp: UtahCCFBDTemp?
-    ccfbdTempAlt2: UtahCCFBDTempAlt2?
-    ccalTemp: UtahCCALTemp?
-    ccstageSts: UtahCCStageSts?
-    ccstageCmd: UtahCCStageCmd?
-    ccalTempSp: UtahCCALTempSp?
+    ccfbdCmd: UtahCoolingBypDmprCmd?
+    ccfbdPos: UtahCoolingBypDmprPos?
+    ccfbdTemp: UtahCoolingBypDaTemp?
+    ccalTemp: UtahChWCALTemp?
+    ccstageSts: UtahDxClgStageCmdSts?
+    ccstageCmd: UtahDxClgStageCmd?
+    ccalTempSp: UtahChWCALTempSp?
 
     // Economizer Points
     econMode: UtahEconMode?
@@ -153,12 +153,12 @@ UtahAhu: Ahu <abstract> {
     // Humidifier Points
     humidifierEnable: UtahHumidifierEnable?
     humidifierCmd: UtahHumidifierCmd?
-    humidifierStmVlv: UtahHumidifierStmVlv?
+    humidifierStmVlv: UtahHumidifierStmVlvCmd?
     humidifierFanSpd: UtahHumidifierFanSpd?
 
     // Dehumidifier Points
     dehumidifyMode: UtahDehumidifyMode?
-    dehumidifyHsp: UtahDehumidifyHsp?
+    dehumidifyHsp: UtahDehumidifySp?
 
     // Heat Recovery Water Points
     hrwetTemp: UtahHRWETTemp?

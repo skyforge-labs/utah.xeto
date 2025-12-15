@@ -1,121 +1,93 @@
 // Discharge Air Points - Fan, Flow, Humidity, Pressure, Temperature
 
-
-UtahDaFanCmd: DischargeFanEnableCmd & UtahPoint {
+// Fan 
+UtahDaFanCmd: UtahDischarge & UtahFanCmdPoint & UtahHisCov {
   run
   navName: "DaFanCmd"
-  hisMode: "cov"
-  hisCollectInterval: "24hr"
 }
 
-UtahDaFanSts: DischargeFanRunSensor & UtahPoint {
+UtahDaFanCmdSts: UtahDischarge & UtahFanCmdStsPoint & UtahHisCov {
   navName: "DaFanSts"
-  hisMode: "cov"
-  hisCollectInterval: "24hr"
 }
 
-UtahDaFanAlrm: AlarmSensor & UtahPoint {
-  discharge
-  air
-  fan
+UtahDaFanAlrm: UtahDischarge & UtahFanCmd & AlarmSensor & UtahHisCov {
   navName: "DaFanAlrm"
-  hisMode: "cov"
-  hisCollectInterval: "24hr"
 }
 
-UtahDaFanSpd: DischargeFanSpeedSensor & UtahPoint {
+UtahDaFanSpd: UtahDischarge & UtahFanSpdPoint & UtahHisSampledMajorEquip {
   navName: "DaFanSpd"
-  hisMode: "sampled"
-  hisCollectInterval: "10min"
+  color: Str? "fuchia"
 }
 
-UtahDaFanFreq: NumberPoint & UtahPoint {
-  discharge
-  air
-  fan
-  freq
-  sensor
+UtahDaFanSpdSts: UtahDischarge & UtahFanSpdStsPoint & UtahHisSampledMajorEquip {
+  navName: "DaFanSpd"
+  color: Str? "fuchia"
+}
+
+UtahDaFanFreq: UtahDischarge & UtahFanFreqPoint & UtahHisSampledMajorEquip {
   navName: "DaFanFreq"
-  unit: "Hz"
-  hisMode: "sampled"
-  hisCollectInterval: "10min"
 }
 
-UtahDaFlow: DischargeAirFlowSensor & UtahPoint {
+//  Air Flow
+UtahDaFlow: UtahDischarge & UtahAirFlowPoint & UtahHisSampledMajorEquip {
   navName: "DaFlow"
-  hisMode: "sampled"
-  hisCollectInterval: "10min"
-  color: Str? "#ff66ff"
+  color: Str? "fuchia"
 }
 
-UtahDaHum: DischargeAirHumiditySensor & UtahPoint {
+UtahDaFlowSp: UtahDischarge & UtahAirFlowSpPoint & UtahHisCov {
+  navName: "DaFlowSp"
+  color: Str? "green"
+}
+
+//  Humidity
+UtahDaHum: UtahDischarge & UtahAirHumidityPoint & UtahHisSampledMajorEquip {
   navName: "DaHum"
-  hisMode: "sampled"
-  hisCollectInterval: "10min"
 }
 
-UtahDaHumHiLmt: DischargeAirHumiditySp & UtahPoint {
+UtahDaHumLmtHi: UtahDischarge & UtahAirHumidityPoint & UtahHisCov {
   high
-  navName: "DaHumHiLmt"
-  hisMode: "cov"
-  hisCollectInterval: "24hr"
+  navName: "DaHumLmtHi"
 }
 
-UtahDaPress: DischargeAirPressureSensor & UtahPoint {
+UtahDaHumLmtLow: UtahDischarge & UtahAirHumidityPoint & UtahHisCov {
+  low
+  navName: "DaHumLmtLow"
+}
+
+//  Pressure
+UtahDaPress: UtahDischarge & UtahAirPressurePoint & UtahPoint & UtahHisSampledMajorEquip {
   navName: "DaPress"
   precision: 0.01
-  hisMode: "sampled"
-  hisCollectInterval: "10min"
 }
 
-UtahDaPressSp: DischargeAirPressureSp & UtahPoint {
+UtahDaPressSp: UtahDischarge & UtahAirPressureSpPoint & UtahHisCov {
   navName: "DaPressSp"
   precision: 0.01
-  hisMode: "cov"
-  hisCollectInterval: "24hr"
 }
 
-UtahDaPressHiAlrm: AlarmSensor & UtahPoint {
-  discharge
-  air
-  pressure
+UtahDaPressAlarmHi: UtahDischarge & UtahAirPressureAlarmPoint & UtahHisCov {
   high
-  navName: "DaPressHiAlrm"
-  hisMode: "cov"
-  hisCollectInterval: "24hr"
+  navName: "DaPressAlrmHi"
 }
 
-UtahDaTemp: DischargeAirTempSensor & UtahPoint {
+// Temperature
+UtahDaTemp: UtahDischarge & UtahAirTempPoint & UtahHisSampledMajorEquip {
   navName: "DaTemp"
-  precision: 1
-  hisMode: "sampled"
-  hisCollectInterval: "10min"
-  color: Str? "#ff66ff"
+  color: Str? "fuchsia"
 }
 
-UtahDaTempSp: DischargeAirTempSp & UtahPoint {
+UtahDaTempSp: UtahDischarge & UtahAirTempSpPoint & UtahHisCov {
   navName: "DaTempSp"
-  unit: "F"
-  precision: 1
-  hisMode: "cov"
-  hisCollectInterval: "24hr"
-  color: Str? "#ff66ff"
+  color: Str? "green"
   strokeDasharray: Str? "2,2"
 }
 
-UtahDaTempEffSp: DischargeAirTempSp & UtahPoint {
+UtahDaTempEffSp: UtahDischarge & UtahAirTempSpPoint & UtahHisCov {
   effective
   navName: "DaTempEffSp"
-  precision: 1
-  hisMode: "cov"
-  hisCollectInterval: "24hr"
 }
 
-UtahDaTempHiLmt: DischargeAirTempSp & UtahPoint {
+UtahDaTempHiLmt: UtahDischarge & UtahAirTempSpPoint & UtahHisCov {
   high
   navName: "DaTempHiLmt"
-  precision: 1
-  hisMode: "cov"
-  hisCollectInterval: "24hr"
 }
-

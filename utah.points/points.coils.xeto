@@ -1,0 +1,29 @@
+//Developer License – Not for production use –More Info
+
+// Utah Abstract points
+
+// Coils
+
+UtahCoolingCoil: ph::Point <abstract> {
+    coolingCoil
+//    doc: "Cooling Coil, typically an air handler"
+    }
+    
+UtahHeatingCoil: ph::Point <abstract> {
+    heatingCoil
+//    doc: "Heating Coil, typically an air handler"
+    }
+    
+UtahPreheatCoil: ph::Point <abstract> {
+    preheatCoil
+//    doc: "Preheat Coil, typically an air handler"
+    }
+    
+UtahReheatCoil: ph::Point <abstract> {
+    reheatCoil
+//    doc: "Reheat Coil, air handler or VAV"
+    }
+UtahHeatRecoveryCoil: ph::Point <abstract> {
+    heatRecoveryCoil
+//    doc: "Reheat Coil, air handler or VAV"
+    }

@@ -1,0 +1,36 @@
+// Utah Abstract points
+
+// Fan On/Off Bool
+UtahFanCmd: UtahFan & BoolPoint <abstract> {
+    run
+    doc: "Generic Fan cmd: Bool"
+    }
+
+UtahFanCmdPoint: UtahFanCmd & CmdPoint <abstract> {
+    doc: "On/Off cmd"
+    }
+
+UtahFanCmdStsPoint: UtahFanCmd & SensorPoint <abstract> {
+    doc: "On/Off cmd feedback status sensor"
+    }
+
+//  Fan Speed Number
+UtahFanSpd: UtahFan & NumberPoint <abstract> {
+    speed
+    unit: "%"
+    doc: "Generic Fan speed 0-100%"
+    }
+    
+UtahFanSpdPoint: UtahFanSpd & CmdPoint <abstract> {
+    doc:  "0-100% fan speed"
+    }
+    
+UtahFanSpdStsPoint: UtahFanSpd & SensorPoint <abstract> {
+    run
+    doc: "0-100% valve feedback status sensor"
+    }
+    
+UtahFanFreqPoint: UtahFan & Freq & SensorPoint <abstract> {
+    unit: "Hz"
+    doc: "Fan Frequency"
+    }

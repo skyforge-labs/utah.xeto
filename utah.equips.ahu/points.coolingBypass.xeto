@@ -1,0 +1,35 @@
+// Cooling Bypass: Damper, Fan, Air Temps
+
+UtahCoolingBypass: UtahCoolingCoil {
+  bypass
+}
+
+// Bypass Damper
+
+UtahCoolingBypDmprCmd: UtahCoolingBypass & UtahDamperCmdPoint & UtahHisCov {
+  navName: "CCBypDmprCmd"
+}
+
+UtahCoolingBypDmprCmdSts: UtahCoolingBypass & UtahDamperCmdStsPoint & UtahHisCov {
+  navName: "CCBypDmprCmdSts"
+}
+
+UtahCoolingBypDmprPos: UtahCoolingBypass & UtahDamperPosPoint & UtahHisSampledMajorEquip {
+  navName: "CCBypDmprPos"
+}
+
+UtahCoolingBypDmprPosSts: UtahCoolingBypass & UtahDamperPosStsPoint & UtahHisSampledMajorEquip {
+  navName: "CCBypDmprPosSts"
+}
+
+//  Bypass Temperatures
+UtahCoolingBypDaTemp: UtahCoolingBypass & UtahAirTempPoint & UtahDischarge & UtahHisSampledMajorEquip {
+  navName: "CCBypDaTemp"
+}
+
+//  Bypass Fan
+UtahCoolingBypFanCmd: UtahCoolingBypass  & UtahFanCmdPoint & UtahHisCov {
+  navName: "CCBypDaFanCmd"
+}
+
+

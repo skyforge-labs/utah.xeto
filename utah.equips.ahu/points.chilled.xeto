@@ -1,82 +1,70 @@
-// Chilled Water System Points - Pump, Valve, Temperatures
+// Chilled Water System Points - Valves, Coil Temperatures, Circ Pumps, Flow
 
-UtahCWPts: RunSensor & UtahPoint {
-  chilled
-  water
-  pump
-  navName: "CWPts"
-  hisMode: "cov"
-  hisCollectInterval: "24hr"
+// Valve Position Points
+UtahChWVlvPos: ChilledWater & UtahValvePos & UtahHisSampledMajorEquip {
+  navName: "ChWVlvPos"
 }
 
-UtahCWCmd: EnableCmd & UtahPoint {
-  chilled
-  water
-  pump
-  run
-  navName: "CWCmd"
-  hisMode: "cov"
-  hisCollectInterval: "24hr"
+UtahChWVlvPosSts: ChilledWater & UtahValvePosSts & UtahHisSampledMajorEquip {
+  navName: "ChWVlvPosSts"
 }
-
-UtahCWIsoVlvCmd: ValveCmd & UtahPoint {
-  chilled
-  water
+// Isolation Valves
+UtahChWIsoVlvCmd: ChilledWater & UtahValveCmd & UtahHisCov {
   isolation
-  navName: "CWIsoVlvCmd"
-  hisMode: "cov"
-  hisCollectInterval: "24hr"
+  navName: "ChWIsoVlvCmd"
 }
 
-UtahCWVlvPos: ValveSensor & UtahPoint {
-  chilled
-  water
-  cmd
-  navName: "CWVlvPos"
-  hisMode: "sampled"
-  hisCollectInterval: "10min"
+
+// Dx Cooling Points
+UtahDxClgPoint: UtahDxPoint {
+  cooling
+  navName: "Dx cooling point"
 }
 
-UtahCWVlvPosSts: ValveSensor & UtahPoint {
-  chilled
-  water
-  navName: "CWVlvPosSts"
-  hisMode: "sampled"
-  hisCollectInterval: "10min"
+UtahDxClgStageCmd: UtahDxClgPoint & UtahDxStageCmd & UtahHisCov{
+  navName: "CCStageCmd"
 }
 
-UtahCCWLTemp: NumberPoint & UtahPoint {
-  chilled
-  water
-  temp
-  leaving
-  sensor
-  navName: "CCWLTemp"
-  unit: "F"
-  precision: 1
-  hisMode: "sampled"
-  hisCollectInterval: "10min"
-  color: Str? "blue"
+UtahDxClgStageCmdSts: UtahDxClgPoint & UtahDxStageCmdSts & UtahHisCov{
+  navName: "CCStageSts"
 }
 
-UtahCCWETemp: NumberPoint & UtahPoint {
-  chilled
-  water
-  temp
-  entering
-  sensor
-  navName: "CCWETemp"
-  unit: "F"
-  precision: 1
-  hisMode: "sampled"
-  hisCollectInterval: "10min"
-  color: Str? "lightblue"
+
+// Coil Temperature Points
+UtahChWCWETemp: ChilledWater & UtahCoolingCoil & UtahWaterTempEntering & UtahHisSampledMajorEquip {
+  navName: "ChWCWETemp"
 }
 
-UtahCCWFlow: WaterFlowSensor & UtahPoint {
-  chilled
-  navName: "CCWFlow"
-  hisMode: "sampled"
-  hisCollectInterval: "10min"
+UtahChWCWLTemp: ChilledWater & UtahCoolingCoil & UtahWaterTempLeaving & UtahHisSampledMajorEquip {
+  navName: "ChWCWLTemp"
+}
+
+UtahChWCAETemp: ChilledWater & UtahCoolingCoil & UtahAirTempEntering & UtahHisSampledMajorEquip {
+  navName: "ChWCAETemp"
+}
+UtahChWCALTemp: ChilledWater & UtahCoolingCoil & UtahAirTempLeaving & UtahHisSampledMajorEquip {
+  navName: "ChWCALTemp"
+}
+
+UtahChWCALTempSp:  ChilledWater & UtahCoolingCoil & UtahAirTempLeavingSp & UtahHisCov {
+  navName: "ChWCALTempSp"
+}
+
+// Coil Humidity Points
+UtahChWCALHum: ChilledWater & UtahCoolingCoil & UtahAirHumidityLeavinging & UtahHisSampledMajorEquip {
+  navName: "CCALHum"
+}
+
+// Pump Command Points
+UtahChWCPCmd: ChilledWater & UtahCircPump & RunCmd & UtahHisCov {
+  navName: "ChWCPCmd"
+}
+
+UtahChWCPCmdSts: ChilledWater & UtahCircPump & RunSensor & UtahHisCov {
+  navName: "ChWCPCmdSts"
+}
+// Flow Points
+UtahChWFlow: ChilledWater & UtahWaterFlowSensor & UtahHisSampledMajorEquip {
+  navName: "ChWFlow"
 }
 

@@ -1,0 +1,41 @@
+// Abstract equipment components that are unaffiliated with equip or point
+
+UtahEquipComponent: Entity {}
+
+UtahDamper: UtahEquipComponent {
+  damper
+}
+
+UtahDischarge: UtahEquipComponent {
+  discharge
+}
+
+UtahHumidifier: UtahEquipComponent {
+  humidifier
+}
+
+UtahHumidify: UtahEquipComponent {
+  humidify
+}
+
+UtahDehumidify: UtahEquipComponent {
+  dehumidify
+}
+
+UtahFan: UtahEquipComponent & Air {
+  fan
+}
+
+UtahPump: UtahEquipComponent {
+  pump
+}
+
+
+UtahColdDeck: UtahEquipComponent {
+  coldDeck
+}
+
+
+UtahHotDeck: UtahEquipComponent {
+  hotDeck
+}
