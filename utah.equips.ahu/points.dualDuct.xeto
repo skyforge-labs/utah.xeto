@@ -25,12 +25,12 @@ UtahCDDmprPos: UtahColdDeck & UtahDischarge & UtahDamperPosPoint & UtahHisSample
   navName: "CDDmprPos"
 }
 
-UtahCDDmprCmd: UtahColdDeck & UtahDischarge & UtahDamperCmdPoint & UtahHisCov {
-  navName: "CDDmprCmd"
-}
-
 UtahCDDmprPosSts: UtahColdDeck & UtahDischarge & UtahDamperPosStsPoint & UtahHisSampledMajorEquip {
   navName: "CDDmprPosSts"
+}
+
+UtahCDDmprCmd: UtahColdDeck & UtahDischarge & UtahDamperCmdPoint & UtahHisCov {
+  navName: "CDDmprCmd"
 }
 
 UtahCDPress: UtahColdDeck & UtahDischarge & UtahAirPressurePoint & UtahHisSampledMajorEquip {
@@ -38,68 +38,49 @@ UtahCDPress: UtahColdDeck & UtahDischarge & UtahAirPressurePoint & UtahHisSample
   precision: 0.01
 }
 
-UtahCDPressSp: UtahColdDeck & UtahDischarge & UtahAirPressureSpPoint & UtahHisSampledMajorEquip {
+UtahCDPressSp: UtahColdDeck & UtahDischarge & UtahAirPressureSpPoint & UtahHisCov {
   navName: "CDPressSp"
   precision: 0.01
 }
 
 // Hot Deck
-UtahHDDaTemp: UtahHotDeck & DischargeAirTempSensor & UtahPoint {
+UtahHDDaTemp: UtahHotDeck & UtahDischarge & UtahAirTempPoint & UtahHisSampledMajorEquip {
   navName: "HDDaTemp"
-  precision: 1
-  hisMode: "sampled"
-  hisCollectInterval: "10min"
   color: Str? "red"
 }
 
-UtahHDDaTempSp: UtahHotDeck & DischargeAirTempSp & UtahPoint {
-  hotDeck
+UtahHDDaTempSp: UtahHotDeck & UtahDischarge & UtahAirTempSpPoint & UtahHisSampledMajorEquip {
   navName: "HDDaTempSp"
-  precision: 1
-  hisMode: "cov"
-  hisCollectInterval: "24hr"
   color: Str? "red"
   strokeDasharray: Str? "2,2"
 }
 
-UtahHDHum: UtahHotDeck & AirHumiditySensor & UtahPoint {
-  discharge
-  navName: "HDHum"
-  hisMode: "sampled"
-  hisCollectInterval: "10min"
+UtahHDFlow: UtahHotDeck & UtahDischarge & UtahAirFlowPoint & UtahHisSampledMajorEquip {
+  navName: "HDFlow"
 }
 
-UtahHDDmprPos: UtahHotDeck & DamperSensor & UtahPoint {
-  discharge
+UtahHDFlowSp: UtahHotDeck & UtahDischarge & UtahAirFlowSpPoint & UtahHisSampledMajorEquip {
+  navName: "HDFlowSp"
+}
+
+UtahHDDmprPos: UtahHotDeck & UtahDischarge & UtahDamperPosPoint & UtahHisSampledMajorEquip {
   navName: "HDDmprPos"
-  hisMode: "sampled"
-  hisCollectInterval: "10min"
 }
 
-UtahHDPress: UtahHotDeck & AirPressureSensor & UtahPoint {
-  hotDeck
+UtahHDDmprPosSts: UtahHotDeck & UtahDischarge & UtahDamperPosStsPoint & UtahHisSampledMajorEquip {
+  navName: "HDDmprPosSts"
+}
+
+UtahHDPress: UtahHotDeck & UtahDischarge & UtahAirPressurePoint & UtahHisSampledMajorEquip {
   navName: "HDPress"
   precision: 0.01
-  hisMode: "sampled"
-  hisCollectInterval: "10min"
 }
 
-UtahHDPressSp: UtahHotDeck & AirPressureSp & UtahPoint {
+UtahHDPressSp: UtahHotDeck & UtahDischarge & UtahAirPressureSpPoint & UtahHisCov {
   navName: "HDPressSp"
   precision: 0.01
-  hisMode: "cov"
-  hisCollectInterval: "24hr"
 }
 
-UtahHDFlow: UtahHotDeck & DischargeAirFlowSensor & UtahPoint {
-  navName: "HDFlow"
-  hisMode: "sampled"
-  hisCollectInterval: "10min"
+UtahHDHum: UtahHotDeck & UtahDischarge & UtahAirHumidityPoint & UtahHisSampledMajorEquip {
+  navName: "HDHum"
 }
-
-UtahHDFlowSp: UtahHotDeck & DischargeAirFlowSp & UtahPoint {
-  navName: "HDFlowSp"
-  hisMode: "cov"
-  hisCollectInterval: "10min"
-}
-
