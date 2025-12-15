@@ -1,5 +1,10 @@
 // Return Air Points - Temperature, Humidity, Fan, Damper, Pressure
 
+//////////////////////////////////////////////////////////////////////////
+// Return Air Points
+//////////////////////////////////////////////////////////////////////////
+
+// Return air temperature
 UtahRaTemp: ReturnAirTempSensor & UtahPoint {
   navName: "RaTemp"
   precision: 1
@@ -8,6 +13,7 @@ UtahRaTemp: ReturnAirTempSensor & UtahPoint {
   color: Str? "brown"
 }
 
+// Return air humidity
 UtahRaHum: AirHumiditySensor & UtahPoint {
   return
   navName: "RaHum"
@@ -15,6 +21,7 @@ UtahRaHum: AirHumiditySensor & UtahPoint {
   hisCollectInterval: "10min"
 }
 
+// Return air humidity setpoint
 UtahRaHumSp: AirHumiditySp & UtahPoint {
   return
   dehumidify
@@ -23,6 +30,7 @@ UtahRaHumSp: AirHumiditySp & UtahPoint {
   hisCollectInterval: "24hr"
 }
 
+// Return air dehumidification heating setpoint
 UtahRaDehumidifyHsp: AirHumiditySp & UtahPoint {
   return
   dehumidify
@@ -31,6 +39,7 @@ UtahRaDehumidifyHsp: AirHumiditySp & UtahPoint {
   hisCollectInterval: "24hr"
 }
 
+// Return air damper position
 UtahRaDmprPos: DamperSensor & UtahPoint {
   return
   navName: "RaDmprPos"
@@ -38,6 +47,7 @@ UtahRaDmprPos: DamperSensor & UtahPoint {
   hisCollectInterval: "10min"
 }
 
+// Return air fan command
 UtahRaFanCmd: ReturnFanEnableCmd & UtahPoint {
   run
   navName: "RaFanCmd"
@@ -45,12 +55,14 @@ UtahRaFanCmd: ReturnFanEnableCmd & UtahPoint {
   hisCollectInterval: "24hr"
 }
 
+// Return air fan status
 UtahRaFanSts: ReturnFanRunSensor & UtahPoint {
   navName: "RaFanSts"
   hisMode: "cov"
   hisCollectInterval: "24hr"
 }
 
+// Return air fan alarm
 UtahRaFanAlrm: AlarmSensor & UtahPoint {
   return
   air
@@ -60,12 +72,14 @@ UtahRaFanAlrm: AlarmSensor & UtahPoint {
   hisCollectInterval: "24hr"
 }
 
+// Return air fan speed
 UtahRaFanSpd: ReturnFanSpeedSensor & UtahPoint {
   navName: "RaFanSpd"
   hisMode: "sampled"
   hisCollectInterval: "10min"
 }
 
+// Return air fan frequency
 UtahRaFanFreq: NumberPoint & UtahPoint {
   return
   air
@@ -78,6 +92,7 @@ UtahRaFanFreq: NumberPoint & UtahPoint {
   hisCollectInterval: "10min"
 }
 
+// Return air pressure
 UtahRaPress: ReturnAirPressureSensor & UtahPoint {
   navName: "RaPress"
   precision: 0.01
@@ -85,6 +100,7 @@ UtahRaPress: ReturnAirPressureSensor & UtahPoint {
   hisCollectInterval: "10min"
 }
 
+// Return air pressure setpoint
 UtahRaPressSp: ReturnAirPressureSp & UtahPoint {
   navName: "RaPressSp"
   precision: 0.01
@@ -92,6 +108,7 @@ UtahRaPressSp: ReturnAirPressureSp & UtahPoint {
   hisCollectInterval: "24hr"
 }
 
+// Return air pressure high alarm
 UtahRaPressHiAlrm: AlarmSensor & UtahPoint {
   return
   air
@@ -102,6 +119,7 @@ UtahRaPressHiAlrm: AlarmSensor & UtahPoint {
   hisCollectInterval: "24hr"
 }
 
+// Return air temperature setpoint
 UtahRaTempSp: ReturnAirTempSp & UtahPoint {
   navName: "RaTempSp"
   precision: 1

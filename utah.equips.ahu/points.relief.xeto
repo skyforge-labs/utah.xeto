@@ -1,6 +1,10 @@
 // Relief/Exhaust Air Points - Damper, Fan
 
+//////////////////////////////////////////////////////////////////////////
+// Relief/Exhaust Air Points
+//////////////////////////////////////////////////////////////////////////
 
+// Relief fan command
 UtahRlfFanCmd: EnableCmd & UtahPoint {
   exhaust
   air
@@ -11,6 +15,7 @@ UtahRlfFanCmd: EnableCmd & UtahPoint {
   hisCollectInterval: "24hr"
 }
 
+// Relief fan status
 UtahRlfFanSts: RunSensor & UtahPoint {
   exhaust
   air
@@ -20,6 +25,7 @@ UtahRlfFanSts: RunSensor & UtahPoint {
   hisCollectInterval: "24hr"
 }
 
+// Relief fan speed
 UtahRlfFanSpd: FanSpeedSensor & UtahPoint {
   exhaust
   navName: "RlfFanSpd"
@@ -27,6 +33,7 @@ UtahRlfFanSpd: FanSpeedSensor & UtahPoint {
   hisCollectInterval: "10min"
 }
 
+// Relief damper position
 UtahRlfDmprPos: DamperSensor & UtahPoint {
   relief
   navName: "RlfDmprPos"
@@ -34,6 +41,7 @@ UtahRlfDmprPos: DamperSensor & UtahPoint {
   hisCollectInterval: "10min"
 }
 
+// Relief damper command
 UtahRlfDmprCmd: DamperCmd & UtahPoint {
   relief
   navName: "RlfDmprCmd"

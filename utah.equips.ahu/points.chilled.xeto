@@ -1,69 +1,106 @@
 // Chilled Water System Points - Valves, Coil Temperatures, Circ Pumps, Flow
 
+//////////////////////////////////////////////////////////////////////////
 // Valve Position Points
+//////////////////////////////////////////////////////////////////////////
+
+// Chilled water valve position
 UtahChWVlvPos: ChilledWater & UtahValvePos & UtahHisSampledMajorEquip {
   navName: "ChWVlvPos"
 }
 
+// Chilled water valve position status
 UtahChWVlvPosSts: ChilledWater & UtahValvePosSts & UtahHisSampledMajorEquip {
   navName: "ChWVlvPosSts"
 }
-// Isolation Valves
+//////////////////////////////////////////////////////////////////////////
+// Isolation Valve Points
+//////////////////////////////////////////////////////////////////////////
+
+// Chilled water isolation valve command
 UtahChWIsoVlvCmd: ChilledWater & UtahValveCmd & UtahHisCov {
   isolation
   navName: "ChWIsoVlvCmd"
 }
 
 
-// Dx Cooling Points
+//////////////////////////////////////////////////////////////////////////
+// DX Cooling Points
+//////////////////////////////////////////////////////////////////////////
+
+// DX cooling point base
 UtahDxClgPoint: UtahDxPoint {
   cooling
   navName: "Dx cooling point"
 }
 
+// DX cooling stage command
 UtahDxClgStageCmd: UtahDxClgPoint & UtahDxStageCmd & UtahHisCov{
   navName: "CCStageCmd"
 }
 
+// DX cooling stage command status
 UtahDxClgStageCmdSts: UtahDxClgPoint & UtahDxStageCmdSts & UtahHisCov{
   navName: "CCStageSts"
 }
 
 
+//////////////////////////////////////////////////////////////////////////
 // Coil Temperature Points
+//////////////////////////////////////////////////////////////////////////
+
+// Chilled water coil water entering temperature
 UtahChWCWETemp: ChilledWater & UtahCoolingCoil & UtahWaterTempEntering & UtahHisSampledMajorEquip {
   navName: "ChWCWETemp"
 }
 
+// Chilled water coil water leaving temperature
 UtahChWCWLTemp: ChilledWater & UtahCoolingCoil & UtahWaterTempLeaving & UtahHisSampledMajorEquip {
   navName: "ChWCWLTemp"
 }
 
+// Chilled water coil air entering temperature
 UtahChWCAETemp: ChilledWater & UtahCoolingCoil & UtahAirTempEntering & UtahHisSampledMajorEquip {
   navName: "ChWCAETemp"
 }
+
+// Chilled water coil air leaving temperature
 UtahChWCALTemp: ChilledWater & UtahCoolingCoil & UtahAirTempLeaving & UtahHisSampledMajorEquip {
   navName: "ChWCALTemp"
 }
 
+// Chilled water coil air leaving temperature setpoint
 UtahChWCALTempSp:  ChilledWater & UtahCoolingCoil & UtahAirTempLeavingSp & UtahHisCov {
   navName: "ChWCALTempSp"
 }
 
+//////////////////////////////////////////////////////////////////////////
 // Coil Humidity Points
+//////////////////////////////////////////////////////////////////////////
+
+// Chilled water coil air leaving humidity
 UtahChWCALHum: ChilledWater & UtahCoolingCoil & UtahAirHumidityLeavinging & UtahHisSampledMajorEquip {
   navName: "CCALHum"
 }
 
+//////////////////////////////////////////////////////////////////////////
 // Pump Command Points
+//////////////////////////////////////////////////////////////////////////
+
+// Chilled water circulation pump command
 UtahChWCPCmd: ChilledWater & UtahCircPump & RunCmd & UtahHisCov {
   navName: "ChWCPCmd"
 }
 
+// Chilled water circulation pump command status
 UtahChWCPCmdSts: ChilledWater & UtahCircPump & RunSensor & UtahHisCov {
   navName: "ChWCPCmdSts"
 }
+//////////////////////////////////////////////////////////////////////////
 // Flow Points
+//////////////////////////////////////////////////////////////////////////
+
+// Chilled water flow
 UtahChWFlow: ChilledWater & UtahWaterFlowSensor & UtahHisSampledMajorEquip {
   navName: "ChWFlow"
 }

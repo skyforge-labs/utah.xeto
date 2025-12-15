@@ -1,92 +1,125 @@
 // Discharge Air Points - Fan, Flow, Humidity, Pressure, Temperature
 
-// Fan 
+//////////////////////////////////////////////////////////////////////////
+// Fan Points
+//////////////////////////////////////////////////////////////////////////
+
+// Discharge air fan command
 UtahDaFanCmd: UtahDischarge & UtahFanCmdPoint & UtahHisCov {
   run
   navName: "DaFanCmd"
 }
 
+// Discharge air fan command status
 UtahDaFanCmdSts: UtahDischarge & UtahFanCmdStsPoint & UtahHisCov {
   navName: "DaFanSts"
 }
 
+// Discharge air fan alarm
 UtahDaFanAlrm: UtahDischarge & UtahFanCmd & AlarmSensor & UtahHisCov {
   navName: "DaFanAlrm"
 }
 
+// Discharge air fan speed
 UtahDaFanSpd: UtahDischarge & UtahFanSpdPoint & UtahHisSampledMajorEquip {
   navName: "DaFanSpd"
   color: Str? "fuchia"
 }
 
+// Discharge air fan speed status
 UtahDaFanSpdSts: UtahDischarge & UtahFanSpdStsPoint & UtahHisSampledMajorEquip {
   navName: "DaFanSpd"
   color: Str? "fuchia"
 }
 
+// Discharge air fan frequency
 UtahDaFanFreq: UtahDischarge & UtahFanFreqPoint & UtahHisSampledMajorEquip {
   navName: "DaFanFreq"
 }
 
-//  Air Flow
+//////////////////////////////////////////////////////////////////////////
+// Air Flow Points
+//////////////////////////////////////////////////////////////////////////
+
+// Discharge air flow
 UtahDaFlow: UtahDischarge & UtahAirFlowPoint & UtahHisSampledMajorEquip {
   navName: "DaFlow"
   color: Str? "fuchia"
 }
 
+// Discharge air flow setpoint
 UtahDaFlowSp: UtahDischarge & UtahAirFlowSpPoint & UtahHisCov {
   navName: "DaFlowSp"
   color: Str? "green"
 }
 
-//  Humidity
+//////////////////////////////////////////////////////////////////////////
+// Humidity Points
+//////////////////////////////////////////////////////////////////////////
+
+// Discharge air humidity
 UtahDaHum: UtahDischarge & UtahAirHumidityPoint & UtahHisSampledMajorEquip {
   navName: "DaHum"
 }
 
+// Discharge air humidity high limit
 UtahDaHumLmtHi: UtahDischarge & UtahAirHumidityPoint & UtahHisCov {
   high
   navName: "DaHumLmtHi"
 }
 
+// Discharge air humidity low limit
 UtahDaHumLmtLow: UtahDischarge & UtahAirHumidityPoint & UtahHisCov {
   low
   navName: "DaHumLmtLow"
 }
 
-//  Pressure
+//////////////////////////////////////////////////////////////////////////
+// Pressure Points
+//////////////////////////////////////////////////////////////////////////
+
+// Discharge air pressure
 UtahDaPress: UtahDischarge & UtahAirPressurePoint & UtahPoint & UtahHisSampledMajorEquip {
   navName: "DaPress"
   precision: 0.01
 }
 
+// Discharge air pressure setpoint
 UtahDaPressSp: UtahDischarge & UtahAirPressureSpPoint & UtahHisCov {
   navName: "DaPressSp"
   precision: 0.01
 }
 
+// Discharge air pressure high alarm
 UtahDaPressAlarmHi: UtahDischarge & UtahAirPressureAlarmPoint & UtahHisCov {
   high
   navName: "DaPressAlrmHi"
 }
 
-// Temperature
+//////////////////////////////////////////////////////////////////////////
+// Temperature Points
+//////////////////////////////////////////////////////////////////////////
+
+// Discharge air temperature
 UtahDaTemp: UtahDischarge & UtahAirTempPoint & UtahHisSampledMajorEquip {
   navName: "DaTemp"
   color: Str? "fuchsia"
 }
 
+// Discharge air temperature setpoint
 UtahDaTempSp: UtahDischarge & UtahAirTempSpPoint & UtahHisCov {
   navName: "DaTempSp"
   color: Str? "green"
   strokeDasharray: Str? "2,2"
 }
 
+// Discharge air effective temperature setpoint
 UtahDaTempEffSp: UtahDischarge & UtahAirTempSpPoint & UtahHisCov {
   effective
   navName: "DaTempEffSp"
 }
 
+// Discharge air temperature high limit
 UtahDaTempHiLmt: UtahDischarge & UtahAirTempSpPoint & UtahHisCov {
   high
   navName: "DaTempHiLmt"

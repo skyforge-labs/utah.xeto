@@ -1,12 +1,17 @@
 // Humidifier Points - Enable, Command, Valve, Fan Speed
 
+//////////////////////////////////////////////////////////////////////////
+// Humidifier Points
+//////////////////////////////////////////////////////////////////////////
 
+// Humidifier enable command
 UtahHumidifierEnable: UtahHumidifier & BoolPoint & EnableCmd {
   navName: "HumidifierEnable"
   hisMode: "cov"
   hisCollectInterval: "24hr"
 }
 
+// Humidifier command
 UtahHumidifierCmd: UtahHumidifier & BoolPoint  & CmdPoint {
   run
   navName: "HumidifierCmd"
@@ -14,18 +19,22 @@ UtahHumidifierCmd: UtahHumidifier & BoolPoint  & CmdPoint {
   hisCollectInterval: "24hr"
 }
 
+// Humidifier steam valve command
 UtahHumidifierStmVlvCmd: UtahHumidifier & Steam & UtahValveCmd & UtahHisCov {
   navName: "HumidifierStmVlvCmd"
 }
 
+// Humidifier steam valve position
 UtahHumidifierStmVlvPos: UtahHumidifier & Steam & UtahValvePos & UtahHisSampledMajorEquip {
   navName: "HumidifierStmVlvPos"
 }
 
+// Humidifier fan speed
 UtahHumidifierFanSpd: UtahHumidifier & FanSpeedCmd & UtahHisSampledMajorEquip {
   navName: "HumidifierFanSpd"
 }
 
-UtahHumidifySp: UtahHumidifyPoint & SpPoint & UtahHisSampledMajorEquip { 
+// Humidifier setpoint
+UtahHumidifySp: UtahHumidifyPoint & SpPoint & UtahHisSampledMajorEquip {
   navName: "HumidifySp"
 }

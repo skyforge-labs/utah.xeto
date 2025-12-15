@@ -48,7 +48,7 @@ UtahAhu: Ahu <abstract> {
     daFlow: UtahDaFlow?
     daHum: UtahDaHum?
     daHumLmtHi: UtahDaHumLmtHi?
-    daHumLmtLow: UtahDaHumLmtLow?    
+    daHumLmtLow: UtahDaHumLmtLow?
     daPress: UtahDaPress?
     daPressSp: UtahDaPressSp?
     daPressAlrmHi: UtahDaPressAlarmHi?
@@ -135,7 +135,7 @@ UtahAhu: Ahu <abstract> {
     cwVlvPosSts: UtahChWVlvPosSts?
     ccwlTemp: UtahChWCWLTemp?
     ccweTemp: UtahChWCWETemp?
-    ccalHum: UtahChWCALHum?    
+    ccalHum: UtahChWCALHum?
     ccwFlow: UtahChWFlow?
 
     // Cooling Coil Air Points

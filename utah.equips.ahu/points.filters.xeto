@@ -1,7 +1,12 @@
 // Filter Points - Alarm, Status, Pressure Differential
 
+//////////////////////////////////////////////////////////////////////////
+// Filter Points
+//////////////////////////////////////////////////////////////////////////
 
 
+
+// Filter alarm indicating maintenance required
 UtahFilterAlrm: AlarmSensor & UtahPoint {
   filter
   navName: "FilterAlrm"
@@ -9,6 +14,7 @@ UtahFilterAlrm: AlarmSensor & UtahPoint {
   hisCollectInterval: "24hr"
 }
 
+// Current filter status (clean/dirty)
 UtahFilterSts: RunSensor & UtahPoint {
   filter
   navName: "FilterSts"
@@ -16,6 +22,7 @@ UtahFilterSts: RunSensor & UtahPoint {
   hisCollectInterval: "24hr"
 }
 
+// Overall filter differential pressure
 UtahFilterDP: NumberPoint & UtahPoint {
   filter
   pressure
@@ -28,6 +35,7 @@ UtahFilterDP: NumberPoint & UtahPoint {
   hisCollectInterval: "10min"
 }
 
+// Pre-filter differential pressure
 UtahPreFilterDP: NumberPoint & UtahPoint {
   filter
   pressure
@@ -40,6 +48,7 @@ UtahPreFilterDP: NumberPoint & UtahPoint {
   hisCollectInterval: "10min"
 }
 
+// Final filter differential pressure
 UtahFinalFilterDP: NumberPoint & UtahPoint {
   filter
   pressure

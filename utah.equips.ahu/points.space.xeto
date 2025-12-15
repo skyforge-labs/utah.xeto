@@ -1,24 +1,31 @@
 // Space/Zone Points - for single-zone direct AHUs
 
+//////////////////////////////////////////////////////////////////////////
+// Space/Zone Points
+//////////////////////////////////////////////////////////////////////////
 
+// Space CO2 concentration sensor
 UtahSpcCO2: ZoneCo2Sensor & UtahPoint {
   navName: "SpcCO2"
   hisMode: "sampled"
   hisCollectInterval: "10min"
 }
 
+// Space CO2 concentration setpoint
 UtahSpcCO2Sp: ZoneCo2Sp & UtahPoint {
   navName: "SpcCO2Sp"
   hisMode: "cov"
   hisCollectInterval: "24hr"
 }
 
+// Space humidity sensor
 UtahSpcHum: ZoneAirHumiditySensor & UtahPoint {
   navName: "SpcHum"
   hisMode: "sampled"
   hisCollectInterval: "10min"
 }
 
+// Space pressure sensor
 UtahSpcPress: AirPressureSensor & UtahPoint {
   zone
   navName: "SpcPress"
@@ -27,6 +34,7 @@ UtahSpcPress: AirPressureSensor & UtahPoint {
   hisCollectInterval: "10min"
 }
 
+// Space pressure setpoint
 UtahSpcPressSp: AirPressureSp & UtahPoint {
   zone
   navName: "SpcPressSp"
@@ -35,6 +43,7 @@ UtahSpcPressSp: AirPressureSp & UtahPoint {
   hisCollectInterval: "24hr"
 }
 
+// Space temperature sensor
 UtahSpcTemp: ZoneAirTempSensor & UtahPoint {
   navName: "SpcTemp"
   precision: 1
@@ -43,6 +52,7 @@ UtahSpcTemp: ZoneAirTempSensor & UtahPoint {
   color: Str? "green"
 }
 
+// Space temperature setpoint
 UtahSpcTempSp: ZoneAirTempEffectiveSp & UtahPoint {
   navName: "SpcTempSp"
   precision: 1
@@ -52,6 +62,7 @@ UtahSpcTempSp: ZoneAirTempEffectiveSp & UtahPoint {
   strokeDasharray: Str? "2,2"
 }
 
+// Occupied cooling setpoint
 UtahOccCoolSp: ZoneAirTempOccCoolingSp & UtahPoint {
   navName: "OccCoolSp"
   precision: 1
@@ -60,6 +71,7 @@ UtahOccCoolSp: ZoneAirTempOccCoolingSp & UtahPoint {
   color: Str? "blue"
 }
 
+// Occupied heating setpoint
 UtahOccHeatSp: ZoneAirTempOccHeatingSp & UtahPoint {
   navName: "OccHeatSp"
   precision: 1
@@ -68,6 +80,7 @@ UtahOccHeatSp: ZoneAirTempOccHeatingSp & UtahPoint {
   color: Str? "orange"
 }
 
+// Unoccupied cooling setpoint
 UtahUnoccCoolSp: ZoneAirTempUnoccCoolingSp & UtahPoint {
   navName: "UnoccCoolSp"
   precision: 1
@@ -75,6 +88,7 @@ UtahUnoccCoolSp: ZoneAirTempUnoccCoolingSp & UtahPoint {
   hisCollectInterval: "24hr"
 }
 
+// Unoccupied heating setpoint
 UtahUnoccHeatSp: ZoneAirTempUnoccHeatingSp & UtahPoint {
   navName: "UnoccHeatSp"
   precision: 1

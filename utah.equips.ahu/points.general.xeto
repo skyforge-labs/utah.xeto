@@ -1,7 +1,10 @@
 // General AHU Points - Occupancy, Building Pressure, Safety
 
+//////////////////////////////////////////////////////////////////////////
+// General AHU Points
+//////////////////////////////////////////////////////////////////////////
 
-
+// Occupancy command for AHU operation scheduling
 UtahOccCmd: ZoneOccupiedSp & UtahPoint {
   cmd
   navName: "OccCmd"
@@ -9,6 +12,7 @@ UtahOccCmd: ZoneOccupiedSp & UtahPoint {
   hisCollectInterval: "24hr"
 }
 
+// Current occupancy mode status
 UtahOccMode: EnumPoint & UtahPoint {
   occupied
   navName: "OccMode"
@@ -16,6 +20,7 @@ UtahOccMode: EnumPoint & UtahPoint {
   hisCollectInterval: "24hr"
 }
 
+// Building pressure sensor for pressurization control
 UtahBldgPress: AirPressureSensor & UtahPoint {
   building
   navName: "BldgPress"
@@ -24,6 +29,7 @@ UtahBldgPress: AirPressureSensor & UtahPoint {
   hisCollectInterval: "10min"
 }
 
+// Building pressure setpoint
 UtahBldgPressSp: AirPressureSp & UtahPoint {
   building
   navName: "BldgPressSp"
@@ -32,6 +38,7 @@ UtahBldgPressSp: AirPressureSp & UtahPoint {
   hisCollectInterval: "24hr"
 }
 
+// Freeze protection status sensor
 UtahFrzStat: BoolPoint & UtahPoint {
   freeze
   air
@@ -42,6 +49,7 @@ UtahFrzStat: BoolPoint & UtahPoint {
   hisCollectInterval: "24hr"
 }
 
+// Fire alarm shutdown signal
 UtahFireAlrmShutdwn: AlarmSensor & UtahPoint {
   fire
   navName: "FireAlrmShutdwn"
@@ -49,12 +57,14 @@ UtahFireAlrmShutdwn: AlarmSensor & UtahPoint {
   hisCollectInterval: "24hr"
 }
 
+// Emergency kill switch for AHU shutdown
 UtahKillSwitch: EnableCmd & UtahPoint {
   navName: "KillSwitch"
   hisMode: "cov"
   hisCollectInterval: "24hr"
 }
 
+// Water alarm sensor for flood detection
 UtahWtrAlrm: AlarmSensor & UtahPoint {
   water
   navName: "WtrAlrm"

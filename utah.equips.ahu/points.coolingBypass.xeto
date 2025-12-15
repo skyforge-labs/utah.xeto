@@ -4,30 +4,44 @@ UtahCoolingBypass: UtahCoolingCoil {
   bypass
 }
 
-// Bypass Damper
+//////////////////////////////////////////////////////////////////////////
+// Bypass Damper Points
+//////////////////////////////////////////////////////////////////////////
 
+// Cooling bypass damper command
 UtahCoolingBypDmprCmd: UtahCoolingBypass & UtahDamperCmdPoint & UtahHisCov {
   navName: "CCBypDmprCmd"
 }
 
+// Cooling bypass damper command status
 UtahCoolingBypDmprCmdSts: UtahCoolingBypass & UtahDamperCmdStsPoint & UtahHisCov {
   navName: "CCBypDmprCmdSts"
 }
 
+// Cooling bypass damper position
 UtahCoolingBypDmprPos: UtahCoolingBypass & UtahDamperPosPoint & UtahHisSampledMajorEquip {
   navName: "CCBypDmprPos"
 }
 
+// Cooling bypass damper position status
 UtahCoolingBypDmprPosSts: UtahCoolingBypass & UtahDamperPosStsPoint & UtahHisSampledMajorEquip {
   navName: "CCBypDmprPosSts"
 }
 
-//  Bypass Temperatures
+//////////////////////////////////////////////////////////////////////////
+// Bypass Temperature Points
+//////////////////////////////////////////////////////////////////////////
+
+// Cooling bypass discharge air temperature
 UtahCoolingBypDaTemp: UtahCoolingBypass & UtahAirTempPoint & UtahDischarge & UtahHisSampledMajorEquip {
   navName: "CCBypDaTemp"
 }
 
-//  Bypass Fan
+//////////////////////////////////////////////////////////////////////////
+// Bypass Fan Points
+//////////////////////////////////////////////////////////////////////////
+
+// Cooling bypass fan command
 UtahCoolingBypFanCmd: UtahCoolingBypass  & UtahFanCmdPoint & UtahHisCov {
   navName: "CCBypDaFanCmd"
 }

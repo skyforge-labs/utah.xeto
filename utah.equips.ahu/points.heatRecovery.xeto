@@ -1,6 +1,10 @@
 // Heat Recovery Water System Points - Temperatures, Flow, Power, Energy
 
+//////////////////////////////////////////////////////////////////////////
+// Heat Recovery Water Points
+//////////////////////////////////////////////////////////////////////////
 
+// Heat recovery water entering temperature
 UtahHRWETTemp: NumberPoint & UtahPoint {
   equip
   water
@@ -14,6 +18,7 @@ UtahHRWETTemp: NumberPoint & UtahPoint {
   hisCollectInterval: "10min"
 }
 
+// Heat recovery water leaving temperature
 UtahHRWLTTemp: NumberPoint & UtahPoint {
   water
   temp
@@ -27,6 +32,7 @@ UtahHRWLTTemp: NumberPoint & UtahPoint {
   hisCollectInterval: "10min"
 }
 
+// Heat recovery water flow
 UtahHRWFlow: WaterFlowSensor & UtahPoint {
   hru
   navName: "HRWFlow"
@@ -34,6 +40,7 @@ UtahHRWFlow: WaterFlowSensor & UtahPoint {
   hisCollectInterval: "10min"
 }
 
+// Heat recovery water volumetric flow
 UtahHRWVolFlow: WaterFlowSensor & UtahPoint {
   volumetric
   hru
@@ -42,6 +49,7 @@ UtahHRWVolFlow: WaterFlowSensor & UtahPoint {
   hisCollectInterval: "10min"
 }
 
+// Heat recovery water mass flow
 UtahHRWMassFlow: WaterFlowSensor & UtahPoint {
   massFlow
   navName: "HRWMassFlow"
@@ -49,6 +57,7 @@ UtahHRWMassFlow: WaterFlowSensor & UtahPoint {
   hisCollectInterval: "10min"
 }
 
+// Heat recovery water power
 UtahHRWPower: NumberPoint & UtahPoint {
   water
   power
@@ -59,6 +68,7 @@ UtahHRWPower: NumberPoint & UtahPoint {
   hisCollectInterval: "10min"
 }
 
+// Heat recovery water energy
 UtahHRWEnergy: NumberPoint & UtahPoint {
   water
   energy
@@ -70,6 +80,7 @@ UtahHRWEnergy: NumberPoint & UtahPoint {
   hisCollectInterval: "10min"
 }
 
+// Heat recovery water command
 UtahHRWCmd: EnableCmd & UtahPoint {
   water
   circ

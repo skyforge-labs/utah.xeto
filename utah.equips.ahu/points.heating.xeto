@@ -1,7 +1,12 @@
 // Hot Water Heating System Points - Pump, Valve, Temperatures
 
+//////////////////////////////////////////////////////////////////////////
+// Hot Water Heating Points
+//////////////////////////////////////////////////////////////////////////
 
 
+
+// Hot water circulation pump command
 UtahHWCCmd: EnableCmd & UtahPoint {
   hot
   water
@@ -13,6 +18,7 @@ UtahHWCCmd: EnableCmd & UtahPoint {
   hisCollectInterval: "24hr"
 }
 
+// Hot water circulation pump status
 UtahHWCPts: RunSensor & UtahPoint {
   hot
   water
@@ -23,6 +29,7 @@ UtahHWCPts: RunSensor & UtahPoint {
   hisCollectInterval: "24hr"
 }
 
+// Hot water isolation valve command
 UtahHWIsoVlvCmd: ValveCmd & UtahPoint {
   hot
   water
@@ -32,6 +39,7 @@ UtahHWIsoVlvCmd: ValveCmd & UtahPoint {
   hisCollectInterval: "24hr"
 }
 
+// Hot water isolation valve position
 UtahHWIsoVlvPos: ValveSensor & UtahPoint {
   hot
   water
@@ -41,6 +49,7 @@ UtahHWIsoVlvPos: ValveSensor & UtahPoint {
   hisCollectInterval: "10min"
 }
 
+// Hot water valve position
 UtahHWVlvPos: ValveSensor & UtahPoint {
   hot
   water
@@ -50,6 +59,7 @@ UtahHWVlvPos: ValveSensor & UtahPoint {
   hisCollectInterval: "10min"
 }
 
+// Hot water valve position status
 UtahHWVlvPosSts: ValveSensor & UtahPoint {
   hot
   water
@@ -58,6 +68,7 @@ UtahHWVlvPosSts: ValveSensor & UtahPoint {
   hisCollectInterval: "10min"
 }
 
+// Heating coil air leaving temperature
 UtahHCALTemp: AirTempSensor & UtahPoint {
   heat
   leaving
@@ -69,6 +80,7 @@ UtahHCALTemp: AirTempSensor & UtahPoint {
   color: Str? "orange"
 }
 
+// Heating coil water leaving temperature
 UtahHCWLTemp: NumberPoint & UtahPoint {
   heating
   coil
@@ -85,6 +97,7 @@ UtahHCWLTemp: NumberPoint & UtahPoint {
   hisCollectInterval: "10min"
 }
 
+// Heating coil water entering temperature
 UtahHCWETemp: NumberPoint & UtahPoint {
   heating
   coil

@@ -1,5 +1,10 @@
 // Outside Air Points - Temperature, Humidity, Damper, Flow, Pressure
 
+//////////////////////////////////////////////////////////////////////////
+// Outside Air Points
+//////////////////////////////////////////////////////////////////////////
+
+// Outside air temperature
 UtahOaTemp: OutsideAirTempSensor & UtahPoint {
   navName: "OaTemp"
   precision: 1
@@ -8,6 +13,7 @@ UtahOaTemp: OutsideAirTempSensor & UtahPoint {
   color: Str? "gray"
 }
 
+// Outside air humidity
 UtahOaHum: AirHumiditySensor & UtahPoint {
   outside
   navName: "OaHum"
@@ -15,6 +21,7 @@ UtahOaHum: AirHumiditySensor & UtahPoint {
   hisCollectInterval: "10min"
 }
 
+// Outside air damper position
 UtahOaDmprPos: DamperSensor & UtahPoint {
   outside
   navName: "OaDmprPos"
@@ -22,6 +29,7 @@ UtahOaDmprPos: DamperSensor & UtahPoint {
   hisCollectInterval: "10min"
 }
 
+// Outside air damper command
 UtahOaDmprCmd: DamperCmd & UtahPoint {
   outside
   min
@@ -30,6 +38,7 @@ UtahOaDmprCmd: DamperCmd & UtahPoint {
   hisCollectInterval: "10min"
 }
 
+// Outside air minimum damper position
 UtahOaMinDmprPos: DamperCmd & UtahPoint {
   outside
   min
@@ -38,18 +47,21 @@ UtahOaMinDmprPos: DamperCmd & UtahPoint {
   hisCollectInterval: "24hr"
 }
 
+// Outside air flow
 UtahOaFlow: OutsideAirFlowSensor & UtahPoint {
   navName: "OaFlow"
   hisMode: "sampled"
   hisCollectInterval: "10min"
 }
 
+// Outside air flow setpoint
 UtahOaFlowSp: OutsideAirFlowSp & UtahPoint {
   navName: "OaFlowSp"
   hisMode: "cov"
   hisCollectInterval: "24hr"
 }
 
+// Outside air pressure
 UtahOaPress: AirPressureSensor & UtahPoint {
   outside
   navName: "OaPress"
@@ -58,6 +70,7 @@ UtahOaPress: AirPressureSensor & UtahPoint {
   hisCollectInterval: "10min"
 }
 
+// Outside air pressure setpoint
 UtahOaPressSp: AirPressureSp & UtahPoint {
   outside
   navName: "OaPressSp"
@@ -66,6 +79,7 @@ UtahOaPressSp: AirPressureSp & UtahPoint {
   hisCollectInterval: "24hr"
 }
 
+// Outside air temperature setpoint
 UtahOaTempSp: AirTempSp & UtahPoint {
   outside
   navName: "OaTempSp"

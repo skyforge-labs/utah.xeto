@@ -1,11 +1,17 @@
 // Dehumidifier Points - Mode, Setpoint
 
+//////////////////////////////////////////////////////////////////////////
+// Dehumidifier Points
+//////////////////////////////////////////////////////////////////////////
+
+// Dehumidifier mode
 UtahDehumidifyMode: UtahDehumidify & EnumPoint & CmdPoint & UtahHisCov {
   run
   navName: "DehumidifyMode"
 }
 
-UtahDehumidifySp: UtahDehumidifyPoint & SpPoint & UtahHisSampledMajorEquip { 
+// Dehumidifier setpoint
+UtahDehumidifySp: UtahDehumidifyPoint & SpPoint & UtahHisSampledMajorEquip {
   navName: "DehumidifySp"
 }
 
