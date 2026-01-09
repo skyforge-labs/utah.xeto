@@ -1,3 +1,10 @@
+//
+// Copyright (c) 2025, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   24 Nov 2025   James Gessel   Creation
+//
 // Filter Points - Alarm, Status, Pressure Differential
 
 //////////////////////////////////////////////////////////////////////////
@@ -29,4 +36,3 @@ UtahPreFilterDP: UtahAirFilter & UtahAirDiffPressurePoint & SensorPoint & UtahHi
 UtahFinalFilterDP: UtahAirFilter & UtahAirDiffPressurePoint & SensorPoint & UtahHisSampledMajorEquip {
   navName: "FinalFilterDP"
 }
-

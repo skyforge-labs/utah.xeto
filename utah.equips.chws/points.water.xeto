@@ -1,3 +1,10 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   07 Jan 2026   Paul Quinn   Creation
+//
 // Chilled Water System Points - Valves, Coil Temperatures, Circ Pumps, Flow
 
 //////////////////////////////////////////////////////////////////////////
@@ -118,12 +125,12 @@ UtahSecChWDPSp: ChilledWater & UtahSecondary & UtahWaterDPSp & UtahHisSampledMaj
 // Chilled Water Energy and Power Points
 //////////////////////////////////////////////////////////////////////////
 
-// Hot Water Energy
+// Chilled Water Energy
 UtahChWEnergy: ChilledWater & UtahWaterEnergySensor & UtahHisConsumptionMajorEquip {
   navName: "ChWEnergy"
   unit: "MMBTU"
 }
-// Hot Water Power
+// Chilled Water Power
 UtahChWPower: ChilledWater & UtahWaterPowerSensor & UtahHisSampledMajorEquip {
   navName: "ChWPower"
   unit: "MMBTU/h"

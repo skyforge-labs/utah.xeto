@@ -1,5 +1,12 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   06 Jan 2026   Paul Quinn   Creation
+//
 pragma: Lib <
-  doc: "State of Utah AHU Equipment Library"
+  doc: "State of Utah HWS Equipment Library"
   version: "0.0.1"
   depends: {
     { lib: "sys", versions: "0.1.x" },

@@ -1,0 +1,86 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   09 Jan 2026   Paul Quinn   Creation
+//
+// Pump Command Points
+
+//////////////////////////////////////////////////////////////////////////
+//  Primary Pumps
+//////////////////////////////////////////////////////////////////////////
+
+// Primary Hot water pump command
+UtahPriHWPCmd: UtahPrimary & HotWater & UtahPump & RunCmd & UtahHisCov {
+  navName: "PriHWPCmd"
+}
+
+// Primary Hot water pump command status
+UtahPriHWPCmdSts: UtahPrimary & HotWater & UtahPump & RunSensor & UtahHisCov {
+  navName: "PriHWPCmdSts"
+}
+
+// Primary Hot water pump speed
+UtahPriHWPSpd: UtahPrimary & HotWater & UtahPumpSpd & UtahHisSampledMajorEquip {
+  navName: "PriHWPSpd"
+}
+
+// Primary Hot water pump speed status
+UtahPriHWPSpdSts: UtahPrimary & HotWater & UtahPumpSpdSts & UtahHisSampledMajorEquip {
+  navName: "PriHWPSpdSts"
+}
+
+// Primary Hot water pump frequency
+UtahPriHWPFreq: UtahPrimary & HotWater & UtahPumpFreqPoint & UtahHisSampledMajorEquip {
+  navName: "PriHWPFreq"
+}
+
+// Primary Hot water pump power
+UtahPriHWPPower: UtahPrimary & HotWater & UtahPumpPowerPoint & UtahHisSampledMajorEquip {
+  navName: "PriHWPPower"
+}
+
+// Primary Hot water pump energy
+UtahPriHWPEnergy: UtahPrimary & HotWater & UtahPumpEnergyPoint & UtahHisConsumptionMajorEquip {
+  navName: "PriHWPEnergy"
+}
+
+////////////////////////////////////////////////
+//  Secondary Pumps
+///////////////////////////////////////////////
+
+// Secondary Hot water pump command
+UtahSecHWPCmd: UtahSecondary & HotWater & UtahPump & RunCmd & UtahHisCov {
+  navName: "SecHWPCmd"
+}
+
+// Secondary Hot water pump command status
+UtahSecHWPCmdSts: UtahSecondary & HotWater & UtahPump & RunSensor & UtahHisCov {
+  navName: "SecHWPCmdSts"
+}
+
+// Secondary Hot water pump speed
+UtahSecHWPSpd: UtahSecondary & HotWater & UtahPumpSpd & UtahHisSampledMajorEquip {
+  navName: "SecHWPSpd"
+}
+
+// Secondary Hot water pump speed status
+UtahSecHWPSpdSts: UtahSecondary & HotWater & UtahPumpSpdSts & UtahHisSampledMajorEquip {
+  navName: "SecHWPSpdSts"
+}
+
+// Secondary Hot water pump frequency
+UtahSecHWPFreq: UtahSecondary & HotWater & UtahPumpFreqPoint & UtahHisSampledMajorEquip {
+  navName: "SecHWPFreq"
+}
+
+// Secondary Hot water pump power
+UtahSecHWPPower: UtahSecondary & HotWater & UtahPumpPowerPoint & UtahHisSampledMajorEquip {
+  navName: "SecHWPPower"
+}
+
+// Secondary Hot water pump energy
+UtahSecHWPEnergy: UtahSecondary & HotWater & UtahPumpEnergyPoint & UtahHisConsumptionMajorEquip {
+  navName: "SecHWPEnergy"
+}

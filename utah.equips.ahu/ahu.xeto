@@ -1,3 +1,10 @@
+//
+// Copyright (c) 2025, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   15 Dec 2025   James Gessel   Creation
+//
 // Abstract Base AHU with all possible points (optional)
 // Concrete implementations tighten requirements for specific AHU types
 

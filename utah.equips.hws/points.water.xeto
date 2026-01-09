@@ -1,0 +1,154 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   09 Jan 2026   Paul Quinn   Creation
+//
+// Hot Water System Points - Valves, Coil Temperatures, Circ Pumps, Flow
+
+//////////////////////////////////////////////////////////////////////////
+// Hot Water Temperature Points
+//////////////////////////////////////////////////////////////////////////
+
+// Primary hot water return temperature
+UtahPriHWRetTemp: HotWater & UtahPrimary & UtahWaterTempReturn & UtahHisSampledMajorEquip {
+  navName: "PriHWRetTemp"
+}
+
+// Primary hot water supply temperature
+UtahPriHWSupTemp: HotWater & UtahPrimary & UtahWaterTempSupply & UtahHisSampledMajorEquip {
+  navName: "PriHWSupTemp"
+}
+
+// Primary hot water supply temperature setpoint
+UtahPriHWSupTempSp: HotWater & UtahPrimary & UtahWaterTempSupplySp & UtahHisCov {
+  navName: "PriHWSupTempSp"
+}
+
+// Secondary hot water return temperature
+UtahSecHWRetTemp: HotWater & UtahSecondary & UtahWaterTempReturn & UtahHisSampledMajorEquip {
+  navName: "SecHWRetTemp"
+}
+
+// Secondary hot water supply temperature
+UtahSecHWSupTemp: HotWater & UtahSecondary & UtahWaterTempSupply & UtahHisSampledMajorEquip {
+  navName: "SecHWSupTemp"
+}
+
+// Secondary hot water supply temperature setpoint
+UtahSecHWSupTempSp: HotWater & UtahSecondary & UtahWaterTempSupplySp & UtahHisCov {
+  navName: "SecHWSupTempSp"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// hot Water Flow Points
+//////////////////////////////////////////////////////////////////////////
+
+// Primary hot water flow
+UtahPriHWFlow: HotWater & UtahPrimary & UtahWaterFlowSensor & UtahHisSampledMajorEquip {
+  navName: "PriHWFlow"
+}
+
+// Secondary hot water flow
+UtahSecHWFlow: HotWater & UtahSecondary & UtahWaterFlowSensor & UtahHisSampledMajorEquip {
+  navName: "SecHWFlow"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// hot Water Volume Points
+//////////////////////////////////////////////////////////////////////////
+
+// Primary hot water volume
+UtahPriHWVol: HotWater & UtahPrimary & UtahWaterVolumeSensor & UtahHisSampledMajorEquip {
+  navName: "PriHWVol"
+}
+
+// Secondary hot water volume
+UtahSecHWVol: HotWater & UtahSecondary & UtahWaterVolumeSensor & UtahHisSampledMajorEquip {
+  navName: "SecHWVol"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// hot Water Pressure and Diff Pressure Points
+//////////////////////////////////////////////////////////////////////////
+
+// Primary hot Water Pressure
+UtahPriHWPress: HotWater & UtahPrimary & UtahWaterPressSensor & UtahHisSampledMajorEquip {
+  navName: "PriHWPress"
+  unit: "psi"
+}
+
+// Primary hot Water Pressure setpoint
+UtahPriHWPressSp: HotWater & UtahPrimary & UtahWaterPressSp & UtahHisSampledMajorEquip {
+  navName: "PriHWPressSp"
+  unit: "psi"
+}
+
+// Secondary hot Water Pressure
+UtahSecHWPress: HotWater & UtahSecondary & UtahWaterPress & UtahHisSampledMajorEquip {
+  navName: "SecHWPress"
+  unit: "psi"
+}
+
+// Secondary hot Water Pressure setpoint
+UtahSecHWPressSp: HotWater & UtahSecondary & UtahWaterPressSp & UtahHisSampledMajorEquip {
+  navName: "SecHWPressSp"
+  unit: "psi"
+}
+
+// Primary hot Water Diff Pressure
+UtahPriHWDP: HotWater & UtahPrimary & UtahWaterDP & UtahHisSampledMajorEquip {
+  navName: "PriHWDP"
+  unit: "psi"
+}
+
+// Primary hot Water Diff Pressure setpoint
+UtahPriHWDPSp: HotWater & UtahPrimary & UtahWaterDPSp & UtahHisSampledMajorEquip {
+  navName: "PriHWDPSp"
+  unit: "psi"
+}
+
+// Secondary hot Water Diff Pressure
+UtahSecHWDP: HotWater & UtahSecondary & UtahWaterDP & UtahHisSampledMajorEquip {
+  navName: "SecHWDP"
+  unit: "psi"
+}
+
+// Secondary hot Water Diff Pressure setpoint
+UtahSecHWDPSp: HotWater & UtahSecondary & UtahWaterDPSp & UtahHisSampledMajorEquip {
+  navName: "SecHWDPSp"
+  unit: "psi"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// hot Water Energy and Power Points
+//////////////////////////////////////////////////////////////////////////
+
+// Hot Water Energy
+UtahHWEnergy: HotWater & UtahWaterEnergySensor & UtahHisConsumptionMajorEquip {
+  navName: "HWEnergy"
+  unit: "MMBTU"
+}
+
+// Hot Water Power
+UtahHWPower: HotWater & UtahWaterPowerSensor & UtahHisSampledMajorEquip {
+  navName: "HWPower"
+  unit: "MMBTU/h"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// hot Water Tank Points
+//////////////////////////////////////////////////////////////////////////
+
+// Hot Water Tank Temperature
+UtahHWTankTemp: HotWater & UtahTank & UtahWaterTempSensor & UtahHisSampledMajorEquip {
+  navName: "HWTankTemp"
+  unit: "°F"
+}
+
+// Hot Water Tank Temperature setpoint
+UtahHWTankTempSp: HotWater & UtahTank & UtahWaterTempSp & UtahHisSampledMajorEquip {
+  navName: "HWTankTempSp"
+  unit: "°F"
+}

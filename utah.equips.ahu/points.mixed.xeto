@@ -1,3 +1,10 @@
+//
+// Copyright (c) 2025, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   24 Nov 2025   James Gessel   Creation
+//
 // Mixed Air Points - Temperature, Damper, Flow, Humidity
 
 //////////////////////////////////////////////////////////////////////////
@@ -23,4 +30,3 @@ UtahMaFlow: UtahMixed & UtahAirFlowSensor & UtahHisSampledMajorEquip {
 UtahMaHum: UtahMixed & UtahAirHumiditySensor & UtahHisSampledMajorEquip {
   navName: "MaHum"
 }
-

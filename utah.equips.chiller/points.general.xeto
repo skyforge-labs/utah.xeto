@@ -1,3 +1,10 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   05 Jan 2026   Paul Quinn   Creation
+//
 // General Chiller Points - Enable, Command, Energy
 
 //////////////////////////////////////////////////////////////////////////
@@ -36,6 +43,3 @@ UtahChlrTons: UtahChiller & UtahTons & UtahHisSampledMajorEquip {
   navName: "ChlrTons"
   unit: "tonref"
 }
-
-
-

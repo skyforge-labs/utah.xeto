@@ -1,68 +1,81 @@
+//
+// Copyright (c) 2025, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   11 Dec 2025   James Gessel   Creation
+//
 // Utah Abstract points
 
 //////////////////////////////////////////
 // Fan On/Off Bool
 //////////////////////////////////////////
 
-UtahFanCmdPoint: UtahFan & BoolPoint <abstract> {
-    doc: "Generic Fan cmd: Bool"
+// Generic Fan cmd: Bool
+UtahFanCmdPoint: UtahFan & BoolPoint <abstract>{
+    
     }
 
-UtahFanCmd: UtahFanCmdPoint & CmdPoint <abstract> {
-    doc: "On/Off cmd"
+// On/Off cmd
+UtahFanCmd: UtahFanCmdPoint & CmdPoint <abstract>{
+    
     }
 
-UtahFanCmdSts: UtahFanCmdPoint & SensorPoint <abstract> {
-    doc: "On/Off cmd feedback status sensor"
+// On/Off cmd feedback status sensor
+UtahFanCmdSts: UtahFanCmdPoint & SensorPoint <abstract>{
+    
     }
 
 //////////////////////////////////////////
 //  Fan Speed Number
 //////////////////////////////////////////
 
-UtahFanSpdPoint: UtahFan & NumberPoint <abstract> {
+// Generic Fan speed 0-100%
+UtahFanSpdPoint: UtahFan & NumberPoint <abstract>{
     speed
     unit: "%"
-    doc: "Generic Fan speed 0-100%"
     }
     
-UtahFanSpd: UtahFanSpdPoint & CmdPoint <abstract> {
-    doc:  "0-100% fan speed"
+// 0-100% fan speed
+UtahFanSpd: UtahFanSpdPoint & CmdPoint <abstract>{
+    
     }
     
-UtahFanSpdSts: UtahFanSpdPoint & SensorPoint <abstract> {
+// 0-100% valve feedback status sensor
+UtahFanSpdSts: UtahFanSpdPoint & SensorPoint <abstract>{
     run
-    doc: "0-100% valve feedback status sensor"
     }
 
 //////////////////////////////////////////
 //  Fan Mode
 //////////////////////////////////////////
 
-UtahFanModePoint: UtahFan & EnumPoint <abstract> {
+// Generic Fan mode off/High/Med/Low
+UtahFanModePoint: UtahFan & EnumPoint <abstract>{
     mode
     kind: "Str"
-    doc: "Generic Fan mode off/High/Med/Low"
     }
     
-UtahFanModeCmd: UtahFanModePoint & CmdPoint <abstract> {
-    doc: "Generic Fan mode off/High/Med/Low"
+// Generic Fan mode off/High/Med/Low
+UtahFanModeCmd: UtahFanModePoint & CmdPoint <abstract>{
+    
     }
      
 //////////////////////////////////////////
 //  Fan Frequency
 //////////////////////////////////////////
 
-UtahFanFreqPoint: UtahFan & Freq & SensorPoint <abstract> {
+// Fan Frequency
+UtahFanFreqPoint: UtahFan & Freq & SensorPoint <abstract>{
     unit: "Hz"
-    doc: "Fan Frequency"
     }
 
 //////////////////////////////////////////
 //  Fan Alarm
 //////////////////////////////////////////
 
-UtahFanAlarmPoint: UtahFan & AlarmSensor <abstract> {
-    doc: "Fan Alarm"
+// Fan Alarm
+UtahFanAlarmPoint: UtahFan & AlarmSensor <abstract>{
+    
     }
     

@@ -1,0 +1,56 @@
+// General HWS Steam Heat Exchanger Points - Enable, Command, Temperatures
+
+//////////////////////////////////////////////////////////////////////////
+// General Steam Heat Exchanger Points
+//////////////////////////////////////////////////////////////////////////
+
+// Heat Exchanger Enabled
+UtahHxStmEnab: UtahHeatExchanger & HotWater & EnableCmd & UtahHisCov {
+  navName: "HxStmEnab"
+}
+
+// Heat Exchanger Cmd
+UtahHxStmCmd: UtahHeatExchanger & HotWater & RunCmd & UtahHisCov {
+  navName: "HxStmCmd"
+}
+
+// Heat Exchanger Runtime hours
+UtahHxStmHours: UtahHeatExchanger & HotWater & RunCmd & UtahHisSampledMajorEquip {
+  hours
+  navName: "HxStmHours"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Steam Temperature Points
+//////////////////////////////////////////////////////////////////////////
+
+// Steam entering temperature
+UtahHxStmETemp: UtahHeatExchanger & Steam & UtahSteamTempEntering & UtahHisSampledMajorEquip {
+  navName: "HxStmETemp"
+}
+
+// Steam leaving temperature
+UtahHxStmLTemp: UtahHeatExchanger & Steam & UtahSteamTempLeaving & UtahHisSampledMajorEquip {
+  navName: "HxStmLTemp"
+}
+
+}
+//////////////////////////////////////////////////////////////////////////
+// Hot Water Temperature Points
+//////////////////////////////////////////////////////////////////////////
+
+// Hot water entering temperature
+UtahHxStmHWETemp: UtahHeatExchanger & Steam & UtahWaterTempEntering & UtahHisSampledMajorEquip {
+  navName: "HxStmHWETemp"
+}
+
+// Hot water leaving temperature
+UtahHxStmHWLTemp: UtahHeatExchanger & Steam & UtahWaterTempLeaving & UtahHisSampledMajorEquip {
+  navName: "HxStmHWLTemp"
+}
+
+// Hot water leaving temperature setpoint
+UtahHxStmHWLTempSp: UtahHeatExchanger & Steam & UtahWaterTempLeavingSp & UtahHisSampledMajorEquip {
+  navName: "HxStmHWLTempSp"
+}
+

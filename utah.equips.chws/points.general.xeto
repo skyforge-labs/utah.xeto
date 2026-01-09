@@ -1,3 +1,10 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   07 Jan 2026   Paul Quinn   Creation
+//
 // General Chiller Points - Enable, Command, Energy
 
 //////////////////////////////////////////////////////////////////////////
@@ -5,7 +12,7 @@
 //////////////////////////////////////////////////////////////////////////
 
 // Makeup Water Valve
-UtahChWMkupWVlvCmd: ChilledWater & UtahWaterMakeup & UtahValveCmd & UtahHisSampledMajorEquip {
+UtahChWMkupWVlvCmd: ChilledWater & UtahMakeup & UtahValveCmd & UtahHisSampledMajorEquip {
   navName: "ChWMkupWVlvCmd"
   unit: "%"
 }

@@ -1,23 +1,35 @@
+//
+// Copyright (c) 2025, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   24 Nov 2025   James Gessel   Creation
+//
+
+////////////////////////////////////
 // Utah Abstract points
 ////////////////////////////////////
 // Air Temperatures generic
 ////////////////////////////////////
 
-UtahAirTemp: Air & Temp <abstract> {
-    doc: "Air Temperature"
+// Air Temperature
+UtahAirTemp: Air & Temp <abstract>{
+
     }
 
-UtahAirTempPoint: UtahAirTemp & NumberPoint <abstract> {
-    doc: "Air Temperature Sensor"
+// Air Temperature Sensor
+UtahAirTempPoint: UtahAirTemp & NumberPoint <abstract>{
     unit: "°F"
     }
 
-UtahAirTempSensor: UtahAirTempPoint & SensorPoint <abstract> {
-    doc: "Air Temperature Sensor"
+// Air Temperature Sensor
+UtahAirTempSensor: UtahAirTempPoint & SensorPoint <abstract>{
+
     }
 
- UtahAirTempSp: UtahAirTempPoint & SpPoint <abstract> {
-    doc: "Air Temperature Setpoint"
+ // Air Temperature Setpoint
+ UtahAirTempSp: UtahAirTempPoint & SpPoint <abstract>{
+
     }
 
 /////////////////////////////////////////
@@ -107,21 +119,21 @@ UtahStandbyHeatingSp: UtahZoneTempSp & UtahStandby & UtahHisCov {
 //  Misc Air Temperatures
 /////////////////////////////////////////
 
-UtahAirTempEntering: UtahAirTempSensor <abstract> {
+// Air Temperature entering a device
+UtahAirTempEntering: UtahAirTempSensor <abstract>{
     entering
-    doc: "Air Temperature entering a device"
     color: Str "lightblue"
     }
 
-UtahAirTempLeaving: UtahAirTempSensor <abstract> {
+// Air Temperature leaving a device
+UtahAirTempLeaving: UtahAirTempSensor <abstract>{
     leaving
-    doc: "Air Temperature leaving a device"
     color: Str "blue"
     }
 
-UtahAirTempLeavingSp: UtahAirTempSp <abstract> {
+// Air Temperature leaving a device setpoint
+UtahAirTempLeavingSp: UtahAirTempSp <abstract>{
     leaving
-    doc: "Air Temperature leaving a device setpoint"
     color: Str "green"
     }
 
@@ -129,65 +141,76 @@ UtahAirTempLeavingSp: UtahAirTempSp <abstract> {
 // Air Humidity
 ////////////////////////////////////
 
-UtahAirHumidity: Air & Humidity <abstract> {
-    doc: "Air Humidity"
+// Air Humidity
+UtahAirHumidity: Air & Humidity <abstract>{
+
     }
 
-UtahAirHumidityPoint: UtahAirHumidity & NumberPoint <abstract> {
-    doc: "Air Humidity Sensor"
-    }
-    
-UtahAirHumiditySensor: UtahAirHumidity & SensorPoint <abstract> {
-    doc: "Air Humidity Sensor"
+// Air Humidity Sensor
+UtahAirHumidityPoint: UtahAirHumidity & NumberPoint <abstract>{
+
     }
 
-UtahAirHumidityLeavinging: UtahAirHumiditySensor <abstract> {
+// Air Humidity Sensor
+UtahAirHumiditySensor: UtahAirHumidity & SensorPoint <abstract>{
+
+    }
+
+// Air Temperature leaving a device
+UtahAirHumidityLeavinging: UtahAirHumiditySensor <abstract>{
     leaving
-    doc: "Air Temperature leaving a device"
     }
 
 ////////////////////////////////////
 // Air Dehumidify
 ////////////////////////////////////
 
-UtahAirDehumidifyPoint: UtahDehumidify & NumberPoint <abstract> {
-    doc: "Air Dehumidify point"
+// Air Dehumidify point
+UtahAirDehumidifyPoint: UtahDehumidify & NumberPoint <abstract>{
+
     }
 
-UtahAirDehumidifySp: UtahAirDehumidifyPoint & SpPoint <abstract> {
-    doc: "Air Dehumidify setpoint"
+// Air Dehumidify setpoint
+UtahAirDehumidifySp: UtahAirDehumidifyPoint & SpPoint <abstract>{
+
     }
 
 ////////////////////////////////////
 // Air Humidify
 ////////////////////////////////////
 
-UtahAirHumidifyPoint: UtahHumidify & NumberPoint <abstract> {
-    doc: "Air Humidify setpoint"
+// Air Humidify setpoint
+UtahAirHumidifyPoint: UtahHumidify & NumberPoint <abstract>{
+
     }
 
-UtahAirHumidifySp: UtahAirHumidifyPoint & SpPoint <abstract> {
-    doc: "Air Humidify setpoint"
+// Air Humidify setpoint
+UtahAirHumidifySp: UtahAirHumidifyPoint & SpPoint <abstract>{
+
     }
 
 ////////////////////////////////////
 // Air Flow
 ////////////////////////////////////
 
-UtahAirFlow: Air & Flow <abstract> {
-    doc: "Generic Air Flow"
+// Generic Air Flow
+UtahAirFlow: Air & Flow <abstract>{
+
     }
 
-UtahAirFlowPoint: UtahAirFlow & NumberPoint <abstract> {
-    doc: "Generic Air Flow"
+// Generic Air Flow
+UtahAirFlowPoint: UtahAirFlow & NumberPoint <abstract>{
+
     }
 
-UtahAirFlowSensor: UtahAirFlowPoint & SensorPoint <abstract> {
-    doc: "Generic Air Flow"
+// Generic Air Flow
+UtahAirFlowSensor: UtahAirFlowPoint & SensorPoint <abstract>{
+
     }
-    
-UtahAirFlowSp: UtahAirFlowPoint & SpPoint <abstract> {
-    doc: "Generic Air Flow Setpoint"
+
+// Generic Air Flow Setpoint
+UtahAirFlowSp: UtahAirFlowPoint & SpPoint <abstract>{
+
     }
 
 UtahAirFlowSpClg: UtahAirFlowSp <abstract> {
@@ -204,60 +227,67 @@ UtahAirFlowSpHtg: UtahAirFlowSp <abstract> {
 // Air Pressure
 ////////////////////////////////////
 
-UtahAirPressure: Air & Pressure <abstract> {
-    doc: "Generic Air Pressure"
+// Generic Air Pressure
+UtahAirPressure: Air & Pressure <abstract>{
+
     }
 
-UtahAirPressurePoint: UtahAirPressure & NumberPoint <abstract> {
+// Generic Air Pressure
+UtahAirPressurePoint: UtahAirPressure & NumberPoint <abstract>{
     unit: "inH₂O"
     precision: 0.01
-    doc: "Generic Air Pressure"
     }
 
-UtahAirPressureSensor: UtahAirPressurePoint & SensorPoint <abstract> {
-    doc: "Generic Air Pressure"
-    }
- 
-UtahAirPressureSp: UtahAirPressurePoint & SpPoint <abstract> {
-    doc: "Generic Air Pressure Setpoint"
+// Generic Air Pressure
+UtahAirPressureSensor: UtahAirPressurePoint & SensorPoint <abstract>{
+
     }
 
-UtahAirPressureAlarmPoint: UtahAirPressure & AlarmSensor <abstract> {
-    doc: "Generic Air Pressure Alarm"
+// Generic Air Pressure Setpoint
+UtahAirPressureSp: UtahAirPressurePoint & SpPoint <abstract>{
+
+    }
+
+// Generic Air Pressure Alarm
+UtahAirPressureAlarmPoint: UtahAirPressure & AlarmSensor <abstract>{
+
     }
 
 ////////////////////////////////////
 // Air Differential Pressure
 ////////////////////////////////////
 
-UtahAirDiffPressure: Air & Pressure <abstract> {
+// Generic Air Differential Pressure
+UtahAirDiffPressure: Air & Pressure <abstract>{
     delta
-    doc: "Generic Air Differential Pressure"
     }
 
-UtahAirDiffPressurePoint: UtahAirDiffPressure & NumberPoint & SensorPoint <abstract> {
+// Generic Air Differential Pressure
+UtahAirDiffPressurePoint: UtahAirDiffPressure & NumberPoint & SensorPoint <abstract>{
     unit: "inH₂O"
     precision: 0.01
-    doc: "Generic Air Differential Pressure"
     }
 
 ////////////////////////////////////
 // Air Co2
 ////////////////////////////////////
 
-UtahAirCo2: Air & Co2 <abstract> {
-    doc: "Generic Air Co2"
+// Generic Air Co2
+UtahAirCo2: Air & Co2 <abstract>{
+
     }
 
-UtahAirCo2Point: UtahAirCo2 & NumberPoint <abstract> {
+// Generic Air Co2 Point
+UtahAirCo2Point: UtahAirCo2 & NumberPoint <abstract>{
     unit: "ppm"
-    doc: "Generic Air Co2 Point"
     }
 
-UtahAirCo2Sensor: UtahAirCo2Point & SensorPoint <abstract> {
-    doc: "Generic Air Co2 Sensor"
+// Generic Air Co2 Sensor
+UtahAirCo2Sensor: UtahAirCo2Point & SensorPoint <abstract>{
+
     }
- 
-UtahAirCo2Sp: UtahAirCo2Point & SpPoint <abstract> {
-    doc: "Generic Air Co2 Setpoint"
+
+// Generic Air Co2 Setpoint
+UtahAirCo2Sp: UtahAirCo2Point & SpPoint <abstract>{
+
     }

@@ -1,69 +1,84 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   07 Jan 2026   James Gessel   Creation
+//
 // Utah Natural Gas Abstract points
 
 ////////////////////////////////////////////////////
 // Natural Gas Flow
 ////////////////////////////////////////////////////
 
-UtahNatGasFlow: NaturalGas & Flow <abstract> {
-    doc: "Natural Gas Flow"
+// Natural Gas Flow
+UtahNatGasFlow: NaturalGas & Flow <abstract>{
 //    unit: "ccf/h"
     }
 
-UtahNatGasFlowPoint: UtahNatGasFlow & NumberPoint <abstract> {
-    doc: "Natural Gas Flow Point"
+// Natural Gas Flow Point
+UtahNatGasFlowPoint: UtahNatGasFlow & NumberPoint <abstract>{
+    
     }
 
-UtahNatGasFlowSensor: UtahNatGasFlowPoint & SensorPoint <abstract> {
-    doc: "Natural Gas Flow Sensor"
+// Natural Gas Flow Sensor
+UtahNatGasFlowSensor: UtahNatGasFlowPoint & SensorPoint <abstract>{
+    
     }
     
 ////////////////////////////////////////////////////
 // Natural Gas Volume
 ////////////////////////////////////////////////////
 
-UtahNatGasVolume: NaturalGas & Volume <abstract> {
-    doc: "Natural Gas Volume"
+// Natural Gas Volume
+UtahNatGasVolume: NaturalGas & Volume <abstract>{
 //    unit: "ccf"
     }
 
-UtahNatGasVolumePoint: UtahNatGasVolume & NumberPoint <abstract> {
-    doc: "Natural Gas Volume Point"
+// Natural Gas Volume Point
+UtahNatGasVolumePoint: UtahNatGasVolume & NumberPoint <abstract>{
+    
     }
 
-UtahNatGasVolumeSensor: UtahNatGasVolumePoint & SensorPoint <abstract> {
-    doc: "Natural Gas Volume Sensor"
+// Natural Gas Volume Sensor
+UtahNatGasVolumeSensor: UtahNatGasVolumePoint & SensorPoint <abstract>{
+    
     }
 
 ////////////////////////////////////////////////////
 // Natural Gas Energy
 ////////////////////////////////////////////////////
 
-UtahNatGasEnergy: NaturalGas & Energy <abstract> {
-    doc: "Natural Gas Energy"
+// Natural Gas Energy
+UtahNatGasEnergy: NaturalGas & Energy <abstract>{
 //    unit: "MMBTU"
     }
 
-UtahNatGasEnergyPoint: UtahNatGasEnergy & NumberPoint <abstract> {
-    doc: "Natural Gas Energy Point"
+// Natural Gas Energy Point
+UtahNatGasEnergyPoint: UtahNatGasEnergy & NumberPoint <abstract>{
+    
     }
 
-UtahNatGasEnergySensor: UtahNatGasEnergyPoint & SensorPoint <abstract> {
-    doc: "Natural Gas Energy Sensor"
+// Natural Gas Energy Sensor
+UtahNatGasEnergySensor: UtahNatGasEnergyPoint & SensorPoint <abstract>{
+    
     }
 
 ////////////////////////////////////////////////////
 // Natural Gas Power
 ////////////////////////////////////////////////////
 
-UtahNatGasPower: NaturalGas & Power <abstract> {
-    doc: "Natural Gas Power"
+// Natural Gas Power
+UtahNatGasPower: NaturalGas & Power <abstract>{
 //    unit: "MMBTU/h"
     }
      
-UtahNatGasPowerPoint: UtahNatGasPower & NumberPoint <abstract> {
-    doc: "Natural Gas Energy Point"
+// Natural Gas Energy Point
+UtahNatGasPowerPoint: UtahNatGasPower & NumberPoint <abstract>{
+    
     }
 
-UtahNatGasPowerSensor: UtahNatGasPowerPoint & SensorPoint <abstract> {
-    doc: "Natural Gas Energy Sensor"
+// Natural Gas Energy Sensor
+UtahNatGasPowerSensor: UtahNatGasPowerPoint & SensorPoint <abstract>{
+    
     }

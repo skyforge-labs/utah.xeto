@@ -1,3 +1,10 @@
+//
+// Copyright (c) 2025, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   24 Nov 2025   James Gessel   Creation
+//
 // Heat Recovery Water System Points - Temperatures, Flow, Power, Energy
 
 //////////////////////////////////////////////////////////////////////////
@@ -65,5 +72,3 @@ UtahHRWEnergy: UtahHeatRecovery & UtahWaterEnergySensor & UtahHisSampledMajorEqu
   navName: "HRWEnergy"
   unit: "kWh"
 }
-
-

@@ -1,61 +1,69 @@
+//
+// Copyright (c) 2025, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   03 Dec 2025   James Gessel   Creation
+//
 //  Utah Pumps
 
 //////////////////////////////////////////
 // Circulation Pump
 //////////////////////////////////////////
 
-UtahCircPump: UtahPump <abstract> {
+// Local Circulation Pump vs. Larger System Pump
+UtahCircPump: UtahPump <abstract>{
     circ
-    doc: "Local Circulation Pump vs. Larger System Pump"
     }
 
-UtahCPCmd: UtahCircPump & RunCmd <abstract> {
+// Local Circulation Pump vs. Larger System Pump
+UtahCPCmd: UtahCircPump & RunCmd <abstract>{
     circ
-    doc: "Local Circulation Pump vs. Larger System Pump"
     }
 
 //////////////////////////////////////////
 //  Pump Speed Number
 //////////////////////////////////////////
 
-UtahPumpSpdPoint: UtahPump & NumberPoint <abstract> {
+// Generic Pump speed 0-100%
+UtahPumpSpdPoint: UtahPump & NumberPoint <abstract>{
     speed
     unit: "%"
-    doc: "Generic Pump speed 0-100%"
     }
     
-UtahPumpSpd: UtahPumpSpdPoint & CmdPoint <abstract> {
-    doc:  "0-100% pump speed"
+// 0-100% pump speed
+UtahPumpSpd: UtahPumpSpdPoint & CmdPoint <abstract>{
+    
     }
     
-UtahPumpSpdSts: UtahPumpSpdPoint & SensorPoint <abstract> {
+// 0-100% pump speed feedback status sensor
+UtahPumpSpdSts: UtahPumpSpdPoint & SensorPoint <abstract>{
     run
-    doc: "0-100% pump speed feedback status sensor"
     }
 
 //////////////////////////////////////////
 //  Pump Frequency
 //////////////////////////////////////////
 
-UtahPumpFreqPoint: UtahPump & Freq & NumberPoint & SensorPoint <abstract> {
+// Pump Frequency. Typically from VRF
+UtahPumpFreqPoint: UtahPump & Freq & NumberPoint & SensorPoint <abstract>{
     unit: "Hz"
-    doc: "Pump Frequency. Typically from VRF"
     }
 
 //////////////////////////////////////////
 //  Pump Power
 //////////////////////////////////////////
 
-UtahPumpPowerPoint: UtahPump & Power & NumberPoint & SensorPoint <abstract> {
+// Pump Power. Typically from VRF
+UtahPumpPowerPoint: UtahPump & Power & NumberPoint & SensorPoint <abstract>{
     unit: "kW"
-    doc: "Pump Power. Typically from VRF"
     }
 
 //////////////////////////////////////////
 //  Pump Energy
 //////////////////////////////////////////
 
-UtahPumpEnergyPoint: UtahPump & Energy & NumberPoint & SensorPoint <abstract> {
+// Pump Energy. Typically from VRF
+UtahPumpEnergyPoint: UtahPump & Energy & NumberPoint & SensorPoint <abstract>{
     unit: "kWh"
-    doc: "Pump Energy. Typically from VRF"
     }

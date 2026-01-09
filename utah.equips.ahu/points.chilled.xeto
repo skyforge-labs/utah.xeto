@@ -1,3 +1,10 @@
+//
+// Copyright (c) 2025, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   24 Nov 2025   James Gessel   Creation
+//
 // Chilled Water System Points - Valves, Coil Temperatures, Circ Pumps, Flow
 
 //////////////////////////////////////////////////////////////////////////
@@ -103,4 +110,3 @@ UtahChWCPCmdSts: ChilledWater & UtahCircPump & RunSensor & UtahHisCov {
 UtahChWFlow: ChilledWater & UtahWaterFlowSensor & UtahHisSampledMajorEquip {
   navName: "ChWFlow"
 }
-

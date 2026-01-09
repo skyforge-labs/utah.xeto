@@ -1,0 +1,36 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   09 Jan 2026   Paul Quinn   Creation
+//
+// General Hot Water Points - Enable, Command
+
+//////////////////////////////////////////////////////////////////////////
+// General HWS Points
+//////////////////////////////////////////////////////////////////////////
+
+// Makeup Water Valve
+UtahHWMkupWVlvCmd: HotWater & UtahMakeup & UtahValveCmd & UtahHisSampledMajorEquip {
+  navName: "HWMkupWVlvCmd"
+}
+
+// Bypass Water Valve
+UtahHWBypVlvPos: HotWater & UtahBypass & UtahValvePos & UtahHisSampledMajorEquip {
+  navName: "HWBypVlvPos"
+  unit: "%"
+}
+
+// Bypass Water Valve status
+UtahHWBypVlvPosSts: HotWater & UtahBypass & UtahValvePosSts & UtahHisSampledMajorEquip {
+  navName: "HWBypVlvPosSts"
+  unit: "%"
+}
+// Building Max Hot Water Valve Position
+UtahBldgHWVlvPosMax: HotWater & UtahValvePos & UtahHisCov {
+  building
+  max
+  navName: "BldgChWVlvPosMax"
+  unit: "%"
+}

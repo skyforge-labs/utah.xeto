@@ -1,22 +1,38 @@
+//
+// Copyright (c) 2025, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   11 Dec 2025   James Gessel   Creation
+//
 //  History Collection options
 
+// COV His Point
 UtahHisCov: HisPoint <abstract> {
   hisMode: "cov"
   hisCollectInterval: "24hr"
 }
+
+// Sampled His Point
 UtahHisSampledDefault: HisPoint <abstract> {
   hisMode: "sampled"
   hisCollectInterval: "10min"
 }
+
+// Sampled His Point for major equipment
 UtahHisSampledMajorEquip: HisPoint <abstract> {
   hisMode: "sampled"
   hisCollectInterval: "5min"
 }
+
+// Consumption His Point for major equipment
 UtahHisConsumptionMajorEquip: HisPoint <abstract> {
   hisMode: "consumption"
   hisTotalized
   hisCollectInterval: "5min"
 }
+
+// Consumption His Point for default
 UtahHisConsumptionDefault: HisPoint <abstract> {
   hisMode: "consumption"
   hisTotalized

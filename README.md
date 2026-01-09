@@ -8,20 +8,16 @@ It provides reusable libraries for **Utah-specific metadata, points, and equipme
 
 ### Utah library overview
 
-- **`utah`**
-  - Core Utah traits and conventions that capture DFCM semantics and patterns.
-
-- **`utah.points`**
-  - Shared Utah-standard point definitions (generic across equipment types).
-
-- **`utah.equips.*`**
-  - Utah-standard equipment ontologies (for example AHUs and VAVs) that compose `utah`/`utah.points` traits into concrete equipment models.
-
-- **`utah.equips.ahu`**
-  - Utah AHU equipment and point models aligned with the DFCM standard.
-
-- **`utah.equips.vav`**
-  - Utah VAV equipment and point models aligned with the DFCM standard.
+- **`utah`** – Core traits and conventions capturing DFCM semantics.
+- **`utah.points`** – Shared point definitions (generic across equipment).
+- **`utah.equips`** – Base equipment traits and shared abstractions.
+- **`utah.equips.ahu`** – AHU equipment and points.
+- **`utah.equips.vav`** – VAV equipment and points.
+- **`utah.equips.boiler`** – Boiler equipment and points.
+- **`utah.equips.chiller`** – Chiller equipment and points.
+- **`utah.equips.chws`** – Chilled water system equipment and points.
+- **`utah.equips.hws`** – Hot water system equipment and points.
+- **`utah.equips.coolingtower`** – Cooling tower equipment and points.
 
 ### General conventions
 

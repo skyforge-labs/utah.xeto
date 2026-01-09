@@ -1,60 +1,87 @@
-//Developer License – Not for production use –More Info
-
+//
+// Copyright (c) 2025, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   03 Dec 2025   James Gessel   Creation
+//
 // Utah Abstract points
 
+/////////////////////////////////////////
 // Valves Bool
-UtahValveCmdPoint: ph.points::BoolPoint <abstract> {
+/////////////////////////////////////////
+
+// Generic valve. Number or Bool
+UtahValveCmdPoint: ph.points::BoolPoint <abstract>{
     valve
-    doc: "Generic valve. Number or Bool"
     }
 
-UtahValveCmd: utah.points::UtahValveCmdPoint & CmdPoint <abstract> {
+// Open/Closed valve
+UtahValveCmd: utah.points::UtahValveCmdPoint & CmdPoint <abstract>{
     run
-    doc: "Open/Closed valve"
     }
 
-UtahValveCmdSts: utah.points::UtahValveCmdPoint & SensorPoint <abstract> {
+// Open/Closed valve feedback status sensor
+UtahValveCmdSts: utah.points::UtahValveCmdPoint & SensorPoint <abstract>{
     run
-    doc: "Open/Closed valve feedback status sensor"
     }
 
-UtahIsoValveCmd: utah.points::UtahValveCmdPoint & CmdPoint <abstract> {
+// Isolation Valve Open/Closed valve
+UtahIsoValveCmd: utah.points::UtahValveCmdPoint & CmdPoint <abstract>{
     isolation
     run
-    doc: "Isolation Valve Open/Closed valve"
     }
     
-UtahIsoValveCmdSts: utah.points::UtahValveCmdPoint & SensorPoint <abstract> {
+// Isolation Valve Open/Closed valve
+UtahIsoValveCmdSts: utah.points::UtahValveCmdPoint & SensorPoint <abstract>{
     isolation
     run
-    doc: "Isolation Valve Open/Closed valve"
     }
 
+/////////////////////////////////////////
 // Valves Position
-UtahValvePosPoint: ph.points::NumberPoint <abstract> {
+/////////////////////////////////////////
+
+// 0-100% valve
+UtahValvePosPoint: ph.points::NumberPoint <abstract>{
     valve
-    doc: "0-100% valve"
     }
 
-UtahValvePos: utah.points::UtahValvePosPoint & CmdPoint <abstract> {
+// 0-100% valve
+UtahValvePos: utah.points::UtahValvePosPoint & CmdPoint <abstract>{
     run
-    doc: "0-100% valve"
     }
     
-UtahValvePosSts: utah.points::UtahValvePosPoint & SensorPoint <abstract> {
+// 0-100% valve feedback status sensor
+UtahValvePosSts: utah.points::UtahValvePosPoint & SensorPoint <abstract>{
     run
-    doc: "0-100% valve feedback status sensor"
     }
+    
+/////////////////////////////////////////
+// Isolation Valves 
+/////////////////////////////////////////
 
-UtahIsoValvePos: utah.points::UtahValvePosPoint & CmdPoint <abstract> {
+// 0-100% valve
+UtahIsoValvePos: utah.points::UtahValvePosPoint & CmdPoint <abstract>{
     isolation
     run
-    doc: "0-100% valve"
     }
 
-UtahIsoValvePosSts: utah.points::UtahValvePosPoint & SensorPoint <abstract> {
+// 0-100% valve
+UtahIsoValvePosSts: utah.points::UtahValvePosPoint & SensorPoint <abstract>{
     isolation
     run
-    doc: "0-100% valve"
+    }
+/////////////////////////////////////////
+// Bypass Valves 
+/////////////////////////////////////////
+
+// Bypass Valve Position
+UtahValveBypassPos: UtahValvePos <abstract>{
+    bypass
     }
 
+// Bypass Valve Position
+UtahValveBypassPosSts: UtahValvePosSts <abstract>{
+    bypass
+    }

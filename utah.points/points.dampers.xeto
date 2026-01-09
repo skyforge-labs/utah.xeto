@@ -1,33 +1,44 @@
+//
+// Copyright (c) 2025, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   11 Dec 2025   James Gessel   Creation
+//
 //Developer License – Not for production use –More Info
 
 // Utah Abstract Damper points
 
 // Damper Bool
 
-UtahDamperCmdPoint: UtahDamper & BoolPoint <abstract> {
-    doc: "Open/Closed damper"
+// Open/Closed damper
+UtahDamperCmdPoint: UtahDamper & BoolPoint <abstract>{
+    
     }
 
-UtahDamperCmd: UtahDamperCmdPoint & RunCmd <abstract> {
-    doc: "Open/Closed damper command"
+// Open/Closed damper command
+UtahDamperCmd: UtahDamperCmdPoint & RunCmd <abstract>{
+    
     }
 
-UtahDamperCmdSts: UtahDamperCmdPoint & RunSensor <abstract> {
-    doc: "Open/Closed damper feedback status sensor"
+// Open/Closed damper feedback status sensor
+UtahDamperCmdSts: UtahDamperCmdPoint & RunSensor <abstract>{
+    
     }
 
 // Damper Number
 
-UtahDamperPosPoint: UtahDamper & NumberPoint <abstract> {
+// 0-100% valve
+UtahDamperPosPoint: UtahDamper & NumberPoint <abstract>{
     run
-    doc: "0-100% valve"
     }
 
-UtahDamperPos: UtahDamperPosPoint & CmdPoint <abstract> {
-    doc: "0-100% valve cmd"
+// 0-100% valve cmd
+UtahDamperPos: UtahDamperPosPoint & CmdPoint <abstract>{
+    
     }
     
-UtahDamperPosSts: UtahDamperPosPoint & SensorPoint <abstract> {
+// 0-100% valve feedback status sensor
+UtahDamperPosSts: UtahDamperPosPoint & SensorPoint <abstract>{
     run
-    doc: "0-100% valve feedback status sensor"
     }

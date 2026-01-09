@@ -1,3 +1,10 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   07 Jan 2026   Paul Quinn   Creation
+//
 // Abstract Base Boiler with all possible points (optional)
 // Concrete implementations tighten requirements for specific Boiler types
 
