@@ -30,17 +30,24 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '18'  # LTS - more stable with native modules
 
       - name: Install Haxall CLI
-        run: npm install -g @haxall/haxall@3.1.11
+        run: |
+          npm cache clean --force
+          npm install -g @haxall/haxall@3.1.11-901.1
 
-      - name: Build all libs
+      - name: Verify xeto installation
         working-directory: ${{ github.workspace }}/workdir/src/xeto
         run: |
           echo "=== xeto env ==="
           xeto env
-          echo "=== Building ==="
+          xeto env | grep -q "xeto.workDir" || { echo "ERROR: xeto.workDir not set"; exit 1; }
+          xeto env | grep -q "xeto.installDir" || { echo "ERROR: xeto.installDir not set"; exit 1; }
+
+      - name: Build all libs
+        working-directory: ${{ github.workspace }}/workdir/src/xeto
+        run: |
           xeto build
           echo "=== Built libs ==="
           ls -la ../../lib/xeto/
