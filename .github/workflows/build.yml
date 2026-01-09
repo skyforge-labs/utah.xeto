@@ -13,8 +13,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Setup work directory structure
+        run: |
+          # Create xeto work directory structure
+          mkdir -p ${{ github.workspace }}/workdir/lib/xeto
+          mkdir -p ${{ github.workspace }}/workdir/src/xeto
+          touch ${{ github.workspace }}/workdir/fan.props
+          touch ${{ github.workspace }}/workdir/xeto.props
+
+      - name: Checkout into src/xeto
         uses: actions/checkout@v4
+        with:
+          path: workdir/src/xeto
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -22,42 +32,35 @@ jobs:
           node-version: '20'
 
       - name: Install Haxall CLI
-        run: npm install -g @haxall/haxall
-
-      - name: Configure xeto environment
-        run: |
-          # Create xeto.props pointing to this workspace
-          cat > xeto.props << EOF
-          installDir=${{ github.workspace }}
-          EOF
+        run: npm install -g @haxall/haxall@3.1.11
 
       - name: Build all libs
+        working-directory: ${{ github.workspace }}/workdir/src/xeto
         run: |
           echo "=== xeto env ==="
           xeto env
           echo "=== Building ==="
           xeto build
-          echo "=== Workspace structure after build ==="
-          ls -la lib/xeto/ 2>/dev/null || echo "lib/xeto/ does not exist"
+          echo "=== Built libs ==="
+          ls -la ../../lib/xeto/
 
       - name: Package individual libs
+        working-directory: ${{ github.workspace }}/workdir
         run: |
           mkdir -p dist
-          # Loop through each built lib and zip it
           for lib_dir in lib/xeto/*/; do
             lib_name=$(basename "$lib_dir")
-            # Get version from source lib.xeto (at repo root)
-            src_lib="${lib_name}/lib.xeto"
+            # Get version from source lib.xeto
+            src_lib="src/xeto/${lib_name}/lib.xeto"
             if [ -f "$src_lib" ]; then
               version=$(grep -oP 'version:\s*"\K[^"]+' "$src_lib" || echo "0.0.0")
               zip -r "dist/${lib_name}-${version}.zip" "$lib_dir"
             fi
           done
 
-      - name: Upload individual lib artifacts
+      - name: Upload lib artifacts
         uses: actions/upload-artifact@v4
         with:
           name: xeto-libs-${{ github.sha }}
-          path: dist/*.zip
+          path: workdir/dist/*.zip
           retention-days: 30
-
