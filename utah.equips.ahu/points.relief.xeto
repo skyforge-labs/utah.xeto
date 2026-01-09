@@ -1,51 +1,67 @@
-// Relief/Exhaust Air Points - Damper, Fan
+// Relief/Exhaust Air Points - Fan, Damper,Flow
+
+// Relief/Exhaust Air Points
 
 //////////////////////////////////////////////////////////////////////////
-// Relief/Exhaust Air Points
+// Relief Fan
 //////////////////////////////////////////////////////////////////////////
 
 // Relief fan command
-UtahRlfFanCmd: EnableCmd & UtahPoint {
-  exhaust
-  air
-  fan
-  run
+UtahRlfFanCmd: UtahRelief & UtahFanCmd & UtahHisCov {
   navName: "RlfFanCmd"
-  hisMode: "cov"
-  hisCollectInterval: "24hr"
 }
 
 // Relief fan status
-UtahRlfFanSts: RunSensor & UtahPoint {
-  exhaust
-  air
-  fan
+UtahRlfFanCmdSts: UtahRelief & UtahFanCmdSts & UtahHisCov {
   navName: "RlfFanSts"
-  hisMode: "cov"
-  hisCollectInterval: "24hr"
 }
 
 // Relief fan speed
-UtahRlfFanSpd: FanSpeedSensor & UtahPoint {
-  exhaust
+UtahRlfFanSpd: UtahRelief & UtahFanSpd & UtahHisSampledMajorEquip {
   navName: "RlfFanSpd"
-  hisMode: "sampled"
-  hisCollectInterval: "10min"
 }
 
-// Relief damper position
-UtahRlfDmprPos: DamperSensor & UtahPoint {
-  relief
+// Relief fan speed status
+UtahRlfFanSpdSts: UtahRelief & UtahFanSpdSts & UtahHisSampledMajorEquip {
+  navName: "RlfFanSpdSts"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Relief damper
+//////////////////////////////////////////////////////////////////////////
+
+// Relief Damper Position
+UtahRlfDmprPos: UtahRelief & UtahDamperPos & UtahHisSampledMajorEquip {
   navName: "RlfDmprPos"
-  hisMode: "sampled"
-  hisCollectInterval: "10min"
+}
+
+// Relief Damper Position status
+UtahRlfDmprPosSts: UtahRelief & UtahDamperPosSts & UtahHisSampledMajorEquip {
+  navName: "RlfDmprPosSts"
 }
 
 // Relief damper command
-UtahRlfDmprCmd: DamperCmd & UtahPoint {
-  relief
+UtahRlfDmprCmd: UtahRelief & UtahDamperCmd & UtahHisCov {
   navName: "RlfDmprCmd"
-  hisMode: "sampled"
-  hisCollectInterval: "10min"
 }
 
+// Relief damper command status
+UtahRlfDmprCmdSts: UtahRelief & UtahDamperCmdSts & UtahHisCov {
+  navName: "RlfDmprCmdSts"
+}
+
+
+//////////////////////////////////////////////////////////////////////////
+// Relief Air Flow
+//////////////////////////////////////////////////////////////////////////
+
+// Relief Air Flow
+UtahRlfAirFlow: UtahRelief & UtahAirFlowSensor & UtahHisSampledMajorEquip {
+  navName: "RlfAirFlow"
+}
+
+
+// Relief Air Flow setpoint
+UtahRlfAirFlowSp: UtahRelief & UtahAirFlowSp & UtahHisSampledMajorEquip {
+  navName: "RlfAirFlowSp"
+}

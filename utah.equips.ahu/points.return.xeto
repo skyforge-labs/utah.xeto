@@ -1,129 +1,103 @@
 // Return Air Points - Temperature, Humidity, Fan, Damper, Pressure
 
-//////////////////////////////////////////////////////////////////////////
 // Return Air Points
+
+//////////////////////////////////////////////////////////////////////////
+// Return air temperature
 //////////////////////////////////////////////////////////////////////////
 
-// Return air temperature
-UtahRaTemp: ReturnAirTempSensor & UtahPoint {
+UtahRaTemp: UtahReturn & UtahAirTempSensor & UtahHisSampledMajorEquip {
   navName: "RaTemp"
-  precision: 1
-  hisMode: "sampled"
-  hisCollectInterval: "10min"
-  color: Str? "brown"
-}
-
-// Return air humidity
-UtahRaHum: AirHumiditySensor & UtahPoint {
-  return
-  navName: "RaHum"
-  hisMode: "sampled"
-  hisCollectInterval: "10min"
-}
-
-// Return air humidity setpoint
-UtahRaHumSp: AirHumiditySp & UtahPoint {
-  return
-  dehumidify
-  navName: "RaHumSp"
-  hisMode: "cov"
-  hisCollectInterval: "24hr"
-}
-
-// Return air dehumidification heating setpoint
-UtahRaDehumidifyHsp: AirHumiditySp & UtahPoint {
-  return
-  dehumidify
-  navName: "RaDehumidifyHsp"
-  hisMode: "cov"
-  hisCollectInterval: "24hr"
-}
-
-// Return air damper position
-UtahRaDmprPos: DamperSensor & UtahPoint {
-  return
-  navName: "RaDmprPos"
-  hisMode: "sampled"
-  hisCollectInterval: "10min"
-}
-
-// Return air fan command
-UtahRaFanCmd: ReturnFanEnableCmd & UtahPoint {
-  run
-  navName: "RaFanCmd"
-  hisMode: "cov"
-  hisCollectInterval: "24hr"
-}
-
-// Return air fan status
-UtahRaFanSts: ReturnFanRunSensor & UtahPoint {
-  navName: "RaFanSts"
-  hisMode: "cov"
-  hisCollectInterval: "24hr"
-}
-
-// Return air fan alarm
-UtahRaFanAlrm: AlarmSensor & UtahPoint {
-  return
-  air
-  fan
-  navName: "RaFanAlrm"
-  hisMode: "cov"
-  hisCollectInterval: "24hr"
-}
-
-// Return air fan speed
-UtahRaFanSpd: ReturnFanSpeedSensor & UtahPoint {
-  navName: "RaFanSpd"
-  hisMode: "sampled"
-  hisCollectInterval: "10min"
-}
-
-// Return air fan frequency
-UtahRaFanFreq: NumberPoint & UtahPoint {
-  return
-  air
-  fan
-  freq
-  sensor
-  navName: "RaFanFreq"
-  unit: "Hz"
-  hisMode: "sampled"
-  hisCollectInterval: "10min"
-}
-
-// Return air pressure
-UtahRaPress: ReturnAirPressureSensor & UtahPoint {
-  navName: "RaPress"
-  precision: 0.01
-  hisMode: "sampled"
-  hisCollectInterval: "10min"
-}
-
-// Return air pressure setpoint
-UtahRaPressSp: ReturnAirPressureSp & UtahPoint {
-  navName: "RaPressSp"
-  precision: 0.01
-  hisMode: "cov"
-  hisCollectInterval: "24hr"
-}
-
-// Return air pressure high alarm
-UtahRaPressHiAlrm: AlarmSensor & UtahPoint {
-  return
-  air
-  pressure
-  high
-  navName: "RaPressHiAlrm"
-  hisMode: "cov"
-  hisCollectInterval: "24hr"
+  color: Str? "orange"
 }
 
 // Return air temperature setpoint
-UtahRaTempSp: ReturnAirTempSp & UtahPoint {
+UtahRaTempSp: UtahReturn & UtahAirTempSp & UtahHisCov{
   navName: "RaTempSp"
-  precision: 1
-  hisMode: "cov"
-  hisCollectInterval: "24hr"
+  color: Str? "green"
 }
+
+//////////////////////////////////////////////////////////////////////////
+// Return air humidity
+//////////////////////////////////////////////////////////////////////////
+
+UtahRaHum: UtahReturn & UtahAirHumiditySensor & UtahHisSampledMajorEquip {
+  navName: "RaHum"
+}
+
+// Return air Dehumidify setpoint
+UtahRaDehumidifySp: UtahReturn & UtahAirDehumidifySp & UtahHisCov {
+  navName: "RaHumSp"
+}
+
+// Return air Humidify setpoint
+UtahRaHumidifySp: UtahReturn & UtahAirHumidifySp & UtahHisCov {
+  navName: "RaHumSp"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Return air damper
+//////////////////////////////////////////////////////////////////////////
+
+// Return air damper position
+UtahRaDmprPos: UtahReturn & UtahDamperPos & UtahHisSampledMajorEquip {
+  navName: "RaDmprPos"
+}
+
+UtahRaDmprPosSts: UtahReturn & UtahDamperPosSts & UtahHisSampledMajorEquip {
+  navName: "RaDmprPosSts"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Return air fan command
+//////////////////////////////////////////////////////////////////////////
+
+UtahRaFanCmd: UtahReturn & UtahFanCmd & UtahHisCov {
+  navName: "RaFanCmd"
+}
+
+// Return air fan status
+UtahRaFanCmdSts: UtahReturn & UtahFanCmdSts & UtahHisCov {
+  navName: "RaFanSts"
+}
+
+// Return air fan speed
+UtahRaFanSpd: UtahReturn & UtahFanSpd & UtahHisSampledMajorEquip {
+  navName: "RaFanSpd"
+}
+
+UtahRaFanSpdSts: UtahReturn & UtahFanSpdSts & UtahHisSampledMajorEquip {
+  navName: "RaFanSpdSts"
+}
+
+// Return air fan frequency
+UtahRaFanFreq: UtahReturn & UtahFanFreqPoint & UtahHisSampledMajorEquip {
+  navName: "RaFanFreq"
+}
+
+// Return air fan alarm
+UtahRaFanAlrm: UtahReturn & UtahFanAlarmPoint & UtahHisCov {
+  navName: "RaFanAlrm"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Return air pressure
+//////////////////////////////////////////////////////////////////////////
+
+UtahRaPress: UtahReturn & UtahAirPressure & UtahHisSampledMajorEquip {
+  navName: "RaPress"
+}
+
+// Return air pressure setpoint
+UtahRaPressSp: UtahReturn & UtahAirPressureSp & UtahHisCov {
+  navName: "RaPressSp"
+}
+
+// Return air pressure high alarm
+UtahRaPressAlrmHi: UtahReturn & UtahAirPressureAlarmPoint & UtahHisCov {
+  high
+  navName: "RaPressAlrmHi"
+}
+
+
 

@@ -1,98 +1,49 @@
 // Space/Zone Points - for single-zone direct AHUs
 
-//////////////////////////////////////////////////////////////////////////
 // Space/Zone Points
+
+//////////////////////////////////////////////////////////////////////////
+// Space CO2 concentration sensor
 //////////////////////////////////////////////////////////////////////////
 
-// Space CO2 concentration sensor
-UtahSpcCO2: ZoneCo2Sensor & UtahPoint {
-  navName: "SpcCO2"
-  hisMode: "sampled"
-  hisCollectInterval: "10min"
+UtahSpcCO2: UtahZone & Co2Sensor & UtahHisSampledMajorEquip {
+  navName: "SpcCo2"
+  color: Str? "gray"
 }
 
 // Space CO2 concentration setpoint
-UtahSpcCO2Sp: ZoneCo2Sp & UtahPoint {
-  navName: "SpcCO2Sp"
-  hisMode: "cov"
-  hisCollectInterval: "24hr"
-}
-
-// Space humidity sensor
-UtahSpcHum: ZoneAirHumiditySensor & UtahPoint {
-  navName: "SpcHum"
-  hisMode: "sampled"
-  hisCollectInterval: "10min"
-}
-
-// Space pressure sensor
-UtahSpcPress: AirPressureSensor & UtahPoint {
-  zone
-  navName: "SpcPress"
-  precision: 0.01
-  hisMode: "sampled"
-  hisCollectInterval: "10min"
-}
-
-// Space pressure setpoint
-UtahSpcPressSp: AirPressureSp & UtahPoint {
-  zone
-  navName: "SpcPressSp"
-  precision: 0.01
-  hisMode: "cov"
-  hisCollectInterval: "24hr"
-}
-
-// Space temperature sensor
-UtahSpcTemp: ZoneAirTempSensor & UtahPoint {
-  navName: "SpcTemp"
-  precision: 1
-  hisMode: "sampled"
-  hisCollectInterval: "10min"
+UtahSpcCO2Sp: UtahZone & Co2Sensor & UtahHisCov {
+  navName: "SpcCo2Sp"
   color: Str? "green"
 }
 
-// Space temperature setpoint
-UtahSpcTempSp: ZoneAirTempEffectiveSp & UtahPoint {
-  navName: "SpcTempSp"
-  precision: 1
-  hisMode: "cov"
-  hisCollectInterval: "24hr"
-  color: Str? "darkGreen"
-  strokeDasharray: Str? "2,2"
+//////////////////////////////////////////////////////////////////////////
+// Space humidity sensor
+//////////////////////////////////////////////////////////////////////////
+
+UtahSpcHum: UtahZone & UtahAirHumiditySensor & UtahHisSampledMajorEquip {
+  navName: "SpcHum"
+  color: Str? "gray"
 }
 
-// Occupied cooling setpoint
-UtahOccCoolSp: ZoneAirTempOccCoolingSp & UtahPoint {
-  navName: "OccCoolSp"
-  precision: 1
-  hisMode: "cov"
-  hisCollectInterval: "24hr"
-  color: Str? "blue"
+//////////////////////////////////////////////////////////////////////////
+// Space pressure sensor
+//////////////////////////////////////////////////////////////////////////
+
+UtahSpcPress: UtahZone & UtahAirPressureSensor & UtahHisSampledMajorEquip {
+  navName: "SpcPress"
+  color: Str? "gray"
 }
 
-// Occupied heating setpoint
-UtahOccHeatSp: ZoneAirTempOccHeatingSp & UtahPoint {
-  navName: "OccHeatSp"
-  precision: 1
-  hisMode: "cov"
-  hisCollectInterval: "24hr"
-  color: Str? "orange"
+// Space pressure setpoint
+UtahSpcPressSp: UtahZone & UtahAirPressureSp & UtahHisCov {
+  navName: "SpcPressSp"
+  color: Str? "green"
 }
 
-// Unoccupied cooling setpoint
-UtahUnoccCoolSp: ZoneAirTempUnoccCoolingSp & UtahPoint {
-  navName: "UnoccCoolSp"
-  precision: 1
-  hisMode: "cov"
-  hisCollectInterval: "24hr"
-}
+//////////////////////////////////////////////////////////////////////////
+// Space temperature sensor
+//////////////////////////////////////////////////////////////////////////
 
-// Unoccupied heating setpoint
-UtahUnoccHeatSp: ZoneAirTempUnoccHeatingSp & UtahPoint {
-  navName: "UnoccHeatSp"
-  precision: 1
-  hisMode: "cov"
-  hisCollectInterval: "24hr"
-}
-
+// See utah.points/points.air.xeto for zone level air temperatures and setpoints
+// These points shared across ahu, vav, unitHeater, etc.

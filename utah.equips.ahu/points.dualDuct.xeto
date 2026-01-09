@@ -2,30 +2,30 @@
 
 
 // Cold Deck
-UtahCDDaTemp: UtahColdDeck & UtahDischarge & UtahAirTempPoint & UtahHisSampledMajorEquip {
+UtahCDDaTemp: UtahColdDeck & UtahDischarge & UtahAirTempSensor & UtahHisSampledMajorEquip {
   navName: "CDDaTemp"
   color: Str? "blue"
-}
+} 
 
-UtahCDDaTempSp: UtahColdDeck & UtahDischarge & UtahAirTempSpPoint & UtahHisCov {
+UtahCDDaTempSp: UtahColdDeck & UtahDischarge & UtahAirTempSp & UtahHisCov {
   navName: "CDDaTempSp"
   color: Str? "blue"
   strokeDasharray: Str? "2,2"
 }
 
-UtahCDDaFlow: UtahColdDeck & UtahDischarge & UtahAirFlowPoint & UtahHisSampledMajorEquip {
+UtahCDDaFlow: UtahColdDeck & UtahDischarge & UtahAirFlowSensor & UtahHisSampledMajorEquip {
   navName: "CDDaFlow"
 }
 
-UtahCDDaFlowSp: UtahColdDeck & UtahDischarge & UtahAirFlowSpPoint & UtahHisSampledMajorEquip {
+UtahCDDaFlowSp: UtahColdDeck & UtahDischarge & UtahAirFlowSp & UtahHisSampledMajorEquip {
   navName: "CDDaFlowSp"
 }
 
-UtahCDDmprPos: UtahColdDeck & UtahDischarge & UtahDamperPosPoint & UtahHisSampledMajorEquip {
+UtahCDDmprPos: UtahColdDeck & UtahDischarge & UtahDamperPos & UtahHisSampledMajorEquip {
   navName: "CDDmprPos"
 }
 
-UtahCDDmprPosSts: UtahColdDeck & UtahDischarge & UtahDamperPosStsPoint & UtahHisSampledMajorEquip {
+UtahCDDmprPosSts: UtahColdDeck & UtahDischarge & UtahDamperPosSts & UtahHisSampledMajorEquip {
   navName: "CDDmprPosSts"
 }
 
@@ -33,54 +33,54 @@ UtahCDDmprCmd: UtahColdDeck & UtahDischarge & UtahDamperCmdPoint & UtahHisCov {
   navName: "CDDmprCmd"
 }
 
-UtahCDPress: UtahColdDeck & UtahDischarge & UtahAirPressurePoint & UtahHisSampledMajorEquip {
+UtahCDDaPress: UtahColdDeck & UtahDischarge & UtahAirPressurePoint & UtahHisSampledMajorEquip {
   navName: "CDPress"
   precision: 0.01
 }
 
-UtahCDPressSp: UtahColdDeck & UtahDischarge & UtahAirPressureSpPoint & UtahHisCov {
+UtahCDDaPressSp: UtahColdDeck & UtahDischarge & UtahAirPressureSp & UtahHisCov {
   navName: "CDPressSp"
   precision: 0.01
 }
 
 // Hot Deck
-UtahHDDaTemp: UtahHotDeck & UtahDischarge & UtahAirTempPoint & UtahHisSampledMajorEquip {
+UtahHDDaTemp: UtahHotDeck & UtahDischarge & UtahAirTempSensor & UtahHisSampledMajorEquip {
   navName: "HDDaTemp"
   color: Str? "red"
 }
 
-UtahHDDaTempSp: UtahHotDeck & UtahDischarge & UtahAirTempSpPoint & UtahHisSampledMajorEquip {
+UtahHDDaTempSp: UtahHotDeck & UtahDischarge & UtahAirTempSp & UtahHisSampledMajorEquip {
   navName: "HDDaTempSp"
   color: Str? "red"
   strokeDasharray: Str? "2,2"
 }
 
-UtahHDFlow: UtahHotDeck & UtahDischarge & UtahAirFlowPoint & UtahHisSampledMajorEquip {
+UtahHDDaFlow: UtahHotDeck & UtahDischarge & UtahAirFlowSensor & UtahHisSampledMajorEquip {
   navName: "HDFlow"
 }
 
-UtahHDFlowSp: UtahHotDeck & UtahDischarge & UtahAirFlowSpPoint & UtahHisSampledMajorEquip {
+UtahHDDaFlowSp: UtahHotDeck & UtahDischarge & UtahAirFlowSp & UtahHisSampledMajorEquip {
   navName: "HDFlowSp"
 }
 
-UtahHDDmprPos: UtahHotDeck & UtahDischarge & UtahDamperPosPoint & UtahHisSampledMajorEquip {
+UtahHDDmprPos: UtahHotDeck & UtahDischarge & UtahDamperPos & UtahHisSampledMajorEquip {
   navName: "HDDmprPos"
 }
 
-UtahHDDmprPosSts: UtahHotDeck & UtahDischarge & UtahDamperPosStsPoint & UtahHisSampledMajorEquip {
+UtahHDDmprPosSts: UtahHotDeck & UtahDischarge & UtahDamperPosSts & UtahHisSampledMajorEquip {
   navName: "HDDmprPosSts"
 }
 
-UtahHDPress: UtahHotDeck & UtahDischarge & UtahAirPressurePoint & UtahHisSampledMajorEquip {
+UtahHDDaPress: UtahHotDeck & UtahDischarge & UtahAirPressurePoint & UtahHisSampledMajorEquip {
   navName: "HDPress"
   precision: 0.01
 }
 
-UtahHDPressSp: UtahHotDeck & UtahDischarge & UtahAirPressureSpPoint & UtahHisCov {
+UtahHDDaPressSp: UtahHotDeck & UtahDischarge & UtahAirPressureSp & UtahHisCov {
   navName: "HDPressSp"
   precision: 0.01
 }
 
-UtahHDHum: UtahHotDeck & UtahDischarge & UtahAirHumidityPoint & UtahHisSampledMajorEquip {
+UtahHDDaHum: UtahHotDeck & UtahDischarge & UtahAirHumidityPoint & UtahHisSampledMajorEquip {
   navName: "HDHum"
 }

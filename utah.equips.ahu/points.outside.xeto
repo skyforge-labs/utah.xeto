@@ -1,90 +1,88 @@
 // Outside Air Points - Temperature, Humidity, Damper, Flow, Pressure
 
-//////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////
 // Outside Air Points
-//////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////
 
+///////////////////////////////////////
 // Outside air temperature
-UtahOaTemp: OutsideAirTempSensor & UtahPoint {
+///////////////////////////////////////
+
+UtahOaTemp: UtahOutside & UtahAirTempSensor & UtahHisSampledMajorEquip {
   navName: "OaTemp"
-  precision: 1
-  hisMode: "sampled"
-  hisCollectInterval: "10min"
-  color: Str? "gray"
+  color: Str? "light blue"
 }
 
+// Outside air temperature setpoint  // PQ Commented out.  No such thing?
+//UtahOaTempSp: AirTempSp & UtahPoint {
+//  outside
+//  navName: "OaTempSp"
+//  precision: 1
+//  hisMode: "cov"
+//  hisCollectInterval: "24hr"
+//}
+///////////////////////////////////////
 // Outside air humidity
-UtahOaHum: AirHumiditySensor & UtahPoint {
-  outside
+///////////////////////////////////////
+
+UtahOaHum: UtahOutside & UtahAirHumiditySensor & UtahHisSampledMajorEquip  {
   navName: "OaHum"
-  hisMode: "sampled"
-  hisCollectInterval: "10min"
 }
 
-// Outside air damper position
-UtahOaDmprPos: DamperSensor & UtahPoint {
-  outside
+///////////////////////////////////////
+// Outside air damper
+///////////////////////////////////////
+
+UtahOaDmprPos: UtahOutside & UtahDamperPos & UtahHisSampledMajorEquip {
   navName: "OaDmprPos"
-  hisMode: "sampled"
-  hisCollectInterval: "10min"
+}
+
+// Outside air damper position status
+UtahOaDmprPosSts: UtahOutside & UtahDamperPosSts & UtahHisSampledMajorEquip {
+  navName: "OaDmprPosSts"
 }
 
 // Outside air damper command
-UtahOaDmprCmd: DamperCmd & UtahPoint {
-  outside
-  min
+UtahOaDmprCmd: UtahOutside & UtahDamperCmd & UtahHisCov {
   navName: "OaDmprCmd"
-  hisMode: "sampled"
-  hisCollectInterval: "10min"
+}
+
+// Outside air damper status
+UtahOaDmprCmdSts: UtahOutside & UtahDamperCmdSts & UtahHisCov {
+  navName: "OaDmprCmd"
 }
 
 // Outside air minimum damper position
-UtahOaMinDmprPos: DamperCmd & UtahPoint {
-  outside
+UtahOaMinDmprPos: UtahOutside & DamperCmd & UtahHisCov {
   min
   navName: "OaMinDmprPos"
-  hisMode: "cov"
-  hisCollectInterval: "24hr"
 }
 
+///////////////////////////////////////
 // Outside air flow
-UtahOaFlow: OutsideAirFlowSensor & UtahPoint {
+///////////////////////////////////////
+
+UtahOaFlow: UtahOutside & UtahAirFlowSensor & UtahHisSampledMajorEquip {
   navName: "OaFlow"
-  hisMode: "sampled"
-  hisCollectInterval: "10min"
 }
 
 // Outside air flow setpoint
-UtahOaFlowSp: OutsideAirFlowSp & UtahPoint {
+UtahOaFlowSp: UtahOutside & UtahAirFlowSp & UtahHisSampledMajorEquip {
   navName: "OaFlowSp"
-  hisMode: "cov"
-  hisCollectInterval: "24hr"
 }
 
+///////////////////////////////////////
 // Outside air pressure
-UtahOaPress: AirPressureSensor & UtahPoint {
-  outside
+///////////////////////////////////////
+
+UtahOaPress: UtahOutside & UtahAirPressureSensor & UtahHisSampledMajorEquip {
   navName: "OaPress"
-  precision: 0.01
-  hisMode: "sampled"
-  hisCollectInterval: "10min"
 }
 
 // Outside air pressure setpoint
-UtahOaPressSp: AirPressureSp & UtahPoint {
-  outside
+UtahOaPressSp: UtahOutside & UtahAirPressureSp & UtahHisCov {
   navName: "OaPressSp"
-  precision: 0.01
-  hisMode: "cov"
-  hisCollectInterval: "24hr"
 }
 
-// Outside air temperature setpoint
-UtahOaTempSp: AirTempSp & UtahPoint {
-  outside
-  navName: "OaTempSp"
-  precision: 1
-  hisMode: "cov"
-  hisCollectInterval: "24hr"
-}
+
 

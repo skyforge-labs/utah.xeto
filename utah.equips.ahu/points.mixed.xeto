@@ -5,35 +5,22 @@
 //////////////////////////////////////////////////////////////////////////
 
 // Mixed air temperature
-UtahMaTemp: MixedAirTempSensor & UtahPoint {
+UtahMaTemp: UtahMixed & UtahAirTempSensor & UtahHisSampledMajorEquip {
   navName: "MaTemp"
-  precision: 1
-  hisMode: "sampled"
-  hisCollectInterval: "10min"
-  color: Str? "purple"
 }
 
 // Mixed air damper position
-UtahMaDmprPos: DamperSensor & UtahPoint {
-  mixed
+UtahMaDmprPos: UtahMixed & UtahDamperPos & UtahHisSampledMajorEquip {
   navName: "MaDmprPos"
-  hisMode: "sampled"
-  hisCollectInterval: "10min"
 }
 
 // Mixed air flow
-UtahMaFlow: AirFlowSensor & UtahPoint {
-  mixed
+UtahMaFlow: UtahMixed & UtahAirFlowSensor & UtahHisSampledMajorEquip {
   navName: "MaFlow"
-  hisMode: "sampled"
-  hisCollectInterval: "10min"
 }
 
 // Mixed air humidity
-UtahMaHum: AirHumiditySensor & UtahPoint {
-  mixed
+UtahMaHum: UtahMixed & UtahAirHumiditySensor & UtahHisSampledMajorEquip {
   navName: "MaHum"
-  hisMode: "sampled"
-  hisCollectInterval: "10min"
 }
 

@@ -35,6 +35,6 @@ UtahHumidifierFanSpd: UtahHumidifier & FanSpeedCmd & UtahHisSampledMajorEquip {
 }
 
 // Humidifier setpoint
-UtahHumidifySp: UtahHumidifyPoint & SpPoint & UtahHisSampledMajorEquip {
+UtahHumidSp: UtahAirHumidifySp & UtahHisSampledMajorEquip {
   navName: "HumidifySp"
 }

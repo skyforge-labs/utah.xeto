@@ -10,8 +10,8 @@ UtahAhu: Ahu <abstract> {
 
   points: {
     // General Points
-    occCmd: UtahOccCmd?
-    occMode: UtahOccMode?
+    occCmd: UtahOccupiedCmdPoint?
+    occMode: UtahOccupiedModePoint?
     bldgPress: UtahBldgPress?
     bldgPressSp: UtahBldgPressSp?
     frzStat: UtahFrzStat?
@@ -32,8 +32,8 @@ UtahAhu: Ahu <abstract> {
     spcHum: UtahSpcHum?
     spcPress: UtahSpcPress?
     spcPressSp: UtahSpcPressSp?
-    spcTemp: UtahSpcTemp?
-    spcTempSp: UtahSpcTempSp?
+    spcTemp: UtahZoneTemp?
+    spcTempSp: UtahZoneTempSp?
     occCoolSp: UtahOccCoolSp?
     occHeatSp: UtahOccHeatSp?
     unoccCoolSp: UtahUnoccCoolSp?
@@ -64,42 +64,44 @@ UtahAhu: Ahu <abstract> {
     cdDaFlowSp: UtahCDDaFlowSp?
     cdDmprPos: UtahCDDmprPos?
     cdDmprCmd: UtahCDDmprCmd?
-    cdPress: UtahCDPress?
-    cdPressSp: UtahCDPressSp?
+    cdPress: UtahCDDaPress?
+    cdPressSp: UtahCDDaPressSp?
     hdDaTemp: UtahHDDaTemp?
     hdDaTempSp: UtahHDDaTempSp?
-    hdHum: UtahHDHum?
+    hdHum: UtahHDDaHum?
     hdDmprPos: UtahHDDmprPos?
-    hdPress: UtahHDPress?
-    hdPressSp: UtahHDPressSp?
-    hdFlow: UtahHDFlow?
-    hdFlowSp: UtahHDFlowSp?
+    hdPress: UtahHDDaPress?
+    hdPressSp: UtahHDDaPressSp?
+    hdFlow: UtahHDDaFlow?
+    hdFlowSp: UtahHDDaFlowSp?
 
     // Return Air Points
     raTemp: UtahRaTemp?
     raHum: UtahRaHum?
-    raHumSp: UtahRaHumSp?
-    raDehumidifyHsp: UtahRaDehumidifyHsp?
+    raHumSp: UtahRaHumidifySp?
+    raDehumidifyHsp: UtahRaDehumidifySp?
     raDmprPos: UtahRaDmprPos?
     raFanCmd: UtahRaFanCmd?
-    raFanSts: UtahRaFanSts?
+    raFanCmdSts: UtahRaFanCmdSts?
     raFanAlrm: UtahRaFanAlrm?
     raFanSpd: UtahRaFanSpd?
+    raFanSpdSts: UtahRaFanSpdSts?
     raFanFreq: UtahRaFanFreq?
     raPress: UtahRaPress?
     raPressSp: UtahRaPressSp?
-    raPressHiAlrm: UtahRaPressHiAlrm?
+    raPressAlrmHi: UtahRaPressAlrmHi?
     raTempSp: UtahRaTempSp?
 
     // Relief/Exhaust Air Points
     rlfFanCmd: UtahRlfFanCmd?
-    rlfFanSts: UtahRlfFanSts?
+    rlfFanCmdSts: UtahRlfFanCmdSts?
     rlfFanSpd: UtahRlfFanSpd?
     rlfDmprPos: UtahRlfDmprPos?
     rlfDmprCmd: UtahRlfDmprCmd?
 
     // Outside Air Points
     oaTemp: UtahOaTemp?
+//    oaTempSp: UtahOaTempSp?  // PQ Commented out. How would this be used?
     oaHum: UtahOaHum?
     oaDmprPos: UtahOaDmprPos?
     oaDmprCmd: UtahOaDmprCmd?
@@ -108,7 +110,7 @@ UtahAhu: Ahu <abstract> {
     oaFlowSp: UtahOaFlowSp?
     oaPress: UtahOaPress?
     oaPressSp: UtahOaPressSp?
-    oaTempSp: UtahOaTempSp?
+
 
     // Mixed Air Points
     maTemp: UtahMaTemp?
@@ -117,15 +119,16 @@ UtahAhu: Ahu <abstract> {
     maHum: UtahMaHum?
 
     // Hot Water Heating Points
-    hwcCmd: UtahHWCCmd?
-    hwcPts: UtahHWCPts?
+    hwcCmd: UtahHWCPCmd?
+    hwcPts: UtahHWCPSts?
     hwIsoVlvCmd: UtahHWIsoVlvCmd?
     hwIsoVlvPos: UtahHWIsoVlvPos?
     hwVlvPos: UtahHWVlvPos?
     hwVlvPosSts: UtahHWVlvPosSts?
-    hcalTemp: UtahHCALTemp?
-    hcwlTemp: UtahHCWLTemp?
-    hcweTemp: UtahHCWETemp?
+    hwcalTemp: UtahHWCALTemp?
+    hwcaeTemp: UtahHWCAETemp?
+    hwcwlTemp: UtahHWCWLTemp?
+    hwcweTemp: UtahHWCWETemp?
 
     // Chilled Water Points
     chwCPCmdSts: UtahChWCPCmdSts?
@@ -148,26 +151,28 @@ UtahAhu: Ahu <abstract> {
     ccalTempSp: UtahChWCALTempSp?
 
     // Economizer Points
-    econMode: UtahEconMode?
+    econMode: UtahEconModeEnum?
+//    econModeStr: UtahEconModeStr?  // No String data type?
 
     // Humidifier Points
     humidifierEnable: UtahHumidifierEnable?
+    humidifySp: UtahAirHumidifySp?
     humidifierCmd: UtahHumidifierCmd?
     humidifierStmVlv: UtahHumidifierStmVlvCmd?
     humidifierFanSpd: UtahHumidifierFanSpd?
 
     // Dehumidifier Points
     dehumidifyMode: UtahDehumidifyMode?
-    dehumidifyHsp: UtahDehumidifySp?
+    dehumidifySp: UtahAirDehumidifySp?
 
     // Heat Recovery Water Points
-    hrwetTemp: UtahHRWETTemp?
-    hrwltTemp: UtahHRWLTTemp?
+    hrwetTemp: UtahHRCWETemp?
+    hrwltTemp: UtahHRCWLTemp?
     hrwFlow: UtahHRWFlow?
     hrwVolFlow: UtahHRWVolFlow?
     hrwMassFlow: UtahHRWMassFlow?
     hrwPower: UtahHRWPower?
     hrwEnergy: UtahHRWEnergy?
-    hrwCmd: UtahHRWCmd?
+    hrwCPCmd: UtahHRWCPCmd?
   }
 }

@@ -4,60 +4,29 @@
 // Filter Points
 //////////////////////////////////////////////////////////////////////////
 
-
-
 // Filter alarm indicating maintenance required
-UtahFilterAlrm: AlarmSensor & UtahPoint {
-  filter
+UtahFilterAlrm: UtahAirFilter & BoolPoint & AlarmSensor & UtahHisCov {
   navName: "FilterAlrm"
-  hisMode: "cov"
-  hisCollectInterval: "24hr"
 }
 
 // Current filter status (clean/dirty)
-UtahFilterSts: RunSensor & UtahPoint {
-  filter
+UtahFilterSts: UtahAirFilter & BoolPoint & RunSensor & UtahHisCov {
   navName: "FilterSts"
-  hisMode: "cov"
-  hisCollectInterval: "24hr"
 }
 
 // Overall filter differential pressure
-UtahFilterDP: NumberPoint & UtahPoint {
-  filter
-  pressure
-  delta
-  sensor
+UtahFilterDP: UtahAirFilter & UtahAirDiffPressurePoint & SensorPoint & UtahHisSampledMajorEquip {
   navName: "FilterDP"
-  unit: "inH₂O"
-  precision: 0.01
-  hisMode: "sampled"
-  hisCollectInterval: "10min"
 }
 
 // Pre-filter differential pressure
-UtahPreFilterDP: NumberPoint & UtahPoint {
-  filter
-  pressure
-  delta
-  sensor
+UtahPreFilterDP: UtahAirFilter & UtahAirDiffPressurePoint & SensorPoint & UtahHisSampledMajorEquip {
+  preliminary
   navName: "PreFilterDP"
-  unit: "inH₂O"
-  precision: 0.01
-  hisMode: "sampled"
-  hisCollectInterval: "10min"
 }
 
 // Final filter differential pressure
-UtahFinalFilterDP: NumberPoint & UtahPoint {
-  filter
-  pressure
-  delta
-  sensor
+UtahFinalFilterDP: UtahAirFilter & UtahAirDiffPressurePoint & SensorPoint & UtahHisSampledMajorEquip {
   navName: "FinalFilterDP"
-  unit: "inH₂O"
-  precision: 0.01
-  hisMode: "sampled"
-  hisCollectInterval: "10min"
 }
 

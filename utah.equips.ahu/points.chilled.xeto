@@ -18,8 +18,7 @@ UtahChWVlvPosSts: ChilledWater & UtahValvePosSts & UtahHisSampledMajorEquip {
 //////////////////////////////////////////////////////////////////////////
 
 // Chilled water isolation valve command
-UtahChWIsoVlvCmd: ChilledWater & UtahValveCmd & UtahHisCov {
-  isolation
+UtahChWIsoVlvCmd: ChilledWater & UtahIsoValveCmd & UtahHisCov {
   navName: "ChWIsoVlvCmd"
 }
 
@@ -29,7 +28,7 @@ UtahChWIsoVlvCmd: ChilledWater & UtahValveCmd & UtahHisCov {
 //////////////////////////////////////////////////////////////////////////
 
 // DX cooling point base
-UtahDxClgPoint: UtahDxPoint {
+UtahDxClgPoint: UtahStagePoint {
   cooling
   navName: "Dx cooling point"
 }

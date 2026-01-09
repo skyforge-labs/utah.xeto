@@ -5,12 +5,12 @@
 //////////////////////////////////////////////////////////////////////////
 
 // Economizer mode
-UtahEconMode: EnumPoint & UtahPoint {
-  economizer
+UtahEconModeEnum: UtahEconomizer & EnumPoint & CmdPoint & UtahHisCov {
   run
-  cmd
-  navName: "EconMode"
-  hisMode: "cov"
-  hisCollectInterval: "24hr"
+  navName: "EconModeEnum"
 }
-
+//  How to model a SkySpark string point?  No StringPoint spec?
+//UtahEconModeStr: UtahEconomizer & StringPoint & CmdPoint & UtahHisCov{
+//  run
+//  navName: "EconMode String"
+//}

@@ -5,112 +5,54 @@
 //////////////////////////////////////////////////////////////////////////
 
 
-
-// Hot water circulation pump command
-UtahHWCCmd: EnableCmd & UtahPoint {
-  hot
-  water
-  circ
-  pump
-  run
-  navName: "HWCCmd"
-  hisMode: "cov"
-  hisCollectInterval: "24hr"
-}
-
-// Hot water circulation pump status
-UtahHWCPts: RunSensor & UtahPoint {
-  hot
-  water
-  circ
-  pump
-  navName: "HWCPts"
-  hisMode: "cov"
-  hisCollectInterval: "24hr"
-}
-
-// Hot water isolation valve command
-UtahHWIsoVlvCmd: ValveCmd & UtahPoint {
-  hot
-  water
-  isolation
-  navName: "HWIsoVlvCmd"
-  hisMode: "cov"
-  hisCollectInterval: "24hr"
-}
-
-// Hot water isolation valve position
-UtahHWIsoVlvPos: ValveSensor & UtahPoint {
-  hot
-  water
-  isolation
-  navName: "HWIsoVlvPos"
-  hisMode: "sampled"
-  hisCollectInterval: "10min"
-}
-
 // Hot water valve position
-UtahHWVlvPos: ValveSensor & UtahPoint {
-  hot
-  water
-  cmd
+UtahHWVlvPos: HotWater & UtahValvePos & UtahHisSampledMajorEquip {
   navName: "HWVlvPos"
-  hisMode: "sampled"
-  hisCollectInterval: "10min"
 }
 
 // Hot water valve position status
-UtahHWVlvPosSts: ValveSensor & UtahPoint {
-  hot
-  water
+UtahHWVlvPosSts: HotWater & UtahValvePosSts & UtahHisSampledMajorEquip {
   navName: "HWVlvPosSts"
-  hisMode: "sampled"
-  hisCollectInterval: "10min"
 }
 
-// Heating coil air leaving temperature
-UtahHCALTemp: AirTempSensor & UtahPoint {
-  heat
-  leaving
-  navName: "HCALTemp"
-  unit: "F"
-  precision: 1
-  hisMode: "sampled"
-  hisCollectInterval: "10min"
-  color: Str? "orange"
+// Hot water isolation valve command
+UtahHWIsoVlvCmd: HotWater & ValveCmd & UtahHisCov {
+  isolation
+  navName: "HWIsoVlvCmd"
 }
 
-// Heating coil water leaving temperature
-UtahHCWLTemp: NumberPoint & UtahPoint {
-  heating
-  coil
-  heat
-  hot
-  water
-  temp
-  leaving
-  sensor
-  navName: "HCWLTemp"
-  unit: "F"
-  precision: 1
-  hisMode: "sampled"
-  hisCollectInterval: "10min"
+// Hot water isolation valve position
+UtahHWIsoVlvPos: HotWater & UtahValvePos & UtahHisSampledMajorEquip {
+  isolation
+  navName: "HWIsoVlvPos"
 }
 
 // Heating coil water entering temperature
-UtahHCWETemp: NumberPoint & UtahPoint {
-  heating
-  coil
-  heat
-  hot
-  water
-  temp
-  entering
-  sensor
-  navName: "HCWETemp"
-  unit: "F"
-  precision: 1
-  hisMode: "sampled"
-  hisCollectInterval: "10min"
+UtahHWCWETemp: HotWater & UtahHeatingCoil & UtahWaterTempEntering & UtahHisSampledMajorEquip {
+  navName: "HWCWETemp"
 }
 
+// Heating coil water leaving temperature
+UtahHWCWLTemp: HotWater & UtahHeatingCoil & UtahWaterTempLeaving & UtahHisSampledMajorEquip {
+  navName: "HCWLTemp"
+}
+
+// Heating coil air entering temperature
+UtahHWCAETemp: HotWater & UtahHeatingCoil & UtahAirTempEntering & UtahHisSampledMajorEquip {
+  navName: "HWCAETemp"
+}
+
+// Heating coil air leaving temperature
+UtahHWCALTemp: HotWater & UtahHeatingCoil & UtahAirTempLeaving & UtahHisSampledMajorEquip {
+  navName: "HWCALTemp"
+}
+
+// Hot water circulation pump command
+UtahHWCPCmd: HotWater & UtahCircPump & RunCmd & UtahHisCov {
+  navName: "HWCPCmd"
+}
+
+// Hot water circulation pump status
+UtahHWCPSts: HotWater & UtahCircPump & RunSensor & UtahHisCov {
+  navName: "HWCPSts"
+}

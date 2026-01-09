@@ -9,22 +9,22 @@ UtahCoolingBypass: UtahCoolingCoil {
 //////////////////////////////////////////////////////////////////////////
 
 // Cooling bypass damper command
-UtahCoolingBypDmprCmd: UtahCoolingBypass & UtahDamperCmdPoint & UtahHisCov {
+UtahCoolingBypDmprCmd: UtahCoolingBypass & UtahDamperCmd & UtahHisCov {
   navName: "CCBypDmprCmd"
 }
 
 // Cooling bypass damper command status
-UtahCoolingBypDmprCmdSts: UtahCoolingBypass & UtahDamperCmdStsPoint & UtahHisCov {
+UtahCoolingBypDmprCmdSts: UtahCoolingBypass & UtahDamperCmdSts & UtahHisCov {
   navName: "CCBypDmprCmdSts"
 }
 
 // Cooling bypass damper position
-UtahCoolingBypDmprPos: UtahCoolingBypass & UtahDamperPosPoint & UtahHisSampledMajorEquip {
+UtahCoolingBypDmprPos: UtahCoolingBypass & UtahDamperPos & UtahHisSampledMajorEquip {
   navName: "CCBypDmprPos"
 }
 
 // Cooling bypass damper position status
-UtahCoolingBypDmprPosSts: UtahCoolingBypass & UtahDamperPosStsPoint & UtahHisSampledMajorEquip {
+UtahCoolingBypDmprPosSts: UtahCoolingBypass & UtahDamperPosSts & UtahHisSampledMajorEquip {
   navName: "CCBypDmprPosSts"
 }
 
@@ -33,7 +33,7 @@ UtahCoolingBypDmprPosSts: UtahCoolingBypass & UtahDamperPosStsPoint & UtahHisSam
 //////////////////////////////////////////////////////////////////////////
 
 // Cooling bypass discharge air temperature
-UtahCoolingBypDaTemp: UtahCoolingBypass & UtahAirTempPoint & UtahDischarge & UtahHisSampledMajorEquip {
+UtahCoolingBypDaTemp: UtahCoolingBypass & UtahAirTempSensor & UtahDischarge & UtahHisSampledMajorEquip {
   navName: "CCBypDaTemp"
 }
 

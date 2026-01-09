@@ -1,93 +1,69 @@
 // Heat Recovery Water System Points - Temperatures, Flow, Power, Energy
 
 //////////////////////////////////////////////////////////////////////////
-// Heat Recovery Water Points
+// Heat Recovery Circ Pump
+//////////////////////////////////////////////////////////////////////////
+
+// Heat recovery water circ pump command
+UtahHRWCPCmd: UtahHeatRecovery & UtahCircPump & RunCmd & UtahHisCov {
+  navName: "HRWCPmd"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Heat Recovery Coil Temperatures
 //////////////////////////////////////////////////////////////////////////
 
 // Heat recovery water entering temperature
-UtahHRWETTemp: NumberPoint & UtahPoint {
-  equip
-  water
-  temp
-  entering
-  hru
-  navName: "HRWETTemp"
-  unit: "F"
-  precision: 1
-  hisMode: "sampled"
-  hisCollectInterval: "10min"
+UtahHRCWETemp: UtahHeatRecovery & UtahHeatRecoveryCoil & UtahWaterTempEntering & UtahHisSampledMajorEquip {
+  navName: "HRCWETemp"
 }
 
 // Heat recovery water leaving temperature
-UtahHRWLTTemp: NumberPoint & UtahPoint {
-  water
-  temp
-  leaving
-  hru
-  sensor
-  navName: "HRWLTTemp"
-  unit: "F"
-  precision: 1
-  hisMode: "sampled"
-  hisCollectInterval: "10min"
+UtahHRCWLTemp:  UtahHeatRecovery & UtahHeatRecoveryCoil & UtahWaterTempLeaving & UtahHisSampledMajorEquip {
+  navName: "HRCWLTemp"
 }
 
+//////////////////////////////////////////////////////////////////////////
 // Heat recovery water flow
-UtahHRWFlow: WaterFlowSensor & UtahPoint {
-  hru
+//////////////////////////////////////////////////////////////////////////
+
+UtahHRWFlow: UtahHeatRecovery & WaterFlowSensor & UtahHisSampledMajorEquip {
   navName: "HRWFlow"
-  hisMode: "sampled"
-  hisCollectInterval: "10min"
 }
 
+//////////////////////////////////////////////////////////////////////////
 // Heat recovery water volumetric flow
-UtahHRWVolFlow: WaterFlowSensor & UtahPoint {
-  volumetric
-  hru
-  navName: "HRWVolFlow"
-  hisMode: "sampled"
-  hisCollectInterval: "10min"
+//////////////////////////////////////////////////////////////////////////
+
+UtahHRWVolFlow: UtahHeatRecovery & WaterVolumeSensor & UtahHisSampledMajorEquip {
+  navName: "HRWVol"
 }
 
+//////////////////////////////////////////////////////////////////////////
 // Heat recovery water mass flow
-UtahHRWMassFlow: WaterFlowSensor & UtahPoint {
+//////////////////////////////////////////////////////////////////////////
+
+UtahHRWMassFlow: UtahHeatRecovery & UtahWaterMassFlowSensor & UtahHisSampledMajorEquip {
   massFlow
   navName: "HRWMassFlow"
-  hisMode: "sampled"
-  hisCollectInterval: "10min"
+  unit: "lb/min"
 }
 
+//////////////////////////////////////////////////////////////////////////
 // Heat recovery water power
-UtahHRWPower: NumberPoint & UtahPoint {
-  water
-  power
-  sensor
+//////////////////////////////////////////////////////////////////////////
+
+UtahHRWPower:UtahHeatRecovery & UtahWaterPowerSensor & UtahHisSampledMajorEquip {
   navName: "HRWPower"
   unit: "kW"
-  hisMode: "sampled"
-  hisCollectInterval: "10min"
 }
-
+//////////////////////////////////////////////////////////////////////////
 // Heat recovery water energy
-UtahHRWEnergy: NumberPoint & UtahPoint {
-  water
-  energy
-  accumulated
-  sensor
+//////////////////////////////////////////////////////////////////////////
+
+UtahHRWEnergy: UtahHeatRecovery & UtahWaterEnergySensor & UtahHisSampledMajorEquip {
   navName: "HRWEnergy"
   unit: "kWh"
-  hisMode: "sampled"
-  hisCollectInterval: "10min"
 }
 
-// Heat recovery water command
-UtahHRWCmd: EnableCmd & UtahPoint {
-  water
-  circ
-  pump
-  run
-  navName: "HRWCmd"
-  hisMode: "cov"
-  hisCollectInterval: "24hr"
-}
 
