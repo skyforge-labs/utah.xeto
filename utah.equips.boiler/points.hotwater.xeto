@@ -1,0 +1,98 @@
+// Hot Water System Points - Valves, Temperatures, Circ Pumps, Flow
+
+//////////////////////////////////////////////////////////////////////////
+// Isolation Valve Points
+//////////////////////////////////////////////////////////////////////////
+
+//  Hot water isolation valve command
+UtahHWIsoVlvCmd: HotWater & UtahIsoValveCmd & UtahHisCov {
+  navName: "HWIsoVlvCmd"
+}
+
+// Hot water isolation valve position
+UtahHWIsoVlvPos: HotWater & UtahIsoValvePos & UtahHisSampledMajorEquip {
+  isolation
+  navName: "HWIsoVlvPos"
+}
+
+// Hot water isolation valve position status
+UtahHWIsoVlvPosSts: HotWater & UtahIsoValvePosSts & UtahHisCov {
+  isolation
+  navName: "HWIsoVlvPosSts"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Hot Water Temperature Points
+//////////////////////////////////////////////////////////////////////////
+
+// Hot water entering temperature
+UtahHWETemp: HotWater & UtahWaterTempEntering & UtahHisSampledMajorEquip {
+  navName: "HWETemp"
+}
+
+// Hot water leaving temperature
+UtahHWLTemp: HotWater & UtahWaterTempLeaving & UtahHisSampledMajorEquip {
+  navName: "HWLTemp"
+}
+
+// Hot water leaving temperature setpoint
+UtahHWLTempSp: HotWater & UtahWaterTempLeavingSp & UtahHisCov {
+  navName: "HWLTempSp"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Pump Command Points
+//////////////////////////////////////////////////////////////////////////
+
+// Hot water circulation pump command
+UtahHWCPCmd: HotWater & UtahCircPump & RunCmd & UtahHisCov {
+  navName: "HWCPCmd"
+}
+
+// Hot water circulation pump command status
+UtahHWCPCmdSts: HotWater & UtahCircPump & RunSensor & UtahHisCov {
+  navName: "HWCPCmdSts"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Hot Water Flow Points
+//////////////////////////////////////////////////////////////////////////
+
+// Hot water flow
+UtahHWFlow: HotWater & UtahWaterFlowSensor & UtahHisSampledMajorEquip {
+  navName: "HWFlow"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Hot Water Volume Points
+//////////////////////////////////////////////////////////////////////////
+
+// Hot water volume
+UtahHWVolume: HotWater & UtahWaterVolumeSensor & UtahHisSampledMajorEquip {
+  navName: "HWVolume"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Hot Water Diff Pressure Points
+//////////////////////////////////////////////////////////////////////////
+
+// Hot Water Diff Pressure
+UtahHWDP: HotWater & UtahWaterDP & UtahHisSampledMajorEquip {
+  navName: "HWDP"
+  unit: "psi"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Hot Water Energy and Power Points
+//////////////////////////////////////////////////////////////////////////
+
+// Hot Water Energy
+UtahHWEnergy: HotWater & UtahWaterEnergySensor & UtahHisConsumptionMajorEquip {
+  navName: "HWEnergy"
+  unit: "MMBTU"
+}
+// Hot Water Power
+UtahHWPower: HotWater & UtahWaterPowerSensor & UtahHisSampledMajorEquip {
+  navName: "HWPower"
+  unit: "MMBTU/h"
+}

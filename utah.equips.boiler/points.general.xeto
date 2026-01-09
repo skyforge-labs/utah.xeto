@@ -1,0 +1,32 @@
+// General Boiler Points - Enable, Command, Energy
+
+//////////////////////////////////////////////////////////////////////////
+// General Boiler Points
+//////////////////////////////////////////////////////////////////////////
+
+// Boiler Enabled
+UtahBlrEnab: UtahBoiler & EnableCmd & UtahHisCov {
+  navName: "BlrEnab"
+}
+
+// Boiler Run Cmd
+UtahBlrCmd: UtahBoiler & RunCmd & UtahHisCov {
+  navName: "BlrCmd"
+}
+
+// Boiler Run Status
+UtahBlrCmdSts: UtahBoiler & RunSensor & UtahHisCov {
+  navName: "BlrCmdSts"
+}
+
+// Emergency kill switch for Boiler shutdown
+UtahBlrKillSwitch: UtahBoiler & RunCmd & UtahHisCov {
+  killSwitch
+  navName: "BlrKillSwitch"
+}
+
+// Boiler Firing Rate
+UtahBlrFiringRate: UtahBoiler & RunSensor & UtahHisSampledMajorEquip {
+  firingRate
+  navName: "BlrFiringRate"
+}

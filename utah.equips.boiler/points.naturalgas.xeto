@@ -1,0 +1,28 @@
+
+//////////////////////////////////////////////////////////////////////////
+// Boiler Natural Gas Energy and Power Points
+//////////////////////////////////////////////////////////////////////////
+
+// Boiler Natural Flow
+UtahBlrNatGasFlow: UtahBoiler & UtahNatGasFlowSensor & UtahHisSampledMajorEquip {
+  navName: "BlrNatGasPower"
+//  unit: "ccf/h"  // Could not find a standard unit Ccf/h
+}
+
+// Boiler Natural Volume
+UtahBlrNatGasVolume: UtahBoiler & UtahNatGasVolumeSensor & UtahHisConsumptionMajorEquip {
+  navName: "BlrNatGasPower"
+  unit: "Ccf"
+}
+
+// Boiler Natural Gas Energy
+UtahBlrNatGasEnergy: UtahBoiler & UtahNatGasEnergySensor & UtahHisConsumptionMajorEquip {
+  navName: "BlrNatGasEnergy"
+  unit: "MMBTU"
+}
+
+// Boiler Natural Gas Power
+UtahBlrNatGasPower: UtahBoiler & UtahNatGasPowerSensor & UtahHisSampledMajorEquip {
+  navName: "BlrNatGasPower"
+  unit: "MMBTU/h"
+}
