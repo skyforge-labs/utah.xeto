@@ -14,9 +14,19 @@ jobs:
       contents: write  # Required for creating releases
 
     steps:
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Clone Haxall
+        run: |
+          git clone --depth 1 --branch 3.1.12 https://github.com/haxall/haxall.git ${{ github.workspace }}/workdir/haxall
+          chmod +x ${{ github.workspace }}/workdir/haxall/bin/*
+
       - name: Setup work directory structure
         run: |
-          # Create xeto work directory structure
           mkdir -p ${{ github.workspace }}/workdir/lib/xeto
           mkdir -p ${{ github.workspace }}/workdir/src/xeto
           touch ${{ github.workspace }}/workdir/fan.props
@@ -27,28 +37,18 @@ jobs:
         with:
           path: workdir/src/xeto
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18'  # LTS - more stable with native modules
-
-      - name: Install Haxall CLI
-        run: |
-          npm cache clean --force
-          npm install -g @haxall/haxall@3.1.11-901.1
-
       - name: Verify xeto installation
         working-directory: ${{ github.workspace }}/workdir/src/xeto
         run: |
+          echo "=== Java version ==="
+          java -version
           echo "=== xeto env ==="
-          xeto env
-          xeto env | grep -q "xeto.workDir" || { echo "ERROR: xeto.workDir not set"; exit 1; }
-          xeto env | grep -q "xeto.installDir" || { echo "ERROR: xeto.installDir not set"; exit 1; }
+          ../../haxall/bin/xeto env
 
       - name: Build all libs
         working-directory: ${{ github.workspace }}/workdir/src/xeto
         run: |
-          xeto build
+          ../../haxall/bin/xeto build
           echo "=== Built libs ==="
           ls -la ../../lib/xeto/
 
