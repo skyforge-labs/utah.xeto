@@ -58,12 +58,12 @@ UtahCWLTempSp: UtahCW & UtahWaterTempLeavingSp & UtahHisCov {
 //////////////////////////////////////////////////////////////////////////
 
 // Condenser water circulation pump command
-UtahCWCPCmd: UtahCW & UtahCircPump & RunCmd & UtahHisCov {
+UtahCWCPCmd: UtahCW & UtahCPCmd & UtahHisCov {
   navName: "CWCPCmd"
 }
 
 // Condenser water circulation pump command status
-UtahCWCPCmdSts: UtahCW & UtahCircPump & RunSensor & UtahHisCov {
+UtahCWCPCmdSts: UtahCW & UtahCPCmdSts & UtahHisCov {
   navName: "CWCPCmdSts"
 }
 

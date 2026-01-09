@@ -1,60 +1,72 @@
-//
-// Copyright (c) 2026, SkyForge Labs
-// Licensed under the Academic Free License version 3.0
-//
-// History:
-//   09 Jan 2026   James Gessel   Creation
-//
 // Steam Points
 
 ////////////////////////////////////////////////////
 // Steam Temp
 ////////////////////////////////////////////////////
 
-// Steam Temp
-UtahSteamTemp: Steam & Temp <abstract>{
-    
+UtahSteamTemp: Steam & Temp <abstract> {
+    doc: "Steam Temp"
     }
 
-// Steam Temperature Point
-UtahSteamTempPoint: UtahSteamTemp & NumberPoint <abstract>{
+UtahSteamTempPoint: UtahSteamTemp & NumberPoint <abstract> {
     unit: "°F"
+    doc: "Steam Temperature Point"
     }
 
-// Steam Temperature Sensor
-UtahSteamTempSensor: UtahSteamTempPoint & SensorPoint <abstract>{
-    
+UtahSteamTempSensor: UtahSteamTempPoint & SensorPoint <abstract> {
+    doc: "Steam Temperature Sensor"
     }
 
-// Steam Temperature Setpoint
-UtahSteamTempSp: UtahSteamTempPoint & SpPoint <abstract>{
-    
+UtahSteamTempSp: UtahSteamTempPoint & SpPoint <abstract> {
+    doc: "Steam Temperature Setpoint"
     }
     
 // Steam Temperatures
-// Steam Temperature entering a device
-UtahSteamTempEntering: UtahSteamTempSensor <abstract>{
+UtahSteamTempEntering: UtahSteamTempSensor <abstract> {
     entering
+    doc: "Steam Temperature entering a device"
     }
 
-// Steam Temperature leaving a device
-UtahSteamTempLeaving: UtahSteamTempSensor <abstract>{
+UtahSteamTempLeaving: UtahSteamTempSensor <abstract> {
     leaving
+    doc: "Steam Temperature leaving a device"
     }
 
 /////////////////////////////////////////
 // Steam Valves Position
 /////////////////////////////////////////
 
-// Steam valve 0-100% 
-UtahStmVlvPos: Steam & UtahValvePos <abstract>{
+UtahStmVlvCmd: Steam & UtahValveCmd <abstract> {
+    doc: "Steam valve Open/Closed"
+    }
     
+UtahStmVlvPos: Steam & UtahValvePos <abstract> {
+    doc: "Steam valve 0-100% "
     }
 
-UtahStm1/3VlvPos: UtahStmVlvPos <abstract> {
+UtahStm13VlvPos: UtahStmVlvPos <abstract> {
     doc: "1/3 Steam valve 0-100% "
     }
 
-UtahStm2/3VlvPos: UtahStmVlvPos <abstract> {
+UtahStm23VlvPos: UtahStmVlvPos <abstract> {
     doc: "2/3 Steam valve 0-100% "
+    }
+    
+////////////////////////////////////
+// Steam Pressure
+////////////////////////////////////
+
+// Generic Steam Pressure
+UtahSteamPressure: Steam & Pressure <abstract>{
+  navName: "SteamPress"
+    }
+
+// Generic Steam Pressure Point
+UtahSteamPressurePoint: UtahSteamPressure & NumberPoint <abstract>{
+  navName: "SteamPressPoint"
+    }
+
+// Generic Steam Pressure Sensor
+UtahSteamPressureSensor: UtahSteamPressurePoint & SensorPoint <abstract>{
+  navName: "SteamPress"
     }

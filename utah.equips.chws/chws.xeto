@@ -7,9 +7,8 @@
 //
 // Abstract Base CHWS with all possible points (optional)
 
-UtahCHWS: Plant <abstract> {
-  chilled
-  water
+UtahCHWS: ChilledWaterPlant <abstract> {
+
   coolingTowerRef: Ref?
   chilledWaterPlantRef: Ref?
 

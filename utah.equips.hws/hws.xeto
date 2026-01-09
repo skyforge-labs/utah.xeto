@@ -1,0 +1,85 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   09 Jan 2026   Paul Quinn   Creation
+//
+// Abstract Base HWS with all possible points (optional)
+
+UtahHWS: HotWaterPlant <abstract> {
+
+  coolingTowerRef: Ref?
+  chilledWaterPlantRef: Ref?
+
+  points: {
+    // General Points
+    hwMkupWVlvCmd: UtahHWMkupWVlvCmd?
+    bldgHWVlvosMax: UtahBldgHWVlvPosMax?
+    
+    // Primary/Secondary Chilled Water Points
+    priHWRetTemp:   UtahPriHWRetTemp?
+    priHWSupTemp:   UtahPriHWSupTemp?
+    priHWSupTempSp: UtahPriHWSupTempSp?
+    
+    secHWRetTemp: UtahSecHWRetTemp?
+    secHWSupTemp: UtahSecHWSupTemp?
+    secHWSupTempSp: UtahSecHWSupTempSp?
+    
+    // Primary/Secondary Chilled Water Flow Points
+    priHWVol: UtahPriHWVol?
+    secHWVol: UtahSecHWVol?
+
+    //  Primary/Secondary Pressure and Delta Pressure
+    priHWPress:   UtahPriHWPress?
+    priHWPressSp: UtahPriHWPressSp?
+    secHWPress:   UtahSecHWPress?
+    secHWPressSp: UtahSecHWPressSp?
+    
+    priHWDP:    UtahPriHWDP?
+    priHWDPSp:  UtahPriHWDPSp?
+    secHWDP:    UtahSecHWDP?
+    secHWDPSp:  UtahSecHWDPSp?
+    
+    //  Power and Energy Points
+    hwEnergy:  UtahHWEnergy?
+    hwPower:   UtahHWPower?
+
+    //  Primary pumps
+    priHWPCmd:    UtahPriHWPCmd?
+    priHWPCmdSts: UtahPriHWPCmdSts?
+    priHWPSpd:    UtahPriHWPSpd?
+    priHWPSpdSts: UtahPriHWPSpdSts?
+    priHWPFreq:   UtahPriHWPFreq?
+    priHWPPower:  UtahPriHWPPower?
+    priHWPEnergy: UtahPriHWPEnergy?
+    
+    //  Secondary pumps
+    secHWPCmd:    UtahSecHWPCmd?
+    secHWPCmdSts: UtahSecHWPCmdSts?
+    secHWPSpd:    UtahSecHWPSpd?
+    secHWPSpdSts: UtahSecHWPSpdSts?
+    secHWPFreq:   UtahSecHWPFreq?
+    secHWPPower:  UtahSecHWPPower?
+    secHWPEnergy: UtahSecHWPEnergy?
+    
+    // Steam Heat Exchanger Points
+    HxStmEnab:   UtahHxStmEnab?
+    HxStmCmd:    UtahHxStmCmd?
+    HxStmHours:  UtahHxStmHours?
+    
+    HxStmETemp: UtahHxStmETemp?
+    HxStmLTemp: UtahHxStmLTemp?
+    
+    HxStmHWETemp:  UtahHxStmHWETemp?
+    HxStmHWLTemp:  UtahHxStmHWLTemp?
+    HxStmHWLTempSp:  UtahHxStmHWLTempSp?
+    
+    HxStmHWIsoVlvCmd:  UtahHxStmHWIsoVlvCmd?
+
+    
+    HxStmHWCPCmd:    UtahHxStmHWCPCmd?
+    HxStmHWCPCmdSts:    UtahHxStmHWCPCmdSts?
+
+  }
+}

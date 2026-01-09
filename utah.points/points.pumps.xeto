@@ -18,9 +18,12 @@ UtahCircPump: UtahPump <abstract>{
 
 // Local Circulation Pump vs. Larger System Pump
 UtahCPCmd: UtahCircPump & RunCmd <abstract>{
-    circ
     }
-
+    
+// Local Circulation Pump vs. Larger System Pump
+UtahCPCmdSts: UtahCircPump & SensorPoint <abstract>{
+    }
+    
 //////////////////////////////////////////
 //  Pump Speed Number
 //////////////////////////////////////////

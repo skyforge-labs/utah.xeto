@@ -12,18 +12,18 @@
 //////////////////////////////////////////////////////////////////////////
 
 // Makeup Water Valve
-UtahHWMkupWVlvCmd: HotWater & UtahMakeup & UtahValveCmd & UtahHisSampledMajorEquip {
+UtahHWMkupWVlvCmd: HotWater & UtahMakeupValveCmd & UtahHisSampledMajorEquip {
   navName: "HWMkupWVlvCmd"
 }
 
 // Bypass Water Valve
-UtahHWBypVlvPos: HotWater & UtahBypass & UtahValvePos & UtahHisSampledMajorEquip {
+UtahHWBypVlvPos: HotWater & UtahBypassValvePos & UtahHisSampledMajorEquip {
   navName: "HWBypVlvPos"
   unit: "%"
 }
 
 // Bypass Water Valve status
-UtahHWBypVlvPosSts: HotWater & UtahBypass & UtahValvePosSts & UtahHisSampledMajorEquip {
+UtahHWBypVlvPosSts: HotWater & UtahBypassValvePosSts & UtahHisSampledMajorEquip {
   navName: "HWBypVlvPosSts"
   unit: "%"
 }

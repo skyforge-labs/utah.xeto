@@ -12,7 +12,7 @@
 //////////////////////////////////////////////////////////////////////////
 
 // Makeup Water Valve
-UtahChWMkupWVlvCmd: ChilledWater & UtahMakeup & UtahValveCmd & UtahHisSampledMajorEquip {
+UtahChWMkupWVlvCmd: ChilledWater & UtahMakeupValveCmd & UtahHisSampledMajorEquip {
   navName: "ChWMkupWVlvCmd"
   unit: "%"
 }

@@ -12,7 +12,7 @@
 //////////////////////////////////////////////////////////////////////////
 
 // Heat recovery water circ pump command
-UtahHRWCPCmd: UtahHeatRecovery & UtahCircPump & RunCmd & UtahHisCov {
+UtahHRWCPCmd: UtahHeatRecovery & UtahCPCmd & UtahHisCov {
   navName: "HRWCPmd"
 }
 

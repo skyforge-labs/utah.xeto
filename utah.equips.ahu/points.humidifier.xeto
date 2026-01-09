@@ -27,12 +27,12 @@ UtahHumidifierCmd: UtahHumidifier & BoolPoint  & CmdPoint {
 }
 
 // Humidifier steam valve command
-UtahHumidifierStmVlvCmd: UtahHumidifier & Steam & UtahValveCmd & UtahHisCov {
+UtahHumidifierStmVlvCmd: UtahHumidifier & UtahStmVlvCmd & UtahHisCov {
   navName: "HumidifierStmVlvCmd"
 }
 
 // Humidifier steam valve position
-UtahHumidifierStmVlvPos: UtahHumidifier & Steam & UtahValvePos & UtahHisSampledMajorEquip {
+UtahHumidifierStmVlvPos: UtahHumidifier & UtahStmVlvPos & UtahHisSampledMajorEquip {
   navName: "HumidifierStmVlvPos"
 }
 

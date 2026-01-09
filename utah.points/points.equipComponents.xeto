@@ -69,6 +69,12 @@ UtahHeatExchanger: UtahEquipComponent <abstract> {
   heatExchanger
 }
 
+UtahHeatExchangerChW: UtahHeatExchanger <abstract> {
+}
+
+UtahHeatExchangerSteam: UtahHeatExchanger & Steam <abstract> {
+}
+
 UtahHeatRecovery: UtahEquipComponent <abstract> {
   heatRecovery
 }
@@ -89,6 +95,9 @@ UtahFan: UtahEquipComponent & Air <abstract> {
   fan
 }
 
+UtahIsolation: UtahEquipComponent <abstract> {
+  isolation
+}
 UtahLoad: UtahEquipComponent <abstract> {
   load
 }
@@ -147,6 +156,10 @@ UtahTank: UtahEquipComponent <abstract> {
 }
 UtahTons: UtahEquipComponent <abstract> {
   tons
+}
+
+UtahValve: UtahEquipComponent <abstract> {
+  valve
 }
 
 UtahZone: UtahEquipComponent <abstract> {

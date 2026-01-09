@@ -52,12 +52,12 @@ UtahHWLTempSp: HotWater & UtahWaterTempLeavingSp & UtahHisCov {
 //////////////////////////////////////////////////////////////////////////
 
 // Hot water circulation pump command
-UtahHWCPCmd: HotWater & UtahCircPump & RunCmd & UtahHisCov {
+UtahHWCPCmd: HotWater & UtahCPCmd & UtahHisCov {
   navName: "HWCPCmd"
 }
 
 // Hot water circulation pump command status
-UtahHWCPCmdSts: HotWater & UtahCircPump & RunSensor & UtahHisCov {
+UtahHWCPCmdSts: HotWater & UtahCPCmdSts & UtahHisCov {
   navName: "HWCPCmdSts"
 }
 

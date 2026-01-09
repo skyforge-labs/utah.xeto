@@ -52,12 +52,12 @@ UtahChWLTempSp: ChilledWater & UtahWaterTempLeavingSp & UtahHisCov {
 //////////////////////////////////////////////////////////////////////////
 
 // Chilled water circulation pump command
-UtahChWCPCmd: ChilledWater & UtahCircPump & RunCmd & UtahHisCov {
+UtahChWCPCmd: ChilledWater & UtahCPCmd & UtahHisCov {
   navName: "ChWCPCmd"
 }
 
 // Chilled water circulation pump command status
-UtahChWCPCmdSts: ChilledWater & UtahCircPump & RunSensor & UtahHisCov {
+UtahChWCPCmdSts: ChilledWater & UtahCPCmdSts & UtahHisCov {
   navName: "ChWCPCmdSts"
 }
 

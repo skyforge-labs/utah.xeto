@@ -12,39 +12,45 @@
 /////////////////////////////////////////
 
 // Generic valve. Number or Bool
-UtahValveCmdPoint: ph.points::BoolPoint <abstract>{
-    valve
+UtahValveCmdPoint: UtahValve & BoolPoint <abstract>{
     }
 
 // Open/Closed valve
-UtahValveCmd: utah.points::UtahValveCmdPoint & CmdPoint <abstract>{
+UtahValveCmd: UtahValveCmdPoint & CmdPoint <abstract>{
     run
     }
 
 // Open/Closed valve feedback status sensor
-UtahValveCmdSts: utah.points::UtahValveCmdPoint & SensorPoint <abstract>{
+UtahValveCmdSts: UtahValveCmdPoint & SensorPoint <abstract>{
     run
     }
 
 // Isolation Valve Open/Closed valve
-UtahIsoValveCmd: utah.points::UtahValveCmdPoint & CmdPoint <abstract>{
-    isolation
+UtahIsoValveCmd: UtahIsolation & UtahValveCmd <abstract>{
     run
     }
     
 // Isolation Valve Open/Closed valve
-UtahIsoValveCmdSts: utah.points::UtahValveCmdPoint & SensorPoint <abstract>{
-    isolation
+UtahIsoValveCmdSts: UtahIsolation & UtahValveCmdSts <abstract>{
     run
     }
 
+// Makeup Valve Open/Closed valve
+UtahMakeupValveCmd: UtahMakeup & UtahValveCmd <abstract>{
+    run
+    }
+    
+// Makeup Valve Open/Closed valve
+UtahMakeupValveCmdSts: UtahMakeup & UtahValveCmdSts <abstract>{
+    run
+    }
+    
 /////////////////////////////////////////
 // Valves Position
 /////////////////////////////////////////
 
 // 0-100% valve
-UtahValvePosPoint: ph.points::NumberPoint <abstract>{
-    valve
+UtahValvePosPoint: UtahValve & NumberPoint <abstract>{
     }
 
 // 0-100% valve
@@ -62,13 +68,13 @@ UtahValvePosSts: utah.points::UtahValvePosPoint & SensorPoint <abstract>{
 /////////////////////////////////////////
 
 // 0-100% valve
-UtahIsoValvePos: utah.points::UtahValvePosPoint & CmdPoint <abstract>{
+UtahIsoValvePos: UtahValvePos <abstract>{
     isolation
     run
     }
 
 // 0-100% valve
-UtahIsoValvePosSts: utah.points::UtahValvePosPoint & SensorPoint <abstract>{
+UtahIsoValvePosSts: UtahValvePosSts <abstract>{
     isolation
     run
     }
@@ -77,11 +83,9 @@ UtahIsoValvePosSts: utah.points::UtahValvePosPoint & SensorPoint <abstract>{
 /////////////////////////////////////////
 
 // Bypass Valve Position
-UtahValveBypassPos: UtahValvePos <abstract>{
-    bypass
+UtahBypassValvePos: UtahBypass & UtahValvePos <abstract>{
     }
 
 // Bypass Valve Position
-UtahValveBypassPosSts: UtahValvePosSts <abstract>{
-    bypass
+UtahBypassValvePosSts: UtahBypass & UtahValvePosSts <abstract>{
     }

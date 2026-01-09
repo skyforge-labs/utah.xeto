@@ -5,52 +5,83 @@
 //////////////////////////////////////////////////////////////////////////
 
 // Heat Exchanger Enabled
-UtahHxStmEnab: UtahHeatExchanger & HotWater & EnableCmd & UtahHisCov {
+UtahHxStmEnab: UtahHeatExchangerSteam & EnableCmd & UtahHisCov {
   navName: "HxStmEnab"
 }
 
 // Heat Exchanger Cmd
-UtahHxStmCmd: UtahHeatExchanger & HotWater & RunCmd & UtahHisCov {
+UtahHxStmCmd: UtahHeatExchangerSteam & RunCmd & UtahHisCov {
   navName: "HxStmCmd"
 }
 
 // Heat Exchanger Runtime hours
-UtahHxStmHours: UtahHeatExchanger & HotWater & RunCmd & UtahHisSampledMajorEquip {
+UtahHxStmHours: UtahHeatExchangerSteam & RunCmd & UtahHisSampledMajorEquip {
   hours
   navName: "HxStmHours"
 }
+
 
 //////////////////////////////////////////////////////////////////////////
 // Steam Temperature Points
 //////////////////////////////////////////////////////////////////////////
 
 // Steam entering temperature
-UtahHxStmETemp: UtahHeatExchanger & Steam & UtahSteamTempEntering & UtahHisSampledMajorEquip {
+UtahHxStmETemp: UtahHeatExchangerSteam & UtahSteamTempEntering & UtahHisSampledMajorEquip {
   navName: "HxStmETemp"
 }
 
 // Steam leaving temperature
-UtahHxStmLTemp: UtahHeatExchanger & Steam & UtahSteamTempLeaving & UtahHisSampledMajorEquip {
+UtahHxStmLTemp: UtahHeatExchangerSteam & UtahSteamTempLeaving & UtahHisSampledMajorEquip {
   navName: "HxStmLTemp"
 }
 
-}
 //////////////////////////////////////////////////////////////////////////
 // Hot Water Temperature Points
 //////////////////////////////////////////////////////////////////////////
 
 // Hot water entering temperature
-UtahHxStmHWETemp: UtahHeatExchanger & Steam & UtahWaterTempEntering & UtahHisSampledMajorEquip {
+UtahHxStmHWETemp: UtahHeatExchangerSteam & HotWater & UtahWaterTempEntering & UtahHisSampledMajorEquip {
   navName: "HxStmHWETemp"
 }
 
 // Hot water leaving temperature
-UtahHxStmHWLTemp: UtahHeatExchanger & Steam & UtahWaterTempLeaving & UtahHisSampledMajorEquip {
+UtahHxStmHWLTemp: UtahHeatExchangerSteam & HotWater & UtahWaterTempLeaving & UtahHisSampledMajorEquip {
   navName: "HxStmHWLTemp"
 }
 
 // Hot water leaving temperature setpoint
-UtahHxStmHWLTempSp: UtahHeatExchanger & Steam & UtahWaterTempLeavingSp & UtahHisSampledMajorEquip {
+UtahHxStmHWLTempSp: UtahHeatExchangerSteam & HotWater & UtahWaterTempLeavingSp & UtahHisSampledMajorEquip {
   navName: "HxStmHWLTempSp"
 }
 
+////////////////////////////////////
+// Steam Pressure
+////////////////////////////////////
+
+// Steam Pressure Sensor
+UtahHxStmPress: UtahHeatExchangerSteam & UtahSteamPressureSensor  & UtahHisSampledMajorEquip<abstract>{
+  navName: "HxStmPress"
+    }
+    
+////////////////////////////////////
+// Hot Water Valve
+////////////////////////////////////
+
+// Hot Water Isolation Valve
+UtahHxStmHWIsoVlvCmd: UtahHeatExchangerSteam & HotWater & UtahIsoValveCmd & UtahHisCov <abstract>{
+  navName: "HxStmHWIsoVlvCmd"
+    }
+
+//////////////////////////////////////////////////////////////////////////
+//  Hot Water Circulation Pumps
+//////////////////////////////////////////////////////////////////////////
+
+// Primary Hot water pump command
+UtahHxStmHWCPCmd: UtahHeatExchangerSteam & HotWater & UtahCPCmd & UtahHisCov {
+  navName: "HxStmHWCPCmd"
+}
+
+// Primary Hot water pump command status
+UtahHxStmHWCPCmdSts: UtahHeatExchangerSteam & HotWater & UtahCPCmdSts & UtahHisCov {
+  navName: "HxStmHWCPCmdSts"
+}

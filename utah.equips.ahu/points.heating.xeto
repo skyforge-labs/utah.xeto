@@ -7,34 +7,33 @@
 //
 // Hot Water Heating System Points - Pump, Valve, Temperatures
 
-//////////////////////////////////////////////////////////////////////////
-// Hot Water Heating Points
-//////////////////////////////////////////////////////////////////////////
-
+///////////////////////////////////////////
+// Hot water valve position status
+///////////////////////////////////////////
 
 // Hot water valve position
 UtahHWVlvPos: HotWater & UtahValvePos & UtahHisSampledMajorEquip {
   navName: "HWVlvPos"
 }
 
-// Hot water valve position status
 UtahHWVlvPosSts: HotWater & UtahValvePosSts & UtahHisSampledMajorEquip {
   navName: "HWVlvPosSts"
 }
 
 // Hot water isolation valve command
-UtahHWIsoVlvCmd: HotWater & ValveCmd & UtahHisCov {
-  isolation
+UtahHWIsoVlvCmd: HotWater & UtahIsoValveCmd & UtahHisCov {
   navName: "HWIsoVlvCmd"
 }
 
 // Hot water isolation valve position
-UtahHWIsoVlvPos: HotWater & UtahValvePos & UtahHisSampledMajorEquip {
-  isolation
+UtahHWIsoVlvPos: HotWater & UtahIsoValvePos & UtahHisSampledMajorEquip {
   navName: "HWIsoVlvPos"
 }
 
-// Heating coil water entering temperature
+///////////////////////////////////////////
+// Heating coil water/air entering/leving temperature
+///////////////////////////////////////////
+
 UtahHWCWETemp: HotWater & UtahHeatingCoil & UtahWaterTempEntering & UtahHisSampledMajorEquip {
   navName: "HWCWETemp"
 }
@@ -54,12 +53,15 @@ UtahHWCALTemp: HotWater & UtahHeatingCoil & UtahAirTempLeaving & UtahHisSampledM
   navName: "HWCALTemp"
 }
 
+///////////////////////////////////////////
 // Hot water circulation pump command
-UtahHWCPCmd: HotWater & UtahCircPump & RunCmd & UtahHisCov {
+///////////////////////////////////////////
+
+UtahHWCPCmd: HotWater & UtahCPCmd & UtahHisCov {
   navName: "HWCPCmd"
 }
 
 // Hot water circulation pump status
-UtahHWCPSts: HotWater & UtahCircPump & RunSensor & UtahHisCov {
+UtahHWCPSts: HotWater & UtahCPCmdSts & UtahHisCov {
   navName: "HWCPSts"
 }
