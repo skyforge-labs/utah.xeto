@@ -1,0 +1,42 @@
+//////////////////////////////////////////////////////////////////////////
+// Chiller Stages Points
+//////////////////////////////////////////////////////////////////////////
+
+// Chiller stage 1
+UtahChlrStg1Cmd: UtahChiller & UtahStageCmd & UtahHisCov{
+  navName: "ChlrStg1Cmd"
+  stage: 1
+}
+
+UtahChlrStg1CmdSts: UtahChiller & UtahStageCmdSts & UtahHisCov{
+  navName: "ChlrStg1CmdSts"
+  stage: 1
+}
+
+// Chiller stage 2
+UtahChlrStg2Cmd: UtahChiller & UtahStageCmd & UtahHisCov{
+  navName: "ChlrStg1Cmd"
+  stage: 2
+}
+
+UtahChlrStg2CmdSts: UtahChiller & UtahStageCmdSts & UtahHisCov{
+  navName: "ChlrStg2CmdSts"
+  stage: 2
+}
+
+// Chiller stage 3
+UtahChlrStg3Cmd: UtahChiller & UtahStageCmd & UtahHisCov{
+  navName: "ChlrStg1Cmd"
+  stage: 3
+}
+
+UtahChlrStg3CmdSts: UtahChiller & UtahStageCmdSts & UtahHisCov{
+  navName: "ChlrStg1CmdSts"
+  stage: 3
+}
+
+// Chiller stage setpoint
+UtahChlrStgSp: UtahChiller & UtahStageSp & UtahHisCov{
+  navName: "ChlrStgSp"
+
+}

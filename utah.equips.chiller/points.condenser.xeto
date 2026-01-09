@@ -1,0 +1,79 @@
+// Condenser Water System Points - Valves, Coil Temperatures, Circ Pumps, Flow
+
+//////////////////////////////////////////////////////////////////////////
+// Condenser Water Points
+//////////////////////////////////////////////////////////////////////////
+
+UtahCW: Water & UtahCondenser {
+  navName: "CW"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// CondenserIsolation Valve Points
+//////////////////////////////////////////////////////////////////////////
+
+// Condenser water isolation valve command
+UtahCWIsoVlvCmd: UtahCW & UtahIsoValveCmd & UtahHisCov {
+  navName: "CWIsoVlvPos"
+}
+
+// Condenser water isolation valve position
+UtahCWIsoVlvPos: UtahCW & UtahIsoValvePos & UtahHisSampledMajorEquip {
+  navName: "ChWIsoVlvPos"
+}
+
+// Condenser water isolation valve position status
+UtahCWIsoVlvPosSts: UtahCW & UtahIsoValvePosSts & UtahHisCov {
+  navName: "CWIsoVlvPosSts"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Condenser Water Temperature Points
+//////////////////////////////////////////////////////////////////////////
+
+// Condenser water entering temperature
+UtahCWETemp: UtahCW & UtahWaterTempEntering & UtahHisSampledMajorEquip {
+  navName: "CWETemp"
+}
+
+// Condenser water leaving temperature
+UtahCWLTemp: UtahCW & UtahWaterTempLeaving & UtahHisSampledMajorEquip {
+  navName: "CWLTemp"
+}
+
+// Condenser water leaving temperature setpoint
+UtahCWLTempSp: UtahCW & UtahWaterTempLeavingSp & UtahHisCov {
+  navName: "CWLTempSp"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Pump Command Points
+//////////////////////////////////////////////////////////////////////////
+
+// Condenser water circulation pump command
+UtahCWCPCmd: UtahCW & UtahCircPump & RunCmd & UtahHisCov {
+  navName: "CWCPCmd"
+}
+
+// Condenser water circulation pump command status
+UtahCWCPCmdSts: UtahCW & UtahCircPump & RunSensor & UtahHisCov {
+  navName: "CWCPCmdSts"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Condenser Water Flow Points
+//////////////////////////////////////////////////////////////////////////
+
+// Condenser water flow
+UtahCWFlow: UtahCW & UtahWaterFlowSensor & UtahHisSampledMajorEquip {
+  navName: "CWFlow"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Condenser Water Diff Pressure Points
+//////////////////////////////////////////////////////////////////////////
+
+// Condenser Water Diff Pressure
+UtahCWDP: UtahCW & UtahWaterDP & UtahHisSampledMajorEquip {
+  navName: "CWDP"
+}

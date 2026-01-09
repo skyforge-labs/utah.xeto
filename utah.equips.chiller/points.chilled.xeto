@@ -1,0 +1,74 @@
+// Chilled Water System Points - Valves, Coil Temperatures, Circ Pumps, Flow
+
+//////////////////////////////////////////////////////////////////////////
+// Isolation Valve Points
+//////////////////////////////////////////////////////////////////////////
+
+//  Chilled water isolation valve command
+UtahChWIsoVlvCmd: ChilledWater & UtahIsoValveCmd & UtahHisCov {
+  navName: "ChWIsoVlvCmd"
+}
+
+// Chilled water isolation valve position
+UtahChWIsoVlvPos: ChilledWater & UtahIsoValvePos & UtahHisSampledMajorEquip {
+  isolation
+  navName: "ChWIsoVlvPos"
+}
+
+// Chilled water isolation valve position status
+UtahChWIsoVlvPosSts: ChilledWater & UtahIsoValvePosSts & UtahHisCov {
+  isolation
+  navName: "ChWIsoVlvPosSts"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Chilled Water Temperature Points
+//////////////////////////////////////////////////////////////////////////
+
+// Chilled water entering temperature
+UtahChWETemp: ChilledWater & UtahWaterTempEntering & UtahHisSampledMajorEquip {
+  navName: "ChWETemp"
+}
+
+// Chilled water leaving temperature
+UtahChWLTemp: ChilledWater & UtahWaterTempLeaving & UtahHisSampledMajorEquip {
+  navName: "ChWLTemp"
+}
+
+// Chilled water leaving temperature setpoint
+UtahChWLTempSp: ChilledWater & UtahWaterTempLeavingSp & UtahHisCov {
+  navName: "ChWLTempSp"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Pump Command Points
+//////////////////////////////////////////////////////////////////////////
+
+// Chilled water circulation pump command
+UtahChWCPCmd: ChilledWater & UtahCircPump & RunCmd & UtahHisCov {
+  navName: "ChWCPCmd"
+}
+
+// Chilled water circulation pump command status
+UtahChWCPCmdSts: ChilledWater & UtahCircPump & RunSensor & UtahHisCov {
+  navName: "ChWCPCmdSts"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Chilled Water Flow Points
+//////////////////////////////////////////////////////////////////////////
+
+// Chilled water flow
+UtahChWFlow: ChilledWater & UtahWaterFlowSensor & UtahHisSampledMajorEquip {
+  navName: "ChWFlow"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Chilled Water Diff Pressure Points
+//////////////////////////////////////////////////////////////////////////
+
+// Chilled Water Diff Pressure
+UtahChWDP: ChilledWater & UtahWaterDP & UtahHisSampledMajorEquip {
+  navName: "ChWDP"
+  unit: "psi"
+}

@@ -1,0 +1,51 @@
+// Abstract Base AHU with all possible points (optional)
+// Concrete implementations tighten requirements for specific AHU types
+
+UtahChlr: Chiller <abstract> {
+  coolingTowerRef: Ref?
+  chilledWaterPlantRef: Ref?
+
+  points: {
+    // General Points
+    chlrEnab: UtahChlrEnab?
+    chlrCmd: UtahChlrCmd?
+    chlrSts: UtahChlrCmdSts?
+
+    chlrKillSwitch: UtahChlrKillSwitch?
+    chlrLoad: UtahChlrLoad?
+    chlrTons: UtahChlrTons?
+
+    // Stages
+    chlrStg1Cmd: UtahChlrStg1Cmd?
+    chlrStg1CmdSts: UtahChlrStg1CmdSts?
+    chlrStg2Cmd: UtahChlrStg2Cmd?
+    chlrStg2CmdSts: UtahChlrStg2CmdSts?
+    chlrStg3Cmd: UtahChlrStg3Cmd?
+    chlrStg3CmdSts: UtahChlrStg3CmdSts?
+    chlrStgSp: UtahChlrStgSp?
+    
+    // Condensor Water Points
+    CWIsoVlvCmd: UtahCWIsoVlvCmd?
+    CWIsoVlvPos: UtahCWIsoVlvPos?
+    CWIsoVlvPosSts: UtahCWIsoVlvPosSts?
+    CWCPCmd: UtahCPCmd?
+    CWETemp: UtahCWETemp?
+    CWLTemp: UtahCWLTemp?
+
+    // Chilled Water Points
+    ChWIsoVlvCmd: UtahChWIsoVlvCmd?
+    ChWIsoVlvPos: UtahChWIsoVlvPos?
+    ChWIsoVlvPosSts: UtahChWIsoVlvPosSts?
+    ChWCPCmd: UtahChWCPCmd?
+    ChWETemp: UtahChWETemp?
+    ChWLTemp: UtahChWLTemp?
+    ChWLTempSp: UtahChWLTempSp?
+    ChWFlow: UtahChWFlow?
+    ChWDP: UtahChWDP?
+
+    // Oil Points
+    chlrOilTemp: UtahChlrOilTemp?
+    ChlrOilHeatCmd: UtahChlrOilHeatCmd?
+    ChlrOilHeatCmdSts: UtahChlrOilHeatCmdSts?
+  }
+}

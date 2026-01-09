@@ -1,0 +1,17 @@
+// Chiller Oil Points -  Oil Temperatures
+
+//////////////////////////////////////////////////////////////////////////
+// Chiller Oil Temperatures
+//////////////////////////////////////////////////////////////////////////
+
+UtahChlrOilTemp: UtahChillerOil & Temp  & UtahHisSampledMajorEquip{
+  navName: "ChlrOilTemp"
+}
+
+UtahChlrOilHeatCmd: UtahChillerOil & HeatCmd & CmdPoint & UtahHisCov {
+  navName: "ChlrOilHeatCmd"
+}
+
+UtahChlrOilHeatCmdSts: UtahChillerOil & HeatCmd & SensorPoint & UtahHisCov {
+  navName: "ChlrOilHeatCmdSts"
+}

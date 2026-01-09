@@ -1,0 +1,41 @@
+// General Chiller Points - Enable, Command, Energy
+
+//////////////////////////////////////////////////////////////////////////
+// General Chiller Points
+//////////////////////////////////////////////////////////////////////////
+
+// Chiller Enabled
+UtahChlrEnab: UtahChiller & EnableCmd & UtahHisCov {
+  navName: "ChlrEnab"
+}
+
+// Chiller Run Cmd
+UtahChlrCmd: UtahChiller & RunCmd & UtahHisCov {
+  navName: "ChlrCmd"
+}
+
+// Chiller Run Status
+UtahChlrCmdSts: UtahChiller & RunSensor & UtahHisCov {
+  navName: "ChlrCmdSts"
+}
+
+// Emergency kill switch for Chiller shutdown
+UtahChlrKillSwitch: UtahChiller & RunCmd & UtahHisCov {
+  killSwitch
+  navName: "ChlrKillSwitch"
+}
+
+// Chiller Load
+UtahChlrLoad: UtahChiller & UtahLoad & UtahHisSampledMajorEquip {
+  navName: "ChlrLoad"
+  unit: "%"
+}
+
+//  Chiller Tons
+UtahChlrTons: UtahChiller & UtahTons & UtahHisSampledMajorEquip {
+  navName: "ChlrTons"
+  unit: "tonref"
+}
+
+
+
