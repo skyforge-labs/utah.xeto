@@ -32,7 +32,7 @@ jobs:
           node-version: '20'
 
       - name: Install Haxall CLI
-        run: npm install -g @haxall/haxall@3.1.11
+        run: npm install -g @haxall/haxall@3.1.11-901.1
 
       - name: Build all libs
         working-directory: ${{ github.workspace }}/workdir/src/xeto
