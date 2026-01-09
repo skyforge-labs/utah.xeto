@@ -23,6 +23,9 @@ jobs:
         run: |
           git clone --depth 1 --branch 3.1.12 https://github.com/haxall/haxall.git ${{ github.workspace }}/workdir/haxall
           chmod +x ${{ github.workspace }}/workdir/haxall/bin/*
+          # Add haxall bin to PATH and set FAN_HOME
+          echo "${{ github.workspace }}/workdir/haxall/bin" >> $GITHUB_PATH
+          echo "FAN_HOME=${{ github.workspace }}/workdir/haxall" >> $GITHUB_ENV
 
       - name: Setup work directory structure
         run: |
@@ -42,12 +45,12 @@ jobs:
           echo "=== Java version ==="
           java -version
           echo "=== xeto env ==="
-          ../../haxall/bin/xeto env
+          xeto env
 
       - name: Build all libs
         working-directory: ${{ github.workspace }}/workdir/src/xeto
         run: |
-          ../../haxall/bin/xeto build
+          xeto build
           echo "=== Built libs ==="
           ls -la ../../lib/xeto/
 
