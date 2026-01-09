@@ -32,7 +32,15 @@ jobs:
           EOF
 
       - name: Build all libs
-        run: xeto build
+        run: |
+          echo "=== xeto env ==="
+          xeto env
+          echo "=== Building ==="
+          xeto build
+          echo "=== Workspace structure after build ==="
+          find . -type d -name "xeto" | head -20
+          ls -la lib/xeto/ 2>/dev/null || echo "lib/xeto/ does not exist"
+          ls -la .
 
       - name: Package individual libs
         id: package
@@ -46,7 +54,8 @@ jobs:
 
           for lib_dir in lib/xeto/*/; do
             lib_name=$(basename "$lib_dir")
-            src_lib="src/xeto/${lib_name}/lib.xeto"
+            # Source lib.xeto is at repo root (e.g., utah/lib.xeto)
+            src_lib="${lib_name}/lib.xeto"
             if [ -f "$src_lib" ]; then
               version=$(grep -oP 'version:\s*"\K[^"]+' "$src_lib" || echo "0.0.0")
               zip -r "dist/${lib_name}-${version}.zip" "$lib_dir"
