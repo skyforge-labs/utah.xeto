@@ -1,23 +1,21 @@
-UtahZoneAirHumiditySensor: ZoneAirHumiditySensor & UtahPoint {
+//  VAV zone air quality points
+
+UtahZoneAirHumiditySensor: UtahZone & UtahAirHumiditySensor & UtahHisSampledDefault {
     navName: "SpcHum"
-    hisMode: "sampled"
-    hisCollectInterval: Str? "10min"
 }
 
-UtahZoneAirHumiditySp: ZoneAirHumiditySp & UtahPoint {
+UtahZoneAirHumidifySp: UtahZone & UtahAirHumidifySp & UtahHisCov {
     hisMode: "cov"
-    navName: "SpcHumSp"
-    hisCollectInterval: Str? "10min"
 }
 
-UtahZoneCo2Sensor: ZoneCo2Sensor & UtahPoint {
+UtahZoneAirDehumidifySp: UtahZone & UtahAirDehumidifySp & UtahHisCov {
+    hisMode: "cov"
+}
+
+UtahZoneCo2Sensor: UtahZone & UtahAirCo2Sensor & UtahHisSampledDefault {
     navName: "SpcCO2"
-    hisMode: "sampled"
-    hisCollectInterval: Str? "10min"
 }
 
-UtahZoneCo2Sp: ZoneCo2Sp & UtahPoint {
-    hisMode: "cov"
+UtahZoneCo2Sp: UtahZone & UtahAirCo2Sp & UtahHisSampledDefault {
     navName: "SpcCO2Sp"
-    hisCollectInterval: Str? "10min"
 }

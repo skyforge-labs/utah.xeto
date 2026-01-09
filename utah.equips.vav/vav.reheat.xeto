@@ -6,28 +6,28 @@ UtahVavReheat: UtahVav {
   points: {
 
     occ: UtahZoneOccupiedSensor
-    occCmd: UtahZoneOccupiedSp?
+    occCmd: UtahZoneOccupiedCmd?
     occMode: UtahZoneOccupiedMode?
     hvacMode: UtahZoneAirHvacModeSp?
 
-    daFlow: UtahDischargeAirFlowSensor
-    daFlowSp: UtahDischargeAirFlowSp?
+    daFlow: UtahZoneDaFlow
+    daFlowSp: UtahZoneDaFlowSp?
 
-    dmprPos: UtahDischargeDamperSensor
-    dmprCmd: UtahDischargeDamperCmd?
+    dmprPos: UtahDaDamperPos
+    dmprCmd: UtahDaDamperCmd?
 
-    reheatVlvPos: UtahHotWaterValveSensor
-    reheatVlvCmd: UtahHotWaterValveCmd?
+    reheatVlvPos: UtahReheatValvePos
+    reheatVlvCmd: UtahReheatValveCmd?
 
-    daTemp: UtahDischargeAirTempSensor
-    spcTemp: UtahZoneAirTempSensor
-    spcTempSp: UtahZoneAirTempEffectiveSp?
+    daTemp: UtahZoneDaTemp
+    spcTemp: UtahZoneTemp
+    spcTempSp: UtahZoneTempSpEff?
 
-    coolEffSp: UtahZoneAirTempCoolingSp?
-    heatEffSp: UtahZoneAirTempHeatingSp?
+    coolEffSp: UtahZoneTempSpEffClg?
+    heatEffSp: UtahZoneTempSpEffHtg?
 
     spcHum: UtahZoneAirHumiditySensor?
-    spcHumSp: UtahZoneAirHumiditySp?
+    spcDehumSp: UtahZoneTempSpEffHtg?
 
     spcCO2: UtahZoneCo2Sensor?
     spcCO2Sp: UtahZoneCo2Sp?

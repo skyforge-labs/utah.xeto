@@ -1,94 +1,19 @@
-TemperatureStyles: PointStyle {
-  chartGroup: Str? "Temps"
-  subtitle: Str? "Temps"
-}
+//  Zone Temperature
 
-UtahDischargeAirTempSensor: DischargeAirTempSensor & UtahPoint & TemperatureStyles {
+//  PQ Commented out until further discussion
+//TemperatureStyles: PointStyle {
+//  chartGroup: Str? "Temps"
+//  subtitle: Str? "Temps"
+//}
+
+UtahZoneDaTemp: UtahZone & UtahDischarge & UtahAirTempSensor & UtahHisSampledDefault {
     navName: "DaTemp"
-    unit: "F"
-    precision: 1
-    hisMode: "sampled"
-    hisCollectInterval: Str? "10min"
-    color: Str? "#ff66ff"
+    color: Str? "purple"
 }
 
-UtahZoneAirTempSensor: ZoneAirTempSensor & UtahPoint & TemperatureStyles {
-    navName: "SpcTemp"
-    unit: "F"
-    precision: 1
-    hisMode: "sampled"
-    hisCollectInterval: Str? "10min"
-    color: Str? "green"
-}
+///////////////////////////////////////////////
+//  Zone air temperature sensors and setpoints
+///////////////////////////////////////////////
 
-UtahZoneAirTempEffectiveSp: ZoneAirTempEffectiveSp & UtahPoint & TemperatureStyles {
-    hisMode: "cov"
-    navName: "SpcTempSp"
-    unit: "F"
-    hisCollectInterval: Str? "24Hr"
-    color: Str? "darkGreen"
-    strokeDasharray: Str? "2,2"
-}
-
-UtahZoneAirTempCoolingSp: ZoneAirTempCoolingSp & UtahPoint & TemperatureStyles {
-    occ
-    hisMode: "cov"
-    navName: "OccCoolSp"
-    unit: "F"
-    hisCollectInterval: Str? "24Hr"
-    color: Str? "blue"
-    strokeDasharray: Str? "2,2"
-}
-
-UtahZoneAirTempHeatingSp: ZoneAirTempHeatingSp & UtahPoint & TemperatureStyles {
-    occ
-    hisMode: "cov"
-    navName: "OccHeatSp"
-    color: Str? "orange"
-    strokeDasharray: Str? "2,2"
-}
-
-
-UtahZoneAirTempOccCoolingSp: ZoneAirTempOccCoolingSp & UtahPoint & TemperatureStyles {
-    hisMode: "cov"
-    navName: "OccCoolSp"
-    unit: "F"
-    hisCollectInterval: Str? "24hr"
-}
-
-UtahZoneAirTempOccHeatingSp: ZoneAirTempOccHeatingSp & UtahPoint & TemperatureStyles {
-    hisMode: "cov"
-    navName: "OccHeatSp"
-    unit: "F"
-    hisCollectInterval: Str? "24hr"
-}
-
-UtahZoneAirTempUnoccCoolingSp: ZoneAirTempUnoccCoolingSp & UtahPoint & TemperatureStyles {
-    hisMode: "cov"
-    navName: "UnoccCoolSp"
-    unit: "F"
-    hisCollectInterval: Str? "24hr"
-}
-
-UtahZoneAirTempUnoccHeatingSp: ZoneAirTempUnoccHeatingSp & UtahPoint & TemperatureStyles {
-    hisMode: "cov"
-    navName: "UnoccHeatSp"
-    unit: "F"
-    hisCollectInterval: Str? "24hr"
-}
-
-UtahZoneAirTempStandbyCoolingSp: ZoneAirTempStandbyCoolingSp & UtahPoint & TemperatureStyles {
-    hisMode: "cov"
-    navName: "StbyCoolSp"
-    unit: "F"
-    hisCollectInterval: Str? "24hr"
-}
-
-UtahZoneAirTempStandbyHeatingSp: ZoneAirTempStandbyHeatingSp & UtahPoint & TemperatureStyles {
-    hisMode: "cov"
-    navName: "StbyHeatSp"
-    unit: "F"
-    hisCollectInterval: Str? "24hr"
-}
-
-
+//  See utah.points/points.air.xeto for zone air temperatures and setpoints
+// These points shared across ahu, vav, unitHeater, etc.

@@ -1,13 +1,17 @@
-UtahHvacLoad: UtahPoint {
+UtahHvacLoad: UtahPoint & UtahHisCov {
+//  PQ - No point type defined: Number, Enum, Bool?
     hvacLoad
     navName: "Load"
-    hisMode: "cov"
-    hisCollectInterval: Str? "24hr"
 }
 
-UtahBypassTime: UtahPoint {
+UtahBypassTime: UtahPoint & UtahHisCov {
+//  PQ - No point type defined: Number, Enum, Bool?
     bypassTime
     navName: "BypTime"
-    hisMode: "cov"
+}
+
+UtahZoneAirHvacModeSp: ZoneAirHvacModeSp & EnumPoint & UtahHisCov {
+    navName: "HvacMode"
     hisCollectInterval: Str? "24hr"
+    enum: Str? "Auto,Cool,Heat,Standby,Off"
 }

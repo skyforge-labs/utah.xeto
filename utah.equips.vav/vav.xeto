@@ -4,74 +4,75 @@ UtahVav: Vav <abstract> {
   points: {
 
     occ: UtahZoneOccupiedSensor?
-    occCmd: UtahZoneOccupiedSp?
+    occCmd: UtahZoneOccupiedCmd?
     occMode: UtahZoneOccupiedMode?
     hvacMode: UtahZoneAirHvacModeSp?
 
-    daFlow: UtahDischargeAirFlowSensor
-    daFlowSp: UtahDischargeAirFlowSp?
+    daFlow: UtahZoneDaFlow
+    daFlowSp: UtahZoneDaFlowSp?
     daFlowOvrd: UtahDischargeAirFlowOvrd?
     daFlowPctOvrd: UtahDischargeAirFlowPercentOvrd?
     daFlowOvrdState: UtahDischargeAirFlowOvrdState?
 
 
-    dmprPos: UtahDischargeDamperSensor
-    dmprCmd: UtahDischargeDamperCmd?
+    dmprPos: UtahDaDamperPos
+    dmprCmd: UtahDaDamperCmd?
     dmprPosOvrd: UtahDmprPosOvrd?
 
-    reheatVlvPos: UtahHotWaterValveSensor
-    reheatVlvCmd: UtahHotWaterValveCmd?
+    reheatVlvPos: UtahReheatValvePos
+    reheatVlvCmd: UtahReheatValveCmd?
 
-    daTemp: UtahDischargeAirTempSensor
-    spcTemp: UtahZoneAirTempSensor
-    spcTempSp: UtahZoneAirTempEffectiveSp?
+    daTemp: UtahZoneDaTemp
+    spcTemp: UtahZoneTemp
+    spcTempSp: UtahZoneTempSpEff?
     spcTempOvrd: UtahSpcTempOvrd?
 
-    occCoolSp: UtahZoneAirTempOccCoolingSp?
-    occHeatSp: UtahZoneAirTempOccHeatingSp?
-    unoccCoolSp: UtahZoneAirTempUnoccCoolingSp?
-    unoccHeatSp: UtahZoneAirTempUnoccHeatingSp?
-    stbyCoolSp: UtahZoneAirTempStandbyCoolingSp?
-    stbyHeatSp: UtahZoneAirTempStandbyHeatingSp?
+    occCoolSp: UtahOccCoolSp?
+    occHeatSp: UtahOccHeatSp?
+    unoccCoolSp: UtahUnoccCoolSp?
+    unoccHeatSp: UtahUnoccHeatSp?
+    stbyCoolSp: UtahStandbyCoolingSp?
+    stbyHeatSp: UtahStandbyHeatingSp?
 
-    coolEffSp: UtahZoneAirTempCoolingSp?
-    heatEffSp: UtahZoneAirTempHeatingSp?
+    coolEffSp: UtahZoneTempSpEffClg?
+    heatEffSp: UtahZoneTempSpEffHtg?
 
     spcHum: UtahZoneAirHumiditySensor?
-    spcHumSp: UtahZoneAirHumiditySp?
+    spcDehumSp: UtahZoneAirDehumidifySp?
 
     spcCO2: UtahZoneCo2Sensor?
     spcCO2Sp: UtahZoneCo2Sp?
 
     // Dual-Duct Points
-    cdFlow: UtahColdDeckDischargeAirFlowSensor?
-    cdFlowSp: UtahColdDeckDischargeAirFlowSp?
-    hdFlow: UtahHotDeckDischargeAirFlowSensor?
-    hdFlowSp: UtahHotDeckDischargeAirFlowSp?
-    totFlow: UtahDualDeckTotalFlowSensor?
+    cdFlow: UtahColdDeckDaFlow?
+    cdFlowSp: UtahColdDeckDaFlowSp?
+    hdFlow: UtahHotDeckDaFlow?
+    hdFlowSp: UtahHotDeckDaFlowSp?
+    totFlow: UtahDualDeckTotalFlow?
     totFlowSp: UtahDualDeckTotalFlowSp?
 
-    cdDmprPos: UtahColdDeckDischargeDamperSensor?
-    hdDmprPos: UtahHotDeckDischargeDamperSensor?
-    hdPress: UtahHotDeckDischargeAirFlowSensorHDPress?
+    cdDmprPos: UtahColdDeckDamperPos?
+    hdDmprPos: UtahHotDeckDamperPos?
+    cdPress: UtahColdDeckAirPress?
+    hdPress: UtahHotDeckAirPress?
 
    // Commissioning Points
-    coolMaxFlow: UtahMaxAirFlowSpCoolMaxFlow?
-    coolMinFlow: UtahMinAirFlowSpCoolMinFlow?
-    heatMaxFlow: UtahMaxAirFlowSpHeatMaxFlow?
-    heatMinFlow: UtahMinAirFlowSpHeatMinFlow?
-    reheatMaxFlow: UtahReheatMaxFlow?
-    reheatMinFlow: UtahReheatMinFlow?
+    coolMaxFlow: UtahZoneDaFlowSpClgMax?
+    coolMinFlow: UtahZoneDaFlowSpClgMin?
+    heatMaxFlow: UtahZoneDaFlowSpHtgMax?
+    heatMinFlow: UtahZoneDaFlowSpHtgMin?
+    reheatMaxFlow: UtahZoneDaFlowSpRHMax?
+    reheatMinFlow: UtahZoneDaFlowSpRHMin?
 
     load: UtahHvacLoad?
     bypTime: UtahBypassTime?
 
     // Fan Powered Box Points
-    fanCmd: UtahFanRunCmd?
-    fanSpd: UtahFanSpeedSensorFanSpd?
-    fanSpdHigh: UtahFanSpeedSensorFanSpdHigh?
-    fanSpdMed: UtahFanSpeedSensorFanSpdMed?
-    fanSpdLow: UtahFanSpeedSensorFanSpdLow?
+    fanCmd: UtahFanCmd?
+    fanSpd: UtahFanSpd?
+    fanSpdHigh: UtahFanSpdHighCmd?
+    fanSpdMed: UtahFanSpdMedCmd?
+    fanSpdLow: UtahFanSpdLowCmd?
   }
 }
 

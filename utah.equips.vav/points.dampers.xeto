@@ -1,11 +1,9 @@
-UtahDischargeDamperSensor: DischargeDamperSensor & UtahPoint {
+//  Zone Damper points
+
+UtahDaDamperPos: UtahDischarge & UtahDamperPos & UtahHisSampledDefault {
     navName: "DmprPos"
-    hisMode: "sampled"
-    hisCollectInterval: Str? "10min"
 }
 
-UtahDischargeDamperCmd: DischargeDamperCmd & UtahPoint {
+UtahDaDamperCmd: UtahDischarge & UtahDamperCmd & UtahHisCov {
     navName: "DmprCmd"
-    hisMode: "cov"
-    hisCollectInterval: Str? "24hr"
 }

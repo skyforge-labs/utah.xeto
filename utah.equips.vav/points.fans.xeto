@@ -1,32 +1,24 @@
+// Zone Fan points
 
-
-UtahFanRunCmd: FanRunCmd & UtahPoint {
+UtahZoneFanCmd: UtahZone & UtahFanCmd & UtahHisCov {
     navName: "FanCmd"
-    hisMode: "cov"
-    hisCollectInterval: Str? "24hr"
 }
 
-UtahFanSpeedSensorFanSpd: FanSpeedSensor & UtahPoint {
+UtahZoneFanModeCmd: UtahZone & UtahFanModeCmd & UtahHisCov {
     navName: "FanSpd"
-    enum: "Off/Low/Med/High"
-    hisMode: "cov"
-    hisCollectInterval: Str? "24hr"
 }
 
-UtahFanSpeedSensorFanSpdHigh: FanSpeedSensor & UtahPoint {
+UtahFanSpdHighCmd: UtahZone & UtahFanCmd & UtahHisCov {
+    high
     navName: "FanSpdHigh"
-    hisMode: "cov"
-    hisCollectInterval: Str? "24Hr"
 }
 
-UtahFanSpeedSensorFanSpdMed: FanSpeedSensor & UtahPoint {
+UtahFanSpdMedCmd: UtahZone & UtahFanCmd & UtahHisCov {
+    med
     navName: "FanSpdMed"
-    hisMode: "cov"
-    hisCollectInterval: Str? "24Hr"
 }
 
-UtahFanSpeedSensorFanSpdLow: FanSpeedSensor & UtahPoint {
+UtahFanSpdLowCmd: UtahZone & UtahFanCmd & UtahHisCov {
+    low
     navName: "FanSpdLow"
-    hisMode: "cov"
-    hisCollectInterval: Str? "24Hr"
 }

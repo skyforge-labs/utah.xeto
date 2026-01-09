@@ -1,73 +1,93 @@
+// VAV Flows
+
 FlowStyles: PointStyle {
   chartGroup: Str? "Flows"
   subtitle: Str? "Flows"
 }
 
-UtahDischargeAirFlowSensor: DischargeAirFlowSensor & UtahPoint & FlowStyles {
+///////////////////////////////////////////
+// General Air Flow points
+///////////////////////////////////////////
+
+UtahZoneDaFlow: UtahZone & UtahDischarge & UtahAirFlowSensor & UtahHisSampledDefault {
     navName: "DaFlow"
-    unit: "cfm"
-    hisMode: "sampled"
-    hisCollectInterval: Str? "10min"
-    color: Str? "#ff66ff"
+    color: Str? "purple"
 }
 
-UtahDischargeAirFlowSp: DischargeAirFlowSp & UtahPoint & FlowStyles {
+UtahZoneDaFlowSp: UtahZone & UtahDischarge & UtahAirFlowSp & UtahHisSampledDefault {
     navName: "DaFlowSp"
-    unit: "cfm"
-    hisMode: "sampled"
-    hisCollectInterval: Str? "10min"
-    color: Str? "#ff66ff"
+    color: Str? "green"
     strokeDasharray: Str? "2,2"
 }
 
-MaxAirFlowSp: AirFlowSp {
-    maxLimit
+UtahZoneDaFlowSpCov: UtahZone & UtahDischarge & UtahAirFlowSp & UtahHisCov {
+    navName: "DaFlowSp"
+    color: Str? "green"
+    strokeDasharray: Str? "2,2"
 }
 
-MinAirFlowSp: AirFlowSp {
-    minLimit
+UtahZoneDaFlowSpMax: UtahZoneDaFlowSpCov & UtahHisCov {
+    max
+    navName: "DaFlowSpMax"
 }
 
-CoolingAirFlowSp: AirFlowSp {
-    cooling
+UtahZoneDaFlowSpMin: UtahZoneDaFlowSpCov & UtahHisCov {
+    min
+    navName: "DaFlowSpMin"
 }
 
-HeatingAirFlowSp: AirFlowSp {
-    heating
+///////////////////////////////////////////
+// Cooling Air Flow setpoints
+///////////////////////////////////////////
+
+UtahZoneDaFlowSpClgCov: UtahZone & UtahDischarge & UtahAirFlowSpClg & UtahHisCov {
+    max
+    navName: "DaFlowSpClgMax"
 }
 
-ReheatAirFlowSp: AirFlowSp {
-    reheat
+UtahZoneDaFlowSpClgMax: UtahZoneDaFlowSpClgCov & UtahHisCov {
+    max
+    navName: "DaFlowSpClgMax"
 }
 
-UtahMaxAirFlowSpReheatMaxFlow: MaxAirFlowSp & ReheatAirFlowSp & UtahPoint {
-    navName: "ReheatMaxFlow"
+UtahZoneDaFlowSpClgMin:  UtahZoneDaFlowSpClgCov & UtahHisCov {
+    min
+    navName: "DaFlowSpClgMin"
 }
 
-UtahMinAirFlowSpReheatMinFlow: MinAirFlowSp & ReheatAirFlowSp & UtahPoint {
-    navName: "ReheatMinFlow"
+///////////////////////////////////////////
+// Heating Air Flow setpoints
+///////////////////////////////////////////
+
+UtahZoneDaFlowSpHtgCov: UtahZone & UtahDischarge & UtahAirFlowSpHtg & UtahHisCov {
+    max
+    navName: "DaFlowSPHtgMax"
 }
 
-UtahMaxAirFlowSpCoolMaxFlow: MaxAirFlowSp & CoolingAirFlowSp & UtahPoint {
-    navName: "CoolMaxFlow"
+UtahZoneDaFlowSpHtgMax: UtahZoneDaFlowSpHtgCov & UtahHisCov {
+    max
+    navName: "DaFlowSPHtgMax"
 }
 
-UtahMinAirFlowSpCoolMinFlow: MinAirFlowSp & CoolingAirFlowSp & UtahPoint {
-    navName: "CoolMinFlow"
+UtahZoneDaFlowSpHtgMin: UtahZoneDaFlowSpHtgCov & UtahHisCov {
+    min
+    navName: "DaFlowSpHtgMin"
 }
 
-UtahMaxAirFlowSpHeatMaxFlow: MaxAirFlowSp & HeatingAirFlowSp & UtahPoint {
-    navName: "HeatMaxFlow"
+///////////////////////////////////////////
+// Reheating Air Flow setpoints
+///////////////////////////////////////////
+
+UtahZoneDaFlowSpRH: UtahZone & UtahReheat & UtahDischarge & UtahAirFlowSp & UtahHisCov {
+    navName: "DaFlowSpRH"
 }
 
-UtahMinAirFlowSpHeatMinFlow: MinAirFlowSp & HeatingAirFlowSp & UtahPoint {
-    navName: "HeatMinFlow"
+UtahZoneDaFlowSpRHMax: UtahZoneDaFlowSpRH & UtahHisCov {
+    max
+    navName: "DaFlowSpRHMax"
 }
 
-UtahReheatMaxFlow: MaxAirFlowSp & ReheatAirFlowSp & UtahPoint {
-    navName: "ReheatMaxFlow"
-}
-
-UtahReheatMinFlow: MinAirFlowSp & ReheatAirFlowSp & UtahPoint {
-    navName: "ReheatMinFlow"
+UtahZoneDaFlowSpRHMin: UtahZoneDaFlowSpRH & UtahHisCov {
+    min
+    navName: "DaFlowSpRHMin"
 }
