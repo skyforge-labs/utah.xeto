@@ -1,0 +1,57 @@
+# Build workflow - runs on push to main
+# Builds all xeto libs and uploads as artifacts for testing
+name: Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Haxall CLI
+        run: npm install -g @haxall/haxall
+
+      - name: Configure xeto environment
+        run: |
+          # Create xeto.props pointing to this workspace
+          cat > xeto.props << EOF
+          installDir=${{ github.workspace }}
+          EOF
+
+      - name: Build all libs
+        run: xeto build
+
+      - name: Package individual libs
+        run: |
+          mkdir -p dist
+          # Loop through each built lib and zip it
+          for lib_dir in lib/xeto/*/; do
+            lib_name=$(basename "$lib_dir")
+            # Get version from source lib.xeto if it exists
+            src_lib="src/xeto/${lib_name}/lib.xeto"
+            if [ -f "$src_lib" ]; then
+              version=$(grep -oP 'version:\s*"\K[^"]+' "$src_lib" || echo "0.0.0")
+              zip -r "dist/${lib_name}-${version}.zip" "$lib_dir"
+            fi
+          done
+
+      - name: Upload individual lib artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: xeto-libs-${{ github.sha }}
+          path: dist/*.zip
+          retention-days: 30
+

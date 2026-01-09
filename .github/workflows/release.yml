@@ -1,0 +1,71 @@
+# Release workflow - runs on version tags
+# Builds all xeto libs and creates GitHub Release with downloadable assets
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Required for creating releases
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Haxall CLI
+        run: npm install -g @haxall/haxall
+
+      - name: Configure xeto environment
+        run: |
+          cat > xeto.props << EOF
+          installDir=${{ github.workspace }}
+          EOF
+
+      - name: Build all libs
+        run: xeto build
+
+      - name: Package individual libs
+        id: package
+        run: |
+          mkdir -p dist
+          release_tag="${GITHUB_REF#refs/tags/}"
+
+          # Track which libs we package for release notes
+          echo "## Included Libraries" > release_notes.md
+          echo "" >> release_notes.md
+
+          for lib_dir in lib/xeto/*/; do
+            lib_name=$(basename "$lib_dir")
+            src_lib="src/xeto/${lib_name}/lib.xeto"
+            if [ -f "$src_lib" ]; then
+              version=$(grep -oP 'version:\s*"\K[^"]+' "$src_lib" || echo "0.0.0")
+              zip -r "dist/${lib_name}-${version}.zip" "$lib_dir"
+              echo "- **${lib_name}** v${version}" >> release_notes.md
+            fi
+          done
+
+          # Create full bundle (all libs in one zip)
+          cd lib/xeto
+          zip -r "../../dist/xeto-libs-full-${release_tag}.zip" .
+          cd ../..
+          echo "" >> release_notes.md
+          echo "---" >> release_notes.md
+          echo "**Full bundle:** \`xeto-libs-full-${release_tag}.zip\`" >> release_notes.md
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*.zip
+          body_path: release_notes.md
+          generate_release_notes: true
+
