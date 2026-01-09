@@ -1,0 +1,79 @@
+// Pump Command Points
+
+//////////////////////////////////////////////////////////////////////////
+//  Primary Pumps
+//////////////////////////////////////////////////////////////////////////
+
+// Primary Chilled water pump command
+UtahPriChWPCmd: UtahPrimary & ChilledWater & UtahPump & RunCmd & UtahHisCov {
+  navName: "PriChWPCmd"
+}
+
+// Primary Chilled water pump command status
+UtahPriChWPCmdSts: UtahPrimary & ChilledWater & UtahPump & RunSensor & UtahHisCov {
+  navName: "PriChWPCmdSts"
+}
+
+// Primary Chilled water pump speed
+UtahPriChWPSpd: UtahPrimary & ChilledWater & UtahPumpSpd & UtahHisSampledMajorEquip {
+  navName: "PriChWPSpd"
+}
+
+// Primary Chilled water pump speed status
+UtahPriChWPSpdSts: UtahPrimary & ChilledWater & UtahPumpSpdSts & UtahHisSampledMajorEquip {
+  navName: "PriChWPSpdSts"
+}
+
+// Primary Chilled water pump frequency
+UtahPriChWPFreq: UtahPrimary & ChilledWater & UtahPumpFreqPoint & UtahHisSampledMajorEquip {
+  navName: "PriChWPFreq"
+}
+
+// Primary Chilled water pump power
+UtahPriChWPPower: UtahPrimary & ChilledWater & UtahPumpPowerPoint & UtahHisSampledMajorEquip {
+  navName: "PriChWPPower"
+}
+
+// Primary Chilled water pump energy
+UtahPriChWPEnergy: UtahPrimary & ChilledWater & UtahPumpEnergyPoint & UtahHisConsumptionMajorEquip {
+  navName: "PriChWPEnergy"
+}
+
+////////////////////////////////////////////////
+//  Secondary Pumps
+///////////////////////////////////////////////
+
+// Secondary Chilled water pump command
+UtahSecChWPCmd: UtahSecondary & ChilledWater & UtahPump & RunCmd & UtahHisCov {
+  navName: "SecChWPCmd"
+}
+
+// Secondary Chilled water pump command status
+UtahSecChWPCmdSts: UtahSecondary & ChilledWater & UtahPump & RunSensor & UtahHisCov {
+  navName: "SecChWPCmdSts"
+}
+
+// Secondary Chilled water pump speed
+UtahSecChWPSpd: UtahSecondary & ChilledWater & UtahPumpSpd & UtahHisSampledMajorEquip {
+  navName: "SecChWPSpd"
+}
+
+// Secondary Chilled water pump speed status
+UtahSecChWPSpdSts: UtahSecondary & ChilledWater & UtahPumpSpdSts & UtahHisSampledMajorEquip {
+  navName: "SecChWPSpdSts"
+}
+
+// Secondary Chilled water pump frequency
+UtahSecChWPFreq: UtahSecondary & ChilledWater & UtahPumpFreqPoint & UtahHisSampledMajorEquip {
+  navName: "SecChWPFreq"
+}
+
+// Secondary Chilled water pump power
+UtahSecChWPPower: UtahSecondary & ChilledWater & UtahPumpPowerPoint & UtahHisSampledMajorEquip {
+  navName: "SecChWPPower"
+}
+
+// Secondary Chilled water pump energy
+UtahSecChWPEnergy: UtahSecondary & ChilledWater & UtahPumpEnergyPoint & UtahHisConsumptionMajorEquip {
+  navName: "SecChWPEnergy"
+}

@@ -1,0 +1,19 @@
+// General Chiller Points - Enable, Command, Energy
+
+//////////////////////////////////////////////////////////////////////////
+// General CHWS Points
+//////////////////////////////////////////////////////////////////////////
+
+// Makeup Water Valve
+UtahChWMkupWVlvCmd: ChilledWater & UtahWaterMakeup & UtahValveCmd & UtahHisSampledMajorEquip {
+  navName: "ChWMkupWVlvCmd"
+  unit: "%"
+}
+
+// Building Max Chilled Water Valve Position
+UtahBldgChWVlvPosMax: ChilledWater & UtahValvePos & UtahHisCov {
+  building
+  max
+  navName: "BldgChWVlvPosMax"
+  unit: "%"
+}

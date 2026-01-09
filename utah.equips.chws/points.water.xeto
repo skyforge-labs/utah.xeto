@@ -1,0 +1,136 @@
+// Chilled Water System Points - Valves, Coil Temperatures, Circ Pumps, Flow
+
+//////////////////////////////////////////////////////////////////////////
+// Chilled Water Temperature Points
+//////////////////////////////////////////////////////////////////////////
+
+// Primary chilled water return temperature
+UtahPriChWRetTemp: ChilledWater & UtahPrimary & UtahWaterTempReturn & UtahHisSampledMajorEquip {
+  navName: "PriChWRetTemp"
+}
+
+// Primary chilled water supply temperature
+UtahPriChWSupTemp: ChilledWater & UtahPrimary & UtahWaterTempSupply & UtahHisSampledMajorEquip {
+  navName: "PriChWSupTemp"
+}
+
+// Primary chilled water supply temperature setpoint
+UtahPriChWSupTempSp: ChilledWater & UtahPrimary & UtahWaterTempSupplySp & UtahHisCov {
+  navName: "PriChWSupTempSp"
+}
+
+// Secondary chilled water return temperature
+UtahSecChWRetTemp: ChilledWater & UtahSecondary & UtahWaterTempReturn & UtahHisSampledMajorEquip {
+  navName: "SecChWRetTemp"
+}
+
+// Secondary chilled water supply temperature
+UtahSecChWSupTemp: ChilledWater & UtahSecondary & UtahWaterTempSupply & UtahHisSampledMajorEquip {
+  navName: "SecChWSupTemp"
+}
+
+// Secondary chilled water supply temperature setpoint
+UtahSecChWSupTempSp: ChilledWater & UtahSecondary & UtahWaterTempSupplySp & UtahHisCov {
+  navName: "SecChWSupTempSp"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Chilled Water Flow Points
+//////////////////////////////////////////////////////////////////////////
+
+// Primary Chilled water flow
+UtahPriChWFlow: ChilledWater & UtahPrimary & UtahWaterFlowSensor & UtahHisSampledMajorEquip {
+  navName: "PriChWFlow"
+}
+
+// Secondary Chilled water flow
+UtahSecChWFlow: ChilledWater & UtahSecondary & UtahWaterFlowSensor & UtahHisSampledMajorEquip {
+  navName: "SecChWFlow"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Chilled Water Volume Points
+//////////////////////////////////////////////////////////////////////////
+
+// Primary Chilled water volume
+UtahPriChWVol: ChilledWater & UtahPrimary & UtahWaterVolumeSensor & UtahHisSampledMajorEquip {
+  navName: "PriChWVol"
+}
+
+// Secondary Chilled water volume
+UtahSecChWVol: ChilledWater & UtahSecondary & UtahWaterVolumeSensor & UtahHisSampledMajorEquip {
+  navName: "SecChWVol"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Chilled Water Pressure and Diff Pressure Points
+//////////////////////////////////////////////////////////////////////////
+
+// Primary Chilled Water Pressure
+UtahPriChWPress: ChilledWater & UtahPrimary & UtahWaterPressSensor & UtahHisSampledMajorEquip {
+  navName: "PriChWPress"
+  unit: "psi"
+}
+
+// Primary Chilled Water Pressure setpoint
+UtahPriChWPressSp: ChilledWater & UtahPrimary & UtahWaterPressSp & UtahHisSampledMajorEquip {
+  navName: "PriChWPressSp"
+  unit: "psi"
+}
+
+// Secondary Chilled Water Pressure
+UtahSecChWPress: ChilledWater & UtahSecondary & UtahWaterPress & UtahHisSampledMajorEquip {
+  navName: "SecChWPress"
+  unit: "psi"
+}
+
+// Secondary Chilled Water Pressure setpoint
+UtahSecChWPressSp: ChilledWater & UtahSecondary & UtahWaterPressSp & UtahHisSampledMajorEquip {
+  navName: "SecChWPressSp"
+  unit: "psi"
+}
+
+// Primary Chilled Water Diff Pressure
+UtahPriChWDP: ChilledWater & UtahPrimary & UtahWaterDP & UtahHisSampledMajorEquip {
+  navName: "PriChWDP"
+  unit: "psi"
+}
+
+// Primary Chilled Water Diff Pressure setpoint
+UtahPriChWDPSp: ChilledWater & UtahPrimary & UtahWaterDPSp & UtahHisSampledMajorEquip {
+  navName: "PriChWDPSp"
+  unit: "psi"
+}
+
+// Secondary Chilled Water Diff Pressure
+UtahSecChWDP: ChilledWater & UtahSecondary & UtahWaterDP & UtahHisSampledMajorEquip {
+  navName: "SecChWDP"
+  unit: "psi"
+}
+
+// Secondary Chilled Water Diff Pressure setpoint
+UtahSecChWDPSp: ChilledWater & UtahSecondary & UtahWaterDPSp & UtahHisSampledMajorEquip {
+  navName: "SecChWDPSp"
+  unit: "psi"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Chilled Water Energy and Power Points
+//////////////////////////////////////////////////////////////////////////
+
+// Hot Water Energy
+UtahChWEnergy: ChilledWater & UtahWaterEnergySensor & UtahHisConsumptionMajorEquip {
+  navName: "ChWEnergy"
+  unit: "MMBTU"
+}
+// Hot Water Power
+UtahChWPower: ChilledWater & UtahWaterPowerSensor & UtahHisSampledMajorEquip {
+  navName: "ChWPower"
+  unit: "MMBTU/h"
+}
+
+//  CHWS Tons
+UtahChWTons: ChilledWater & UtahTons & UtahHisSampledMajorEquip {
+  navName: "ChWTons"
+  unit: "tonref"
+}

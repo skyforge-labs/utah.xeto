@@ -1,0 +1,82 @@
+// Abstract Base CHWS with all possible points (optional)
+
+UtahCHWS: Plant <abstract> {
+  chilled
+  water
+  coolingTowerRef: Ref?
+  chilledWaterPlantRef: Ref?
+
+  points: {
+    // General Points
+    chWMkupWVlvCmd: UtahChWMkupWVlvCmd?
+    bldgChWVlvosMax: UtahBldgChWVlvPosMax?
+    
+    // Primary/Secondary Chilled Water Points
+    priChWRetTemp:   UtahPriChWRetTemp?
+    priChWSupTemp:   UtahPriChWSupTemp?
+    priChWSupTempSp: UtahPriChWSupTempSp?
+    
+    secChWRetTemp: UtahSecChWRetTemp?
+    secChWSupTemp: UtahSecChWSupTemp?
+    secChWSupTempSp: UtahSecChWSupTempSp?
+    
+    // Primary/Secondary Chilled Water Flow Points
+    priChWVol: UtahPriChWVol?
+    secChWVol: UtahSecChWVol?
+
+    //  Primary/Secondary Pressure and Delta Pressure
+    priChWPress:   UtahPriChWPress?
+    priChWPressSp: UtahPriChWPressSp?
+    secChWPress:   UtahSecChWPress?
+    secChWPressSp: UtahSecChWPressSp?
+    
+    priChWDP:    UtahPriChWDP?
+    priChWDPSp:  UtahPriChWDPSp?
+    secChWDP:    UtahSecChWDP?
+    secChWDPSp:  UtahSecChWDPSp?
+    
+    //  Power and Energy Points
+    chWEnergy:  UtahChWEnergy?
+    chWPower:   UtahChWPower?
+    chWTons:    UtahChWTons?
+
+    //  Primary pumps
+    priChWPCmd:    UtahPriChWPCmd?
+    priChWPCmdSts: UtahPriChWPCmdSts?
+    priChWPSpd:    UtahPriChWPSpd?
+    priChWPSpdSts: UtahPriChWPSpdSts?
+    priChWPFreq:   UtahPriChWPFreq?
+    priChWPPower:  UtahPriChWPPower?
+    priChWPEnergy: UtahPriChWPEnergy?
+    
+    //  Secondary pumps
+    secChWPCmd:    UtahSecChWPCmd?
+    secChWPCmdSts: UtahSecChWPCmdSts?
+    secChWPSpd:    UtahSecChWPSpd?
+    secChWPSpdSts: UtahSecChWPSpdSts?
+    secChWPFreq:   UtahSecChWPFreq?
+    secChWPPower:  UtahSecChWPPower?
+    secChWPEnergy: UtahSecChWPEnergy?
+    
+    // Condensor Water Points
+    HxChWEnab:   UtahHxChWEnab?
+    HxChWCmd:    UtahHxChWCmd?
+    HxChWHours:  UtahHxChWHours?
+    
+    priCWRetTemp: UtahPriCWRetTemp?
+    priCWSupTemp: UtahPriCWSupTemp?
+    priCWSupTempSp: UtahPriCWSupTempSp?
+    
+    HxChWRetTemp:  UtahHxChWRetTemp?
+    HxChWSupTemp:  UtahHxChWSupTemp?
+    HxChWSupTempSp: UtahHxChWSupTempSp?
+    
+    HxChWIsoVlvCmd:  UtahHxChWIsoVlvCmd?
+    HxCWIsoVlvCmd:   UtahHxCWIsoVlvCmd?
+    
+    HxChWCPCmd:    UtahHxChWCPCmd?
+    HxChWCPCmdSts: UtahHxChWCPCmdSts?
+    HxCWCPCmd:     UtahHxCWCPCmd?
+    HxCWCPCmdSts:  UtahHxCWCPCmdSts?
+  }
+}
