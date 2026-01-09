@@ -4,24 +4,30 @@
 
 // Damper Bool
 
-UtahDamperCmdPoint: UtahDamper & BoolPoint & CmdPoint <abstract> {
-    run
+UtahDamperCmdPoint: UtahDamper & BoolPoint <abstract> {
     doc: "Open/Closed damper"
     }
 
-UtahDamperCmdStsPoint: UtahDamper & BoolPoint & SensorPoint <abstract> {
-    run
+UtahDamperCmd: UtahDamperCmdPoint & RunCmd <abstract> {
+    doc: "Open/Closed damper command"
+    }
+
+UtahDamperCmdSts: UtahDamperCmdPoint & RunSensor <abstract> {
     doc: "Open/Closed damper feedback status sensor"
     }
 
 // Damper Number
 
-UtahDamperPosPoint: UtahDamper & NumberPoint & CmdPoint <abstract> {
+UtahDamperPosPoint: UtahDamper & NumberPoint <abstract> {
     run
     doc: "0-100% valve"
     }
+
+UtahDamperPos: UtahDamperPosPoint & CmdPoint <abstract> {
+    doc: "0-100% valve cmd"
+    }
     
-UtahDamperPosStsPoint: UtahDamper & NumberPoint & SensorPoint <abstract> {
+UtahDamperPosSts: UtahDamperPosPoint & SensorPoint <abstract> {
     run
     doc: "0-100% valve feedback status sensor"
     }

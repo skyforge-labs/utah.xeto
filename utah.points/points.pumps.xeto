@@ -1,11 +1,61 @@
-//Developer License – Not for production use –More Info
+//  Utah Pumps
 
-// Utah Abstract points
-
+//////////////////////////////////////////
 // Circulation Pump
+//////////////////////////////////////////
 
 UtahCircPump: UtahPump <abstract> {
     circ
     doc: "Local Circulation Pump vs. Larger System Pump"
     }
 
+UtahCPCmd: UtahCircPump & RunCmd <abstract> {
+    circ
+    doc: "Local Circulation Pump vs. Larger System Pump"
+    }
+
+//////////////////////////////////////////
+//  Pump Speed Number
+//////////////////////////////////////////
+
+UtahPumpSpdPoint: UtahPump & NumberPoint <abstract> {
+    speed
+    unit: "%"
+    doc: "Generic Pump speed 0-100%"
+    }
+    
+UtahPumpSpd: UtahPumpSpdPoint & CmdPoint <abstract> {
+    doc:  "0-100% pump speed"
+    }
+    
+UtahPumpSpdSts: UtahPumpSpdPoint & SensorPoint <abstract> {
+    run
+    doc: "0-100% pump speed feedback status sensor"
+    }
+
+//////////////////////////////////////////
+//  Pump Frequency
+//////////////////////////////////////////
+
+UtahPumpFreqPoint: UtahPump & Freq & NumberPoint & SensorPoint <abstract> {
+    unit: "Hz"
+    doc: "Pump Frequency. Typically from VRF"
+    }
+
+//////////////////////////////////////////
+//  Pump Power
+//////////////////////////////////////////
+
+UtahPumpPowerPoint: UtahPump & Power & NumberPoint & SensorPoint <abstract> {
+    unit: "kW"
+    doc: "Pump Power. Typically from VRF"
+    }
+
+//////////////////////////////////////////
+//  Pump Energy
+//////////////////////////////////////////
+
+UtahPumpEnergyPoint: UtahPump & Energy & NumberPoint & SensorPoint <abstract> {
+    unit: "kWh"
+    doc: "Pump Energy. Typically from VRF"
+    }

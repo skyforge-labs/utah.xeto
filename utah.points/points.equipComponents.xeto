@@ -2,40 +2,138 @@
 
 UtahEquipComponent: Entity {}
 
-UtahDamper: UtahEquipComponent {
-  damper
+UtahAirFilter: UtahEquipComponent & Air <abstract> {
+  filter
 }
 
-UtahDischarge: UtahEquipComponent {
-  discharge
+UtahBoiler: UtahEquipComponent <abstract> {
+  boiler
+}
+UtahBuilding: UtahEquipComponent <abstract> {
+  building
 }
 
-UtahHumidifier: UtahEquipComponent {
-  humidifier
+UtahChiller: UtahEquipComponent <abstract> {
+  chiller
 }
 
-UtahHumidify: UtahEquipComponent {
-  humidify
+UtahChillerOil: Liquid & UtahChiller <abstract> {
+  oil
 }
 
-UtahDehumidify: UtahEquipComponent {
-  dehumidify
+UtahCoil: UtahEquipComponent <abstract> {
+  coil
 }
 
-UtahFan: UtahEquipComponent & Air {
-  fan
+UtahCondenser: UtahEquipComponent <abstract> {
+  condenser
 }
 
-UtahPump: UtahEquipComponent {
-  pump
-}
-
-
-UtahColdDeck: UtahEquipComponent {
+UtahColdDeck: UtahEquipComponent <abstract> {
   coldDeck
 }
 
-
-UtahHotDeck: UtahEquipComponent {
+UtahHotDeck: UtahEquipComponent <abstract> {
   hotDeck
+}
+
+UtahDualDeck: UtahEquipComponent <abstract> {
+  dualDeck
+}
+
+UtahDamper: UtahEquipComponent <abstract> {
+  damper
+}
+
+UtahDischarge: UtahEquipComponent <abstract> {
+  discharge
+}
+
+UtahEconomizer: UtahEquipComponent <abstract> {
+  economizer
+}
+
+UtahHeatExchanger: UtahEquipComponent <abstract> {
+  heatExchanger
+}
+
+UtahHeatRecovery: UtahEquipComponent <abstract> {
+  heatRecovery
+}
+
+UtahHumidifier: UtahEquipComponent <abstract> {
+  humidifier
+}
+
+UtahHumidify: UtahEquipComponent <abstract> {
+  humidify
+}
+
+UtahDehumidify: UtahEquipComponent <abstract> {
+  dehumidify
+}
+
+UtahFan: UtahEquipComponent & Air <abstract> {
+  fan
+}
+
+UtahLoad: UtahEquipComponent <abstract> {
+  load
+}
+
+UtahMakeup: UtahEquipComponent <abstract> {
+  makeup
+}
+UtahMixed: UtahEquipComponent <abstract> {
+  mixed
+}
+
+UtahOccupied: UtahEquipComponent <abstract> {
+  occ
+  occupied
+}
+
+UtahPrimary: UtahEquipComponent <abstract> {
+  primaryLoop
+}
+
+UtahSecondary: UtahEquipComponent <abstract> {
+  secondaryLoop
+}
+
+UtahReheat: UtahEquipComponent <abstract> {
+  reheat
+}
+
+UtahUnoccupied: UtahEquipComponent <abstract> {
+  unocc
+  unoccupied
+}
+
+UtahOutside: UtahEquipComponent <abstract> {
+  outside
+}
+
+UtahPump: UtahEquipComponent <abstract> {
+  pump
+}
+
+UtahRelief: UtahEquipComponent <abstract> {
+  relief
+}
+
+UtahReturn: UtahEquipComponent <abstract> {
+  return
+}
+
+UtahStandby: UtahEquipComponent <abstract> {
+  standby
+}
+
+UtahTons: UtahEquipComponent <abstract> {
+  tons
+}
+
+UtahZone: UtahEquipComponent <abstract> {
+  zone
 }

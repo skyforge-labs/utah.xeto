@@ -1,0 +1,31 @@
+// Uah Stages
+
+UtahStagePoint: ph.points::BoolPoint <abstract> {
+    stage: Number
+    doc: "Generic Dx point"
+    }
+
+UtahStageCmd: UtahStagePoint & CmdPoint <abstract> {
+    run
+    doc: "Stage command point"
+    }
+
+UtahStageCmdSts: UtahStagePoint & SensorPoint <abstract> {
+    run
+    doc: "Stage feedback status sensor"
+    }
+    
+UtahDxStageCmd: UtahStagePoint & CmdPoint <abstract> {
+    run
+    doc: "Dx command point"
+    }
+
+UtahDxStageCmdSts: UtahStagePoint & SensorPoint <abstract> {
+    run
+    doc: "Dx feedback status sensor"
+    }
+
+UtahStageSp: ph.points::NumberPoint & SpPoint <abstract> {
+    stage: Number
+    doc: "Generic Dx point"
+    }

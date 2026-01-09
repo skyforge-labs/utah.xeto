@@ -1,0 +1,69 @@
+// Utah Natural Gas Abstract points
+
+////////////////////////////////////////////////////
+// Natural Gas Flow
+////////////////////////////////////////////////////
+
+UtahNatGasFlow: NaturalGas & Flow <abstract> {
+    doc: "Natural Gas Flow"
+//    unit: "ccf/h"
+    }
+
+UtahNatGasFlowPoint: UtahNatGasFlow & NumberPoint <abstract> {
+    doc: "Natural Gas Flow Point"
+    }
+
+UtahNatGasFlowSensor: UtahNatGasFlowPoint & SensorPoint <abstract> {
+    doc: "Natural Gas Flow Sensor"
+    }
+    
+////////////////////////////////////////////////////
+// Natural Gas Volume
+////////////////////////////////////////////////////
+
+UtahNatGasVolume: NaturalGas & Volume <abstract> {
+    doc: "Natural Gas Volume"
+//    unit: "ccf"
+    }
+
+UtahNatGasVolumePoint: UtahNatGasVolume & NumberPoint <abstract> {
+    doc: "Natural Gas Volume Point"
+    }
+
+UtahNatGasVolumeSensor: UtahNatGasVolumePoint & SensorPoint <abstract> {
+    doc: "Natural Gas Volume Sensor"
+    }
+
+////////////////////////////////////////////////////
+// Natural Gas Energy
+////////////////////////////////////////////////////
+
+UtahNatGasEnergy: NaturalGas & Energy <abstract> {
+    doc: "Natural Gas Energy"
+//    unit: "MMBTU"
+    }
+
+UtahNatGasEnergyPoint: UtahNatGasEnergy & NumberPoint <abstract> {
+    doc: "Natural Gas Energy Point"
+    }
+
+UtahNatGasEnergySensor: UtahNatGasEnergyPoint & SensorPoint <abstract> {
+    doc: "Natural Gas Energy Sensor"
+    }
+
+////////////////////////////////////////////////////
+// Natural Gas Power
+////////////////////////////////////////////////////
+
+UtahNatGasPower: NaturalGas & Power <abstract> {
+    doc: "Natural Gas Power"
+//    unit: "MMBTU/h"
+    }
+     
+UtahNatGasPowerPoint: UtahNatGasPower & NumberPoint <abstract> {
+    doc: "Natural Gas Energy Point"
+    }
+
+UtahNatGasPowerSensor: UtahNatGasPowerPoint & SensorPoint <abstract> {
+    doc: "Natural Gas Energy Sensor"
+    }

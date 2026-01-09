@@ -18,7 +18,19 @@ UtahValveCmdSts: utah.points::UtahValveCmdPoint & SensorPoint <abstract> {
     doc: "Open/Closed valve feedback status sensor"
     }
 
-// Valves Number
+UtahIsoValveCmd: utah.points::UtahValveCmdPoint & CmdPoint <abstract> {
+    isolation
+    run
+    doc: "Isolation Valve Open/Closed valve"
+    }
+    
+UtahIsoValveCmdSts: utah.points::UtahValveCmdPoint & SensorPoint <abstract> {
+    isolation
+    run
+    doc: "Isolation Valve Open/Closed valve"
+    }
+
+// Valves Position
 UtahValvePosPoint: ph.points::NumberPoint <abstract> {
     valve
     doc: "0-100% valve"
@@ -34,18 +46,15 @@ UtahValvePosSts: utah.points::UtahValvePosPoint & SensorPoint <abstract> {
     doc: "0-100% valve feedback status sensor"
     }
 
-// Valves Dx
-UtahDxPoint: ph.points::BoolPoint <abstract> {
-    stage: Number
-    doc: "Generic Dx point"
+UtahIsoValvePos: utah.points::UtahValvePosPoint & CmdPoint <abstract> {
+    isolation
+    run
+    doc: "0-100% valve"
     }
 
-UtahDxStageCmd: utah.points::UtahDxPoint & CmdPoint <abstract> {
+UtahIsoValvePosSts: utah.points::UtahValvePosPoint & SensorPoint <abstract> {
+    isolation
     run
-    doc: "Dx command point"
+    doc: "0-100% valve"
     }
 
-UtahDxStageCmdSts: utah.points::UtahDxPoint & SensorPoint <abstract> {
-    run
-    doc: "Dx feedback status sensor"
-    }

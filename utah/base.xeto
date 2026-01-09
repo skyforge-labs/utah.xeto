@@ -4,7 +4,7 @@ UtahEquip: Equip {
 }
 
 PointStyle: Dict {
-  color: Str?
+//  color: Str?
   chartGroup: Str?
   subtitle: Str?
   chartType: ChartType?

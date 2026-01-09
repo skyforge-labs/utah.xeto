@@ -4,26 +4,26 @@
 
 // Coils
 
-UtahCoolingCoil: ph::Point <abstract> {
+UtahCoolingCoil: UtahCoil <abstract> {
     coolingCoil
 //    doc: "Cooling Coil, typically an air handler"
     }
     
-UtahHeatingCoil: ph::Point <abstract> {
+UtahHeatingCoil: UtahCoil <abstract> {
     heatingCoil
 //    doc: "Heating Coil, typically an air handler"
     }
     
-UtahPreheatCoil: ph::Point <abstract> {
+UtahPreheatCoil: UtahCoil <abstract> {
     preheatCoil
 //    doc: "Preheat Coil, typically an air handler"
     }
     
-UtahReheatCoil: ph::Point <abstract> {
+UtahReheatCoil: UtahCoil <abstract> {
     reheatCoil
 //    doc: "Reheat Coil, air handler or VAV"
     }
-UtahHeatRecoveryCoil: ph::Point <abstract> {
+UtahHeatRecoveryCoil: UtahCoil <abstract> {
     heatRecoveryCoil
-//    doc: "Reheat Coil, air handler or VAV"
+//    doc: "Heat Recovery Coil, air handler or VAV"
     }

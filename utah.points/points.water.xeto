@@ -1,62 +1,193 @@
 //Developer License – Not for production use –More Info
 
-// Utah Abstract points
+// Utah Water Abstract points
+////////////////////////////////////////////////////
+// Heat Recovery
+////////////////////////////////////////////////////
 
-// Water Points
+UtahHeatRecoveryWater: UtahHeatRecovery & Water <abstract> {
+//    doc: "Heat Recovery Water"
+    }
+    
+////////////////////////////////////////////////////
 // Water Flow
-UtahWaterFlow: ph::Water & ph::Flow <abstract> {
+////////////////////////////////////////////////////
+
+UtahWaterFlow: Water & Flow <abstract> {
     doc: "Water Flow"
     }
     
-UtahWaterFlowPoint: ph.points::NumberPoint & utah.points::UtahWaterFlow <abstract> {
+UtahWaterFlowPoint: NumberPoint & UtahWaterFlow <abstract> {
     unit: "gal/min"
     doc: "Water Flow"
     }
     
-UtahWaterFlowSensor: utah.points::UtahWaterFlowPoint & ph.points::SensorPoint <abstract> {
+UtahWaterFlowSensor: UtahWaterFlowPoint & SensorPoint <abstract> {
     doc: "Water Flow Sensor"
     }
 
-UtahWaterFlowSp: utah.points::UtahWaterFlowPoint & ph.points::SpPoint <abstract> {
+UtahWaterFlowSp: UtahWaterFlowPoint & SpPoint <abstract> {
     doc: "Water Flow Sp"
     }
 
+////////////////////////////////////////////////////
+// Water Makeup
+////////////////////////////////////////////////////
+
+UtahWaterMakeup: Water  <abstract> {
+    makeup
+//    doc: "Makeup Water"
+    }
+ 
+////////////////////////////////////////////////////
+// Water Pressure & Diff Press
+////////////////////////////////////////////////////
+
+UtahWaterPress: Water & Pressure <abstract> {
+    doc: "Water Pressure"
+    }
+
+UtahWaterPressPoint: UtahWaterPress & NumberPoint <abstract> {
+    doc: "Water Pressure Point"
+    }
+    
+UtahWaterPressSensor: UtahWaterPressPoint & SensorPoint <abstract> {
+    doc: "Water Pressure Sensor"
+    }
+    
+UtahWaterPressSp: UtahWaterPressPoint & SpPoint <abstract> {
+    doc: "Water Pressure Setpoint"
+    }
+
+//  Water pressure delta
+UtahWaterDP: UtahWaterPress <abstract> {
+    delta
+    doc: "Water Pressure Delta"
+    }
+
+UtahWaterDPPoint: UtahWaterDP & NumberPoint <abstract> {
+    doc: "Water Pressure Delta Point"
+    }
+    
+UtahWaterDPSensor: UtahWaterDPPoint & SensorPoint <abstract> {
+    doc: "Water Pressure Delta Sensor"
+    }
+    
+UtahWaterDPSp: UtahWaterDPPoint & SpPoint <abstract> {
+    doc: "Water Pressure Delta Setpoint"
+    }
+    
+////////////////////////////////////////////////////
+// Water Mass
+////////////////////////////////////////////////////
+
+UtahWaterMassFlow: Water & Flow <abstract> {
+    massFlow
+    doc: "Water Mass for flow points"
+}
+
+UtahWaterMassFlowPoint: UtahWaterMassFlow & NumberPoint <abstract> {
+    doc: "Water Mass for flow point"
+    unit: "lb/min"  
+}
+
+UtahWaterMassFlowSensor: UtahWaterMassFlowPoint & SensorPoint <abstract> {
+    doc: "Water Mass for flow sensor"
+    unit: "lb/min"  
+}
+
+////////////////////////////////////////////////////
+// Water Volume
+////////////////////////////////////////////////////
+
+UtahWaterVolume: Water & Volume <abstract> {
+    doc: "Water Volume"
+    }
+
+
+UtahWaterVolumePoint: UtahWaterVolume & NumberPoint <abstract> {
+    doc: "Water Volume point"
+    unit: "gal"  
+}
+
+UtahWaterVolumeSensor: UtahWaterVolumePoint & SensorPoint <abstract> {
+    doc: "Water Volume sensor"
+}
+
+////////////////////////////////////////////////////
 // Water Temp
+////////////////////////////////////////////////////
+
 UtahWaterTemp: ph::Water & ph::Temp <abstract> {
     doc: "Water Temp"
     }
 
-UtahWaterTempPoint: ph.points::NumberPoint & utah.points::UtahWaterTemp <abstract> {
+UtahWaterTempPoint: NumberPoint & UtahWaterTemp <abstract> {
     unit: "°F"
     doc: "Water Temperature Point"
     }
 
-UtahWaterTempSensor: utah.points::UtahWaterTempPoint & ph.points::SensorPoint <abstract> {
+UtahWaterTempSensor: UtahWaterTempPoint & SensorPoint <abstract> {
     doc: "Water Temperature Sensor"
     }
 
-UtahWaterTempSp: utah.points::UtahWaterTempPoint & ph.points::SpPoint <abstract> {
+UtahWaterTempSp: UtahWaterTempPoint & SpPoint <abstract> {
     doc: "Water Temperature Setpoint"
     }
     
 // Water Temperatures
-UtahWaterTempEntering: utah.points::UtahWaterTempSensor <abstract> {
+UtahWaterTempEntering: UtahWaterTempSensor <abstract> {
     entering
     doc: "Water Temperature entering a device"
     }
 
-UtahWaterTempLeaving: utah.points::UtahWaterTempSensor <abstract> {
+UtahWaterTempLeaving: UtahWaterTempSensor <abstract> {
     leaving
     doc: "Water Temperature leaving a device"
     }
 
-UtahWaterTempSupply: utah.points::UtahWaterTempSensor <abstract> {
+UtahWaterTempLeavingSp: UtahWaterTempSp <abstract> {
+    leaving
+    doc: "Water Temperature leaving a device setpoint"
+    }
+
+UtahWaterTempSupply: UtahWaterTempSensor <abstract> {
+    supply
+    doc: "Water Temperature Supply"
+    }
+
+UtahWaterTempSupplySp: UtahWaterTempSp <abstract> {
     supply
     doc: "Water Temperature Supply"
     }
     
-UtahWaterTempReturn: utah.points::UtahWaterTempSensor <abstract> {
+UtahWaterTempReturn: UtahWaterTempSensor <abstract> {
     return
     doc: "Water Temperature Supply"
     }
+  
+////////////////////////////////////////////////////
+// Water Power
+////////////////////////////////////////////////////
+
+UtahWaterPower: Water & Power <abstract> {
+    doc: "Water Power"
+//    unit: "kW"  //  Move to end point.  Cannot override mid tree
+    }
+
+UtahWaterPowerSensor: UtahWaterPower & SensorPoint <abstract> {
+    doc: "Water Power Sensor Point"
+    }
     
+////////////////////////////////////////////////////
+// Water Energy
+////////////////////////////////////////////////////
+
+UtahWaterEnergy: Water & Energy <abstract> {
+    doc: "Water Energy"
+//    unit: "MMbtu"  //  Move to end point.  Cannot override mid tree
+    }
+    
+UtahWaterEnergySensor: UtahWaterEnergy & SensorPoint <abstract> {
+    doc: "Water Energy Sensor Point"
+    }
