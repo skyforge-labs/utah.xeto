@@ -5,6 +5,7 @@
 // History:
 //   24 Nov 2025   James Gessel   Creation
 //
+
 pragma: Lib <
 doc: "Utah Haystack Tagging Standard - Equips"
 version: "0.0.1"

@@ -5,6 +5,7 @@
 // History:
 //   06 Jan 2026   Paul Quinn   Creation
 //
+
 pragma: Lib <
   doc: "State of Utah AHU Equipment Library"
   version: "0.0.1"
@@ -19,7 +20,8 @@ pragma: Lib <
 
   }
   org: {
-    dis: "Ontologent"
-    uri: "https://ontologent.ai"
+    dis: "SkyForge Labs"
+    uri: "https://skyforge-labs.com"
   }
+  categories: {"utah"}
 >

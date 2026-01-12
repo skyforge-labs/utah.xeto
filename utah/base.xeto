@@ -6,12 +6,12 @@
 //   24 Nov 2025   James Gessel   Creation
 //
 // Utah Equip
+
 UtahEquip: Equip {
   attrs: Query<of:Attr, via:"equipRef+"> {}
 }
 
 PointStyle: Dict {
-//  color: Str?
   chartGroup: Str?
   subtitle: Str?
   chartType: ChartType?
