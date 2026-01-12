@@ -1,0 +1,19 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   12 Jan 2026   Paul Quinn   Creation
+//
+// General Cooling Tower Points - Enable, Command, Energy
+
+//////////////////////////////////////////////////////////////////////////
+// General CHWS Points
+//////////////////////////////////////////////////////////////////////////
+
+// Cooling Tower Enabled
+UtahCTEnab: UtahCoolingTower & EnableCmd & UtahHisCov {
+  navName: "CTEnab"
+}
+
+

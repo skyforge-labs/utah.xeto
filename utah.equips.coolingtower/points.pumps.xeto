@@ -1,0 +1,40 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   12 Jan 2026   Paul Quinn   Creation
+//
+// Pump Command Points
+
+//////////////////////////////////////////////////////////////////////////
+//  Cooling Tower Circ Pumps
+//////////////////////////////////////////////////////////////////////////
+
+// Cooling Tower water circ pump command
+UtahCTCPCmd: UtahCoolingTower & CondenserWater & UtahCPCmd & UtahHisCov {
+  navName: "CTCPCmd"
+}
+
+// Cooling Tower water circ pump command status
+UtahCTCPCmdSts: UtahCoolingTower & CondenserWater & UtahCPCmdSts & UtahHisCov {
+  navName: "CTCPCmdSts"
+}
+
+// Cooling Tower water circ pump speed
+UtahCTCPSpd: UtahCoolingTower & CondenserWater & UtahCPSpd & UtahHisCov {
+  navName: "CTCPSpd"
+}
+
+// Cooling Tower water circ pump speed status
+UtahCTCPSpdSts: UtahCoolingTower & CondenserWater & UtahCPSpdSts & UtahHisCov {
+  navName: "CTCPSpdSts"
+}
+
+//////////////////////////////////////////////
+// Pump Freq
+//////////////////////////////////////////////
+
+// Pump Frequency. Typically from VRF
+UtahCTCPFreq: UtahCoolingTower & UtahCircPump & UtahPumpFreqPoint & UtahHisSampledMajorEquip <abstract>{
+    }

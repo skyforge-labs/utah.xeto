@@ -1,0 +1,26 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   12 Jan 2026   Paul Quinn   Creation
+//
+// General Cooling Tower Points - Enable, Command, Energy
+
+//////////////////////////////////////////////////////////////////////////
+// General Cooling Tower Sump Points
+//////////////////////////////////////////////////////////////////////////
+
+// Sump Temperature Sensor
+UtahSumpTemp: UtahSump & UtahWaterTempSensor <abstract>{
+    }
+    
+// Sump Heater Cmd
+UtahSumpHtrCmd: UtahSump & CmdPoint <abstract> {
+    heating
+    }
+    
+// Sump Heater Cmd Status
+UtahSumpHtrCmdSts: UtahSump & SensorPoint <abstract> {
+    heating
+    }

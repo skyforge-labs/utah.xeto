@@ -1,0 +1,45 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   12 Jan 2026   Paul Quinn   Creation
+//
+// Fan Points
+
+//////////////////////////////////////////////////////////////////////////
+//  Cooling Tower Fans
+//////////////////////////////////////////////////////////////////////////
+
+// Cooling Tower Enabled
+UtahCTFanEnab: UtahCoolingTower & UtahFan & EnableCmd & UtahHisCov {
+  navName: "CTFanEnab"
+}
+
+// Cooling Tower fan command
+UtahCTFanCmd: UtahCoolingTower & UtahFanCmd & UtahHisCov {
+  navName: "CTFanCmd"
+}
+
+// Cooling Tower fan command status
+UtahCTFanCmdSts: UtahCoolingTower & UtahFanCmdSts & UtahHisCov {
+  navName: "CTFanCmdSts"
+}
+
+// Cooling Tower fan speed
+UtahCTFanSpd: UtahCoolingTower & UtahFanSpd & UtahHisCov {
+  navName: "CTFanSpd"
+}
+
+// Cooling Tower fan speed status
+UtahCTFanSpdSts: UtahCoolingTower & UtahFanSpdSts & UtahHisCov {
+  navName: "CTFanSpdSts"
+}
+
+//////////////////////////////////////////////
+// Fan Freq
+//////////////////////////////////////////////
+
+// Fan Frequency. Typically from VRF
+UtahCTFanFreq: UtahCoolingTower & UtahFanFreqPoint & UtahHisSampledMajorEquip <abstract>{
+    }
