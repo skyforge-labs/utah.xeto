@@ -8,10 +8,10 @@
 // Utah Abstract points
 
 /////////////////////////////////////////
-// Valves Bool
+// Valves Cmd - Bool
 /////////////////////////////////////////
 
-// Generic valve. Number or Bool
+// Generic valve
 UtahValveCmdPoint: UtahValve & BoolPoint <abstract>{
     }
 
@@ -42,6 +42,16 @@ UtahMakeupValveCmd: UtahMakeup & UtahValveCmd <abstract>{
     
 // Makeup Valve Open/Closed valve
 UtahMakeupValveCmdSts: UtahMakeup & UtahValveCmdSts <abstract>{
+    run
+    }
+    
+// Bypass Valve Open/Closed valve
+UtahBypassValveCmd: UtahBypass & UtahValveCmd <abstract>{
+    run
+    }
+    
+// Bypass Valve Open/Closed valve
+UtahBypassValveCmdSts: UtahBypass & UtahValveCmdSts <abstract>{
     run
     }
     

@@ -5,14 +5,13 @@
 // History:
 //   24 Nov 2025   James Gessel   Creation
 //
+
 UtahHvacLoad: UtahPoint & UtahHisCov {
-//  PQ - No point type defined: Number, Enum, Bool?
     hvacLoad
     navName: "Load"
 }
 
 UtahBypassTime: UtahPoint & UtahHisCov {
-//  PQ - No point type defined: Number, Enum, Bool?
     bypassTime
     navName: "BypTime"
 }

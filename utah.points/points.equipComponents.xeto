@@ -37,6 +37,10 @@ UtahCoil: UtahEquipComponent <abstract> {
   coil
 }
 
+UtahCoolingTower: UtahEquipComponent <abstract> {
+  coolingTower
+}
+
 UtahCondenser: UtahEquipComponent <abstract> {
   condenser
 }
@@ -149,6 +153,10 @@ UtahReturn: UtahEquipComponent <abstract> {
 
 UtahStandby: UtahEquipComponent <abstract> {
   standby
+}
+
+UtahSump: UtahEquipComponent <abstract> {
+  sump
 }
 
 UtahTank: UtahEquipComponent <abstract> {

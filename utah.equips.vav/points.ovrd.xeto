@@ -5,6 +5,7 @@
 // History:
 //   24 Nov 2025   James Gessel   Creation
 //
+
 UtahOverridePoint: UtahPoint <abstract> {
   override
 }
