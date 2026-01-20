@@ -11,6 +11,11 @@
 //  Cooling Tower Circ Pumps
 //////////////////////////////////////////////////////////////////////////
 
+// Cooling Tower water circ pump commEnableand
+UtahCTCPEnab: UtahCoolingTower & UtahCPEnab & UtahHisCov {
+  navName: "CTCPEnab"
+}
+
 // Cooling Tower water circ pump command
 UtahCTCPCmd: UtahCoolingTower & CondenserWater & UtahCPCmd & UtahHisCov {
   navName: "CTCPCmd"
@@ -36,5 +41,22 @@ UtahCTCPSpdSts: UtahCoolingTower & CondenserWater & UtahCPSpdSts & UtahHisCov {
 //////////////////////////////////////////////
 
 // Pump Frequency. Typically from VRF
-UtahCTCPFreq: UtahCoolingTower & UtahCircPump & UtahPumpFreqPoint & UtahHisSampledMajorEquip <abstract>{
+UtahCTCPFreq: UtahCoolingTower & UtahCircPump & UtahPumpFreqSensor & UtahHisSampledMajorEquip <abstract>{
     }
+    
+//////////////////////////////////////////
+//  Pump Power  Typically from VRF
+//////////////////////////////////////////
+
+// Pump Power
+UtahCTCPPower: UtahCoolingTower & UtahCircPump & UtahPumpPowerPoint <abstract>{
+    }
+
+//////////////////////////////////////////
+//  Pump Energy
+//////////////////////////////////////////
+
+// Pump Energy. Typically from VRF
+UtahCTCPEnergy: UtahCoolingTower & UtahCircPump & UtahPumpEnergyPoint <abstract>{
+    } 
+    

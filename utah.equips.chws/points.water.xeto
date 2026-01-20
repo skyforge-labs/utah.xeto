@@ -76,49 +76,41 @@ UtahSecChWVol: ChilledWater & UtahSecondary & UtahWaterVolumeSensor & UtahHisSam
 // Primary Chilled Water Pressure
 UtahPriChWPress: ChilledWater & UtahPrimary & UtahWaterPressSensor & UtahHisSampledMajorEquip {
   navName: "PriChWPress"
-  unit: "psi"
 }
 
 // Primary Chilled Water Pressure setpoint
 UtahPriChWPressSp: ChilledWater & UtahPrimary & UtahWaterPressSp & UtahHisSampledMajorEquip {
   navName: "PriChWPressSp"
-  unit: "psi"
 }
 
 // Secondary Chilled Water Pressure
-UtahSecChWPress: ChilledWater & UtahSecondary & UtahWaterPress & UtahHisSampledMajorEquip {
+UtahSecChWPress: ChilledWater & UtahSecondary & UtahWaterPressSensor & UtahHisSampledMajorEquip {
   navName: "SecChWPress"
-  unit: "psi"
 }
 
 // Secondary Chilled Water Pressure setpoint
 UtahSecChWPressSp: ChilledWater & UtahSecondary & UtahWaterPressSp & UtahHisSampledMajorEquip {
   navName: "SecChWPressSp"
-  unit: "psi"
 }
 
 // Primary Chilled Water Diff Pressure
-UtahPriChWDP: ChilledWater & UtahPrimary & UtahWaterDP & UtahHisSampledMajorEquip {
+UtahPriChWDP: ChilledWater & UtahPrimary & UtahWaterDPSensor & UtahHisSampledMajorEquip {
   navName: "PriChWDP"
-  unit: "psi"
 }
 
 // Primary Chilled Water Diff Pressure setpoint
 UtahPriChWDPSp: ChilledWater & UtahPrimary & UtahWaterDPSp & UtahHisSampledMajorEquip {
   navName: "PriChWDPSp"
-  unit: "psi"
 }
 
 // Secondary Chilled Water Diff Pressure
-UtahSecChWDP: ChilledWater & UtahSecondary & UtahWaterDP & UtahHisSampledMajorEquip {
+UtahSecChWDP: ChilledWater & UtahSecondary & UtahWaterDPSensor & UtahHisSampledMajorEquip {
   navName: "SecChWDP"
-  unit: "psi"
 }
 
 // Secondary Chilled Water Diff Pressure setpoint
 UtahSecChWDPSp: ChilledWater & UtahSecondary & UtahWaterDPSp & UtahHisSampledMajorEquip {
   navName: "SecChWDPSp"
-  unit: "psi"
 }
 
 //////////////////////////////////////////////////////////////////////////

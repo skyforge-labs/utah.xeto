@@ -32,6 +32,27 @@ UtahAirTempSensor: UtahAirTempPoint & SensorPoint <abstract>{
 
     }
 
+///////////////////////////////////////
+// Outside air temperature
+///////////////////////////////////////
+
+UtahOaTemp: UtahOutside & UtahAirTempSensor & UtahHisSampledDefault {
+  navName: "OaTemp"
+  color: Str? "lightblue"
+}
+
+UtahOaWetBulbTemp: UtahOutside & UtahAirTempSensor & UtahHisSampledDefault {
+  wetBulb
+  navName: "OaWBTemp"
+  color: Str? "royalblue"
+}
+
+UtahOaDewPointTemp: UtahOutside & UtahAirTempSensor & UtahHisSampledDefault {
+  dewPoint
+  navName: "OaDewPTemp"
+  color: Str? "navy"
+}
+
 /////////////////////////////////////////
 //  Zone Temperatures and setpoints
 /////////////////////////////////////////
@@ -143,16 +164,15 @@ UtahAirTempLeavingSp: UtahAirTempSp <abstract>{
 
 // Air Humidity
 UtahAirHumidity: Air & Humidity <abstract>{
-
     }
 
 // Air Humidity Sensor
 UtahAirHumidityPoint: UtahAirHumidity & NumberPoint <abstract>{
-
+    unit: "%RH"
     }
 
 // Air Humidity Sensor
-UtahAirHumiditySensor: UtahAirHumidity & SensorPoint <abstract>{
+UtahAirHumiditySensor: UtahAirHumidityPoint & SensorPoint <abstract>{
 
     }
 
@@ -165,9 +185,13 @@ UtahAirHumidityLeavinging: UtahAirHumiditySensor <abstract>{
 // Air Dehumidify
 ////////////////////////////////////
 
+// Air Dehumidify
+UtahAirDehumidify: Air & UtahDehumidify <abstract>{
+    }
+    
 // Air Dehumidify point
-UtahAirDehumidifyPoint: UtahDehumidify & NumberPoint <abstract>{
-
+UtahAirDehumidifyPoint: UtahAirDehumidify & NumberPoint <abstract>{
+    unit: "%RH"
     }
 
 // Air Dehumidify setpoint
@@ -179,9 +203,13 @@ UtahAirDehumidifySp: UtahAirDehumidifyPoint & SpPoint <abstract>{
 // Air Humidify
 ////////////////////////////////////
 
+// Air Humidify
+UtahAirHumidify: Air & UtahHumidify <abstract>{
+    }
+    
 // Air Humidify setpoint
-UtahAirHumidifyPoint: UtahHumidify & NumberPoint <abstract>{
-
+UtahAirHumidifyPoint: UtahAirHumidify & NumberPoint <abstract>{
+    unit: "%RH"
     }
 
 // Air Humidify setpoint
@@ -195,12 +223,11 @@ UtahAirHumidifySp: UtahAirHumidifyPoint & SpPoint <abstract>{
 
 // Generic Air Flow
 UtahAirFlow: Air & Flow <abstract>{
-
     }
 
 // Generic Air Flow
 UtahAirFlowPoint: UtahAirFlow & NumberPoint <abstract>{
-
+      unit: "cfm"
     }
 
 // Generic Air Flow
@@ -274,7 +301,6 @@ UtahAirDiffPressurePoint: UtahAirDiffPressure & NumberPoint & SensorPoint <abstr
 
 // Generic Air Co2
 UtahAirCo2: Air & Co2 <abstract>{
-
     }
 
 // Generic Air Co2 Point

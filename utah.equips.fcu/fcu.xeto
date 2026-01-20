@@ -1,0 +1,59 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   14 Jan 2026   Paul Quinn   Creation
+//
+// Abstract Base FCU with all possible points (optional)
+
+UtahFCU: Fcu <abstract> {
+
+    chilledWaterPlantRef: Ref?
+    HotWaterPlantRef: Ref?
+
+  points: {
+    //  Occupancy
+    occMode: UtahZoneOccupiedMode?
+      
+    // Temperature Points
+    spcTemp:    UtahZoneTemp?
+    spcTempSp:  UtahZoneTempSp?
+
+    coolEffSp: UtahZoneTempSpEffClg?
+    heatEffSp: UtahZoneTempSpEffHtg?
+    occCoolSp: UtahOccCoolSp?
+    occHeatSp: UtahOccHeatSp?
+    unoccCoolSp: UtahUnoccCoolSp?
+    unoccHeatSp: UtahUnoccHeatSp?    
+
+  //  Discharge Air Points
+    DaFanCmd:     UtahDaFanCmd?
+    DaFanCmdSts:  UtahDaFanCmdSts?
+    DaFanAlrm:    UtahDaFanAlrm?
+    DaFanSpd:     UtahDaFanSpd?
+    DaFanSpdSts:     UtahDaFanSpdSts?
+    DaTemp:       UtahDaTemp?
+    DaTempSp:     UtahDaTempSp?
+    
+  //  Chilled Water Points  
+    ChWVlvPos:    UtahChWVlvPos?
+    ChWVlvPosSts: UtahChWVlvPosSts?
+    
+  //  Hot Water Points  
+    HWVlvPos:    UtahHWVlvPos?
+    HWVlvPosSts: UtahHWVlvPosSts?
+
+  //  DX Cooling Stages
+    ClgStg1Cmd:      UtahDxClgStageCmd?
+    ClgStg1CmdSts:   UtahDxClgStageCmdSts?
+    ClgStg2Cmd:      UtahDxClgStageCmd?
+    ClgStg2CmdSts:   UtahDxClgStageCmdSts?
+    ClgStg3Cmd:      UtahDxClgStageCmd?
+    ClgStg3CmdSts:   UtahDxClgStageCmdSts?
+    ClgStg4Cmd:      UtahDxClgStageCmd?
+    ClgStg4CmdSts:   UtahDxClgStageCmdSts?
+    
+
+    }
+}

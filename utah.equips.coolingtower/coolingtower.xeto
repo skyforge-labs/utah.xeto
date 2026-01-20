@@ -1,0 +1,59 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   07 Jan 2026   Paul Quinn   Creation
+//
+// Abstract Base Cooling Tower with all possible points (optional)
+
+UtahClgTower: ChilledWaterPlant <abstract> {
+
+  chilledWaterPlantRef: Ref?
+
+  points: {
+    // General Points
+    CTEnab:       UtahCTEnab?
+    
+// Outside Air Temps
+    OaTemp:       UtahOaTemp?
+    OaWBTemp:     UtahOaWetBulbTemp?
+    OaDewPTemp:   UtahOaDewPointTemp?
+    
+// Condenser Water
+    CTCWETemp:    UtahCTCWETemp?
+    CTCWLTemp:    UtahCTCWLTemp?
+    
+// Sump
+    CTSumpTemp:   UtahSumpTemp?
+    CTSumpHtrCmd: UtahSumpHtrCmd?
+    CTSumpHtrSts: UtahSumpHtrCmdSts?
+    
+// Fans
+    CTFanEnab:    UtahCTFanEnab?
+    CTFanCmd:     UtahCTFanCmd?
+    CTFanCmdSts:  UtahCTFanCmdSts?
+    CTFanSpd:     UtahCTFanSpd?
+    CTFanSpdSts:  UtahCTFanSpdSts?
+    CTFanVFDFreq: UtahCTFanFreq?
+    CTFanVFDPower:  UtahCTFanPower?  
+    CTFanVFDEnergy: UtahCTFanEnergy?
+
+//  Circ Pumps
+    CTCPEnab:      UtahCTCPEnab?
+    CTCPCmd:       UtahCTCPCmd?
+    CTCPCmdSts:    UtahCTCPCmdSts?
+    CTCPSpd:       UtahCTCPSpd?
+    CTCPSpdSts:    UtahCTCPSpdSts?
+    CTCPVFDFreq:   UtahCTCPFreq?
+    CTPVFDPower:   UtahCTCPPower?
+    CTPVFDEnergy:  UtahCTCPEnergy?
+
+// Valves
+    CTMkupWVlvCmd: UtahCTMkupWVlvCmd?
+    CTIsoVlvCmd:   UtahCTIsoVlvCmd?
+    CTIsoVlvCmdSts: UtahCTIsoVlvCmdSts?
+    CTBypVlvCmd:   UtahCTBypVlvCmd?
+    CTBypVlvPos:   UtahCTBypVlvPos?
+  }
+}

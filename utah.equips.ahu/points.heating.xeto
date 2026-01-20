@@ -65,3 +65,18 @@ UtahHWCPCmd: HotWater & UtahCPCmd & UtahHisCov {
 UtahHWCPSts: HotWater & UtahCPCmdSts & UtahHisCov {
   navName: "HWCPSts"
 }
+
+///////////////////////////////////////////
+// Hot water Electric Heating
+///////////////////////////////////////////
+
+UtahHWElecHtgCmd: HotWater & UtahElecCmd & UtahHisCov {
+  heating
+  navName: "HWElecHtgCmd"
+}
+
+// Hot water circulation pump status
+UtahHWElecHtgCmdSts: HotWater & UtahElecCmdSts & UtahHisCov {
+  heating
+  navName: "HWElecHtgCmdSts"
+}

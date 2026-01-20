@@ -7,8 +7,8 @@
 //
 // Uah Stages
 
-// Generic Dx point
-UtahStagePoint: ph.points::BoolPoint <abstract>{
+// Generic Stage points
+UtahStagePoint: BoolPoint <abstract>{
     stage: Number
     }
 
@@ -16,23 +16,40 @@ UtahStagePoint: ph.points::BoolPoint <abstract>{
 UtahStageCmd: UtahStagePoint & CmdPoint <abstract>{
     run
     }
-
+    
 // Stage feedback status sensor
 UtahStageCmdSts: UtahStagePoint & SensorPoint <abstract>{
     run
     }
-    
+  
+// Number of stages to run point
+UtahStageSp: NumberPoint & SpPoint <abstract>{
+    stage: Number
+    }
+
+////////////////////////////////////////
 // Dx command point
-UtahDxStageCmd: UtahStagePoint & CmdPoint <abstract>{
+////////////////////////////////////////
+
+UtahDxStageCmd: UtahStageCmd & CmdPoint <abstract>{
     run
     }
 
 // Dx feedback status sensor
-UtahDxStageCmdSts: UtahStagePoint & SensorPoint <abstract>{
+UtahDxStageCmdSts: UtahStageCmd & SensorPoint <abstract>{
     run
     }
 
-// Generic Dx point
-UtahStageSp: ph.points::NumberPoint & SpPoint <abstract>{
-    stage: Number
+////////////////////////////////////////
+// Elec Heating command point
+////////////////////////////////////////
+
+UtahElecPoint: Elec & BoolPoint <abstract>{
+    run
+    }
+
+UtahElecCmd: UtahElecPoint & CmdPoint <abstract>{
+    }  
+    
+UtahElecCmdSts: UtahElecPoint & SensorPoint <abstract>{
     }

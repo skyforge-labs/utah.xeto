@@ -32,7 +32,7 @@ UtahPriHWPSpdSts: UtahPrimary & HotWater & UtahPumpSpdSts & UtahHisSampledMajorE
 }
 
 // Primary Hot water pump frequency
-UtahPriHWPFreq: UtahPrimary & HotWater & UtahPumpFreqPoint & UtahHisSampledMajorEquip {
+UtahPriHWPFreq: UtahPrimary & HotWater & UtahPumpFreqSensor & UtahHisSampledMajorEquip {
   navName: "PriHWPFreq"
 }
 
@@ -71,7 +71,7 @@ UtahSecHWPSpdSts: UtahSecondary & HotWater & UtahPumpSpdSts & UtahHisSampledMajo
 }
 
 // Secondary Hot water pump frequency
-UtahSecHWPFreq: UtahSecondary & HotWater & UtahPumpFreqPoint & UtahHisSampledMajorEquip {
+UtahSecHWPFreq: UtahSecondary & HotWater & UtahPumpFreqSensor & UtahHisSampledMajorEquip {
   navName: "SecHWPFreq"
 }
 

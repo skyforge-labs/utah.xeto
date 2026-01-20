@@ -1,0 +1,20 @@
+//
+// Copyright (c) 2025, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   13 Nov 2026   Paul Quinn   Creation
+//
+//  Exhaust Damper points
+
+UtahEFDamperCmd: UtahExhaust & UtahDamperCmd & UtahHisCov {
+    navName: "EFDmprCmd"
+}
+
+UtahEFDamperPos: UtahExhaust & UtahDamperPos & UtahHisSampledDefault {
+    navName: "EFDmprPos"
+}
+
+UtahEFDamperPosSts: UtahExhaust & UtahDamperPosSts & UtahHisSampledDefault {
+    navName: "EFDmprPosSts"
+}

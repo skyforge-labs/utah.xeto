@@ -36,6 +36,11 @@ UtahHumidifierStmVlvPos: UtahHumidifier & UtahStmVlvPos & UtahHisSampledMajorEqu
   navName: "HumidifierStmVlvPos"
 }
 
+// Humidifier fan Cmd
+UtahHumidifierFanCmd: UtahHumidifier & UtahFanCmd & UtahHisCov {
+  navName: "HumidifierFanCmd"
+}
+
 // Humidifier fan speed
 UtahHumidifierFanSpd: UtahHumidifier & FanSpeedCmd & UtahHisSampledMajorEquip {
   navName: "HumidifierFanSpd"

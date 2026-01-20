@@ -16,43 +16,35 @@ UtahValveCmdPoint: UtahValve & BoolPoint <abstract>{
     }
 
 // Open/Closed valve
-UtahValveCmd: UtahValveCmdPoint & CmdPoint <abstract>{
-    run
+UtahValveCmd: UtahValveCmdPoint & RunCmd <abstract>{
     }
 
 // Open/Closed valve feedback status sensor
-UtahValveCmdSts: UtahValveCmdPoint & SensorPoint <abstract>{
-    run
+UtahValveCmdSts: UtahValveCmdPoint & RunSensor <abstract>{
     }
 
 // Isolation Valve Open/Closed valve
 UtahIsoValveCmd: UtahIsolation & UtahValveCmd <abstract>{
-    run
     }
     
 // Isolation Valve Open/Closed valve
 UtahIsoValveCmdSts: UtahIsolation & UtahValveCmdSts <abstract>{
-    run
     }
 
 // Makeup Valve Open/Closed valve
 UtahMakeupValveCmd: UtahMakeup & UtahValveCmd <abstract>{
-    run
     }
     
 // Makeup Valve Open/Closed valve
 UtahMakeupValveCmdSts: UtahMakeup & UtahValveCmdSts <abstract>{
-    run
     }
     
 // Bypass Valve Open/Closed valve
 UtahBypassValveCmd: UtahBypass & UtahValveCmd <abstract>{
-    run
     }
     
 // Bypass Valve Open/Closed valve
 UtahBypassValveCmdSts: UtahBypass & UtahValveCmdSts <abstract>{
-    run
     }
     
 /////////////////////////////////////////
@@ -61,16 +53,15 @@ UtahBypassValveCmdSts: UtahBypass & UtahValveCmdSts <abstract>{
 
 // 0-100% valve
 UtahValvePosPoint: UtahValve & NumberPoint <abstract>{
+    unit: "%"
     }
 
 // 0-100% valve
 UtahValvePos: utah.points::UtahValvePosPoint & CmdPoint <abstract>{
-    run
     }
     
 // 0-100% valve feedback status sensor
 UtahValvePosSts: utah.points::UtahValvePosPoint & SensorPoint <abstract>{
-    run
     }
     
 /////////////////////////////////////////
@@ -80,14 +71,13 @@ UtahValvePosSts: utah.points::UtahValvePosPoint & SensorPoint <abstract>{
 // 0-100% valve
 UtahIsoValvePos: UtahValvePos <abstract>{
     isolation
-    run
     }
 
 // 0-100% valve
 UtahIsoValvePosSts: UtahValvePosSts <abstract>{
     isolation
-    run
     }
+    
 /////////////////////////////////////////
 // Bypass Valves 
 /////////////////////////////////////////

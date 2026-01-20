@@ -13,7 +13,7 @@
 // Discharge air fan command
 //////////////////////////////////////////////////////////////////////////
 
-UtahDaFanCmd: UtahDischarge & UtahFanCmdPoint & UtahHisCov {
+UtahDaFanCmd: UtahDischarge & UtahFanCmd & UtahHisCov {
   run
   navName: "DaFanCmd"
 }
@@ -29,7 +29,7 @@ UtahDaFanAlrm: UtahDischarge & UtahFanAlarmPoint & UtahHisCov {
 }
 
 // Discharge air fan speed
-UtahDaFanSpd: UtahDischarge & UtahFanSpdPoint & UtahHisSampledMajorEquip {
+UtahDaFanSpd: UtahDischarge & UtahFanSpd & UtahHisSampledMajorEquip {
   navName: "DaFanSpd"
   color: Str? "fuchia"
 }
@@ -41,7 +41,7 @@ UtahDaFanSpdSts: UtahDischarge & UtahFanSpdSts & UtahHisSampledMajorEquip {
 }
 
 // Discharge air fan frequency
-UtahDaFanFreq: UtahDischarge & UtahFanFreqPoint & UtahHisSampledMajorEquip {
+UtahDaFanFreq: UtahDischarge & UtahFanFreqSensor & UtahHisSampledMajorEquip {
   navName: "DaFanFreq"
 }
 
@@ -66,7 +66,7 @@ UtahDaFlowSp: UtahDischarge & UtahAirFlowSp & UtahHisCov {
 //////////////////////////////////////////////////////////////////////////
 
 // Discharge air humidity
-UtahDaHum: UtahDischarge & UtahAirHumidityPoint & UtahHisSampledMajorEquip {
+UtahDaHum: UtahDischarge & UtahAirHumiditySensor & UtahHisSampledMajorEquip {
   navName: "DaHum"
 }
 

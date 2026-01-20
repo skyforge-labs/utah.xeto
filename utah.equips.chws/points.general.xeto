@@ -14,7 +14,6 @@
 // Makeup Water Valve
 UtahChWMkupWVlvCmd: ChilledWater & UtahMakeupValveCmd & UtahHisSampledMajorEquip {
   navName: "ChWMkupWVlvCmd"
-  unit: "%"
 }
 
 // Building Max Chilled Water Valve Position
@@ -22,5 +21,4 @@ UtahBldgChWVlvPosMax: ChilledWater & UtahValvePos & UtahHisCov {
   building
   max
   navName: "BldgChWVlvPosMax"
-  unit: "%"
 }

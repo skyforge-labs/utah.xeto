@@ -75,7 +75,6 @@ UtahChWFlow: ChilledWater & UtahWaterFlowSensor & UtahHisSampledMajorEquip {
 //////////////////////////////////////////////////////////////////////////
 
 // Chilled Water Diff Pressure
-UtahChWDP: ChilledWater & UtahWaterDP & UtahHisSampledMajorEquip {
+UtahChWDP: ChilledWater & UtahWaterDPSensor & UtahHisSampledMajorEquip {
   navName: "ChWDP"
-  unit: "psi"
 }

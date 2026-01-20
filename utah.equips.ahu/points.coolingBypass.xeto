@@ -49,6 +49,6 @@ UtahCoolingBypDaTemp: UtahCoolingBypass & UtahAirTempSensor & UtahDischarge & Ut
 //////////////////////////////////////////////////////////////////////////
 
 // Cooling bypass fan command
-UtahCoolingBypFanCmd: UtahCoolingBypass  & UtahFanCmdPoint & UtahHisCov {
+UtahCoolingBypFanCmd: UtahCoolingBypass  & UtahFanCmd & UtahHisCov {
   navName: "CCBypDaFanCmd"
 }

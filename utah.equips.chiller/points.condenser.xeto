@@ -11,9 +11,9 @@
 // Condenser Water Points
 //////////////////////////////////////////////////////////////////////////
 
-UtahCW: Water & UtahCondenser {
-  navName: "CW"
-}
+//UtahCW: Water & UtahCondenser {  //  Moved to UtahComponents
+//  navName: "CW"
+//}
 
 //////////////////////////////////////////////////////////////////////////
 // CondenserIsolation Valve Points
@@ -81,6 +81,6 @@ UtahCWFlow: UtahCW & UtahWaterFlowSensor & UtahHisSampledMajorEquip {
 //////////////////////////////////////////////////////////////////////////
 
 // Condenser Water Diff Pressure
-UtahCWDP: UtahCW & UtahWaterDP & UtahHisSampledMajorEquip {
+UtahCWDP: UtahCW & UtahWaterDPSensor & UtahHisSampledMajorEquip {
   navName: "CWDP"
 }

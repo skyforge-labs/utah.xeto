@@ -15,7 +15,7 @@ UtahBlr: Boiler <abstract> {
     // General Points
     blrEnab: UtahBlrEnab?
     blrCmd: UtahBlrCmd?
-    blrSts: UtahBlrCmdSts?
+    blrCmdSts: UtahBlrCmdSts?
 
     blrKillSwitch: UtahBlrKillSwitch?
     blrFiringRate: UtahBlrFiringRate?

@@ -16,12 +16,17 @@ UtahCircPump: UtahPump <abstract>{
     circ
     }
 
+// Local Circulation Pump Enab
+UtahCPEnab: UtahCircPump & BoolPoint & RunCmd <abstract>{
+    enable
+    }
+  
 // Local Circulation Pump Cmd
 UtahCPCmd: UtahCircPump & RunCmd <abstract>{
     }
     
 // Local Circulation Pump Cmd status
-UtahCPCmdSts: UtahCircPump & SensorPoint <abstract>{
+UtahCPCmdSts: UtahCircPump & RunSensor <abstract>{
     }
 
 // Local Circulation Pump Speed
@@ -57,10 +62,18 @@ UtahPumpSpdSts: UtahPumpSpdPoint & SensorPoint <abstract>{
 //////////////////////////////////////////
 
 // Pump Frequency. Typically from VRF
-UtahPumpFreqPoint: UtahPump & Freq & NumberPoint & SensorPoint <abstract>{
+UtahPumpFreq: UtahPump & Freq <abstract>{
+    }
+    
+// Pump Frequency Point
+UtahPumpFreqPoint: UtahPumpFreq & NumberPoint <abstract>{
     unit: "Hz"
     }
 
+// Pump Frequency Sensor
+UtahPumpFreqSensor: UtahPumpFreqPoint & SensorPoint <abstract>{
+    }
+    
 //////////////////////////////////////////
 //  Pump Power
 //////////////////////////////////////////

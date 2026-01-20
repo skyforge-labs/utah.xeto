@@ -41,11 +41,11 @@ UtahDualDeckTotalFlowSp: UtahDualDeck & UtahDischarge & UtahAirFlowSp & UtahHisS
 // Air Damper
 ///////////////////////////////////////////////
 
-UtahColdDeckDamperPos: UtahColdDeck & UtahDamperCmd & UtahHisSampledDefault {
+UtahColdDeckDamperPos: UtahColdDeck & UtahDamperPos & UtahHisSampledDefault {
     navName: "CDDmprPos"
 }
 
-UtahHotDeckDamperPos:  UtahHotDeck & UtahDamperCmd & UtahHisSampledDefault {
+UtahHotDeckDamperPos:  UtahHotDeck & UtahDamperPos & UtahHisSampledDefault {
     navName: "HDDmprPos"
 }
 

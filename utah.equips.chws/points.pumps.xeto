@@ -32,7 +32,7 @@ UtahPriChWPSpdSts: UtahPrimary & ChilledWater & UtahPumpSpdSts & UtahHisSampledM
 }
 
 // Primary Chilled water pump frequency
-UtahPriChWPFreq: UtahPrimary & ChilledWater & UtahPumpFreqPoint & UtahHisSampledMajorEquip {
+UtahPriChWPFreq: UtahPrimary & ChilledWater & UtahPumpFreqSensor & UtahHisSampledMajorEquip {
   navName: "PriChWPFreq"
 }
 
@@ -71,7 +71,7 @@ UtahSecChWPSpdSts: UtahSecondary & ChilledWater & UtahPumpSpdSts & UtahHisSample
 }
 
 // Secondary Chilled water pump frequency
-UtahSecChWPFreq: UtahSecondary & ChilledWater & UtahPumpFreqPoint & UtahHisSampledMajorEquip {
+UtahSecChWPFreq: UtahSecondary & ChilledWater & UtahPumpFreqSensor & UtahHisSampledMajorEquip {
   navName: "SecChWPFreq"
 }
 

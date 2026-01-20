@@ -12,6 +12,7 @@
 //////////////////////////////////////////////////////////////////////////
 
 UtahChlrOilTemp: UtahChillerOil & Temp  & UtahHisSampledMajorEquip{
+  unit: "°F"
   navName: "ChlrOilTemp"
 }
 

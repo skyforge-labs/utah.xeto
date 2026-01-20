@@ -15,6 +15,8 @@ pragma: Lib <
     { lib: "ph.attrs", versions: "0.1.x" },
     { lib: "utah", versions: "0.0.x" },
     { lib: "utah.points", versions: "0.0.x" }
+    { lib: "utah.equips.ahu", versions: "0.0.x" }
+    { lib: "utah.equips.vav", versions: "0.0.x" }
 
   }
   org: {

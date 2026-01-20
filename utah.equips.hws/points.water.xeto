@@ -76,49 +76,41 @@ UtahSecHWVol: HotWater & UtahSecondary & UtahWaterVolumeSensor & UtahHisSampledM
 // Primary hot Water Pressure
 UtahPriHWPress: HotWater & UtahPrimary & UtahWaterPressSensor & UtahHisSampledMajorEquip {
   navName: "PriHWPress"
-  unit: "psi"
 }
 
 // Primary hot Water Pressure setpoint
 UtahPriHWPressSp: HotWater & UtahPrimary & UtahWaterPressSp & UtahHisSampledMajorEquip {
   navName: "PriHWPressSp"
-  unit: "psi"
 }
 
 // Secondary hot Water Pressure
-UtahSecHWPress: HotWater & UtahSecondary & UtahWaterPress & UtahHisSampledMajorEquip {
+UtahSecHWPress: HotWater & UtahSecondary & UtahWaterPressSensor & UtahHisSampledMajorEquip {
   navName: "SecHWPress"
-  unit: "psi"
 }
 
 // Secondary hot Water Pressure setpoint
 UtahSecHWPressSp: HotWater & UtahSecondary & UtahWaterPressSp & UtahHisSampledMajorEquip {
   navName: "SecHWPressSp"
-  unit: "psi"
 }
 
 // Primary hot Water Diff Pressure
-UtahPriHWDP: HotWater & UtahPrimary & UtahWaterDP & UtahHisSampledMajorEquip {
+UtahPriHWDP: HotWater & UtahPrimary & UtahWaterDPSensor & UtahHisSampledMajorEquip {
   navName: "PriHWDP"
-  unit: "psi"
 }
 
 // Primary hot Water Diff Pressure setpoint
 UtahPriHWDPSp: HotWater & UtahPrimary & UtahWaterDPSp & UtahHisSampledMajorEquip {
   navName: "PriHWDPSp"
-  unit: "psi"
 }
 
 // Secondary hot Water Diff Pressure
-UtahSecHWDP: HotWater & UtahSecondary & UtahWaterDP & UtahHisSampledMajorEquip {
+UtahSecHWDP: HotWater & UtahSecondary & UtahWaterDPSensor & UtahHisSampledMajorEquip {
   navName: "SecHWDP"
-  unit: "psi"
 }
 
 // Secondary hot Water Diff Pressure setpoint
 UtahSecHWDPSp: HotWater & UtahSecondary & UtahWaterDPSp & UtahHisSampledMajorEquip {
   navName: "SecHWDPSp"
-  unit: "psi"
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -144,11 +136,9 @@ UtahHWPower: HotWater & UtahWaterPowerSensor & UtahHisSampledMajorEquip {
 // Hot Water Tank Temperature
 UtahHWTankTemp: HotWater & UtahTank & UtahWaterTempSensor & UtahHisSampledMajorEquip {
   navName: "HWTankTemp"
-  unit: "°F"
 }
 
 // Hot Water Tank Temperature setpoint
 UtahHWTankTempSp: HotWater & UtahTank & UtahWaterTempSp & UtahHisSampledMajorEquip {
   navName: "HWTankTempSp"
-  unit: "°F"
 }

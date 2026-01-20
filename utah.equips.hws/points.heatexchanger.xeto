@@ -69,6 +69,7 @@ UtahHxStmHWLTempSp: UtahHeatExchangerSteam & HotWater & UtahWaterTempLeavingSp &
 // Steam Pressure Sensor
 UtahHxStmPress: UtahHeatExchangerSteam & UtahSteamPressureSensor  & UtahHisSampledMajorEquip<abstract>{
   navName: "HxStmPress"
+  unit: "psi"
     }
     
 ////////////////////////////////////

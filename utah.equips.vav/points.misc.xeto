@@ -6,12 +6,17 @@
 //   24 Nov 2025   James Gessel   Creation
 //
 
-UtahHvacLoad: UtahPoint & UtahHisCov {
+UtahHvacLoad: UtahLoad & NumberPoint & UtahHisCov {
     hvacLoad
-    navName: "Load"
+    navName: "HVACLoad"
 }
 
-UtahBypassTime: UtahPoint & UtahHisCov {
+UtahBypassTimePoint: UtahBypass & NumberPoint {
+    bypassTime
+    navName: "BypTime"
+}
+
+UtahBypassTime: UtahBypassTimePoint & UtahHisSampledDefault {
     bypassTime
     navName: "BypTime"
 }

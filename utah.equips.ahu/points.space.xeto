@@ -19,7 +19,7 @@ UtahSpcCO2: UtahZone & Co2Sensor & UtahHisSampledMajorEquip {
 }
 
 // Space CO2 concentration setpoint
-UtahSpcCO2Sp: UtahZone & Co2Sensor & UtahHisCov {
+UtahSpcCO2Sp: UtahZone & Co2Sp & UtahHisCov {
   navName: "SpcCo2Sp"
   color: Str? "green"
 }

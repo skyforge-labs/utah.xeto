@@ -8,12 +8,29 @@
 // Utah Abstract points
 
 //////////////////////////////////////////
+// Fan Enable
+//////////////////////////////////////////
+
+// Generic Fan enable
+UtahFanEnab: UtahFan <abstract> {
+   enable
+   }
+
+// Generic Fan enable: Bool
+UtahFanEnabPoint: UtahFanEnab & BoolPoint <abstract>{
+   }
+
+// Generic Fan enable cmd
+UtahFanEnabCmd: UtahFanEnabPoint & RunCmd <abstract>{
+   }
+ 
+//////////////////////////////////////////
 // Fan On/Off Bool
 //////////////////////////////////////////
 
 // Generic Fan cmd: Bool
 UtahFanCmdPoint: UtahFan & BoolPoint <abstract>{
-    
+    run
     }
 
 // On/Off cmd
@@ -43,7 +60,6 @@ UtahFanSpd: UtahFanSpdPoint & CmdPoint <abstract>{
     
 // 0-100% valve feedback status sensor
 UtahFanSpdSts: UtahFanSpdPoint & SensorPoint <abstract>{
-    run
     }
 
 //////////////////////////////////////////
@@ -66,8 +82,33 @@ UtahFanModeCmd: UtahFanModePoint & CmdPoint <abstract>{
 //////////////////////////////////////////
 
 // Fan Frequency
-UtahFanFreqPoint: UtahFan & Freq & SensorPoint <abstract>{
+UtahFanFreq: UtahFan & Freq  <abstract>{
+    }
+
+// Fan Frequency Point
+UtahFanFreqPoint: UtahFanFreq & NumberPoint <abstract>{
     unit: "Hz"
+    }
+    
+    // Fan Frequency Sensor
+UtahFanFreqSensor: UtahFanFreqPoint & SensorPoint <abstract>{
+    }
+//////////////////////////////////////////
+//  Fan Power
+//////////////////////////////////////////
+
+// Fan Power. Typically from VRF
+UtahFanPowerPoint: UtahFan & Power & NumberPoint & SensorPoint <abstract>{
+    unit: "kW"
+    }
+
+//////////////////////////////////////////
+//  FAn Energy
+//////////////////////////////////////////
+
+// Fan Energy. Typically from VRF
+UtahFanEnergyPoint: UtahFan & Energy & NumberPoint & SensorPoint <abstract>{
+    unit: "kWh"
     }
 
 //////////////////////////////////////////

@@ -25,6 +25,7 @@ UtahHxChWCmd: UtahHeatExchangerChW & ChilledWater &RunCmd & UtahHisCov {
 UtahHxChWHours: UtahHeatExchangerChW & ChilledWater &RunCmd & UtahHisCov {
   hours
   navName: "HxChWHours"
+//  unit: "_hours"  // What is the format for non-standard UoM?
 }
 
 //////////////////////////////////////////////////////////////////////////

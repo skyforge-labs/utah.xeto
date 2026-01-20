@@ -12,7 +12,7 @@
 //////////////////////////////////////////////////////////////////////////
 
 // Cooling Tower Enabled
-UtahCTFanEnab: UtahCoolingTower & UtahFan & EnableCmd & UtahHisCov {
+UtahCTFanEnab: UtahCoolingTower & UtahFanEnabCmd & UtahHisCov {
   navName: "CTFanEnab"
 }
 
@@ -41,5 +41,21 @@ UtahCTFanSpdSts: UtahCoolingTower & UtahFanSpdSts & UtahHisCov {
 //////////////////////////////////////////////
 
 // Fan Frequency. Typically from VRF
-UtahCTFanFreq: UtahCoolingTower & UtahFanFreqPoint & UtahHisSampledMajorEquip <abstract>{
+UtahCTFanFreq: UtahCoolingTower & UtahFanFreqSensor & UtahHisSampledMajorEquip <abstract>{
+    }
+
+//////////////////////////////////////////////
+// Fan Power  Typically from VRF
+//////////////////////////////////////////////
+
+// Fan Power
+UtahCTFanPower: UtahCoolingTower & UtahFanPowerPoint & UtahHisSampledMajorEquip <abstract>{
+    }
+    
+//////////////////////////////////////////////
+// Fan Energy  Typically from VRF
+//////////////////////////////////////////////
+
+// Fan Energy
+UtahCTFanEnergy: UtahCoolingTower & UtahFanEnergyPoint & UtahHisSampledMajorEquip <abstract>{
     }

@@ -1,0 +1,24 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   13 Jan 2026   Paul Quinn   Creation
+//
+// Temp Points
+
+//////////////////////////////////////////////////////////////////////////
+// Hot/Cold Aisle Temperature Points
+//////////////////////////////////////////////////////////////////////////
+
+// Hot Aisle temperature
+UtahHotAisleTemp: UtahCrac & UtahAirTempSensor & UtahHisSampledDefault {
+  hotAisle
+  navName: "HotAisleTemp"
+}
+
+// Hot Aisle temperature
+UtahColdAisleTemp: UtahCrac & UtahAirTempSensor & UtahHisSampledDefault {
+    coldAisle
+  navName: "ColdAisleTemp"
+}

@@ -45,6 +45,10 @@ UtahCondenser: UtahEquipComponent <abstract> {
   condenser
 }
 
+UtahCW: Water & UtahCondenser {
+  navName: "CW"
+}
+
 UtahColdDeck: UtahEquipComponent <abstract> {
   coldDeck
 }
@@ -55,6 +59,10 @@ UtahHotDeck: UtahEquipComponent <abstract> {
 
 UtahDualDeck: UtahEquipComponent <abstract> {
   dualDeck
+}
+
+UtahCrac: UtahEquipComponent <abstract> {
+  crac
 }
 
 UtahDamper: UtahEquipComponent <abstract> {
@@ -69,11 +77,20 @@ UtahEconomizer: UtahEquipComponent <abstract> {
   economizer
 }
 
+UtahExhaust: UtahEquipComponent <abstract> {
+  exhaust
+}
+
+UtahExhaustFan: Equip <abstract> {
+  exhaust
+  fan
+}
+
 UtahHeatExchanger: UtahEquipComponent <abstract> {
   heatExchanger
 }
 
-UtahHeatExchangerChW: UtahHeatExchanger <abstract> {
+UtahHeatExchangerChW: UtahHeatExchanger & ChilledWater <abstract> {
 }
 
 UtahHeatExchangerSteam: UtahHeatExchanger & Steam <abstract> {

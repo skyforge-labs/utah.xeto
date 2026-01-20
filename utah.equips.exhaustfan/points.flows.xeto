@@ -1,0 +1,17 @@
+//
+// Copyright (c) 2025, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   13 Jan 2026   Paul Quinn   Creation
+//
+// Exhaust Air Flow
+
+//////////////////////////////////////////////////////////////////////////
+// Exhaust Air Flow
+//////////////////////////////////////////////////////////////////////////
+
+// Exhaust Air Flow
+UtahEFEaFlow: UtahExhaust & UtahAirFlowSensor & UtahHisSampledDefault {
+  navName: "EFEaFlow"
+}

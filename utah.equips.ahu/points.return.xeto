@@ -78,7 +78,7 @@ UtahRaFanSpdSts: UtahReturn & UtahFanSpdSts & UtahHisSampledMajorEquip {
 }
 
 // Return air fan frequency
-UtahRaFanFreq: UtahReturn & UtahFanFreqPoint & UtahHisSampledMajorEquip {
+UtahRaFanFreq: UtahReturn & UtahFanFreqSensor & UtahHisSampledMajorEquip {
   navName: "RaFanFreq"
 }
 
@@ -91,7 +91,7 @@ UtahRaFanAlrm: UtahReturn & UtahFanAlarmPoint & UtahHisCov {
 // Return air pressure
 //////////////////////////////////////////////////////////////////////////
 
-UtahRaPress: UtahReturn & UtahAirPressure & UtahHisSampledMajorEquip {
+UtahRaPress: UtahReturn & UtahAirPressureSensor & UtahHisSampledMajorEquip {
   navName: "RaPress"
 }
 

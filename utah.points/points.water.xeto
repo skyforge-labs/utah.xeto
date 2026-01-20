@@ -60,7 +60,7 @@ UtahWaterPress: Water & Pressure <abstract>{
 
 // Water Pressure Point
 UtahWaterPressPoint: UtahWaterPress & NumberPoint <abstract>{
-
+    unit: "psi"
     }
 
 // Water Pressure Sensor
@@ -81,7 +81,7 @@ UtahWaterDP: UtahWaterPress <abstract>{
 
 // Water Pressure Delta Point
 UtahWaterDPPoint: UtahWaterDP & NumberPoint <abstract>{
-
+    unit: "psi"
     }
 
 // Water Pressure Delta Sensor

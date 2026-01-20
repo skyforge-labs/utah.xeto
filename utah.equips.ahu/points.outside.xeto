@@ -12,23 +12,6 @@
 ///////////////////////////////////////
 
 ///////////////////////////////////////
-// Outside air temperature
-///////////////////////////////////////
-
-UtahOaTemp: UtahOutside & UtahAirTempSensor & UtahHisSampledMajorEquip {
-  navName: "OaTemp"
-  color: Str? "light blue"
-}
-
-// Outside air temperature setpoint  // PQ Commented out.  No such thing?
-//UtahOaTempSp: AirTempSp & UtahPoint {
-//  outside
-//  navName: "OaTempSp"
-//  precision: 1
-//  hisMode: "cov"
-//  hisCollectInterval: "24hr"
-//}
-///////////////////////////////////////
 // Outside air humidity
 ///////////////////////////////////////
 

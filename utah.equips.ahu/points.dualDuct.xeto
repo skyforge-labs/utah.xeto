@@ -88,6 +88,6 @@ UtahHDDaPressSp: UtahHotDeck & UtahDischarge & UtahAirPressureSp & UtahHisCov {
   precision: 0.01
 }
 
-UtahHDDaHum: UtahHotDeck & UtahDischarge & UtahAirHumidityPoint & UtahHisSampledMajorEquip {
+UtahHDDaHum: UtahHotDeck & UtahDischarge & UtahAirHumiditySensor & UtahHisSampledMajorEquip {
   navName: "HDHum"
 }
