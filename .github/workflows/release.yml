@@ -82,10 +82,6 @@ jobs:
               echo "Zipped source: $lib_dir -> dist/${xetolib_name}"
             fi
 
-            # Generate SHA-256 checksum
-            sha256_name="${lib_name}-${version}.sha256"
-            (cd dist && sha256sum "$xetolib_name" > "$sha256_name")
-
             # Append to index
             if [ -n "$index_libs" ]; then index_libs="${index_libs},"; fi
             index_libs="${index_libs}{\"name\":\"${lib_name}\",\"stable\":\"${version}\"}"
