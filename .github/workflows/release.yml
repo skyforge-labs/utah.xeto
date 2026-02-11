@@ -1,5 +1,5 @@
-# Auto-release on push to main when buildVersion changes
-# Reads version from build.props, tags if new, releases lib/
+# Auto-release on push to main based on buildVersion
+# Reads version from build.props, tags if needed, releases lib/
 # Produces: .xetolib + .sha256 files, xeto-index.json
 name: Release
 
@@ -31,20 +31,27 @@ jobs:
           echo "version=${version}" >> $GITHUB_OUTPUT
           echo "tag=${tag}" >> $GITHUB_OUTPUT
 
-          # Check REMOTE tags (local check misses tags not yet fetched)
-          if git ls-remote --tags origin | grep -q "refs/tags/${tag}$"; then
-            echo "Tag ${tag} already exists on remote, skipping release"
+          # Check if a RELEASE (not just tag) already exists
+          if gh release view "$tag" &>/dev/null; then
+            echo "Release ${tag} already exists, skipping"
             echo "new=false" >> $GITHUB_OUTPUT
           else
-            echo "New version ${version} detected"
+            echo "Version ${version} needs release"
             echo "new=true" >> $GITHUB_OUTPUT
           fi
+        env:
+          GH_TOKEN: ${{ github.token }}
 
       - name: Tag version
         if: steps.version.outputs.new == 'true'
         run: |
-          git tag ${{ steps.version.outputs.tag }}
-          git push origin ${{ steps.version.outputs.tag }}
+          # Create tag only if it doesn't exist yet
+          if ! git ls-remote --tags origin | grep -q "refs/tags/${{ steps.version.outputs.tag }}$"; then
+            git tag ${{ steps.version.outputs.tag }}
+            git push origin ${{ steps.version.outputs.tag }}
+          else
+            echo "Tag already exists, skipping tag creation"
+          fi
 
       - name: Package release assets
         if: steps.version.outputs.new == 'true'
@@ -68,11 +75,11 @@ jobs:
             # Check if dir contains a pre-built .xetolib file
             existing=$(find "$lib_dir" -maxdepth 1 -name "*.xetolib" | head -1)
             if [ -n "$existing" ]; then
-              # Copy pre-built .xetolib, rename to versioned name
               cp "$existing" "dist/${xetolib_name}"
+              echo "Copied pre-built: $existing -> dist/${xetolib_name}"
             else
-              # Zip source directory contents as .xetolib
               (cd "$lib_dir" && zip -r "../../../dist/${xetolib_name}" .)
+              echo "Zipped source: $lib_dir -> dist/${xetolib_name}"
             fi
 
             # Generate SHA-256 checksum
@@ -89,6 +96,10 @@ jobs:
           # Write xeto-index.json
           echo "{\"generatedAt\":\"${generated_at}\",\"libs\":[${index_libs}]}" \
             | python3 -m json.tool > dist/xeto-index.json
+
+          echo ""
+          echo "=== dist contents ==="
+          ls -la dist/
 
       - name: Create GitHub Release
         if: steps.version.outputs.new == 'true'
