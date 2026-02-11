@@ -1,0 +1,93 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   27 Jan 2026   Cursor Agent   Creation
+//
+// Concrete, equipment-agnostic fan points built from the abstract fan point
+// types defined in `points.fans.xeto`.
+//
+// Note: these are intentionally suffixed with "G36" (like `UtahAhuG36`) to
+// make it clear they are a specific concrete profile built from the abstract
+// Utah points.
+//
+
+//////////////////////////////////////////////////////////////////////////
+// Fan Enable
+//////////////////////////////////////////////////////////////////////////
+
+// Generic fan enable command
+UtahFanEnabCmdG36: UtahFanEnabCmd & UtahHisCov {
+  navName: "FanEnab"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Fan On/Off
+//////////////////////////////////////////////////////////////////////////
+
+// Generic fan on/off command
+UtahFanCmdG36: UtahFanCmd & UtahHisCov {
+  navName: "FanCmd"
+}
+
+// Generic fan on/off command status
+UtahFanCmdStsG36: UtahFanCmdSts & UtahHisCov {
+  navName: "FanCmdSts"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Fan Speed
+//////////////////////////////////////////////////////////////////////////
+
+// Generic fan speed command (0-100%)
+UtahFanSpdCmdG36: UtahFanSpd & UtahHisSampledDefault {
+  navName: "FanSpd"
+}
+
+// Generic fan speed status (0-100%)
+UtahFanSpdStsG36: UtahFanSpdSts & UtahHisSampledDefault {
+  navName: "FanSpdSts"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Fan Mode
+//////////////////////////////////////////////////////////////////////////
+
+// Generic fan mode command (off/high/med/low, etc.)
+UtahFanModeCmdG36: UtahFanModeCmd & UtahHisCov {
+  navName: "FanMode"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Fan Frequency
+//////////////////////////////////////////////////////////////////////////
+
+// Generic fan frequency sensor
+UtahFanFreqSensorG36: UtahFanFreqSensor & UtahHisSampledDefault {
+  navName: "FanFreq"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Fan Power / Energy
+//////////////////////////////////////////////////////////////////////////
+
+// Generic fan power sensor
+UtahFanPowerG36: UtahFanPowerPoint & UtahHisSampledDefault {
+  navName: "FanPower"
+}
+
+// Generic fan energy sensor
+UtahFanEnergyG36: UtahFanEnergyPoint & UtahHisSampledDefault {
+  navName: "FanEnergy"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Fan Alarm
+//////////////////////////////////////////////////////////////////////////
+
+// Generic fan alarm
+UtahFanAlarmG36: UtahFanAlarmPoint & UtahHisCov {
+  navName: "FanAlarm"
+}
+

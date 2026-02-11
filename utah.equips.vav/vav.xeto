@@ -8,6 +8,8 @@
 
 UtahVav: Vav <abstract> {
   airRef: MultiRef?<of:Ahu>
+  siteRef: Ref<of:Site>
+  navName: Str
 
   points: {
 

@@ -1,0 +1,22 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   27 Jan 2026   Cursor Agent   Creation
+//
+// Concrete, equipment-agnostic equip-component traits built from the abstract
+// component traits defined in `points.equipComponents.xeto`.
+//
+// Note: these are intentionally suffixed with "G36" (like `UtahAhuG36`) to
+// make it clear they are a specific concrete profile built from the abstract
+// Utah component traits.
+//
+
+//////////////////////////////////////////////////////////////////////////
+// Reheat
+//////////////////////////////////////////////////////////////////////////
+
+UtahReheatG36: UtahReheat {
+}
+

@@ -17,13 +17,12 @@ UtahHxChWEnab: UtahHeatExchangerChW & ChilledWater & EnableCmd & UtahHisCov {
 }
 
 // Heat Exchanger Cmd
-UtahHxChWCmd: UtahHeatExchangerChW & ChilledWater &RunCmd & UtahHisCov {
+UtahHxChWCmd: UtahHeatExchangerChW & ChilledWater & RunCmd & UtahHisCov {
   navName: "HxChWCmd"
 }
 
 // Heat Exchanger Runtime hours
-UtahHxChWHours: UtahHeatExchangerChW & ChilledWater &RunCmd & UtahHisCov {
-  hours
+UtahHxChWHours: UtahHeatExchangerChW & ChilledWater & UtahHoursSensor & UtahHisCov {
   navName: "HxChWHours"
 //  unit: "_hours"  // What is the format for non-standard UoM?
 }

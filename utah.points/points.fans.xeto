@@ -13,16 +13,16 @@
 
 // Generic Fan enable
 UtahFanEnab: UtahFan <abstract> {
-   enable
-   }
+    enable
+}
 
 // Generic Fan enable: Bool
 UtahFanEnabPoint: UtahFanEnab & BoolPoint <abstract>{
-   }
+}
 
 // Generic Fan enable cmd
 UtahFanEnabCmd: UtahFanEnabPoint & RunCmd <abstract>{
-   }
+}
  
 //////////////////////////////////////////
 // Fan On/Off Bool
@@ -30,18 +30,15 @@ UtahFanEnabCmd: UtahFanEnabPoint & RunCmd <abstract>{
 
 // Generic Fan cmd: Bool
 UtahFanCmdPoint: UtahFan & BoolPoint <abstract>{
-    run
-    }
+}
 
 // On/Off cmd
-UtahFanCmd: UtahFanCmdPoint & CmdPoint <abstract>{
-    
-    }
+UtahFanCmd: UtahFanCmdPoint & RunCmd <abstract>{
+}
 
 // On/Off cmd feedback status sensor
-UtahFanCmdSts: UtahFanCmdPoint & SensorPoint <abstract>{
-    
-    }
+UtahFanCmdSts: UtahFanCmdPoint & RunSensor <abstract>{
+}
 
 //////////////////////////////////////////
 //  Fan Speed Number
@@ -51,16 +48,15 @@ UtahFanCmdSts: UtahFanCmdPoint & SensorPoint <abstract>{
 UtahFanSpdPoint: UtahFan & NumberPoint <abstract>{
     speed
     unit: "%"
-    }
+}
     
 // 0-100% fan speed
 UtahFanSpd: UtahFanSpdPoint & CmdPoint <abstract>{
-    
-    }
+}
     
 // 0-100% valve feedback status sensor
 UtahFanSpdSts: UtahFanSpdPoint & SensorPoint <abstract>{
-    }
+}
 
 //////////////////////////////////////////
 //  Fan Mode
@@ -70,12 +66,11 @@ UtahFanSpdSts: UtahFanSpdPoint & SensorPoint <abstract>{
 UtahFanModePoint: UtahFan & EnumPoint <abstract>{
     mode
     kind: "Str"
-    }
+}
     
 // Generic Fan mode off/High/Med/Low
 UtahFanModeCmd: UtahFanModePoint & CmdPoint <abstract>{
-    
-    }
+}
      
 //////////////////////////////////////////
 //  Fan Frequency
@@ -83,16 +78,17 @@ UtahFanModeCmd: UtahFanModePoint & CmdPoint <abstract>{
 
 // Fan Frequency
 UtahFanFreq: UtahFan & Freq  <abstract>{
-    }
+}
 
 // Fan Frequency Point
 UtahFanFreqPoint: UtahFanFreq & NumberPoint <abstract>{
     unit: "Hz"
-    }
+}
     
     // Fan Frequency Sensor
 UtahFanFreqSensor: UtahFanFreqPoint & SensorPoint <abstract>{
-    }
+}
+
 //////////////////////////////////////////
 //  Fan Power
 //////////////////////////////////////////
@@ -100,7 +96,7 @@ UtahFanFreqSensor: UtahFanFreqPoint & SensorPoint <abstract>{
 // Fan Power. Typically from VRF
 UtahFanPowerPoint: UtahFan & Power & NumberPoint & SensorPoint <abstract>{
     unit: "kW"
-    }
+}
 
 //////////////////////////////////////////
 //  FAn Energy
@@ -109,7 +105,7 @@ UtahFanPowerPoint: UtahFan & Power & NumberPoint & SensorPoint <abstract>{
 // Fan Energy. Typically from VRF
 UtahFanEnergyPoint: UtahFan & Energy & NumberPoint & SensorPoint <abstract>{
     unit: "kWh"
-    }
+}
 
 //////////////////////////////////////////
 //  Fan Alarm
@@ -117,6 +113,5 @@ UtahFanEnergyPoint: UtahFan & Energy & NumberPoint & SensorPoint <abstract>{
 
 // Fan Alarm
 UtahFanAlarmPoint: UtahFan & AlarmSensor <abstract>{
-    
-    }
+}
     

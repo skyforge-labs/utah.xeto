@@ -19,7 +19,7 @@ UtahHumidifierEnable: UtahHumidifier & BoolPoint & EnableCmd {
 }
 
 // Humidifier command
-UtahHumidifierCmd: UtahHumidifier & BoolPoint  & CmdPoint {
+UtahHumidifierCmd: UtahHumidifier & BoolPoint  & RunCmd {
   run
   navName: "HumidifierCmd"
   hisMode: "cov"
@@ -42,7 +42,7 @@ UtahHumidifierFanCmd: UtahHumidifier & UtahFanCmd & UtahHisCov {
 }
 
 // Humidifier fan speed
-UtahHumidifierFanSpd: UtahHumidifier & FanSpeedCmd & UtahHisSampledMajorEquip {
+UtahHumidifierFanSpd: UtahHumidifier & UtahFanSpd & UtahHisSampledMajorEquip {
   navName: "HumidifierFanSpd"
 }
 

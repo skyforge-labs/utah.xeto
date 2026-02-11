@@ -7,7 +7,9 @@
 //
 // Abstract equipment components that are unaffiliated with equip or point
 
-UtahEquipComponent: Entity {}
+UtahEquipComponent: Entity {
+  
+}
 
 UtahAirFilter: UtahEquipComponent & Air <abstract> {
   filter
@@ -100,6 +102,10 @@ UtahHeatRecovery: UtahEquipComponent <abstract> {
   heatRecovery
 }
 
+UtahHours: UtahEquipComponent <abstract> {
+  hours
+}
+
 UtahHumidifier: UtahEquipComponent <abstract> {
   humidifier
 }
@@ -119,6 +125,7 @@ UtahFan: UtahEquipComponent & Air <abstract> {
 UtahIsolation: UtahEquipComponent <abstract> {
   isolation
 }
+
 UtahLoad: UtahEquipComponent <abstract> {
   load
 }
@@ -126,6 +133,7 @@ UtahLoad: UtahEquipComponent <abstract> {
 UtahMakeup: UtahEquipComponent <abstract> {
   makeup
 }
+
 UtahMixed: UtahEquipComponent <abstract> {
   mixed
 }
@@ -179,6 +187,7 @@ UtahSump: UtahEquipComponent <abstract> {
 UtahTank: UtahEquipComponent <abstract> {
   tank
 }
+
 UtahTons: UtahEquipComponent <abstract> {
   tons
 }
@@ -190,3 +199,4 @@ UtahValve: UtahEquipComponent <abstract> {
 UtahZone: UtahEquipComponent <abstract> {
   zone
 }
+

@@ -8,18 +8,17 @@
 // Abstract Base Boiler with all possible points (optional)
 // Concrete implementations tighten requirements for specific Boiler types
 
-UtahBlr: Boiler <abstract> {
+UtahBlr: Boiler {
   hotWaterPlantRef: Ref?
-
+  navName: Str
+  siteRef: Ref<of: Site>
   points: {
     // General Points
     blrEnab: UtahBlrEnab?
     blrCmd: UtahBlrCmd?
     blrCmdSts: UtahBlrCmdSts?
-
     blrKillSwitch: UtahBlrKillSwitch?
     blrFiringRate: UtahBlrFiringRate?
-
     // Hot Water Points
     HWIsoVlvCmd: UtahHWIsoVlvCmd?
     HWIsoVlvPos: UtahHWIsoVlvPos?
@@ -30,16 +29,15 @@ UtahBlr: Boiler <abstract> {
     HWLTempSp: UtahHWLTempSp?
     HWFlow: UtahHWFlow?
     HWDP: UtahHWDP?
-
     // Boiler Gas Points
     BlrGasFlow: UtahNatGasFlow?
     BlrGasVolume: UtahBlrNatGasVolume?
     BlrGasEnergy: UtahBlrNatGasEnergy?
     BlrGasPower: UtahBlrNatGasPower?
-    
     // Boiler Water Energy
     BlrHWVolume: UtahHWVolume?
     BlrHWEnergy: UtahHWEnergy?
     BlrHWPower: UtahHWPower?
   }
 }
+

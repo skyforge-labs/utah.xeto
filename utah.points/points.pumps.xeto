@@ -6,37 +6,27 @@
 //   03 Dec 2025   James Gessel   Creation
 //
 //  Utah Pumps
-
 //////////////////////////////////////////
-// Circulation Pump
+// Pump Command - Bool
 //////////////////////////////////////////
 
-// Local Circulation Pump vs. Larger System Pump
-UtahCircPump: UtahPump <abstract>{
-    circ
-    }
-
-// Local Circulation Pump Enab
-UtahCPEnab: UtahCircPump & BoolPoint & RunCmd <abstract>{
+// Pump Enab
+UtahPumpEnab: UtahPump & BoolPoint & RunCmd <abstract>{
     enable
     }
   
-// Local Circulation Pump Cmd
-UtahCPCmd: UtahCircPump & RunCmd <abstract>{
+// Pump Cmd
+UtahPumpCmdPoint: UtahPump & BoolPoint <abstract>{
+    }
+   
+// Pump Cmd
+UtahPumpCmd: UtahPump & UtahPumpCmdPoint & RunCmd <abstract>{
     }
     
-// Local Circulation Pump Cmd status
-UtahCPCmdSts: UtahCircPump & RunSensor <abstract>{
+// Pump Cmd status
+UtahPumpCmdSts: UtahPump & UtahPumpCmdPoint & RunSensor <abstract>{
     }
-
-// Local Circulation Pump Speed
-UtahCPSpd: UtahCircPump & UtahPumpSpd <abstract>{
-    }
-    
-// Local Circulation Pump Speed status
-UtahCPSpdSts: UtahCircPump & UtahPumpSpdSts <abstract>{
-    }
-    
+  
 //////////////////////////////////////////
 //  Pump Speed Number
 //////////////////////////////////////////
@@ -91,3 +81,34 @@ UtahPumpPowerPoint: UtahPump & Power & NumberPoint & SensorPoint <abstract>{
 UtahPumpEnergyPoint: UtahPump & Energy & NumberPoint & SensorPoint <abstract>{
     unit: "kWh"
     }
+
+//////////////////////////////////////////
+// Circulation Pump
+//////////////////////////////////////////
+
+// Local Circulation Pump vs. Larger System Pump
+UtahCircPump: UtahPump <abstract>{
+    circ
+    }
+
+// Local Circulation Pump Enab
+UtahCPEnab: UtahCircPump & BoolPoint & RunCmd <abstract>{
+    enable
+    }
+  
+// Local Circulation Pump Cmd
+UtahCPCmd: UtahCircPump & RunCmd <abstract>{
+    }
+    
+// Local Circulation Pump Cmd status
+UtahCPCmdSts: UtahCircPump & RunSensor <abstract>{
+    }
+
+// Local Circulation Pump Speed
+UtahCPSpd: UtahCircPump & UtahPumpSpd <abstract>{
+    }
+    
+// Local Circulation Pump Speed status
+UtahCPSpdSts: UtahCircPump & UtahPumpSpdSts <abstract>{
+    }
+  

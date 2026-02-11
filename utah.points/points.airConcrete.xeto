@@ -1,0 +1,24 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   27 Jan 2026   Cursor Agent   Creation
+//
+// Concrete, equipment-agnostic air points built from the abstract air point
+// types defined in `points.air.xeto`.
+//
+// Note: these are intentionally suffixed with "G36" (like `UtahAhuG36`) to
+// make it clear they are a specific concrete profile built from the abstract
+// Utah air points.
+//
+
+//////////////////////////////////////////////////////////////////////////
+// Air CO2
+//////////////////////////////////////////////////////////////////////////
+
+// Generic air CO2 concentration sensor
+UtahAirCo2SensorG36: UtahAirCo2Sensor & UtahHisSampledDefault {
+  navName: "AirCo2"
+}
+

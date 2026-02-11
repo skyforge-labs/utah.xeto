@@ -43,7 +43,7 @@ UtahOaDmprCmdSts: UtahOutside & UtahDamperCmdSts & UtahHisCov {
 }
 
 // Outside air minimum damper position
-UtahOaMinDmprPos: UtahOutside & DamperCmd & UtahHisCov {
+UtahOaMinDmprPos: UtahOutside & UtahDamperPos & UtahHisCov {
   min
   navName: "OaMinDmprPos"
 }

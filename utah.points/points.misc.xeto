@@ -1,0 +1,35 @@
+//
+// Copyright (c) 2025, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   20 Jan 2026   Paul Quinn   Creation
+//
+//Developer License – Not for production use –More Info
+
+// Utah Abstract points
+
+////////////////////////////////////////////////
+// Hours
+////////////////////////////////////////////////
+
+UtahHoursPoint: UtahHours & NumberPoint <abstract> {
+//    doc: "Runtime Hours"
+    }
+
+UtahHoursSensor: UtahHours & UtahHoursPoint & SensorPoint <abstract> {
+//    doc: "Runtime Hours Sensor"
+    }   
+    
+////////////////////////////////////////////////
+// Load
+////////////////////////////////////////////////
+
+UtahLoadPoint: UtahLoad & NumberPoint <abstract> {
+//    doc: "Equipment load"
+    }
+    
+    
+UtahLoadSensor: UtahLoadPoint & SensorPoint <abstract> {
+//    doc: "Equipment load sensor"
+    }

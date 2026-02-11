@@ -23,8 +23,7 @@ UtahHxStmCmd: UtahHeatExchangerSteam & RunCmd & UtahHisCov {
 }
 
 // Heat Exchanger Runtime hours
-UtahHxStmHours: UtahHeatExchangerSteam & RunCmd & UtahHisSampledMajorEquip {
-  hours
+UtahHxStmHours: UtahHeatExchangerSteam & UtahHoursSensor & UtahHisSampledMajorEquip {
   navName: "HxStmHours"
 }
 

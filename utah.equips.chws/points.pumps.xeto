@@ -12,12 +12,12 @@
 //////////////////////////////////////////////////////////////////////////
 
 // Primary Chilled water pump command
-UtahPriChWPCmd: UtahPrimary & ChilledWater & UtahPump & RunCmd & UtahHisCov {
+UtahPriChWPCmd: UtahPrimary & ChilledWater & UtahPumpCmd & UtahHisCov {
   navName: "PriChWPCmd"
 }
 
 // Primary Chilled water pump command status
-UtahPriChWPCmdSts: UtahPrimary & ChilledWater & UtahPump & RunSensor & UtahHisCov {
+UtahPriChWPCmdSts: UtahPrimary & ChilledWater & UtahPumpCmdSts & UtahHisCov {
   navName: "PriChWPCmdSts"
 }
 
@@ -51,12 +51,12 @@ UtahPriChWPEnergy: UtahPrimary & ChilledWater & UtahPumpEnergyPoint & UtahHisCon
 ///////////////////////////////////////////////
 
 // Secondary Chilled water pump command
-UtahSecChWPCmd: UtahSecondary & ChilledWater & UtahPump & RunCmd & UtahHisCov {
+UtahSecChWPCmd: UtahSecondary & ChilledWater & UtahPumpCmd & UtahHisCov {
   navName: "SecChWPCmd"
 }
 
 // Secondary Chilled water pump command status
-UtahSecChWPCmdSts: UtahSecondary & ChilledWater & UtahPump & RunSensor & UtahHisCov {
+UtahSecChWPCmdSts: UtahSecondary & ChilledWater & UtahPumpCmdSts & UtahHisCov {
   navName: "SecChWPCmdSts"
 }
 

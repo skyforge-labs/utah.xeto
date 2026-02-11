@@ -12,12 +12,12 @@
 //////////////////////////////////////////////////////////////////////////
 
 // Primary Hot water pump command
-UtahPriHWPCmd: UtahPrimary & HotWater & UtahPump & RunCmd & UtahHisCov {
+UtahPriHWPCmd: UtahPrimary & HotWater & UtahPumpCmd & UtahHisCov {
   navName: "PriHWPCmd"
 }
 
 // Primary Hot water pump command status
-UtahPriHWPCmdSts: UtahPrimary & HotWater & UtahPump & RunSensor & UtahHisCov {
+UtahPriHWPCmdSts: UtahPrimary & HotWater & UtahPumpCmdSts & UtahHisCov {
   navName: "PriHWPCmdSts"
 }
 
@@ -51,12 +51,12 @@ UtahPriHWPEnergy: UtahPrimary & HotWater & UtahPumpEnergyPoint & UtahHisConsumpt
 ///////////////////////////////////////////////
 
 // Secondary Hot water pump command
-UtahSecHWPCmd: UtahSecondary & HotWater & UtahPump & RunCmd & UtahHisCov {
+UtahSecHWPCmd: UtahSecondary & HotWater & UtahPumpCmd & UtahHisCov {
   navName: "SecHWPCmd"
 }
 
 // Secondary Hot water pump command status
-UtahSecHWPCmdSts: UtahSecondary & HotWater & UtahPump & RunSensor & UtahHisCov {
+UtahSecHWPCmdSts: UtahSecondary & HotWater & UtahPumpCmdSts & UtahHisCov {
   navName: "SecHWPCmdSts"
 }
 

@@ -6,7 +6,7 @@
 //   24 Nov 2025   James Gessel   Creation
 //
 
-UtahHvacLoad: UtahLoad & NumberPoint & UtahHisCov {
+UtahHvacLoad: UtahLoadSensor & UtahHisCov {
     hvacLoad
     navName: "HVACLoad"
 }
