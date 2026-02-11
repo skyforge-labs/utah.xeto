@@ -1,0 +1,31 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   13 Jan 2026   Paul Quinn   Creation
+//
+// Abstract Base Exhaust with all possible points (optional)
+
+UtahExhFan: UtahExhaustFan <abstract> {
+
+  points: {
+
+  //  Exhaust Air Points
+    EFEnab:       UtahEFEnab?
+    EFFanCmd:     UtahEFanCmd?
+    EFFanCmdSts:  UtahEFanCmdSts?
+    EFFanSpd:     UtahEFanSpd?
+    EFFanSpdSts:  UtahEFanSpdSts?
+    EFFanPower:   UtahEFanPower?
+    EFFanEnergy:  UtahEFanEnergy?
+    
+    EFEaFlow:     UtahEFEaFlow?
+
+  //  Exhaust Damper Points
+    EFDmprCmd:    UtahEFDamperCmd?
+    EFDmprPos:    UtahEFDamperPos?
+    EFDmprPosSts: UtahEFDamperPosSts?
+    
+    }
+}

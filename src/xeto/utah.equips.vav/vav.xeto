@@ -1,0 +1,87 @@
+//
+// Copyright (c) 2025, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   24 Nov 2025   James Gessel   Creation
+//
+
+UtahVav: Vav <abstract> {
+  airRef: MultiRef?<of:Ahu>
+  siteRef: Ref<of:Site>
+  navName: Str
+
+  points: {
+
+    occ: UtahZoneOccupiedSensor?
+    occCmd: UtahZoneOccupiedCmd?
+    occMode: UtahZoneOccupiedMode?
+    hvacMode: UtahZoneAirHvacModeSp?
+
+    daFlow: UtahZoneDaFlow
+    daFlowSp: UtahZoneDaFlowSp?
+    daFlowOvrd: UtahDischargeAirFlowOvrd?
+    daFlowPctOvrd: UtahDischargeAirFlowPercentOvrd?
+    daFlowOvrdState: UtahDischargeAirFlowOvrdState?
+
+
+    dmprPos: UtahDaDamperPos
+    dmprCmd: UtahDaDamperCmd?
+    dmprPosOvrd: UtahDmprPosOvrd?
+
+    reheatVlvPos: UtahReheatValvePos
+    reheatVlvCmd: UtahReheatValveCmd?
+
+    daTemp: UtahZoneDaTemp
+    spcTemp: UtahZoneTemp
+    spcTempSp: UtahZoneTempSpEff?
+    spcTempOvrd: UtahSpcTempOvrd?
+
+    occCoolSp: UtahOccCoolSp?
+    occHeatSp: UtahOccHeatSp?
+    unoccCoolSp: UtahUnoccCoolSp?
+    unoccHeatSp: UtahUnoccHeatSp?
+    stbyCoolSp: UtahStandbyCoolingSp?
+    stbyHeatSp: UtahStandbyHeatingSp?
+
+    coolEffSp: UtahZoneTempSpEffClg?
+    heatEffSp: UtahZoneTempSpEffHtg?
+
+    spcHum: UtahZoneAirHumiditySensor?
+    spcDehumSp: UtahZoneAirDehumidifySp?
+
+    spcCO2: UtahZoneCo2Sensor?
+    spcCO2Sp: UtahZoneCo2Sp?
+
+    // Dual-Duct Points
+    cdFlow: UtahColdDeckDaFlow?
+    cdFlowSp: UtahColdDeckDaFlowSp?
+    hdFlow: UtahHotDeckDaFlow?
+    hdFlowSp: UtahHotDeckDaFlowSp?
+    totFlow: UtahDualDeckTotalFlow?
+    totFlowSp: UtahDualDeckTotalFlowSp?
+
+    cdDmprPos: UtahColdDeckDamperPos?
+    hdDmprPos: UtahHotDeckDamperPos?
+    cdPress: UtahColdDeckAirPress?
+    hdPress: UtahHotDeckAirPress?
+
+   // Commissioning Points
+    coolMaxFlow: UtahZoneDaFlowSpClgMax?
+    coolMinFlow: UtahZoneDaFlowSpClgMin?
+    heatMaxFlow: UtahZoneDaFlowSpHtgMax?
+    heatMinFlow: UtahZoneDaFlowSpHtgMin?
+    reheatMaxFlow: UtahZoneDaFlowSpRHMax?
+    reheatMinFlow: UtahZoneDaFlowSpRHMin?
+
+    load: UtahHvacLoad?
+    bypTime: UtahBypassTime?
+
+    // Fan Powered Box Points
+    fanCmd: UtahFanCmd?
+    fanSpd: UtahFanSpd?
+    fanSpdHigh: UtahFanSpdHighCmd?
+    fanSpdMed: UtahFanSpdMedCmd?
+    fanSpdLow: UtahFanSpdLowCmd?
+  }
+}

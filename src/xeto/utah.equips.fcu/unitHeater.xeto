@@ -1,0 +1,41 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   14 Jan 2026   Paul Quinn   Creation
+//
+// Abstract Base Unit Heater with all possible points (optional)
+
+UtahUnitHeater: Fcu <abstract> {
+
+    HotWaterPlantRef: Ref?
+
+  points: {
+      
+    // Temperature Points
+    spcTemp:    UtahZoneTemp?
+    spcTempSp:  UtahZoneTempSp?
+
+    heatEffSp: UtahZoneTempSpEffHtg?
+
+  //  Discharge Air Points
+    DaFanCmd:     UtahDaFanCmd?
+    DaFanCmdSts:  UtahDaFanCmdSts?
+    DaFanAlrm:    UtahDaFanAlrm?
+    DaFanSpd:     UtahDaFanSpd?
+    DaFanSpdSts:  UtahDaFanSpdSts?
+    DaTemp:       UtahDaTemp?
+    DaTempSp:     UtahDaTempSp?
+    
+  //  Hot Water Points  
+    HWVlvPos:    UtahHWVlvPos?
+    HWVlvPosSts: UtahHWVlvPosSts?
+
+  //  Elec Heating Stages
+    ElecHtgStgCmd:      UtahHWElecHtgCmd?
+    ElecHtgStgCmdSts:   UtahHWElecHtgCmdSts?
+  
+
+    }
+}

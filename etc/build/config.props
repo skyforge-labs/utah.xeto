@@ -1,0 +1,11 @@
+//
+// Config: build
+//
+// History:
+//   12 Jan 2026  James Gessel  Creation
+//
+
+buildVersion=3.1.12
+hx.depend=3.1.12
+fan.depend=1.0
+

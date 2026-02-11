@@ -1,0 +1,20 @@
+// Centralized build config for utah xeto libs
+// Release workflow reads buildVersion to auto-tag + release
+
+buildVersion=0.1.0
+
+// Organization
+org.name=SkyForge Labs
+org.uri=https://skyforge-labs.com/
+
+// Project
+proj.name=Utah
+proj.uri=https://github.com/skyforge-labs/utah.xeto
+
+// License & VCS
+license.name=AFL-3.0
+vcs.name=Git
+vcs.uri=https://github.com/skyforge-labs/utah.xeto.git
+
+// Xeto build variables
+ph.depend=0.1.x

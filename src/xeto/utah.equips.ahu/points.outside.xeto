@@ -1,0 +1,75 @@
+//
+// Copyright (c) 2025, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   24 Nov 2025   James Gessel   Creation
+//
+// Outside Air Points - Temperature, Humidity, Damper, Flow, Pressure
+
+///////////////////////////////////////
+// Outside Air Points
+///////////////////////////////////////
+
+///////////////////////////////////////
+// Outside air humidity
+///////////////////////////////////////
+
+UtahOaHum: UtahOutside & UtahAirHumiditySensor & UtahHisSampledMajorEquip  {
+  navName: "OaHum"
+}
+
+///////////////////////////////////////
+// Outside air damper
+///////////////////////////////////////
+
+UtahOaDmprPos: UtahOutside & UtahDamperPos & UtahHisSampledMajorEquip {
+  navName: "OaDmprPos"
+}
+
+// Outside air damper position status
+UtahOaDmprPosSts: UtahOutside & UtahDamperPosSts & UtahHisSampledMajorEquip {
+  navName: "OaDmprPosSts"
+}
+
+// Outside air damper command
+UtahOaDmprCmd: UtahOutside & UtahDamperCmd & UtahHisCov {
+  navName: "OaDmprCmd"
+}
+
+// Outside air damper status
+UtahOaDmprCmdSts: UtahOutside & UtahDamperCmdSts & UtahHisCov {
+  navName: "OaDmprCmd"
+}
+
+// Outside air minimum damper position
+UtahOaMinDmprPos: UtahOutside & UtahDamperPos & UtahHisCov {
+  min
+  navName: "OaMinDmprPos"
+}
+
+///////////////////////////////////////
+// Outside air flow
+///////////////////////////////////////
+
+UtahOaFlow: UtahOutside & UtahAirFlowSensor & UtahHisSampledMajorEquip {
+  navName: "OaFlow"
+}
+
+// Outside air flow setpoint
+UtahOaFlowSp: UtahOutside & UtahAirFlowSp & UtahHisSampledMajorEquip {
+  navName: "OaFlowSp"
+}
+
+///////////////////////////////////////
+// Outside air pressure
+///////////////////////////////////////
+
+UtahOaPress: UtahOutside & UtahAirPressureSensor & UtahHisSampledMajorEquip {
+  navName: "OaPress"
+}
+
+// Outside air pressure setpoint
+UtahOaPressSp: UtahOutside & UtahAirPressureSp & UtahHisCov {
+  navName: "OaPressSp"
+}

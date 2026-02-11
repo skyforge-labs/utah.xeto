@@ -1,0 +1,55 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   05 Jan 2026   James Gessel   Creation
+//
+// Uah Stages
+
+// Generic Stage points
+UtahStagePoint: BoolPoint <abstract>{
+    stage: Number
+    }
+
+// Stage command point
+UtahStageCmd: UtahStagePoint & CmdPoint <abstract>{
+    run
+    }
+    
+// Stage feedback status sensor
+UtahStageCmdSts: UtahStagePoint & SensorPoint <abstract>{
+    run
+    }
+  
+// Number of stages to run point
+UtahStageSp: NumberPoint & SpPoint <abstract>{
+    stage: Number
+    }
+
+////////////////////////////////////////
+// Dx command point
+////////////////////////////////////////
+
+UtahDxStageCmd: UtahStageCmd & CmdPoint <abstract>{
+    run
+    }
+
+// Dx feedback status sensor
+UtahDxStageCmdSts: UtahStageCmd & SensorPoint <abstract>{
+    run
+    }
+
+////////////////////////////////////////
+// Elec Heating command point
+////////////////////////////////////////
+
+UtahElecPoint: Elec & BoolPoint <abstract>{
+    run
+    }
+
+UtahElecCmd: UtahElecPoint & CmdPoint <abstract>{
+    }  
+    
+UtahElecCmdSts: UtahElecPoint & SensorPoint <abstract>{
+    }

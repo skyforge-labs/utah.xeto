@@ -1,0 +1,40 @@
+//
+// Copyright (c) 2025, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   13 Jan 2026   Paul Quinn   Creation
+//
+// Exhaust Fan points
+
+// Exhaust Fan Enabled
+UtahEFEnab: UtahExhaust & EnableCmd & UtahHisCov {
+  navName: "EFEnab"
+}
+
+UtahEFanCmd: UtahExhaust & UtahFanCmd & UtahHisCov {
+    navName: "EFCmd"
+}
+
+UtahEFanCmdSts: UtahExhaust & UtahFanCmdSts & UtahHisCov {
+    navName: "EFCmdSts"
+}
+
+
+UtahEFanSpd: UtahExhaust & UtahFanSpd & UtahHisSampledDefault {
+    navName: "EFSpd"
+}
+
+UtahEFanSpdSts: UtahExhaust & UtahFanSpdSts & UtahHisSampledDefault {
+    navName: "EFSpdSts"
+}
+
+//  Fan Power
+UtahEFanPower: UtahExhaust & UtahFanPowerPoint & UtahHisSampledDefault {
+    navName: "EFFanPower"
+}
+
+//  Fan Energy
+UtahEFanEnergy: UtahExhaust & UtahFanEnergyPoint & UtahHisSampledDefault {
+    navName: "EFFanEnergy"
+}

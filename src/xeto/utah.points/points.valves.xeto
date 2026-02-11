@@ -1,0 +1,91 @@
+//
+// Copyright (c) 2025, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   03 Dec 2025   James Gessel   Creation
+//
+// Utah Abstract points
+
+/////////////////////////////////////////
+// Valves Cmd - Bool
+/////////////////////////////////////////
+
+// Generic valve
+UtahValveCmdPoint: UtahValve & BoolPoint <abstract>{
+    }
+
+// Open/Closed valve
+UtahValveCmd: UtahValveCmdPoint & RunCmd <abstract>{
+    }
+
+// Open/Closed valve feedback status sensor
+UtahValveCmdSts: UtahValveCmdPoint & RunSensor <abstract>{
+    }
+
+// Isolation Valve Open/Closed valve
+UtahIsoValveCmd: UtahIsolation & UtahValveCmd <abstract>{
+    }
+    
+// Isolation Valve Open/Closed valve
+UtahIsoValveCmdSts: UtahIsolation & UtahValveCmdSts <abstract>{
+    }
+
+// Makeup Valve Open/Closed valve
+UtahMakeupValveCmd: UtahMakeup & UtahValveCmd <abstract>{
+    }
+    
+// Makeup Valve Open/Closed valve
+UtahMakeupValveCmdSts: UtahMakeup & UtahValveCmdSts <abstract>{
+    }
+    
+// Bypass Valve Open/Closed valve
+UtahBypassValveCmd: UtahBypass & UtahValveCmd <abstract>{
+    }
+    
+// Bypass Valve Open/Closed valve
+UtahBypassValveCmdSts: UtahBypass & UtahValveCmdSts <abstract>{
+    }
+    
+/////////////////////////////////////////
+// Valves Position
+/////////////////////////////////////////
+
+// 0-100% valve
+UtahValvePosPoint: UtahValve & NumberPoint <abstract>{
+    unit: "%"
+    }
+
+// 0-100% valve
+UtahValvePos: utah.points::UtahValvePosPoint & CmdPoint <abstract>{
+    }
+    
+// 0-100% valve feedback status sensor
+UtahValvePosSts: utah.points::UtahValvePosPoint & SensorPoint <abstract>{
+    }
+    
+/////////////////////////////////////////
+// Isolation Valves 
+/////////////////////////////////////////
+
+// 0-100% valve
+UtahIsoValvePos: UtahValvePos <abstract>{
+    isolation
+    }
+
+// 0-100% valve
+UtahIsoValvePosSts: UtahValvePosSts <abstract>{
+    isolation
+    }
+    
+/////////////////////////////////////////
+// Bypass Valves 
+/////////////////////////////////////////
+
+// Bypass Valve Position
+UtahBypassValvePos: UtahBypass & UtahValvePos <abstract>{
+    }
+
+// Bypass Valve Position
+UtahBypassValvePosSts: UtahBypass & UtahValvePosSts <abstract>{
+    }

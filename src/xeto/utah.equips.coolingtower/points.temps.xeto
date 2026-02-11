@@ -1,0 +1,22 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   12 Jan 2026   Paul Quinn   Creation
+//
+// Temp Points
+
+//////////////////////////////////////////////////////////////////////////
+// Condenser Water Temperature Points
+//////////////////////////////////////////////////////////////////////////
+
+// Condenser water entering temperature
+UtahCTCWETemp: UtahCoolingTower & UtahCW & UtahWaterTempEntering & UtahHisSampledMajorEquip {
+  navName: "CTCWETemp"
+}
+
+// Condenser water leaving temperature
+UtahCTCWLTemp: UtahCoolingTower & UtahCW & UtahWaterTempLeaving & UtahHisSampledMajorEquip {
+  navName: "CTCWLTemp"
+}

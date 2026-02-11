@@ -1,0 +1,71 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   07 Jan 2026   Paul Quinn   Creation
+//
+// Abstract Base Cooling Tower with all possible points (optional)
+
+UtahCRAC: Crac <abstract> {
+
+  chilledWaterPlantRef: Ref?
+  hotWaterPlantRef: Ref?
+
+  points: {
+    // Temperature Points
+    spcTemp:    UtahZoneTemp?
+    spcTempSp:  UtahZoneTempSp?
+
+    hotAisleTemp: UtahHotAisleTemp?
+    coldAisleTemp: UtahColdAisleTemp?
+
+  //  Discharge Air Points
+    DaFanCmd:     UtahDaFanCmd?
+    DaFanCmdSts:  UtahDaFanCmdSts?
+    DaFanAlrm:    UtahDaFanAlrm?
+    DaFanSpd:     UtahDaFanSpd?
+    DaFanFreq:    UtahDaFanFreq?
+    DaHum:        UtahDaHum?
+    DaHumLmtHi:   UtahDaHumLmtHi?
+    DaTemp:       UtahDaTemp?
+    DaTempSp:     UtahDaTempSp?
+
+  //  Return Air Points
+    RaTemp:       UtahRaTemp?
+    RaHumidity:   UtahRaHum?
+    RaDehumidifySp: UtahRaDehumidifySp?
+    
+  //  Chilled Water Points  
+    ChWVlvPos:    UtahChWVlvPos?
+    ChWVlvPosSts: UtahChWVlvPosSts?
+    ChWCWETemp:   UtahChWCWETemp?
+    ChWCWLTemp:   UtahChWCWLTemp?
+    ChWFlow:      UtahChWFlow?
+    ChWCAETemp:   UtahChWCAETemp?    
+    ChWCALTemp:   UtahChWCALTemp?
+    ChWCALHum:    UtahChWCALHum?
+
+  //  DX Cooling Stages
+    ClgStg1Cmd:      UtahDxClgStageCmd?
+    ClgStg1CmdSts:   UtahDxClgStageCmdSts?
+    ClgStg2Cmd:      UtahDxClgStageCmd?
+    ClgStg2CmdSts:   UtahDxClgStageCmdSts?
+    ClgStg3Cmd:      UtahDxClgStageCmd?
+    ClgStg3CmdSts:   UtahDxClgStageCmdSts?
+    ClgStg4Cmd:      UtahDxClgStageCmd?
+    ClgStg4CmdSts:   UtahDxClgStageCmdSts?
+    
+  //  Economize Mode
+    EconMode:        UtahEconModeEnum?
+    
+  //  Humidifier Points
+    HumidifierEnab:    UtahHumidifierEnable?
+    HumidifierCmd:     UtahHumidifierCmd?
+    HumidifierVlvPos:  UtahHumidifierStmVlvPos?
+    HumidifierFanCmd:  UtahHumidifierFanCmd?
+
+  //  Dehumidifier Points
+    DehumidifyMode:    UtahDehumidifyMode?
+    }
+}

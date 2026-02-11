@@ -1,0 +1,24 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   07 Jan 2026   Paul Quinn   Creation
+//
+// General Chiller Points - Enable, Command, Energy
+
+//////////////////////////////////////////////////////////////////////////
+// General CHWS Points
+//////////////////////////////////////////////////////////////////////////
+
+// Makeup Water Valve
+UtahChWMkupWVlvCmd: ChilledWater & UtahMakeupValveCmd & UtahHisSampledMajorEquip {
+  navName: "ChWMkupWVlvCmd"
+}
+
+// Building Max Chilled Water Valve Position
+UtahBldgChWVlvPosMax: ChilledWater & UtahValvePos & UtahHisCov {
+  building
+  max
+  navName: "BldgChWVlvPosMax"
+}

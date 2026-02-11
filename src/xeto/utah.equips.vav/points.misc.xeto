@@ -1,0 +1,28 @@
+//
+// Copyright (c) 2025, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   24 Nov 2025   James Gessel   Creation
+//
+
+UtahHvacLoad: UtahLoadSensor & UtahHisCov {
+    hvacLoad
+    navName: "HVACLoad"
+}
+
+UtahBypassTimePoint: UtahBypass & NumberPoint {
+    bypassTime
+    navName: "BypTime"
+}
+
+UtahBypassTime: UtahBypassTimePoint & UtahHisSampledDefault {
+    bypassTime
+    navName: "BypTime"
+}
+
+UtahZoneAirHvacModeSp: ZoneAirHvacModeSp & EnumPoint & UtahHisCov {
+    navName: "HvacMode"
+    hisCollectInterval: Str? "24hr"
+    enum: Str? "Auto,Cool,Heat,Standby,Off"
+}

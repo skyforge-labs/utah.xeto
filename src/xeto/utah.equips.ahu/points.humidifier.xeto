@@ -1,0 +1,52 @@
+//
+// Copyright (c) 2025, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   24 Nov 2025   James Gessel   Creation
+//
+// Humidifier Points - Enable, Command, Valve, Fan Speed
+
+//////////////////////////////////////////////////////////////////////////
+// Humidifier Points
+//////////////////////////////////////////////////////////////////////////
+
+// Humidifier enable command
+UtahHumidifierEnable: UtahHumidifier & BoolPoint & EnableCmd {
+  navName: "HumidifierEnable"
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+}
+
+// Humidifier command
+UtahHumidifierCmd: UtahHumidifier & BoolPoint  & RunCmd {
+  run
+  navName: "HumidifierCmd"
+  hisMode: "cov"
+  hisCollectInterval: "24hr"
+}
+
+// Humidifier steam valve command
+UtahHumidifierStmVlvCmd: UtahHumidifier & UtahStmVlvCmd & UtahHisCov {
+  navName: "HumidifierStmVlvCmd"
+}
+
+// Humidifier steam valve position
+UtahHumidifierStmVlvPos: UtahHumidifier & UtahStmVlvPos & UtahHisSampledMajorEquip {
+  navName: "HumidifierStmVlvPos"
+}
+
+// Humidifier fan Cmd
+UtahHumidifierFanCmd: UtahHumidifier & UtahFanCmd & UtahHisCov {
+  navName: "HumidifierFanCmd"
+}
+
+// Humidifier fan speed
+UtahHumidifierFanSpd: UtahHumidifier & UtahFanSpd & UtahHisSampledMajorEquip {
+  navName: "HumidifierFanSpd"
+}
+
+// Humidifier setpoint
+UtahHumidSp: UtahAirHumidifySp & UtahHisSampledMajorEquip {
+  navName: "HumidifySp"
+}

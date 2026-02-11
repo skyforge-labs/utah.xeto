@@ -1,94 +1,93 @@
-# Release workflow - runs on version tags
-# Builds all xeto libs and creates GitHub Release with downloadable assets
+# Auto-release on push to main when buildVersion changes
+# Reads version from build.props, tags if new, releases lib/
+# Produces: .xetolib + .sha256 files, xeto-index.json
 name: Release
 
 on:
   push:
-    tags:
-      - 'v*'
+    branches: [main]
 
 jobs:
   release:
     runs-on: ubuntu-latest
     permissions:
-      contents: write  # Required for creating releases
+      contents: write
 
     steps:
-      - name: Setup Java
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'temurin'
-          java-version: '17'
-
-      - name: Download Haxall release
-        run: |
-          # Download prebuilt release (not source)
-          curl -L -o haxall.zip https://github.com/haxall/haxall/releases/download/v3.1.12/haxall-3.1.12.zip
-          unzip -q haxall.zip -d ${{ github.workspace }}/workdir
-          mv ${{ github.workspace }}/workdir/haxall-3.1.12 ${{ github.workspace }}/workdir/haxall
-          chmod +x ${{ github.workspace }}/workdir/haxall/bin/*
-          # Add haxall bin to PATH and set FAN_HOME
-          echo "${{ github.workspace }}/workdir/haxall/bin" >> $GITHUB_PATH
-          echo "FAN_HOME=${{ github.workspace }}/workdir/haxall" >> $GITHUB_ENV
-
-      - name: Setup work directory structure
-        run: |
-          mkdir -p ${{ github.workspace }}/workdir/lib/xeto
-          mkdir -p ${{ github.workspace }}/workdir/src/xeto
-          touch ${{ github.workspace }}/workdir/fan.props
-          touch ${{ github.workspace }}/workdir/xeto.props
-
-      - name: Checkout into src/xeto
+      - name: Checkout
         uses: actions/checkout@v4
         with:
-          path: workdir/src/xeto
+          fetch-depth: 0
 
-      - name: Verify xeto installation
-        working-directory: ${{ github.workspace }}/workdir/src/xeto
+      - name: Check version
+        id: version
         run: |
-          echo "=== Java version ==="
-          java -version
-          echo "=== xeto env ==="
-          xeto env
+          version=$(grep -oP 'buildVersion=\K.*' build.props | tr -d '[:space:]')
+          if [ -z "$version" ]; then
+            echo "No buildVersion found in build.props"
+            exit 1
+          fi
+          tag="v${version}"
+          echo "version=${version}" >> $GITHUB_OUTPUT
+          echo "tag=${tag}" >> $GITHUB_OUTPUT
 
-      - name: Build all libs
-        working-directory: ${{ github.workspace }}/workdir/src/xeto
+          if git tag -l "$tag" | grep -q "$tag"; then
+            echo "Tag ${tag} already exists, skipping release"
+            echo "new=false" >> $GITHUB_OUTPUT
+          else
+            echo "New version ${version} detected"
+            echo "new=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Tag version
+        if: steps.version.outputs.new == 'true'
         run: |
-          xeto build
-          echo "=== Built libs ==="
-          ls -la ../../lib/xeto/
+          git tag ${{ steps.version.outputs.tag }}
+          git push origin ${{ steps.version.outputs.tag }}
 
-      - name: Package individual libs
-        working-directory: ${{ github.workspace }}/workdir
-        id: package
+      - name: Package release assets
+        if: steps.version.outputs.new == 'true'
         run: |
           mkdir -p dist
-          release_tag="${GITHUB_REF#refs/tags/}"
+          version="${{ steps.version.outputs.version }}"
+          tag="${{ steps.version.outputs.tag }}"
 
-          echo "## Included Libraries" > release_notes.md
+          echo "## Xeto Libraries" > release_notes.md
           echo "" >> release_notes.md
+
+          # --- Xeto libs as .xetolib + .sha256 ---
+          # Start xeto-index.json
+          generated_at=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+          index_libs=""
 
           for lib_dir in lib/xeto/*/; do
+            [ -d "$lib_dir" ] || continue
             lib_name=$(basename "$lib_dir")
-            src_lib="src/xeto/${lib_name}/lib.xeto"
-            if [ -f "$src_lib" ]; then
-              version=$(grep -oP 'version:\s*"\K[^"]+' "$src_lib" || echo "0.0.0")
-              zip -r "dist/${lib_name}-${version}.zip" "$lib_dir"
-              echo "- **${lib_name}** v${version}" >> release_notes.md
-            fi
+
+            # Package as .xetolib (zip with different extension)
+            xetolib_name="${lib_name}-${version}.xetolib"
+            (cd "$lib_dir" && zip -r "../../../dist/${xetolib_name}" .)
+
+            # Generate SHA-256 checksum
+            sha256_name="${lib_name}-${version}.sha256"
+            (cd dist && sha256sum "$xetolib_name" > "$sha256_name")
+
+            # Append to index
+            if [ -n "$index_libs" ]; then index_libs="${index_libs},"; fi
+            index_libs="${index_libs}{\"name\":\"${lib_name}\",\"stable\":\"${version}\"}"
+
+            echo "- **${lib_name}** v${version}" >> release_notes.md
           done
 
-          # Create full bundle
-          cd lib/xeto
-          zip -r "../../dist/xeto-libs-full-${release_tag}.zip" .
-          cd ../..
-          echo "" >> release_notes.md
-          echo "---" >> release_notes.md
-          echo "**Full bundle:** \`xeto-libs-full-${release_tag}.zip\`" >> release_notes.md
+          # Write xeto-index.json
+          echo "{\"generatedAt\":\"${generated_at}\",\"libs\":[${index_libs}]}" \
+            | python3 -m json.tool > dist/xeto-index.json
 
       - name: Create GitHub Release
+        if: steps.version.outputs.new == 'true'
         uses: softprops/action-gh-release@v2
         with:
-          files: workdir/dist/*.zip
-          body_path: workdir/release_notes.md
+          tag_name: ${{ steps.version.outputs.tag }}
+          files: dist/*
+          body_path: release_notes.md
           generate_release_notes: true
