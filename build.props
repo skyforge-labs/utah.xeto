@@ -1,7 +1,7 @@
 // Centralized build config for utah xeto libs
 // Release workflow reads buildVersion to auto-tag + release
 
-buildVersion=0.1.0
+buildVersion=0.2.0
 
 // Organization
 org.name=SkyForge Labs

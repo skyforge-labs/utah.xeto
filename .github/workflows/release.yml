@@ -31,8 +31,9 @@ jobs:
           echo "version=${version}" >> $GITHUB_OUTPUT
           echo "tag=${tag}" >> $GITHUB_OUTPUT
 
-          if git tag -l "$tag" | grep -q "$tag"; then
-            echo "Tag ${tag} already exists, skipping release"
+          # Check REMOTE tags (local check misses tags not yet fetched)
+          if git ls-remote --tags origin | grep -q "refs/tags/${tag}$"; then
+            echo "Tag ${tag} already exists on remote, skipping release"
             echo "new=false" >> $GITHUB_OUTPUT
           else
             echo "New version ${version} detected"
@@ -55,18 +56,24 @@ jobs:
           echo "## Xeto Libraries" > release_notes.md
           echo "" >> release_notes.md
 
-          # --- Xeto libs as .xetolib + .sha256 ---
-          # Start xeto-index.json
+          # --- Xeto libs: handle pre-built .xetolib OR source dirs ---
           generated_at=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
           index_libs=""
 
           for lib_dir in lib/xeto/*/; do
             [ -d "$lib_dir" ] || continue
             lib_name=$(basename "$lib_dir")
-
-            # Package as .xetolib (zip with different extension)
             xetolib_name="${lib_name}-${version}.xetolib"
-            (cd "$lib_dir" && zip -r "../../../dist/${xetolib_name}" .)
+
+            # Check if dir contains a pre-built .xetolib file
+            existing=$(find "$lib_dir" -maxdepth 1 -name "*.xetolib" | head -1)
+            if [ -n "$existing" ]; then
+              # Copy pre-built .xetolib, rename to versioned name
+              cp "$existing" "dist/${xetolib_name}"
+            else
+              # Zip source directory contents as .xetolib
+              (cd "$lib_dir" && zip -r "../../../dist/${xetolib_name}" .)
+            fi
 
             # Generate SHA-256 checksum
             sha256_name="${lib_name}-${version}.sha256"
