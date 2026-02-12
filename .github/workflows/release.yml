@@ -1,6 +1,6 @@
 # Auto-release on push to main. Single source of truth: versions.json.
 # One tag+release per version referenced by pods/libs.
-# Copy to any repo; for monorepos set env PROJECT_ROOT (e.g. Clients/utah).
+# Assumes versions.json is at repo root.
 # See .github/RELEASE-PLAN.md for versioning design.
 name: Release
 
@@ -13,32 +13,16 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-    env:
-      # Single-repo: use ".". Monorepo: set to project subdir (here: Clients/utah).
-      PROJECT_ROOT: "Clients/utah"
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Set project root
-        id: root
-        run: |
-          ROOT="${{ env.PROJECT_ROOT }}"
-          [ -z "$ROOT" ] && ROOT="."
-          if [ ! -f "$ROOT/versions.json" ]; then
-            echo "::error::versions.json not found at $ROOT/versions.json (set PROJECT_ROOT for monorepos)"
-            exit 1
-          fi
-          echo "root=$ROOT" >> $GITHUB_OUTPUT
-
       - name: Check versions.json changed in push
         id: versions_changed
         run: |
-          ROOT="${{ steps.root.outputs.root }}"
-          TARGET="$ROOT/versions.json"
+          TARGET="versions.json"
           before="${{ github.event.before }}"
           after="${{ github.sha }}"
 
@@ -61,12 +45,12 @@ jobs:
       - name: Release per version (from versions.json only)
         run: |
           set -euo pipefail
-          ROOT="${{ steps.root.outputs.root }}"
-          VERSIONS="$ROOT/versions.json"
+          ROOT="."
+          VERSIONS="versions.json"
           changed="${{ steps.versions_changed.outputs.changed }}"
 
           if [ ! -f "$VERSIONS" ]; then
-            echo "::error::versions.json not found at $VERSIONS"
+            echo "::error::versions.json not found at ./versions.json"
             exit 1
           fi
 

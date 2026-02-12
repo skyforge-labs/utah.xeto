@@ -25,6 +25,6 @@ Each release contains only assets that match its version:
 
 Missing artifacts are skipped (do not fail the release).
 
-## Monorepo
+## Repo root
 
-- Set `PROJECT_ROOT` in `.github/workflows/release.yml` to the project subdir.
+- `versions.json` is expected at the repo root.
