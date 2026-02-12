@@ -8,7 +8,7 @@
 
 pragma: Lib <
   doc: "State Of Utah VAV Equipment Library"
-  version: "0.0.1"
+  version: "0.0.2"
   depends: {
     { lib: "sys", versions: "0.1.x" },
     { lib: "ph",  versions: "0.1.x" },
