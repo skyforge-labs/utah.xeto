@@ -1,0 +1,22 @@
+{
+  "generatedAt": "2026-02-12T16:07:44Z",
+  "buildVersion": "0.0.1",
+  "pods": [
+  ],
+  "libs": [
+    { "name": "utah.equips.ahu", "version": "0.0.1" },
+    { "name": "utah.equips.boiler", "version": "0.0.1" },
+    { "name": "utah.equips.chiller", "version": "0.0.1" },
+    { "name": "utah.equips.chws", "version": "0.0.1" },
+    { "name": "utah.equips.coolingtower", "version": "0.0.1" },
+    { "name": "utah.equips.crac", "version": "0.0.1" },
+    { "name": "utah.equips.dhws", "version": "0.0.1" },
+    { "name": "utah.equips.exhaustfan", "version": "0.0.1" },
+    { "name": "utah.equips.fcu", "version": "0.0.1" },
+    { "name": "utah.equips.hws", "version": "0.0.1" },
+    { "name": "utah.equips.vav", "version": "0.0.1" },
+    { "name": "utah.equips", "version": "0.0.1" },
+    { "name": "utah.points", "version": "0.0.1" },
+    { "name": "utah", "version": "0.0.1" }
+  ]
+}

@@ -1,6 +1,6 @@
-# Auto-release on push to main based on buildVersion
-# Reads version from build.props, tags if needed, releases lib/
-# Produces: .xetolib + .sha256 files, xeto-index.json
+# Auto-release on push to main
+# buildVersion in build.props triggers release; per-artifact versions from versions.json
+# Pre-commit hook generates versions.json from build.fan + lib.xeto sources
 name: Release
 
 on:
@@ -31,7 +31,6 @@ jobs:
           echo "version=${version}" >> $GITHUB_OUTPUT
           echo "tag=${tag}" >> $GITHUB_OUTPUT
 
-          # Check if a RELEASE (not just tag) already exists
           if gh release view "$tag" &>/dev/null; then
             echo "Release ${tag} already exists, skipping"
             echo "new=false" >> $GITHUB_OUTPUT
@@ -42,10 +41,20 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
 
+      - name: Validate versions.json
+        if: steps.version.outputs.new == 'true'
+        run: |
+          if [ ! -f versions.json ]; then
+            echo "::warning::versions.json not found — all artifacts will use buildVersion."
+            echo "Run pre-commit hook to generate versions.json from source."
+          else
+            echo "versions.json:"
+            cat versions.json
+          fi
+
       - name: Tag version
         if: steps.version.outputs.new == 'true'
         run: |
-          # Create tag only if it doesn't exist yet
           if ! git ls-remote --tags origin | grep -q "refs/tags/${{ steps.version.outputs.tag }}$"; then
             git tag ${{ steps.version.outputs.tag }}
             git push origin ${{ steps.version.outputs.tag }}
@@ -59,39 +68,79 @@ jobs:
           mkdir -p dist
           version="${{ steps.version.outputs.version }}"
           tag="${{ steps.version.outputs.tag }}"
+          echo "" > release_notes.md
 
-          echo "## Xeto Libraries" > release_notes.md
-          echo "" >> release_notes.md
+          # ── Fantom pods ──
+          has_pods=false
+          for pod in lib/fan/*.pod; do
+            [ -f "$pod" ] || continue
+            if [ "$has_pods" = false ]; then
+              echo "## Fantom Pods" >> release_notes.md
+              echo "" >> release_notes.md
+              has_pods=true
+            fi
+            pod_name=$(basename "$pod" .pod)
 
-          # --- Xeto libs: handle pre-built .xetolib OR source dirs ---
+            pod_ver=""
+            if [ -f versions.json ]; then
+              pod_ver=$(jq -r --arg n "$pod_name" \
+                '.pods[] | select(.name == $n) | .version // empty' versions.json 2>/dev/null)
+            fi
+            pod_ver="${pod_ver:-$version}"
+
+            cp "$pod" dist/
+            echo "- **${pod_name}** v${pod_ver}" >> release_notes.md
+          done
+
+          if [ "$has_pods" = true ]; then
+            (cd dist && zip "fantom-pods-${tag}.zip" *.pod)
+            echo "" >> release_notes.md
+          fi
+
+          # ── Xeto libraries ──
+          has_libs=false
           generated_at=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
           index_libs=""
 
           for lib_dir in lib/xeto/*/; do
             [ -d "$lib_dir" ] || continue
+            if [ "$has_libs" = false ]; then
+              echo "## Xeto Libraries" >> release_notes.md
+              echo "" >> release_notes.md
+              has_libs=true
+            fi
             lib_name=$(basename "$lib_dir")
-            xetolib_name="${lib_name}-${version}.xetolib"
 
-            # Check if dir contains a pre-built .xetolib file
+            lib_ver=""
+            if [ -f versions.json ]; then
+              lib_ver=$(jq -r --arg n "$lib_name" \
+                '.libs[] | select(.name == $n) | .version // empty' versions.json 2>/dev/null)
+            fi
+            lib_ver="${lib_ver:-$version}"
+
+            xetolib_name="${lib_name}-${lib_ver}.xetolib"
+
             existing=$(find "$lib_dir" -maxdepth 1 -name "*.xetolib" | head -1)
             if [ -n "$existing" ]; then
               cp "$existing" "dist/${xetolib_name}"
-              echo "Copied pre-built: $existing -> dist/${xetolib_name}"
             else
               (cd "$lib_dir" && zip -r "../../../dist/${xetolib_name}" .)
-              echo "Zipped source: $lib_dir -> dist/${xetolib_name}"
             fi
 
-            # Append to index
-            if [ -n "$index_libs" ]; then index_libs="${index_libs},"; fi
-            index_libs="${index_libs}{\"name\":\"${lib_name}\",\"stable\":\"${version}\"}"
+            sha256sum "dist/${xetolib_name}" | awk '{print $1}' > "dist/${lib_name}-${lib_ver}.sha256"
 
-            echo "- **${lib_name}** v${version}" >> release_notes.md
+            [ -n "$index_libs" ] && index_libs="${index_libs},"
+            index_libs="${index_libs}{\"name\":\"${lib_name}\",\"stable\":\"${lib_ver}\"}"
+
+            echo "- **${lib_name}** v${lib_ver}" >> release_notes.md
           done
 
-          # Write xeto-index.json
           echo "{\"generatedAt\":\"${generated_at}\",\"libs\":[${index_libs}]}" \
             | python3 -m json.tool > dist/xeto-index.json
+
+          echo "" >> release_notes.md
+          echo "---" >> release_notes.md
+          echo "**Release:** \`${tag}\`" >> release_notes.md
 
           echo ""
           echo "=== dist contents ==="
