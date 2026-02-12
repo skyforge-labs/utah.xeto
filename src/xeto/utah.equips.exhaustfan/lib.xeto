@@ -6,7 +6,7 @@
 //
 pragma: Lib <
   doc: "State of Utah Exhaust Fan Equipment Library"
-  version: "0.0.2"
+  version: "0.0.3"
   depends: {
     { lib: "sys", versions: "0.1.x" },
     { lib: "ph",  versions: "0.1.x" },

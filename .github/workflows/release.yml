@@ -1,17 +1,24 @@
-# Auto-release on push to main
-# buildVersion in build.props triggers release; per-artifact versions from versions.json
-# Pre-commit hook generates versions.json from build.fan + lib.xeto sources
+# Auto-release on push to main. Single source of truth: versions.json.
+# Copy to any repo; for monorepos set env PROJECT_ROOT (e.g. Clients/utah).
+# See .github/RELEASE-PLAN.md for versioning design.
 name: Release
 
 on:
   push:
     branches: [main]
+    paths:
+      - "Clients/utah/versions.json"
+      - "Clients/utah/lib/**"
+      - "Clients/utah/build.props"
 
 jobs:
   release:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    env:
+      # Single-repo: use ".". Monorepo: set to project subdir (here: Clients/utah).
+      PROJECT_ROOT: "Clients/utah"
 
     steps:
       - name: Checkout
@@ -19,12 +26,28 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Check version
+      - name: Set project root
+        id: root
+        run: |
+          ROOT="${{ env.PROJECT_ROOT }}"
+          [ -z "$ROOT" ] && ROOT="."
+          if [ ! -f "$ROOT/versions.json" ]; then
+            echo "::error::versions.json not found at $ROOT/versions.json (set PROJECT_ROOT for monorepos)"
+            exit 1
+          fi
+          echo "root=$ROOT" >> $GITHUB_OUTPUT
+
+      - name: Check version (from versions.json only)
         id: version
         run: |
-          version=$(grep -oP 'buildVersion=\K.*' build.props | tr -d '[:space:]')
+          ROOT="${{ steps.root.outputs.root }}"
+          if [ ! -f "$ROOT/versions.json" ]; then
+            echo "::error::versions.json not found at $ROOT/versions.json"
+            exit 1
+          fi
+          version=$(jq -r '.buildVersion // empty' "$ROOT/versions.json" | tr -d '[:space:]')
           if [ -z "$version" ]; then
-            echo "No buildVersion found in build.props"
+            echo "::error::buildVersion missing in versions.json"
             exit 1
           fi
           tag="v${version}"
@@ -41,17 +64,6 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
 
-      - name: Validate versions.json
-        if: steps.version.outputs.new == 'true'
-        run: |
-          if [ ! -f versions.json ]; then
-            echo "::warning::versions.json not found — all artifacts will use buildVersion."
-            echo "Run pre-commit hook to generate versions.json from source."
-          else
-            echo "versions.json:"
-            cat versions.json
-          fi
-
       - name: Tag version
         if: steps.version.outputs.new == 'true'
         run: |
@@ -62,83 +74,46 @@ jobs:
             echo "Tag already exists, skipping tag creation"
           fi
 
-      - name: Package release assets
+      - name: Package release assets (from versions.json only)
         if: steps.version.outputs.new == 'true'
         run: |
-          mkdir -p dist
+          ROOT="${{ steps.root.outputs.root }}"
+          VERSIONS="$ROOT/versions.json"
           version="${{ steps.version.outputs.version }}"
           tag="${{ steps.version.outputs.tag }}"
-          echo "" > release_notes.md
 
-          # ── Fantom pods ──
-          has_pods=false
-          for pod in lib/fan/*.pod; do
-            [ -f "$pod" ] || continue
-            if [ "$has_pods" = false ]; then
-              echo "## Fantom Pods" >> release_notes.md
-              echo "" >> release_notes.md
-              has_pods=true
-            fi
-            pod_name=$(basename "$pod" .pod)
+          mkdir -p dist
 
-            pod_ver=""
-            if [ -f versions.json ]; then
-              pod_ver=$(jq -r --arg n "$pod_name" \
-                '.pods[] | select(.name == $n) | .version // empty' versions.json 2>/dev/null)
-            fi
-            pod_ver="${pod_ver:-$version}"
+          # Copy versions.json
+          cp "$VERSIONS" dist/versions.json
 
-            cp "$pod" dist/
-            echo "- **${pod_name}** v${pod_ver}" >> release_notes.md
+          # ── Fantom pods: one .pod per entry in versions.json ──
+          for name in $(jq -r '.pods[]?.name // empty' "$VERSIONS"); do
+            [ -z "$name" ] && continue
+            pod_file="$ROOT/lib/fan/${name}.pod"
+            [ -f "$pod_file" ] || continue
+            cp "$pod_file" "dist/"
           done
 
-          if [ "$has_pods" = true ]; then
-            (cd dist && zip "fantom-pods-${tag}.zip" *.pod)
-            echo "" >> release_notes.md
-          fi
-
-          # ── Xeto libraries ──
-          has_libs=false
-          generated_at=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
-          index_libs=""
-
-          for lib_dir in lib/xeto/*/; do
+          # ── Xeto libs: one .xetolib per entry in versions.json ──
+          for name in $(jq -r '.libs[]?.name // empty' "$VERSIONS"); do
+            [ -z "$name" ] && continue
+            lib_ver=$(jq -r --arg n "$name" '.libs[] | select(.name == $n) | .version // empty' "$VERSIONS")
+            [ -z "$lib_ver" ] && lib_ver="$version"
+            lib_dir="$ROOT/lib/xeto/${name}"
             [ -d "$lib_dir" ] || continue
-            if [ "$has_libs" = false ]; then
-              echo "## Xeto Libraries" >> release_notes.md
-              echo "" >> release_notes.md
-              has_libs=true
-            fi
-            lib_name=$(basename "$lib_dir")
-
-            lib_ver=""
-            if [ -f versions.json ]; then
-              lib_ver=$(jq -r --arg n "$lib_name" \
-                '.libs[] | select(.name == $n) | .version // empty' versions.json 2>/dev/null)
-            fi
-            lib_ver="${lib_ver:-$version}"
-
-            xetolib_name="${lib_name}-${lib_ver}.xetolib"
-
+            xetolib_name="${name}-${lib_ver}.xetolib"
             existing=$(find "$lib_dir" -maxdepth 1 -name "*.xetolib" | head -1)
             if [ -n "$existing" ]; then
               cp "$existing" "dist/${xetolib_name}"
             else
-              (cd "$lib_dir" && zip -r "../../../dist/${xetolib_name}" .)
+              if [ "$ROOT" = "." ]; then dist_up="../../.."; else dist_up="../../../.."; fi
+              (cd "$lib_dir" && zip -r "${dist_up}/dist/${xetolib_name}" .)
             fi
-
-            [ -n "$index_libs" ] && index_libs="${index_libs},"
-            index_libs="${index_libs}{\"name\":\"${lib_name}\",\"stable\":\"${lib_ver}\"}"
-
-            echo "- **${lib_name}** v${lib_ver}" >> release_notes.md
           done
 
-          echo "{\"generatedAt\":\"${generated_at}\",\"libs\":[${index_libs}]}" \
-            | python3 -m json.tool > dist/xeto-index.json
-
-          echo "" >> release_notes.md
-          echo "---" >> release_notes.md
-          echo "**Release:** \`${tag}\`" >> release_notes.md
+          # all.zip: all .pod, all .xetolib, versions.json
+          (cd dist && zip -r "all.zip" . -x "all.zip")
 
           echo ""
           echo "=== dist contents ==="
@@ -150,5 +125,4 @@ jobs:
         with:
           tag_name: ${{ steps.version.outputs.tag }}
           files: dist/*
-          body_path: release_notes.md
           generate_release_notes: true
