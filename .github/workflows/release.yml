@@ -1,4 +1,5 @@
 # Auto-release on push to main. Single source of truth: versions.json.
+# One tag+release per version referenced by pods/libs.
 # Copy to any repo; for monorepos set env PROJECT_ROOT (e.g. Clients/utah).
 # See .github/RELEASE-PLAN.md for versioning design.
 name: Release
@@ -37,92 +38,91 @@ jobs:
           fi
           echo "root=$ROOT" >> $GITHUB_OUTPUT
 
-      - name: Check version (from versions.json only)
-        id: version
+      - name: Release per version (from versions.json only)
         run: |
+          set -euo pipefail
           ROOT="${{ steps.root.outputs.root }}"
-          if [ ! -f "$ROOT/versions.json" ]; then
-            echo "::error::versions.json not found at $ROOT/versions.json"
+          VERSIONS="$ROOT/versions.json"
+
+          if [ ! -f "$VERSIONS" ]; then
+            echo "::error::versions.json not found at $VERSIONS"
             exit 1
           fi
-          version=$(jq -r '.buildVersion // empty' "$ROOT/versions.json" | tr -d '[:space:]')
-          if [ -z "$version" ]; then
+
+          build_version=$(jq -r '.buildVersion // empty' "$VERSIONS" | tr -d '[:space:]')
+          if [ -z "$build_version" ]; then
             echo "::error::buildVersion missing in versions.json"
             exit 1
           fi
-          tag="v${version}"
-          echo "version=${version}" >> $GITHUB_OUTPUT
-          echo "tag=${tag}" >> $GITHUB_OUTPUT
 
-          if gh release view "$tag" &>/dev/null; then
-            echo "Release ${tag} already exists, skipping"
-            echo "new=false" >> $GITHUB_OUTPUT
-          else
-            echo "Version ${version} needs release"
-            echo "new=true" >> $GITHUB_OUTPUT
+          # Build item list with resolved version (fallback to buildVersion).
+          items_json=$(jq -c --arg bv "$build_version" '
+            [
+              (.pods[]? | {type:"pod", name, version:(.version // $bv)}),
+              (.libs[]? | {type:"lib", name, version:(.version // $bv)})
+            ]
+          ' "$VERSIONS")
+
+          versions=$(echo "$items_json" | jq -r 'map(.version) | unique[]')
+          if [ -z "$versions" ]; then
+            echo "No pods/libs in versions.json; nothing to release."
+            exit 0
           fi
+
+          for version in $versions; do
+            tag="v${version}"
+
+            if gh release view "$tag" &>/dev/null; then
+              echo "Release ${tag} already exists, skipping"
+              continue
+            fi
+
+            # Ensure tag exists remotely before creating release.
+            if ! git ls-remote --tags origin | grep -q "refs/tags/${tag}$"; then
+              git tag "$tag"
+              git push origin "$tag"
+            else
+              echo "Tag ${tag} already exists, skipping tag creation"
+            fi
+
+            dist_dir="dist/${tag}"
+            mkdir -p "$dist_dir"
+
+            # Include versions.json in every per-version release.
+            cp "$VERSIONS" "$dist_dir/versions.json"
+
+            # Pods for this version.
+            pod_names=$(echo "$items_json" | jq -r --arg v "$version" '.[] | select(.type=="pod" and .version==$v) | .name')
+            for name in $pod_names; do
+              pod_file="$ROOT/lib/fan/${name}.pod"
+              [ -f "$pod_file" ] || continue
+              cp "$pod_file" "$dist_dir/"
+            done
+
+            # Libs for this version.
+            lib_names=$(echo "$items_json" | jq -r --arg v "$version" '.[] | select(.type=="lib" and .version==$v) | .name')
+            for name in $lib_names; do
+              lib_dir="$ROOT/lib/xeto/${name}"
+              [ -d "$lib_dir" ] || continue
+              xetolib_name="${name}-${version}.xetolib"
+              preferred="${lib_dir}/${xetolib_name}"
+              if [ -f "$preferred" ]; then
+                cp "$preferred" "$dist_dir/${xetolib_name}"
+              else
+                existing=$(ls "$lib_dir"/*.xetolib 2>/dev/null | head -n 1 || true)
+                if [ -n "$existing" ]; then
+                  cp "$existing" "$dist_dir/${xetolib_name}"
+                else
+                  (cd "$lib_dir" && zip -r "$GITHUB_WORKSPACE/$dist_dir/${xetolib_name}" .)
+                fi
+              fi
+            done
+
+            # all.zip: all assets for this version (plus versions.json)
+            (cd "$dist_dir" && zip -r "all.zip" . -x "all.zip")
+
+            echo "Creating release ${tag}..."
+            gh release create "$tag" "$dist_dir"/* --generate-notes
+          done
         env:
           GH_TOKEN: ${{ github.token }}
-
-      - name: Tag version
-        if: steps.version.outputs.new == 'true'
-        run: |
-          if ! git ls-remote --tags origin | grep -q "refs/tags/${{ steps.version.outputs.tag }}$"; then
-            git tag ${{ steps.version.outputs.tag }}
-            git push origin ${{ steps.version.outputs.tag }}
-          else
-            echo "Tag already exists, skipping tag creation"
-          fi
-
-      - name: Package release assets (from versions.json only)
-        if: steps.version.outputs.new == 'true'
-        run: |
-          ROOT="${{ steps.root.outputs.root }}"
-          VERSIONS="$ROOT/versions.json"
-          version="${{ steps.version.outputs.version }}"
-          tag="${{ steps.version.outputs.tag }}"
-
-          mkdir -p dist
-
-          # Copy versions.json
-          cp "$VERSIONS" dist/versions.json
-
-          # ── Fantom pods: one .pod per entry in versions.json ──
-          for name in $(jq -r '.pods[]?.name // empty' "$VERSIONS"); do
-            [ -z "$name" ] && continue
-            pod_file="$ROOT/lib/fan/${name}.pod"
-            [ -f "$pod_file" ] || continue
-            cp "$pod_file" "dist/"
-          done
-
-          # ── Xeto libs: one .xetolib per entry in versions.json ──
-          for name in $(jq -r '.libs[]?.name // empty' "$VERSIONS"); do
-            [ -z "$name" ] && continue
-            lib_ver=$(jq -r --arg n "$name" '.libs[] | select(.name == $n) | .version // empty' "$VERSIONS")
-            [ -z "$lib_ver" ] && lib_ver="$version"
-            lib_dir="$ROOT/lib/xeto/${name}"
-            [ -d "$lib_dir" ] || continue
-            xetolib_name="${name}-${lib_ver}.xetolib"
-            existing=$(find "$lib_dir" -maxdepth 1 -name "*.xetolib" | head -1)
-            if [ -n "$existing" ]; then
-              cp "$existing" "dist/${xetolib_name}"
-            else
-              if [ "$ROOT" = "." ]; then dist_up="../../.."; else dist_up="../../../.."; fi
-              (cd "$lib_dir" && zip -r "${dist_up}/dist/${xetolib_name}" .)
-            fi
-          done
-
-          # all.zip: all .pod, all .xetolib, versions.json
-          (cd dist && zip -r "all.zip" . -x "all.zip")
-
-          echo ""
-          echo "=== dist contents ==="
-          ls -la dist/
-
-      - name: Create GitHub Release
-        if: steps.version.outputs.new == 'true'
-        uses: softprops/action-gh-release@v2
-        with:
-          tag_name: ${{ steps.version.outputs.tag }}
-          files: dist/*
-          generate_release_notes: true
