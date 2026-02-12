@@ -127,8 +127,6 @@ jobs:
               (cd "$lib_dir" && zip -r "../../../dist/${xetolib_name}" .)
             fi
 
-            sha256sum "dist/${xetolib_name}" | awk '{print $1}' > "dist/${lib_name}-${lib_ver}.sha256"
-
             [ -n "$index_libs" ] && index_libs="${index_libs},"
             index_libs="${index_libs}{\"name\":\"${lib_name}\",\"stable\":\"${lib_ver}\"}"
 
