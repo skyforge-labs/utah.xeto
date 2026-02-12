@@ -7,10 +7,6 @@ name: Release
 on:
   push:
     branches: [main]
-    paths:
-      - "Clients/utah/versions.json"
-      - "Clients/utah/lib/**"
-      - "Clients/utah/build.props"
 
 jobs:
   release:
@@ -38,11 +34,36 @@ jobs:
           fi
           echo "root=$ROOT" >> $GITHUB_OUTPUT
 
+      - name: Check versions.json changed in push
+        id: versions_changed
+        run: |
+          ROOT="${{ steps.root.outputs.root }}"
+          TARGET="$ROOT/versions.json"
+          before="${{ github.event.before }}"
+          after="${{ github.sha }}"
+
+          # New branch or first push: treat versions.json as changed if it exists.
+          if [ "$before" = "0000000000000000000000000000000000000000" ]; then
+            if [ -f "$TARGET" ]; then
+              echo "changed=true" >> $GITHUB_OUTPUT
+            else
+              echo "changed=false" >> $GITHUB_OUTPUT
+            fi
+            exit 0
+          fi
+
+          if git diff --name-only "$before" "$after" | grep -q "^${TARGET}$"; then
+            echo "changed=true" >> $GITHUB_OUTPUT
+          else
+            echo "changed=false" >> $GITHUB_OUTPUT
+          fi
+
       - name: Release per version (from versions.json only)
         run: |
           set -euo pipefail
           ROOT="${{ steps.root.outputs.root }}"
           VERSIONS="$ROOT/versions.json"
+          changed="${{ steps.versions_changed.outputs.changed }}"
 
           if [ ! -f "$VERSIONS" ]; then
             echo "::error::versions.json not found at $VERSIONS"
@@ -53,6 +74,10 @@ jobs:
           if [ -z "$build_version" ]; then
             echo "::error::buildVersion missing in versions.json"
             exit 1
+          fi
+
+          if [ "$changed" != "true" ]; then
+            echo "versions.json unchanged in this push; checking for missing releases anyway."
           fi
 
           # Build item list with resolved version (fallback to buildVersion).
