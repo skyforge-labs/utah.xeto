@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-12T21:29:39Z",
+  "generatedAt": "2026-02-13T17:12:39Z",
   "buildVersion": "0.0.1",
   "pods": [
   ],
@@ -14,7 +14,7 @@
     { "name": "utah.equips.exhaustfan", "version": "0.0.1" },
     { "name": "utah.equips.fcu", "version": "0.0.1" },
     { "name": "utah.equips.hws", "version": "0.0.1" },
-    { "name": "utah.equips.vav", "version": "0.0.1" },
+    { "name": "utah.equips.vav", "version": "0.0.2" },
     { "name": "utah.equips", "version": "0.0.1" },
     { "name": "utah.points", "version": "0.0.1" },
     { "name": "utah", "version": "0.0.1" }

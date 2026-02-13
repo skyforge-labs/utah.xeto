@@ -24,7 +24,6 @@ UtahVav: Vav <abstract> {
     daFlowPctOvrd: UtahDischargeAirFlowPercentOvrd?
     daFlowOvrdState: UtahDischargeAirFlowOvrdState?
 
-
     dmprPos: UtahDaDamperPos
     dmprCmd: UtahDaDamperCmd?
     dmprPosOvrd: UtahDmprPosOvrd?
@@ -52,6 +51,9 @@ UtahVav: Vav <abstract> {
 
     spcCO2: UtahZoneCo2Sensor?
     spcCO2Sp: UtahZoneCo2Sp?
+
+    zonePress: UtahZoneAirPress?
+    zonePressSp: UtahZoneAirPressSp?
 
     // Dual-Duct Points
     cdFlow: UtahColdDeckDaFlow?
