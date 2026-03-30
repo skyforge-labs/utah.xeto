@@ -1,0 +1,4 @@
+UtahSpace: Space {
+  equips: Query<of:Equip, via:"spaceRef+"> {
+  }
+}

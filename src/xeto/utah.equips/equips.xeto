@@ -1,1 +1,4 @@
-UtahEquip: Equip {}
+UtahEquip: Equip {
+  attrs: Query<of:Attr, via:"equipRef+"> {}
+  systems: Query<of:System, via: "systemRef+"> {}
+}

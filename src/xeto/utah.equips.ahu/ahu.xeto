@@ -9,6 +9,7 @@
 // Concrete implementations tighten requirements for specific AHU types
 
 UtahAhu: Ahu {
+
   ahuRef: Ref?
   hvacRef: Ref?
   rtuRef: Ref?
@@ -100,10 +101,7 @@ UtahAhu: Ahu {
     rlfFanCmd: UtahRlfFanCmd?
     rlfFanCmdSts: UtahRlfFanCmdSts?
     rlfFanSpd: UtahRlfFanSpd?
-    rlfDmprPos: UtahRlfDmprPos?
-    rlfDmprCmd: UtahRlfDmprCmd?
-    // Outside Air Points
-    oaTemp: UtahOaTemp?
+     oaTemp: UtahOaTemp?
 //    oaTempSp: UtahOaTempSp?  // PQ Commented out. How would this be used?
     oaHum: UtahOaHum?
     oaDmprPos: UtahOaDmprPos?

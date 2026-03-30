@@ -8,7 +8,7 @@
 // Abstract equipment components that are unaffiliated with equip or point
 
 UtahEquipComponent: Entity {
-  
+
 }
 
 UtahAirFilter: UtahEquipComponent & Air <abstract> {

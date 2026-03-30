@@ -12,30 +12,42 @@ UtahUnitHeater: Fcu <abstract> {
     HotWaterPlantRef: Ref?
 
   points: {
-      
+
+    /////////////////////////////////////////////////////////////////
     // Temperature Points
+    /////////////////////////////////////////////////////////////////
+
     spcTemp:    UtahZoneTemp?
     spcTempSp:  UtahZoneTempSp?
 
     heatEffSp: UtahZoneTempSpEffHtg?
 
-  //  Discharge Air Points
-    DaFanCmd:     UtahDaFanCmd?
-    DaFanCmdSts:  UtahDaFanCmdSts?
-    DaFanAlrm:    UtahDaFanAlrm?
-    DaFanSpd:     UtahDaFanSpd?
-    DaFanSpdSts:  UtahDaFanSpdSts?
-    DaTemp:       UtahDaTemp?
-    DaTempSp:     UtahDaTempSp?
-    
-  //  Hot Water Points  
-    HWVlvPos:    UtahHWVlvPos?
-    HWVlvPosSts: UtahHWVlvPosSts?
+    /////////////////////////////////////////////////////////////////
+    // Discharge Air Points
+    /////////////////////////////////////////////////////////////////
 
-  //  Elec Heating Stages
-    ElecHtgStgCmd:      UtahHWElecHtgCmd?
-    ElecHtgStgCmdSts:   UtahHWElecHtgCmdSts?
-  
+    daFanCmd:     UtahDaFanCmd?
+    daFanCmdSts:  UtahDaFanCmdSts?
+    daFanAlrm:    UtahDaFanAlrm?
+    daFanSpd:     UtahDaFanSpd?
+    daFanSpdSts:  UtahDaFanSpdSts?
+    daTemp:       UtahDaTemp?
+    daTempSp:     UtahDaTempSp?
+
+    /////////////////////////////////////////////////////////////////
+    // Hot Water Points
+    /////////////////////////////////////////////////////////////////
+
+    hWVlvPos:    UtahHWVlvPos?
+    hWVlvPosSts: UtahHWVlvPosSts?
+
+    /////////////////////////////////////////////////////////////////
+    // Elec Heating Stages
+    /////////////////////////////////////////////////////////////////
+
+    hlecHtgStgCmd:      UtahHWElecHtgCmd?
+    hlecHtgStgCmdSts:   UtahHWElecHtgCmdSts?
+
 
     }
 }

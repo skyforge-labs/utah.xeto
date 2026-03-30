@@ -1,0 +1,24 @@
+// Copyright (c) 2025, SkyForge Labs
+// Commercial
+//
+// History:
+//   24 Nov 2025   James Gessel   Creation
+//
+
+
+DesignFlowAttr: NumberAttr <abstract> {
+  equipRef: Ref <of:Vav>
+  val: Number <unit:"cfm", quantity:Flow>
+  design
+  flow
+}
+
+DesignMinFlowAttr: DesignFlowAttr { min }
+DesignMaxFlowAttr: DesignFlowAttr { max }
+
+DesignMaxFlowCoolingAttr: DesignFlowAttr { max, cooling }
+DesignMinFlowCoolingAttr: DesignFlowAttr { min, cooling }
+
+DesignMaxFlowHeatingAttr: DesignFlowAttr { max, heating }
+DesignMinFlowHeatingAttr: DesignFlowAttr { min, heating }
+

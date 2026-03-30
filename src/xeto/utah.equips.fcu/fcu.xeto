@@ -15,7 +15,7 @@ UtahFCU: Fcu <abstract> {
   points: {
     //  Occupancy
     occMode: UtahZoneOccupiedMode?
-      
+
     // Temperature Points
     spcTemp:    UtahZoneTemp?
     spcTempSp:  UtahZoneTempSp?
@@ -25,7 +25,7 @@ UtahFCU: Fcu <abstract> {
     occCoolSp: UtahOccCoolSp?
     occHeatSp: UtahOccHeatSp?
     unoccCoolSp: UtahUnoccCoolSp?
-    unoccHeatSp: UtahUnoccHeatSp?    
+    unoccHeatSp: UtahUnoccHeatSp?
 
   //  Discharge Air Points
     DaFanCmd:     UtahDaFanCmd?
@@ -35,12 +35,12 @@ UtahFCU: Fcu <abstract> {
     DaFanSpdSts:     UtahDaFanSpdSts?
     DaTemp:       UtahDaTemp?
     DaTempSp:     UtahDaTempSp?
-    
-  //  Chilled Water Points  
+
+  //  Chilled Water Points
     ChWVlvPos:    UtahChWVlvPos?
     ChWVlvPosSts: UtahChWVlvPosSts?
-    
-  //  Hot Water Points  
+
+  //  Hot Water Points
     HWVlvPos:    UtahHWVlvPos?
     HWVlvPosSts: UtahHWVlvPosSts?
 
@@ -53,7 +53,7 @@ UtahFCU: Fcu <abstract> {
     ClgStg3CmdSts:   UtahDxClgStageCmdSts?
     ClgStg4Cmd:      UtahDxClgStageCmd?
     ClgStg4CmdSts:   UtahDxClgStageCmdSts?
-    
+
 
     }
 }

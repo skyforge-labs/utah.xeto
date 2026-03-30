@@ -30,7 +30,7 @@ UtahChlr: Chiller <abstract> {
     chlrStg3Cmd: UtahChlrStg3Cmd?
     chlrStg3CmdSts: UtahChlrStg3CmdSts?
     chlrStgSp: UtahChlrStgSp?
-    
+
     // Condensor Water Points
     CWIsoVlvCmd: UtahCWIsoVlvCmd?
     CWIsoVlvPos: UtahCWIsoVlvPos?

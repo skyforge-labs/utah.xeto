@@ -1,0 +1,20 @@
+UtahMeter: UtahEquip & Meter <abstract> {
+  meterIntervalType: UtahMeterIntervalType
+}
+
+UtahUtilityMeter: UtahMeter <abstract> {
+  utility
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Meter Interval Types
+//////////////////////////////////////////////////////////////////////////
+
+// Meter Interval Type Choice
+UtahMeterIntervalType: Choice {}
+// Interval Meter
+UtahIntervalMeter: UtahMeterIntervalType {interval}
+// Daily Meter
+UtahDailyMeter: UtahMeterIntervalType {daily}
+// Monthly Meter
+UtahMonthlyMeter: UtahMeterIntervalType {monthly}

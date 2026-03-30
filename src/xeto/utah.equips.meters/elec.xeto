@@ -1,0 +1,11 @@
+UtahElecUtilityIntervalMeter: UtahUtilityMeter {
+  meterIntervalType: UtahIntervalMeter
+}
+
+UtahElecUtilityDailyMeter: UtahUtilityMeter {
+  meterIntervalType: UtahDailyMeter
+}
+
+UtahElecUtilityMonthlyMeter: UtahUtilityMeter {
+  meterIntervalType: UtahMonthlyMeter
+}

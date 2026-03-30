@@ -15,7 +15,7 @@
 UtahHumidifierEnable: UtahHumidifier & BoolPoint & EnableCmd {
   navName: "HumidifierEnable"
   hisMode: "cov"
-  hisCollectInterval: "24hr"
+  hisCollectInterval: Number "24hr"
 }
 
 // Humidifier command
@@ -23,7 +23,7 @@ UtahHumidifierCmd: UtahHumidifier & BoolPoint  & RunCmd {
   run
   navName: "HumidifierCmd"
   hisMode: "cov"
-  hisCollectInterval: "24hr"
+  hisCollectInterval: Number "24hr"
 }
 
 // Humidifier steam valve command

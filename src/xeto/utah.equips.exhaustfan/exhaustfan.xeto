@@ -19,13 +19,13 @@ UtahExhFan: UtahExhaustFan <abstract> {
     EFFanSpdSts:  UtahEFanSpdSts?
     EFFanPower:   UtahEFanPower?
     EFFanEnergy:  UtahEFanEnergy?
-    
+
     EFEaFlow:     UtahEFEaFlow?
 
   //  Exhaust Damper Points
     EFDmprCmd:    UtahEFDamperCmd?
     EFDmprPos:    UtahEFDamperPos?
     EFDmprPosSts: UtahEFDamperPosSts?
-    
+
     }
 }

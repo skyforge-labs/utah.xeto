@@ -86,4 +86,11 @@ UtahVav: Vav <abstract> {
     fanSpdMed: UtahFanSpdMedCmd?
     fanSpdLow: UtahFanSpdLowCmd?
   }
+
+  attrs: Query <of:Attr>{
+    designMinFlow: DesignMinFlowAttr?
+    designMaxFlow: DesignMaxFlowAttr?
+    designMaxFlowCooling: DesignMaxFlowCoolingAttr?
+    designMaxFlowHeating: DesignMaxFlowHeatingAttr?
+  }
 }

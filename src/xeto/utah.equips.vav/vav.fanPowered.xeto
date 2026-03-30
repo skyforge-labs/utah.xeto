@@ -8,6 +8,8 @@
 // Fan-Powered VAV
 
 UtahVavFanPowered: UtahVav {
+  ductConfig: SingleDuctConfig
+  fanPowered
   points: {
 
     occ: UtahZoneOccupiedSensor

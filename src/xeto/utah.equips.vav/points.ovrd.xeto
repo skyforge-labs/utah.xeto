@@ -13,30 +13,30 @@ UtahOverridePoint: UtahPoint <abstract> {
 UtahDischargeAirFlowOvrd: DischargeAirFlowSp & UtahOverridePoint {
   navName: "DaFlowOvrd"
   hisMode: "sampled"
-  hisCollectInterval: "10min"
+  hisCollectInterval: Number "10min"
 }
 
 UtahDischargeAirFlowPercentOvrd: DischargeAirFlowSp & UtahOverridePoint {
   navName: "DaFlowPctOvrd"
   hisMode: "sampled"
-  hisCollectInterval: "10min"
+  hisCollectInterval: Number "10min"
 }
 
 UtahDischargeAirFlowOvrdState: DischargeAirFlowSp & UtahOverridePoint {
   overrideState
   navName: "DaFlowOvrdState"
   hisMode: "sampled"
-  hisCollectInterval: "10min"
+  hisCollectInterval: Number "10min"
 }
 
 UtahDmprPosOvrd: DischargeDamperCmd & UtahOverridePoint {
   navName: "DmprPosOvrd"
   hisMode: "sampled"
-  hisCollectInterval: "10min"
+  hisCollectInterval: Number "10min"
 }
 
 UtahSpcTempOvrd: ZoneAirTempSp & UtahOverridePoint {
   navName: "SpcTempOvrd"
   hisMode: "sampled"
-  hisCollectInterval: "10min"
+  hisCollectInterval: Number "10min"
 }

@@ -3,11 +3,11 @@
 // Licensed under the Academic Free License version 3.0
 //
 // History:
-//   27 Dec 2025   Paul Quinn   Creation
+//   24 Nov 2025   James Gessel   Creation
 //
 
 pragma: Lib <
-  doc: "State of Utah Chiller Equipment Library"
+  doc: "State Of Utah Meters Library"
   version: "0.0.2"
   depends: {
     { lib: "sys", versions: "0.1.x" },

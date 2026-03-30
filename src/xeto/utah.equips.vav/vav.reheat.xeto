@@ -9,6 +9,9 @@
 
 // Reheat VAV
 UtahVavReheat: UtahVav {
+  ductConfig: SingleDuctConfig
+  heatingProcess: HotWaterHeatingProcess
+
   airRef: MultiRef?<of:Ahu>
   points: {
 

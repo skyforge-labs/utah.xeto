@@ -8,6 +8,8 @@
 // Cooling-Only VAV
 
 UtahVavCoolingOnly: UtahVav {
+  ductConfig: SingleDuctConfig
+  coolingOnly
   points: {
 
     occ: UtahZoneOccupiedSensor

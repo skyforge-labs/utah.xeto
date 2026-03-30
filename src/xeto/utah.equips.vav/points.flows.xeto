@@ -7,11 +7,6 @@
 //
 // VAV Flows
 
-FlowStyles: PointStyle {
-  chartGroup: Str? "Flows"
-  subtitle: Str? "Flows"
-}
-
 ///////////////////////////////////////////
 // General Air Flow points
 ///////////////////////////////////////////

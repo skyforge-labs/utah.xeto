@@ -15,11 +15,11 @@ depends: {
   {lib: "ph.points", versions: "0.1.x"}
   {lib: "ph.points.elec", versions: "0.1.x"}
   {lib: "ph.equips", versions: "0.1.x"}
+  { lib: "utah", versions: "0.0.x" }
 }
-
 org: {
   dis: "SkyForge Labs"
-  uri: "TODO"
+  uri: "https://skyforge-labs.com"
 }
-
+categories: {"utah"}
 >

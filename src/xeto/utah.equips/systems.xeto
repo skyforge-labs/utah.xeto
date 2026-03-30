@@ -1,0 +1,65 @@
+UtahSystem: System {
+  disMacro: "\$siteRef \$navName"
+  navName: Str
+  childSystems: Query<of:System, inverse:"utah.equips::UtahSystem.parentSystems"> {}
+  parentSystems: Query<of:System, via:"systemRef+"> {}
+  equips: Query<of:Equip, inverse:"utah.equips::UtahEquip.systems"> {}
+}
+
+UtahEquipGroup: UtahSystem <of:Equip> {}
+
+GlobalSystem: UtahSystem {
+  navName: "Global"
+}
+
+BuildingSystem: UtahSystem {
+  navName: "Building"
+  childSystems: {
+    AirsideSystem
+    WatersideSystem
+    MeterSystem
+  }
+}
+
+MeterSystem: UtahSystem {
+  navName: "Meter System"
+}
+
+AirsideSystem: UtahSystem {
+  navName: "Airside"
+  childSystems: {
+    AhuGroup
+    VavGroup
+    FcuGroup
+  }
+}
+
+AhuGroup: UtahEquipGroup <of:Ahu> {navName:"AHUs"}
+VavGroup: UtahEquipGroup <of:Vav> {navName:"VAVs"}
+FcuGroup: UtahEquipGroup <of:Fcu> {navName:"FCUs"}
+
+WatersideSystem: UtahSystem {
+  navName: "Waterside"
+}
+
+ChwsSystem: UtahSystem {
+  navName: "Chilled Water System"
+  childSystems: {
+    chiller: ChillerGroup?
+  }
+}
+
+ChillerGroup: UtahEquipGroup <of:Chiller> {}
+
+HhwsSystem: UtahSystem {
+  navName: "Hot Water System"
+  childSystems: {
+    boiler: BoilerGroup?
+  }
+}
+
+BoilerGroup: UtahEquipGroup <of:Boiler> {}
+
+DhwsSystem: UtahSystem {
+  navName: "Domestic Hot Water System"
+}

@@ -14,11 +14,12 @@ pragma: Lib <
     { lib: "ph.points", versions: "0.1.x" },
     { lib: "ph.attrs", versions: "0.1.x" },
     { lib: "utah", versions: "0.0.x" },
+    { lib: "utah.equips", versions: "0.0.x" },
     { lib: "utah.points", versions: "0.0.x" }
-
   }
   org: {
-    dis: "Ontologent"
-    uri: "https://ontologent.ai"
+    dis: "SkyForge Labs"
+    uri: "https://skyforge-labs.com"
   }
+  categories: {"utah"}
 >

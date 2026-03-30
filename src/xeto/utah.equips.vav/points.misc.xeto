@@ -23,6 +23,6 @@ UtahBypassTime: UtahBypassTimePoint & UtahHisSampledDefault {
 
 UtahZoneAirHvacModeSp: ZoneAirHvacModeSp & EnumPoint & UtahHisCov {
     navName: "HvacMode"
-    hisCollectInterval: Str? "24hr"
+    hisCollectInterval: Number? "24hr"
     enum: Str? "Auto,Cool,Heat,Standby,Off"
 }
