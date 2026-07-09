@@ -1,0 +1,40 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   30 Apr 2026   SkyForge   Creation
+//
+// Utah electric point specs used by meter equipment definitions.
+
+////////////////////////////////////////////////////
+// Electric Power
+////////////////////////////////////////////////////
+
+// Total imported active power from an electric meter.
+UtahElecPower: ElecAcTotalImportActivePowerSensor {}
+
+// Total imported reactive power from an electric meter.
+UtahElecReactivePower: ElecAcTotalImportReactivePowerSensor {}
+
+// Total imported apparent power from an electric meter.
+UtahElecApparentPower: ElecAcTotalImportApparentPowerSensor {}
+
+// Total AC power factor from an electric meter.
+UtahElecPowerFactor: ElecAcTotalPfSensor {}
+
+// AC frequency from an electric meter.
+UtahElecFrequency: ElecAcFreqSensor {}
+
+// Average line current, useful when individual phases are not modeled.
+UtahElecAvgCurrent: ElecAcLineAvgCurrentSensor {}
+
+// Average line voltage, useful when individual phases are not modeled.
+UtahElecAvgVoltage: ElecAcLineAvgVoltSensor {}
+
+////////////////////////////////////////////////////
+// Electric Energy
+////////////////////////////////////////////////////
+
+// Total imported active energy from an electric meter.
+UtahElecEnergy: ElecAcTotalImportActiveEnergySensor {}

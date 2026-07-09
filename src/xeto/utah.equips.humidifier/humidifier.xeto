@@ -1,0 +1,18 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   09 Jan 2026   Paul Quinn   Creation
+//
+// Standalone humidifier equip — optional points
+
+UtahHumidifier: HumidifierEquip {
+
+  points: {
+    humEnable: UtahHumidifierEnable?
+    humCmd: UtahHumidifierCmd
+    humSts: UtahHumidifierCmdSts?
+    humOutput: UtahHumidifierOutput?
+  }
+}

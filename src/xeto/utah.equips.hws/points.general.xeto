@@ -19,18 +19,15 @@ UtahHWMkupWVlvCmd: HotWater & UtahMakeupValveCmd & UtahHisSampledMajorEquip {
 // Bypass Water Valve
 UtahHWBypVlvPos: HotWater & UtahBypassValvePos & UtahHisSampledMajorEquip {
   navName: "HWBypVlvPos"
-  unit: "%"
 }
 
 // Bypass Water Valve status
 UtahHWBypVlvPosSts: HotWater & UtahBypassValvePosSts & UtahHisSampledMajorEquip {
   navName: "HWBypVlvPosSts"
-  unit: "%"
 }
 // Building Max Hot Water Valve Position
 UtahBldgHWVlvPosMax: HotWater & UtahValvePos & UtahHisCov {
   building
   max
   navName: "BldgChWVlvPosMax"
-  unit: "%"
 }

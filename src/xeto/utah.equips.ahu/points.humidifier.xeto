@@ -5,44 +5,54 @@
 // History:
 //   24 Nov 2025   James Gessel   Creation
 //
-// Humidifier Points - Enable, Command, Valve, Fan Speed
+// Humidifier Points - Enable, Command, Status, Output, Valve, Fan Speed
 
 //////////////////////////////////////////////////////////////////////////
 // Humidifier Points
 //////////////////////////////////////////////////////////////////////////
 
 // Humidifier enable command
-UtahHumidifierEnable: UtahHumidifier & BoolPoint & EnableCmd {
+UtahHumidifierEnable: UtahHumid & BoolPoint & EnableCmd {
   navName: "HumidifierEnable"
   hisMode: "cov"
   hisCollectInterval: Number "24hr"
 }
 
 // Humidifier command
-UtahHumidifierCmd: UtahHumidifier & BoolPoint  & RunCmd {
+UtahHumidifierCmd: UtahHumid & BoolPoint  & RunCmd {
   run
   navName: "HumidifierCmd"
   hisMode: "cov"
   hisCollectInterval: Number "24hr"
 }
 
+// Humidifier run/status feedback (matches command)
+UtahHumidifierCmdSts: UtahHumid & RunSensor & UtahHisCov {
+  navName: "HumidifierCmdSts"
+}
+
+// Humidifier output level (e.g. steam %, scaled demand)
+UtahHumidifierOutput: UtahHumid & NumberPoint & SensorPoint & UtahHisSampledMajorEquip {
+  navName: "HumidifierOutput"
+}
+
 // Humidifier steam valve command
-UtahHumidifierStmVlvCmd: UtahHumidifier & UtahStmVlvCmd & UtahHisCov {
+UtahHumidifierStmVlvCmd: UtahHumid & UtahStmVlvCmd & UtahHisCov {
   navName: "HumidifierStmVlvCmd"
 }
 
 // Humidifier steam valve position
-UtahHumidifierStmVlvPos: UtahHumidifier & UtahStmVlvPos & UtahHisSampledMajorEquip {
+UtahHumidifierStmVlvPos: UtahHumid & UtahStmVlvPos & UtahHisSampledMajorEquip {
   navName: "HumidifierStmVlvPos"
 }
 
 // Humidifier fan Cmd
-UtahHumidifierFanCmd: UtahHumidifier & UtahFanCmd & UtahHisCov {
+UtahHumidifierFanCmd: UtahHumid & UtahFanCmd & UtahHisCov {
   navName: "HumidifierFanCmd"
 }
 
 // Humidifier fan speed
-UtahHumidifierFanSpd: UtahHumidifier & UtahFanSpd & UtahHisSampledMajorEquip {
+UtahHumidifierFanSpd: UtahHumid & UtahFanSpd & UtahHisSampledMajorEquip {
   navName: "HumidifierFanSpd"
 }
 

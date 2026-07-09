@@ -12,36 +12,36 @@
 //////////////////////////////////////////////////////////////////////////
 
 // Makeup Water Valve
-UtahCTMkupWVlvCmd: UtahCoolingTower & UtahMakeupValveCmd & UtahHisSampledMajorEquip {
+UtahCTMkupWVlvCmd: UtahClgTower & UtahMakeupValveCmd & UtahHisSampledMajorEquip {
   navName: "CTMkupWVlvCmd"
 }
 
 // Isolation Valve Cmd
-UtahCTIsoVlvCmd: UtahCoolingTower & UtahIsoValveCmd & UtahHisCov {
+UtahCTIsoVlvCmd: UtahClgTower & UtahIsoValveCmd & UtahHisCov {
   navName: "CTIsoVlvCmd"
 }
 
 // Isolation Valve Cmd Sts
-UtahCTIsoVlvCmdSts: UtahCoolingTower & UtahIsoValveCmdSts & UtahHisCov {
+UtahCTIsoVlvCmdSts: UtahClgTower & UtahIsoValveCmdSts & UtahHisCov {
   navName: "CTIsoVlvCmdSts"
 }
 
 // Bypas Valve Cmd
-UtahCTBypVlvCmd: UtahCoolingTower & UtahBypassValveCmd & UtahHisCov {
+UtahCTBypVlvCmd: UtahClgTower & UtahBypassValveCmd & UtahHisCov {
   navName: "CTIBypVlvCmd"
 }
 
 // Bypas Valve Cmd status
-UtahCTBypVlvCmdSts: UtahCoolingTower & UtahBypassValveCmdSts & UtahHisCov {
+UtahCTBypVlvCmdSts: UtahClgTower & UtahBypassValveCmdSts & UtahHisCov {
   navName: "CTIBypVlvCmdSts"
 }
 
 // Bypas Valve Position
-UtahCTBypVlvPos: UtahCoolingTower & UtahBypassValvePos & UtahHisCov {
+UtahCTBypVlvPos: UtahClgTower & UtahBypassValvePos & UtahHisCov {
   navName: "CTIBypVlvPos"
 }
 
 // Bypas Valve Position status
-UtahCTBypVlvPosSts: UtahCoolingTower & UtahBypassValvePosSts & UtahHisCov {
+UtahCTBypVlvPosSts: UtahClgTower & UtahBypassValvePosSts & UtahHisCov {
   navName: "CTIBypVlvPosSts"
 }

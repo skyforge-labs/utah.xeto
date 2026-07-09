@@ -1,0 +1,32 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   2 Jun 2026   Creation
+//
+// Abstract Base Relief Fan with all possible points (optional)
+
+UtahReliefFan: UtahEquip & UtahRelief & UtahFan {
+
+  points: {
+
+    fanEnab:    UtahRFEnab?
+    fanCmd:     UtahRFanCmd
+    fanCmdSts:  UtahRFanCmdSts?
+    fanSpd:     UtahRFanSpd?
+    fanSpdSts:  UtahRFanSpdSts?
+    fanPower:   UtahRFanPower?
+    fanEnergy:  UtahRFanEnergy?
+
+    eaFlow:     UtahRFEaFlow?
+
+    dmprCmd:    UtahRFDamperCmd?
+    dmprPos:    UtahRFDamperPos?
+    dmprPosSts: UtahRFDamperPosSts?
+
+    tempOnSp:   UtahRFTempOnSp?
+    tempOffSp:  UtahRFTempOffSp?
+
+  }
+}

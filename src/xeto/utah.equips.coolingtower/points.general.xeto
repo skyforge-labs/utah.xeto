@@ -12,7 +12,7 @@
 //////////////////////////////////////////////////////////////////////////
 
 // Cooling Tower Enabled
-UtahCTEnab: UtahCoolingTower & EnableCmd & UtahHisCov {
+UtahCTEnab: UtahClgTower & EnableCmd & UtahHisCov {
   navName: "CTEnab"
 }
 

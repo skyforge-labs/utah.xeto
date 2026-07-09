@@ -8,4 +8,25 @@
 
 UtahVenturiVav: UtahVav {
   venturi
+  lab
+
+  points: {
+
+    saFlow: UtahVavSaFlow
+    saFlowSp: UtahVavSaFlowSp?
+    eaFlow: UtahVavEaFlow
+    eaFlowSp: UtahVavEaFlowSp?
+    airflowOffset: UtahVavAirflowOffset?
+    ach: UtahVavAch?
+
+    // Room pressurization
+    roomPress: UtahVavRoomPress?
+    roomPressSp: UtahVavRoomPressSp?
+    roomPressMode: UtahVavRoomPressMode?
+
+    // Venturi valves
+    saValvePos: UtahVavSaValvePos
+    eaValvePos: UtahVavEaValvePos?
+  }
+
 }

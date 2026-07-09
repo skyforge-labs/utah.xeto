@@ -12,27 +12,27 @@
 //////////////////////////////////////////////////////////////////////////
 
 // Cooling Tower water circ pump commEnableand
-UtahCTCPEnab: UtahCoolingTower & UtahCPEnab & UtahHisCov {
+UtahCTCPEnab: UtahClgTower & UtahCPEnab & UtahHisCov {
   navName: "CTCPEnab"
 }
 
 // Cooling Tower water circ pump command
-UtahCTCPCmd: UtahCoolingTower & CondenserWater & UtahCPCmd & UtahHisCov {
+UtahCTCPCmd: UtahClgTower & CondenserWater & UtahCPCmd & UtahHisCov {
   navName: "CTCPCmd"
 }
 
 // Cooling Tower water circ pump command status
-UtahCTCPCmdSts: UtahCoolingTower & CondenserWater & UtahCPCmdSts & UtahHisCov {
+UtahCTCPCmdSts: UtahClgTower & CondenserWater & UtahCPCmdSts & UtahHisCov {
   navName: "CTCPCmdSts"
 }
 
 // Cooling Tower water circ pump speed
-UtahCTCPSpd: UtahCoolingTower & CondenserWater & UtahCPSpd & UtahHisCov {
+UtahCTCPSpd: UtahClgTower & CondenserWater & UtahCPSpd & UtahHisCov {
   navName: "CTCPSpd"
 }
 
 // Cooling Tower water circ pump speed status
-UtahCTCPSpdSts: UtahCoolingTower & CondenserWater & UtahCPSpdSts & UtahHisCov {
+UtahCTCPSpdSts: UtahClgTower & CondenserWater & UtahCPSpdSts & UtahHisCov {
   navName: "CTCPSpdSts"
 }
 
@@ -41,7 +41,7 @@ UtahCTCPSpdSts: UtahCoolingTower & CondenserWater & UtahCPSpdSts & UtahHisCov {
 //////////////////////////////////////////////
 
 // Pump Frequency. Typically from VRF
-UtahCTCPFreq: UtahCoolingTower & UtahCircPump & UtahPumpFreqSensor & UtahHisSampledMajorEquip <abstract>{
+UtahCTCPFreq: UtahClgTower & UtahCircPump & UtahPumpFreqSensor & UtahHisSampledMajorEquip <abstract>{
     }
     
 //////////////////////////////////////////
@@ -49,7 +49,7 @@ UtahCTCPFreq: UtahCoolingTower & UtahCircPump & UtahPumpFreqSensor & UtahHisSamp
 //////////////////////////////////////////
 
 // Pump Power
-UtahCTCPPower: UtahCoolingTower & UtahCircPump & UtahPumpPowerPoint <abstract>{
+UtahCTCPPower: UtahClgTower & UtahCircPump & UtahPumpPowerPoint <abstract>{
     }
 
 //////////////////////////////////////////
@@ -57,6 +57,6 @@ UtahCTCPPower: UtahCoolingTower & UtahCircPump & UtahPumpPowerPoint <abstract>{
 //////////////////////////////////////////
 
 // Pump Energy. Typically from VRF
-UtahCTCPEnergy: UtahCoolingTower & UtahCircPump & UtahPumpEnergyPoint <abstract>{
+UtahCTCPEnergy: UtahClgTower & UtahCircPump & UtahPumpEnergyPoint <abstract>{
     } 
     

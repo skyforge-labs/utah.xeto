@@ -11,11 +11,6 @@
 // Isolation Valve Points
 //////////////////////////////////////////////////////////////////////////
 
-//  Chilled water isolation valve command
-UtahChWIsoVlvCmd: ChilledWater & UtahIsoValveCmd & UtahHisCov {
-  navName: "ChWIsoVlvCmd"
-}
-
 // Chilled water isolation valve position
 UtahChWIsoVlvPos: ChilledWater & UtahIsoValvePos & UtahHisSampledMajorEquip {
   isolation
@@ -45,29 +40,6 @@ UtahChWLTemp: ChilledWater & UtahWaterTempLeaving & UtahHisSampledMajorEquip {
 // Chilled water leaving temperature setpoint
 UtahChWLTempSp: ChilledWater & UtahWaterTempLeavingSp & UtahHisCov {
   navName: "ChWLTempSp"
-}
-
-//////////////////////////////////////////////////////////////////////////
-// Pump Command Points
-//////////////////////////////////////////////////////////////////////////
-
-// Chilled water circulation pump command
-UtahChWCPCmd: ChilledWater & UtahCPCmd & UtahHisCov {
-  navName: "ChWCPCmd"
-}
-
-// Chilled water circulation pump command status
-UtahChWCPCmdSts: ChilledWater & UtahCPCmdSts & UtahHisCov {
-  navName: "ChWCPCmdSts"
-}
-
-//////////////////////////////////////////////////////////////////////////
-// Chilled Water Flow Points
-//////////////////////////////////////////////////////////////////////////
-
-// Chilled water flow
-UtahChWFlow: ChilledWater & UtahWaterFlowSensor & UtahHisSampledMajorEquip {
-  navName: "ChWFlow"
 }
 
 //////////////////////////////////////////////////////////////////////////

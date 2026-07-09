@@ -1,0 +1,27 @@
+
+DualDuctAhu: UtahAhu {
+  dualDuct
+
+  points: {
+    // Dual-Duct Points
+    cdDaTemp: UtahCDDaTemp
+    cdDaTempSp: UtahCDDaTempSp
+    cdDaFlow: UtahCDDaFlow?
+    cdDaFlowSp: UtahCDDaFlowSp?
+    cdDmprPos: UtahCDDmprPos
+    cdDmprPosSts: UtahCDDmprPosSts?
+    cdDmprCmd: UtahCDDmprCmd?
+    cdPress: UtahCDDaPress?
+    cdPressSp: UtahCDDaPressSp?
+
+    hdDaTemp: UtahHDDaTemp
+    hdDaTempSp: UtahHDDaTempSp
+    hdHum: UtahHDDaHum?
+    hdDmprPos: UtahHDDmprPos
+    hdDmprPosSts: UtahHDDmprPosSts?
+    hdPress: UtahHDDaPress?
+    hdPressSp: UtahHDDaPressSp?
+    hdFlow: UtahHDDaFlow?
+    hdFlowSp: UtahHDDaFlowSp?
+  }
+}

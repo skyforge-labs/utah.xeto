@@ -11,15 +11,16 @@ UtahHvacLoad: UtahLoadSensor & UtahHisCov {
     navName: "HVACLoad"
 }
 
-UtahBypassTimePoint: UtahBypass & NumberPoint {
+UtahBypassTimePoint: UtahBypass & NumberPoint & SensorPoint <abstract> {
+    bypassTime
+    val: Number?
+}
+
+UtahBypassTime: UtahBypassTimePoint & UtahHisSampledDefault{
     bypassTime
     navName: "BypTime"
 }
 
-UtahBypassTime: UtahBypassTimePoint & UtahHisSampledDefault {
-    bypassTime
-    navName: "BypTime"
-}
 
 UtahZoneAirHvacModeSp: ZoneAirHvacModeSp & EnumPoint & UtahHisCov {
     navName: "HvacMode"

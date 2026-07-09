@@ -8,7 +8,7 @@
 
 pragma: Lib <
   doc: "State Of Utah Meters Library"
-  version: "0.0.2"
+  version: "0.0.3"
   depends: {
     { lib: "sys", versions: "0.1.x" },
     { lib: "ph",  versions: "0.1.x" },
@@ -16,8 +16,6 @@ pragma: Lib <
     { lib: "ph.points", versions: "0.1.x" },
     { lib: "ph.attrs", versions: "0.1.x" },
     { lib: "utah", versions: "0.0.x" },
-    { lib: "utah.equips", versions: "0.0.x" },
-    { lib: "utah.points", versions: "0.0.x" }
   }
   org: {
     dis: "SkyForge Labs"

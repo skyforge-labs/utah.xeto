@@ -8,20 +8,22 @@
 // Abstract Base AHU with all possible points (optional)
 // Concrete implementations tighten requirements for specific AHU types
 
-UtahChlr: Chiller <abstract> {
+UtahChiller: Chiller {
   coolingTowerRef: Ref?
   chilledWaterPlantRef: Ref?
 
   points: {
     // General Points
     chlrEnab: UtahChlrEnab?
-    chlrCmd: UtahChlrCmd?
+    chlrCmd: UtahChlrCmd
     chlrSts: UtahChlrCmdSts?
 
     chlrKillSwitch: UtahChlrKillSwitch?
     chlrLoad: UtahChlrLoad?
     chlrTons: UtahChlrTons?
-
+    chlrPower: UtahChlrPower?
+    chlrEnergy: UtahChlrEnergy?
+ 
     // Stages
     chlrStg1Cmd: UtahChlrStg1Cmd?
     chlrStg1CmdSts: UtahChlrStg1CmdSts?
@@ -32,27 +34,32 @@ UtahChlr: Chiller <abstract> {
     chlrStgSp: UtahChlrStgSp?
 
     // Condensor Water Points
-    CWIsoVlvCmd: UtahCWIsoVlvCmd?
-    CWIsoVlvPos: UtahCWIsoVlvPos?
-    CWIsoVlvPosSts: UtahCWIsoVlvPosSts?
-    CWCPCmd: UtahCPCmd?
-    CWETemp: UtahCWETemp?
-    CWLTemp: UtahCWLTemp?
+    cwIsoVlvCmd: UtahCWIsoVlvCmd?
+    cwIsoVlvPos: UtahCWIsoVlvPos?
+    cwIsoVlvPosSts: UtahCWIsoVlvPosSts?
+    cwCPCmd: UtahCWCPCmd?
+    cwCPCmdSts: UtahCWCPCmdSts?
+    cwETemp: UtahCWETemp?
+    cwLTemp: UtahCWLTemp?
+    cwLTempSp: UtahCWLTempSp?
+    cwFlow: UtahCWFlow?
+    cWDP: UtahCWDP?
 
     // Chilled Water Points
-    ChWIsoVlvCmd: UtahChWIsoVlvCmd?
-    ChWIsoVlvPos: UtahChWIsoVlvPos?
-    ChWIsoVlvPosSts: UtahChWIsoVlvPosSts?
-    ChWCPCmd: UtahChWCPCmd?
-    ChWETemp: UtahChWETemp?
-    ChWLTemp: UtahChWLTemp?
-    ChWLTempSp: UtahChWLTempSp?
-    ChWFlow: UtahChWFlow?
-    ChWDP: UtahChWDP?
+    chWIsoVlvCmd: UtahChWIsoVlvCmd?
+    chWIsoVlvPos: UtahChWIsoVlvPos?
+    chWIsoVlvPosSts: UtahChWIsoVlvPosSts?
+    chWCPCmd: UtahChWCPCmd?
+    chWCPCmdSts: UtahChWCPCmdSts?
+    chWETemp: UtahChWETemp?
+    chWLTemp: UtahChWLTemp?
+    chWLTempSp: UtahChWLTempSp?
+    chWFlow: UtahChWFlow?
+    chWDP: UtahChWDP?
 
     // Oil Points
     chlrOilTemp: UtahChlrOilTemp?
-    ChlrOilHeatCmd: UtahChlrOilHeatCmd?
-    ChlrOilHeatCmdSts: UtahChlrOilHeatCmdSts?
+    chlrOilHeatCmd: UtahChlrOilHeatCmd?
+    chlrOilHeatCmdSts: UtahChlrOilHeatCmdSts?
   }
 }

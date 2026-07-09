@@ -6,7 +6,7 @@
 //   24 Nov 2025   James Gessel   Creation
 //
 
-UtahVav: Vav <abstract> {
+UtahVav: Vav {
   airRef: MultiRef?<of:Ahu>
   siteRef: Ref<of:Site>
   navName: Str
@@ -20,6 +20,9 @@ UtahVav: Vav <abstract> {
 
     daFlow: UtahZoneDaFlow
     daFlowSp: UtahZoneDaFlowSp?
+    daFlowSpCov: UtahZoneDaFlowSpCov?
+    daFlowSpMax: UtahZoneDaFlowSpMax?
+    daFlowSpMin: UtahZoneDaFlowSpMin?
     daFlowOvrd: UtahDischargeAirFlowOvrd?
     daFlowPctOvrd: UtahDischargeAirFlowPercentOvrd?
     daFlowOvrdState: UtahDischargeAirFlowOvrdState?
@@ -32,6 +35,7 @@ UtahVav: Vav <abstract> {
     reheatVlvCmd: UtahReheatValveCmd?
 
     daTemp: UtahZoneDaTemp
+    daTempSp: UtahZoneDaTempSp?
     spcTemp: UtahZoneTemp
     spcTempSp: UtahZoneTempSpEff?
     spcTempOvrd: UtahSpcTempOvrd?
@@ -47,6 +51,7 @@ UtahVav: Vav <abstract> {
     heatEffSp: UtahZoneTempSpEffHtg?
 
     spcHum: UtahZoneAirHumiditySensor?
+    spcHumidifySp: UtahZoneAirHumidifySp?
     spcDehumSp: UtahZoneAirDehumidifySp?
 
     spcCO2: UtahZoneCo2Sensor?
@@ -55,33 +60,26 @@ UtahVav: Vav <abstract> {
     zonePress: UtahZoneAirPress?
     zonePressSp: UtahZoneAirPressSp?
 
-    // Dual-Duct Points
-    cdFlow: UtahColdDeckDaFlow?
-    cdFlowSp: UtahColdDeckDaFlowSp?
-    hdFlow: UtahHotDeckDaFlow?
-    hdFlowSp: UtahHotDeckDaFlowSp?
-    totFlow: UtahDualDeckTotalFlow?
-    totFlowSp: UtahDualDeckTotalFlowSp?
-
-    cdDmprPos: UtahColdDeckDamperPos?
-    hdDmprPos: UtahHotDeckDamperPos?
-    cdPress: UtahColdDeckAirPress?
-    hdPress: UtahHotDeckAirPress?
-
    // Commissioning Points
+    coolFlowSp: UtahZoneDaFlowSpClgCov?
     coolMaxFlow: UtahZoneDaFlowSpClgMax?
     coolMinFlow: UtahZoneDaFlowSpClgMin?
+    heatFlowSp: UtahZoneDaFlowSpHtgCov?
     heatMaxFlow: UtahZoneDaFlowSpHtgMax?
     heatMinFlow: UtahZoneDaFlowSpHtgMin?
+    reheatFlowSp: UtahZoneDaFlowSpRH?
     reheatMaxFlow: UtahZoneDaFlowSpRHMax?
     reheatMinFlow: UtahZoneDaFlowSpRHMin?
 
     load: UtahHvacLoad?
     bypTime: UtahBypassTime?
 
-    // Fan Powered Box Points
-    fanCmd: UtahFanCmd?
-    fanSpd: UtahFanSpd?
+    // Fan (terminal convention; used by fan-powered boxes)
+    fanCmd: UtahZoneFanCmd?
+    fanModeCmd: UtahZoneFanModeCmd?
+    fanSpd: UtahZoneFanSpd?
+    fanSts: UtahZoneFanCmdSts?
+    fanSpdSts: UtahZoneFanSpdSts?
     fanSpdHigh: UtahFanSpdHighCmd?
     fanSpdMed: UtahFanSpdMedCmd?
     fanSpdLow: UtahFanSpdLowCmd?

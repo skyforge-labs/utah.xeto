@@ -21,32 +21,22 @@ UtahChWVlvPosSts: ChilledWater & UtahValvePosSts & UtahHisSampledMajorEquip {
   navName: "ChWVlvPosSts"
 }
 //////////////////////////////////////////////////////////////////////////
-// Isolation Valve Points
-//////////////////////////////////////////////////////////////////////////
-
-// Chilled water isolation valve command
-UtahChWIsoVlvCmd: ChilledWater & UtahIsoValveCmd & UtahHisCov {
-  navName: "ChWIsoVlvCmd"
-}
-
-
-//////////////////////////////////////////////////////////////////////////
 // DX Cooling Points
 //////////////////////////////////////////////////////////////////////////
 
 // DX cooling point base
-UtahDxClgPoint: UtahStagePoint {
+UtahDxClgPoint: UtahStagePoint <abstract> {
   cooling
   navName: "Dx cooling point"
 }
 
 // DX cooling stage command
-UtahDxClgStageCmd: UtahDxClgPoint & UtahDxStageCmd & UtahHisCov{
+UtahDxClgStageCmd: UtahDxClgPoint & UtahDxStageCmd & UtahHisCov {
   navName: "CCStageCmd"
 }
 
 // DX cooling stage command status
-UtahDxClgStageCmdSts: UtahDxClgPoint & UtahDxStageCmdSts & UtahHisCov{
+UtahDxClgStageCmdSts: UtahDxClgPoint & UtahDxStageCmdSts & UtahHisCov {
   navName: "CCStageSts"
 }
 
@@ -89,24 +79,6 @@ UtahChWCALHum: ChilledWater & UtahCoolingCoil & UtahAirHumidityLeavinging & Utah
   navName: "CCALHum"
 }
 
-//////////////////////////////////////////////////////////////////////////
-// Pump Command Points
-//////////////////////////////////////////////////////////////////////////
-
-// Chilled water circulation pump command
-UtahChWCPCmd: ChilledWater & UtahCPCmd & UtahHisCov {
-  navName: "ChWCPCmd"
-}
-
-// Chilled water circulation pump command status
-UtahChWCPCmdSts: ChilledWater & UtahCPCmdSts & UtahHisCov {
-  navName: "ChWCPCmdSts"
-}
-//////////////////////////////////////////////////////////////////////////
-// Flow Points
-//////////////////////////////////////////////////////////////////////////
-
-// Chilled water flow
-UtahChWFlow: ChilledWater & UtahWaterFlowSensor & UtahHisSampledMajorEquip {
-  navName: "ChWFlow"
+UtahClgCmd: ChilledWater & RunCmd & UtahHisCov {
+  navName: "ClgCmd"
 }

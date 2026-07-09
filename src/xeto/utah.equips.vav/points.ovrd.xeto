@@ -6,7 +6,7 @@
 //   24 Nov 2025   James Gessel   Creation
 //
 
-UtahOverridePoint: UtahPoint <abstract> {
+UtahOverridePoint: Point <abstract> {
   override
 }
 

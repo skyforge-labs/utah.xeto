@@ -71,13 +71,13 @@ UtahDaHum: UtahDischarge & UtahAirHumiditySensor & UtahHisSampledMajorEquip {
 }
 
 // Discharge air humidity high limit
-UtahDaHumLmtHi: UtahDischarge & UtahAirHumidityPoint & UtahHisCov {
+UtahDaHumLmtHi: UtahDischarge & UtahAirHumiditySp & UtahHisCov {
   high
   navName: "DaHumLmtHi"
 }
 
 // Discharge air humidity low limit
-UtahDaHumLmtLow: UtahDischarge & UtahAirHumidityPoint & UtahHisCov {
+UtahDaHumLmtLow: UtahDischarge & UtahAirHumiditySp & UtahHisCov {
   low
   navName: "DaHumLmtLow"
 }
@@ -87,7 +87,7 @@ UtahDaHumLmtLow: UtahDischarge & UtahAirHumidityPoint & UtahHisCov {
 //////////////////////////////////////////////////////////////////////////
 
 // Discharge air pressure
-UtahDaPress: UtahDischarge & UtahAirPressurePoint & UtahHisSampledMajorEquip {
+UtahDaPress: UtahDischarge & UtahAirPressureSensor & UtahHisSampledMajorEquip {
   navName: "DaPress"
 }
 
@@ -129,4 +129,16 @@ UtahDaTempEffSp: UtahDischarge & UtahAirTempSp & UtahHisCov {
 UtahDaTempHiLmt: UtahDischarge & UtahAirTempSp & UtahHisCov {
   high
   navName: "DaTempHiLmt"
+}
+
+// Discharge air temperature setpoint minimum
+UtahDaTempSpMin: UtahDischarge & UtahAirTempSp & UtahHisCov {
+  min
+  navName: "DaTempSpMin"
+}
+
+// Discharge air temperature setpoint maximum
+UtahDaTempSpMax: UtahDischarge & UtahAirTempSp & UtahHisCov {
+  max
+  navName: "DaTempSpMax"
 }

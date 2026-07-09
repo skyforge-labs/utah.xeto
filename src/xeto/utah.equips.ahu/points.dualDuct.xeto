@@ -36,11 +36,13 @@ UtahCDDmprPosSts: UtahColdDeck & UtahDischarge & UtahDamperPosSts & UtahHisSampl
   navName: "CDDmprPosSts"
 }
 
-UtahCDDmprCmd: UtahColdDeck & UtahDischarge & UtahDamperCmdPoint & UtahHisCov {
+UtahCDDmprCmd: UtahColdDeck & UtahDischarge & UtahDamperCmd & UtahHisCov {
+  val: Bool?
   navName: "CDDmprCmd"
 }
 
-UtahCDDaPress: UtahColdDeck & UtahDischarge & UtahAirPressurePoint & UtahHisSampledMajorEquip {
+UtahCDDaPress: UtahColdDeck & UtahDischarge & UtahAirPressureSensor & UtahHisSampledMajorEquip {
+  val: Number?
   navName: "CDPress"
   precision: 0.01
 }
@@ -78,7 +80,8 @@ UtahHDDmprPosSts: UtahHotDeck & UtahDischarge & UtahDamperPosSts & UtahHisSample
   navName: "HDDmprPosSts"
 }
 
-UtahHDDaPress: UtahHotDeck & UtahDischarge & UtahAirPressurePoint & UtahHisSampledMajorEquip {
+UtahHDDaPress: UtahHotDeck & UtahDischarge & UtahAirPressureSensor & UtahHisSampledMajorEquip {
+  val: Number?
   navName: "HDPress"
   precision: 0.01
 }

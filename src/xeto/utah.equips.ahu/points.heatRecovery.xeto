@@ -58,11 +58,10 @@ UtahHRWMassFlow: UtahHeatRecovery & UtahWaterMassFlowSensor & UtahHisSampledMajo
 
 //////////////////////////////////////////////////////////////////////////
 // Heat recovery water power
-//////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////// ///////////////////////////
 
 UtahHRWPower:UtahHeatRecovery & UtahWaterPowerSensor & UtahHisSampledMajorEquip {
   navName: "HRWPower"
-  unit: "kW"
 }
 //////////////////////////////////////////////////////////////////////////
 // Heat recovery water energy
@@ -70,5 +69,5 @@ UtahHRWPower:UtahHeatRecovery & UtahWaterPowerSensor & UtahHisSampledMajorEquip 
 
 UtahHRWEnergy: UtahHeatRecovery & UtahWaterEnergySensor & UtahHisSampledMajorEquip {
   navName: "HRWEnergy"
-  unit: "kWh"
+  unit: Unit <quantity:"energy"> "kWh" 
 }

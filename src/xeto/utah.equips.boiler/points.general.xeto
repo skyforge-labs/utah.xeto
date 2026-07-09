@@ -12,28 +12,29 @@
 //////////////////////////////////////////////////////////////////////////
 
 // Boiler Enabled
-UtahBlrEnab: UtahBoiler & EnableCmd & UtahHisCov {
+UtahBlrEnab: UtahBlr & EnableCmd & UtahHisCov {
   navName: "BlrEnab"
 }
 
 // Boiler Run Cmd
-UtahBlrCmd: UtahBoiler & RunCmd & UtahHisCov {
+UtahBlrCmd: UtahBlr & RunCmd & UtahHisCov {
   navName: "BlrCmd"
 }
 
 // Boiler Run Status
-UtahBlrCmdSts: UtahBoiler & RunSensor & UtahHisCov {
+UtahBlrCmdSts: UtahBlr & RunSensor & UtahHisCov {
   navName: "BlrCmdSts"
 }
 
 // Emergency kill switch for Boiler shutdown
-UtahBlrKillSwitch: UtahBoiler & RunCmd & UtahHisCov {
+UtahBlrKillSwitch: UtahBlr & RunCmd & UtahHisCov {
   killSwitch
   navName: "BlrKillSwitch"
 }
 
 // Boiler Firing Rate
-UtahBlrFiringRate: UtahBoiler & RunSensor & UtahHisSampledMajorEquip {
+UtahBlrFiringRate: UtahBlr & UtahHisSampledMajorEquip & SensorPoint & NumberPoint {
   firingRate
+  unit: Unit <quantity:"temperature"> "°F"
   navName: "BlrFiringRate"
 }

@@ -4,6 +4,7 @@
 //
 // History:
 //   24 Nov 2025   James Gessel   Creation
+//   09 Jul 2026   SkyForge   Align fan keys/specs to terminal convention
 //
 // Fan-Powered VAV
 
@@ -11,37 +12,11 @@ UtahVavFanPowered: UtahVav {
   ductConfig: SingleDuctConfig
   fanPowered
   points: {
-
-    occ: UtahZoneOccupiedSensor
-    occCmd: UtahZoneOccupiedCmd?
-    occMode: UtahZoneOccupiedMode?
-    hvacMode: UtahZoneAirHvacModeSp?
-
-    daFlow: UtahZoneDaFlow
-    daFlowSp: UtahZoneDaFlowSp?
-
-    dmprPos: UtahDaDamperPos
-    dmprCmd: UtahDaDamperCmd?
-
-    reheatVlvPos: UtahReheatValvePos?
-    reheatVlvCmd: UtahReheatValveCmd?
-
-    daTemp: UtahZoneDaTemp
-    spcTemp: UtahZoneTemp
-    spcTempSp: UtahZoneTempSpEff?
-
-    coolEffSp: UtahZoneTempSpEffClg?
-    heatEffSp: UtahZoneTempSpEffHtg?
-
-    spcHum: UtahZoneAirHumiditySensor?
-    spcDehumSp: UtahZoneAirDehumidifySp?
-
-    spcCO2: UtahZoneCo2Sensor?
-    spcCO2Sp: UtahZoneCo2Sp?
-
-    // Fan Powered Box Points
-    fanCmd: UtahFanCmd
-    fanSpd: UtahFanModeCmd?
+    fanCmd: UtahZoneFanCmd
+    fanModeCmd: UtahZoneFanModeCmd?
+    fanSpd: UtahZoneFanSpd?
+    fanSts: UtahZoneFanCmdSts?
+    fanSpdSts: UtahZoneFanSpdSts?
     fanSpdHigh: UtahFanSpdHighCmd?
     fanSpdMed: UtahFanSpdMedCmd?
     fanSpdLow: UtahFanSpdLowCmd?

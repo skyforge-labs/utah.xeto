@@ -110,7 +110,7 @@ UtahSecChWDP: ChilledWater & UtahSecondary & UtahWaterDPSensor & UtahHisSampledM
 
 // Secondary Chilled Water Diff Pressure setpoint
 UtahSecChWDPSp: ChilledWater & UtahSecondary & UtahWaterDPSp & UtahHisSampledMajorEquip {
-  navName: "SecChWDPSp"
+  navName: "SecChWDPSp" 
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -120,16 +120,15 @@ UtahSecChWDPSp: ChilledWater & UtahSecondary & UtahWaterDPSp & UtahHisSampledMaj
 // Chilled Water Energy
 UtahChWEnergy: ChilledWater & UtahWaterEnergySensor & UtahHisConsumptionMajorEquip {
   navName: "ChWEnergy"
-  unit: "MMBTU"
+  unit: Unit <quantity:"energy"> "MMBTU"
 }
 // Chilled Water Power
 UtahChWPower: ChilledWater & UtahWaterPowerSensor & UtahHisSampledMajorEquip {
   navName: "ChWPower"
-  unit: "MMBTU/h"
 }
 
 //  CHWS Tons
-UtahChWTons: ChilledWater & UtahTons & UtahHisSampledMajorEquip {
+UtahChWTons: ChilledWater & UtahTons & SensorPoint & UtahHisSampledMajorEquip {
   navName: "ChWTons"
-  unit: "tonref"
+  unit: Unit <quantity:"power"> "tonref"
 }

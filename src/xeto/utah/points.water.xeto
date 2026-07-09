@@ -1,0 +1,282 @@
+//
+// Copyright (c) 2025, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   03 Dec 2025   James Gessel   Creation
+//
+//Developer License – Not for production use –More Info
+
+// Utah Water Abstract points
+////////////////////////////////////////////////////
+// Heat Recovery
+////////////////////////////////////////////////////
+
+UtahHeatRecoveryWater: UtahHeatRecovery & Water <abstract> {
+//    doc: "Heat Recovery Water"
+    }
+
+////////////////////////////////////////////////////
+// Water Flow
+////////////////////////////////////////////////////
+
+// Water Flow
+UtahWaterFlow: Water & Flow <abstract>{
+
+    }
+
+// Water Flow Point
+UtahWaterFlowPoint: NumberPoint & UtahWaterFlow <abstract>{
+    unit: Unit <quantity:"volumetricFlow"> "gal/min"
+    }
+
+// Water Flow Sensor
+UtahWaterFlowSensor: UtahWaterFlowPoint & SensorPoint <abstract>{
+
+    }
+
+// Water Flow Sp
+UtahWaterFlowSp: UtahWaterFlowPoint & SpPoint <abstract>{
+
+    }
+
+////////////////////////////////////////////////////
+// Water Makeup
+////////////////////////////////////////////////////
+
+//UtahWaterMakeup: Water  <abstract> {
+//    makeup
+//    doc: "Makeup Water"
+//    }
+
+////////////////////////////////////////////////////
+// Water Pressure & Diff Press
+////////////////////////////////////////////////////
+
+// Water Pressure
+UtahWaterPress: Water & Pressure <abstract>{
+
+    }
+ 
+// Water Pressure Point
+UtahWaterPressPoint: UtahWaterPress & NumberPoint <abstract>{
+    unit: Unit <quantity:"pressure"> "psi"
+    }
+
+// Water Pressure Sensor
+UtahWaterPressSensor: UtahWaterPressPoint & SensorPoint <abstract>{
+
+    }
+
+// Water Pressure Setpoint
+UtahWaterPressSp: UtahWaterPressPoint & SpPoint <abstract>{
+
+    }
+
+//  Water pressure delta
+// Water Pressure Delta
+UtahWaterDP: UtahWaterPress <abstract>{
+    delta
+    }
+
+// Water Pressure Delta Point
+UtahWaterDPPoint: UtahWaterDP & NumberPoint <abstract>{
+    unit: Unit <quantity:"pressure"> "psi"
+    }
+
+// Water Pressure Delta Sensor
+UtahWaterDPSensor: UtahWaterDPPoint & SensorPoint <abstract>{
+
+    }
+
+// Water Pressure Delta Setpoint
+UtahWaterDPSp: UtahWaterDPPoint & SpPoint <abstract>{
+
+    }
+
+////////////////////////////////////////////////////
+// Water Mass
+////////////////////////////////////////////////////
+
+// Water Mass for flow points
+UtahWaterMassFlow: Water & Flow <abstract>{
+    massFlow
+}
+
+// Water Mass for flow point
+UtahWaterMassFlowPoint: UtahWaterMassFlow & NumberPoint <abstract>{
+    unit: Unit <quantity:"massFlow"> "lb/min"
+
+}
+
+// Water Mass for flow sensor
+UtahWaterMassFlowSensor: UtahWaterMassFlowPoint & SensorPoint <abstract>{
+}
+
+////////////////////////////////////////////////////
+// Water Volume
+////////////////////////////////////////////////////
+
+// Water Volume
+UtahWaterVolume: Water & Volume <abstract>{
+
+    }
+
+
+// Water Volume point
+UtahWaterVolumePoint: UtahWaterVolume & NumberPoint <abstract>{
+    unit: Unit <quantity:"volume"> "gal"
+}
+
+// Water Volume sensor
+UtahWaterVolumeSensor: UtahWaterVolumePoint & SensorPoint <abstract>{
+
+}
+
+////////////////////////////////////////////////////
+// Water Temp
+////////////////////////////////////////////////////
+
+// Water Temp
+UtahWaterTemp: ph::Water & ph::Temp <abstract>{
+
+    }
+
+// Water Temperature Point
+UtahWaterTempPoint: NumberPoint & UtahWaterTemp <abstract>{
+    unit: Unit <quantity:"temperature"> "°F"
+    }
+
+// Water Temperature Sensor
+UtahWaterTempSensor: UtahWaterTempPoint & SensorPoint <abstract>{
+
+    }
+
+// Water Temperature Setpoint
+UtahWaterTempSp: UtahWaterTempPoint & SpPoint <abstract>{
+
+    }
+
+// Water Temperatures
+// Water Temperature entering a device
+UtahWaterTempEntering: UtahWaterTempSensor <abstract>{
+    entering
+    }
+
+// Water Temperature leaving a device
+UtahWaterTempLeaving: UtahWaterTempSensor <abstract>{
+    leaving
+    }
+
+// Water Temperature leaving a device setpoint
+UtahWaterTempLeavingSp: UtahWaterTempSp <abstract>{
+    leaving
+    }
+
+// Water Temperature Supply
+UtahWaterTempSupply: UtahWaterTempSensor <abstract>{
+    supply
+    }
+
+// Water Temperature Supply
+UtahWaterTempSupplySp: UtahWaterTempSp <abstract>{
+    supply
+    }
+
+// Water Temperature Supply
+UtahWaterTempReturn: UtahWaterTempSensor <abstract>{
+    return
+    }
+
+////////////////////////////////////////////////////
+// Water Power
+////////////////////////////////////////////////////
+
+// Water Power
+UtahWaterPower: Water & Power <abstract>{
+//    unit: "kW"  //  Move to end point.  Cannot override mid tree
+    }
+
+// Water Power Sensor Point
+UtahWaterPowerSensor: UtahWaterPower & SensorPoint <abstract>{
+  unit: Unit <quantity:"power"> "kW"
+    }
+
+////////////////////////////////////////////////////
+// Water Energy
+////////////////////////////////////////////////////
+
+// Water Energy
+UtahWaterEnergy: Water & Energy <abstract>{
+//    unit: "MMbtu"  //  Move to end point.  Cannot override mid tree
+    }
+
+// Water Energy Sensor Point
+UtahWaterEnergySensor: UtahWaterEnergy & SensorPoint <abstract>{
+
+    }
+
+////////////////////////////////////////////////////
+// Shared Chilled Water Points
+////////////////////////////////////////////////////
+
+// Concrete chilled water points live here so equipment libs inherit one spec.
+
+// Chilled water isolation valve command
+UtahChWIsoVlvCmd: ChilledWater & UtahIsoValveCmd & UtahHisCov {
+  navName: "ChWIsoVlvCmd"
+}
+
+// Chilled water circulation pump command
+UtahChWCPCmd: ChilledWater & UtahCPCmd & UtahHisCov {
+  navName: "ChWCPCmd"
+}
+
+// Chilled water circulation pump command status
+UtahChWCPCmdSts: ChilledWater & UtahCPCmdSts & UtahHisCov {
+  navName: "ChWCPCmdSts"
+}
+
+// Chilled water flow
+UtahChWFlow: ChilledWater & UtahWaterFlowSensor & UtahHisSampledMajorEquip {
+  navName: "ChWFlow"
+}
+
+////////////////////////////////////////////////////
+// Shared Hot Water Points
+////////////////////////////////////////////////////
+
+// Concrete hot water points live here so equipment libs inherit one spec.
+
+// Hot water isolation valve command
+UtahHWIsoVlvCmd: HotWater & UtahIsoValveCmd & UtahHisCov {
+  navName: "HWIsoVlvCmd"
+}
+
+// Hot water isolation valve position
+UtahHWIsoVlvPos: HotWater & UtahIsoValvePos & UtahHisSampledMajorEquip {
+  isolation
+  navName: "HWIsoVlvPos"
+}
+
+// Hot water circulation pump command
+UtahHWCPCmd: HotWater & UtahCPCmd & UtahHisCov {
+  navName: "HWCPCmd"
+}
+
+// Hot water circulation pump speed
+UtahHWCPSpeed: HotWater & UtahCPSpd & UtahHisCov {
+  navName: "HWCPSpeed"
+}
+
+// Hot water energy
+UtahHWEnergy: HotWater & UtahWaterEnergySensor & UtahHisConsumptionMajorEquip {
+  navName: "HWEnergy"
+  unit: Unit <quantity:"energy"> "MMBTU"
+}
+
+// Hot water power
+UtahHWPower: HotWater & UtahWaterPowerSensor & UtahHisSampledMajorEquip {
+  navName: "HWPower"
+  unit: Unit <quantity:"power"> "MMBTU/h"
+}

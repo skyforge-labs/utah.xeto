@@ -18,3 +18,39 @@ UtahEFDamperPos: UtahExhaust & UtahDamperPos & UtahHisSampledDefault {
 UtahEFDamperPosSts: UtahExhaust & UtahDamperPosSts & UtahHisSampledDefault {
     navName: "EFDmprPosSts"
 }
+
+UtahRFDamperCmd: UtahRelief & UtahDamperCmd & UtahHisCov {
+  navName: "RFDmprCmd"
+}
+
+UtahRFDamperPos: UtahRelief & UtahDamperPos & UtahHisSampledDefault {
+  navName: "RFDmprPos"
+}
+
+UtahRFDamperPosSts: UtahRelief & UtahDamperPosSts & UtahHisSampledDefault {
+  navName: "RFDmprPosSts"
+}
+
+UtahSFDamperCmd: UtahSupply & UtahDamperCmd & UtahHisCov {
+  navName: "SFDmprCmd"
+}
+
+UtahSFDamperPos: UtahSupply & UtahDamperPos & UtahHisSampledDefault {
+  navName: "SFDmprPos"
+}
+
+UtahSFDamperPosSts: UtahSupply & UtahDamperPosSts & UtahHisSampledDefault {
+  navName: "SFDmprPosSts"
+}
+
+UtahTFDamperCmd: UtahTransfer & UtahDamperCmd & UtahHisCov {
+  navName: "TFDmprCmd"
+}
+
+UtahTFDamperPos: UtahTransfer & UtahDamperPos & UtahHisSampledDefault {
+  navName: "TFDmprPos"
+}
+
+UtahTFDamperPosSts: UtahTransfer & UtahDamperPosSts & UtahHisSampledDefault {
+  navName: "TFDmprPosSts"
+}

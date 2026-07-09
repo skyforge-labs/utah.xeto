@@ -1,0 +1,46 @@
+//
+// Copyright (c) 2025, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   15 Dec 2025   James Gessel   Creation
+//
+//Developer License – Not for production use –More Info
+
+// Utah Abstract Occupancy/Occupied points
+
+//  Occupancy Schedule Command Bool
+// Occupied/Unoccupied
+UtahOccupiedCmdPoint:  UtahOccupied & BoolPoint & RunCmd <abstract>{
+    occupied
+}
+
+//  Occupancy Schedule Command Enum
+// String value of mode: Occupied, Unoccupied, Standby, Bypass
+UtahOccupiedModePoint:  UtahOccupied & EnumPoint & CmdPoint <abstract>{
+    run
+    kind: "Str"
+    }
+
+// Occupancy Sensor - Physical occupants detected in space
+// Occupied/Unoccupied
+UtahOccupiedSensorPoint:  UtahOccupied & BoolPoint & SensorPoint <abstract>{
+    occupied
+}
+
+/////////////////////////////////////////
+//  Zone occupancy (shared terminals)
+/////////////////////////////////////////
+
+UtahZoneOccupiedCmd: UtahZone & UtahOccupiedCmdPoint & UtahHisCov {
+    navName: "OccCmd"
+}
+
+UtahZoneOccupiedMode: UtahZone & UtahOccupiedModePoint & UtahHisCov {
+    navName: "OccMode"
+    enum: Str? "Occupied,Unoccupied,Standby,Bypass"
+}
+
+UtahZoneOccupiedSensor: UtahZone & UtahOccupiedSensorPoint & UtahHisCov {
+    navName: "SpaceOccupied"
+}

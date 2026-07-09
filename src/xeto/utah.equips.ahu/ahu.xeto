@@ -10,24 +10,21 @@
 
 UtahAhu: Ahu {
 
-  ahuRef: Ref?
-  hvacRef: Ref?
-  rtuRef: Ref?
   hotWaterPlantRef: Ref?
   chilledWaterPlantRef: Ref?
-  navName: Str
-  airRef: MultiRef?<of: Ahu>
   siteRef: Ref<of: Site>
   points: {
+
     // General Points
-    occCmd: UtahOccupiedCmdPoint?
-    occMode: UtahOccupiedModePoint?
+    occCmd: UtahOccCmd?
+    occMode: UtahOccMode?
     bldgPress: UtahBldgPress?
     bldgPressSp: UtahBldgPressSp?
     frzStat: UtahFrzStat?
     fireAlrmShutdwn: UtahFireAlrmShutdwn?
     killSwitch: UtahKillSwitch?
     wtrAlrm: UtahWtrAlrm?
+
     // Filter Points
     filterAlrm: UtahFilterAlrm?
     filterSts: UtahFilterSts?
@@ -47,6 +44,7 @@ UtahAhu: Ahu {
     occHeatSp: UtahOccHeatSp?
     unoccCoolSp: UtahUnoccCoolSp?
     unoccHeatSp: UtahUnoccHeatSp?
+
     // Discharge Air Points
     daFanCmd: UtahDaFanCmd?
     daFanCmdSts: UtahDaFanCmdSts?
@@ -54,6 +52,7 @@ UtahAhu: Ahu {
     daFanSpd: UtahDaFanSpd?
     daFanFreq: UtahDaFanFreq?
     daFlow: UtahDaFlow?
+    daFlowSp: UtahDaFlowSp?
     daHum: UtahDaHum?
     daHumLmtHi: UtahDaHumLmtHi?
     daHumLmtLow: UtahDaHumLmtLow?
@@ -64,29 +63,16 @@ UtahAhu: Ahu {
     daTempSp: UtahDaTempSp?
     daTempEffSp: UtahDaTempEffSp?
     daTempHiLmt: UtahDaTempHiLmt?
-    // Dual-Duct Points
-    cdDaTemp: UtahCDDaTemp?
-    cdDaTempSp: UtahCDDaTempSp?
-    cdDaFlow: UtahCDDaFlow?
-    cdDaFlowSp: UtahCDDaFlowSp?
-    cdDmprPos: UtahCDDmprPos?
-    cdDmprCmd: UtahCDDmprCmd?
-    cdPress: UtahCDDaPress?
-    cdPressSp: UtahCDDaPressSp?
-    hdDaTemp: UtahHDDaTemp?
-    hdDaTempSp: UtahHDDaTempSp?
-    hdHum: UtahHDDaHum?
-    hdDmprPos: UtahHDDmprPos?
-    hdPress: UtahHDDaPress?
-    hdPressSp: UtahHDDaPressSp?
-    hdFlow: UtahHDDaFlow?
-    hdFlowSp: UtahHDDaFlowSp?
+    daTempSpMin: UtahDaTempSpMin?
+    daTempSpMax: UtahDaTempSpMax?
+
     // Return Air Points
     raTemp: UtahRaTemp?
     raHum: UtahRaHum?
     raHumSp: UtahRaHumidifySp?
     raDehumidifyHsp: UtahRaDehumidifySp?
     raDmprPos: UtahRaDmprPos?
+    raDmprPosSts: UtahRaDmprPosSts?
     raFanCmd: UtahRaFanCmd?
     raFanCmdSts: UtahRaFanCmdSts?
     raFanAlrm: UtahRaFanAlrm?
@@ -97,27 +83,41 @@ UtahAhu: Ahu {
     raPressSp: UtahRaPressSp?
     raPressAlrmHi: UtahRaPressAlrmHi?
     raTempSp: UtahRaTempSp?
+
     // Relief/Exhaust Air Points
     rlfFanCmd: UtahRlfFanCmd?
     rlfFanCmdSts: UtahRlfFanCmdSts?
     rlfFanSpd: UtahRlfFanSpd?
-     oaTemp: UtahOaTemp?
-//    oaTempSp: UtahOaTempSp?  // PQ Commented out. How would this be used?
+    rlfFanSpdSts: UtahRlfFanSpdSts?
+    rlfDmprCmd: UtahRlfDmprCmd?
+    rlfDmprCmdSts: UtahRlfDmprCmdSts?
+    rlfDmprPos: UtahRlfDmprPos?
+    rlfDmprPosSts: UtahRlfDmprPosSts?
+    rlfAirFlow: UtahRlfAirFlow?
+    rlfAirFlowSp: UtahRlfAirFlowSp?
+
+    oaTemp: UtahOaTemp
     oaHum: UtahOaHum?
     oaDmprPos: UtahOaDmprPos?
+    oaDmprPosSts: UtahOaDmprPosSts?
     oaDmprCmd: UtahOaDmprCmd?
+    oaDmprCmdSts: UtahOaDmprCmdSts?
     oaMinDmprPos: UtahOaMinDmprPos?
     oaFlow: UtahOaFlow?
     oaFlowSp: UtahOaFlowSp?
     oaPress: UtahOaPress?
     oaPressSp: UtahOaPressSp?
+
     // Mixed Air Points
     maTemp: UtahMaTemp?
     maDmprPos: UtahMaDmprPos?
     maFlow: UtahMaFlow?
     maHum: UtahMaHum?
+
     // Hot Water Heating Points
     hwcCmd: UtahHWCPCmd?
+    hwcSpeed: UtahHWCPSpeed?
+    
     hwcPts: UtahHWCPSts?
     hwIsoVlvCmd: UtahHWIsoVlvCmd?
     hwIsoVlvPos: UtahHWIsoVlvPos?
@@ -127,20 +127,27 @@ UtahAhu: Ahu {
     hwcaeTemp: UtahHWCAETemp?
     hwcwlTemp: UtahHWCWLTemp?
     hwcweTemp: UtahHWCWETemp?
+    htgCmd: UtahHtgCmd?
+
     // Chilled Water Points
     chwCPCmdSts: UtahChWCPCmdSts?
     chwCPCmd: UtahChWCPCmd?
-    cwIsoVlvCmd: UtahChWIsoVlvCmd?
-    cwVlvPos: UtahChWVlvPos?
-    cwVlvPosSts: UtahChWVlvPosSts?
+    chwIsoVlvCmd: UtahChWIsoVlvCmd?
+    chwVlvPos: UtahChWVlvPos?
+    chwVlvPosSts: UtahChWVlvPosSts?
     ccwlTemp: UtahChWCWLTemp?
     ccweTemp: UtahChWCWETemp?
     ccalHum: UtahChWCALHum?
     ccwFlow: UtahChWFlow?
+    clgCmd: UtahClgCmd?
+
     // Cooling Coil Air Points
     ccfbdCmd: UtahCoolingBypDmprCmd?
+    ccfbdCmdSts: UtahCoolingBypDmprCmdSts?
     ccfbdPos: UtahCoolingBypDmprPos?
+    ccfbdPosSts: UtahCoolingBypDmprPosSts?
     ccfbdTemp: UtahCoolingBypDaTemp?
+    ccBypFanCmd: UtahCoolingBypFanCmd?
     ccalTemp: UtahChWCALTemp?
     ccstageSts: UtahDxClgStageCmdSts?
     ccstageCmd: UtahDxClgStageCmd?
@@ -148,15 +155,18 @@ UtahAhu: Ahu {
     // Economizer Points
     econMode: UtahEconModeEnum?
 //    econModeStr: UtahEconModeStr?  // No String data type?
+
     // Humidifier Points
     humidifierEnable: UtahHumidifierEnable?
-    humidifySp: UtahAirHumidifySp?
+    humidifySp: UtahHumidSp?
     humidifierCmd: UtahHumidifierCmd?
     humidifierStmVlv: UtahHumidifierStmVlvCmd?
     humidifierFanSpd: UtahHumidifierFanSpd?
+
     // Dehumidifier Points
     dehumidifyMode: UtahDehumidifyMode?
-    dehumidifySp: UtahAirDehumidifySp?
+    dehumidifySp: UtahDehumidSp?
+
     // Heat Recovery Water Points
     hrwetTemp: UtahHRCWETemp?
     hrwltTemp: UtahHRCWLTemp?
@@ -169,3 +179,21 @@ UtahAhu: Ahu {
   }
 }
 
+AhuSingleZone: UtahAhu {
+  directZone
+  singleDuct
+
+  points: {
+    // Single-zone AHUs serve the zone directly, so require the core zone sensor.
+    spcTemp: UtahZoneTemp
+    spcTempSp: UtahZoneTempSp
+    coolEffSp: UtahZoneTempSpEffClg?
+    heatEffSp: UtahZoneTempSpEffHtg?
+
+    spcHum: UtahSpcHum?
+    spcCO2: UtahSpcCO2?
+    spcCO2Sp: UtahSpcCO2Sp?
+    spcPress: UtahSpcPress? 
+    spcPressSp: UtahSpcPressSp?
+  }
+}

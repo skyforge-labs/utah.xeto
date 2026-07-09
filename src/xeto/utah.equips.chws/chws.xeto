@@ -5,9 +5,10 @@
 // History:
 //   07 Jan 2026   Paul Quinn   Creation
 //
-// Abstract Base CHWS with all possible points (optional)
+// Shared CHWS base with all possible points optional.
+// Plant variants below tighten loop-specific requirements.
 
-UtahCHWS: ChilledWaterPlant <abstract> {
+UtahCHWS: ChilledWaterPlant {
 
   coolingTowerRef: Ref?
   chilledWaterPlantRef: Ref?
@@ -21,10 +22,12 @@ UtahCHWS: ChilledWaterPlant <abstract> {
     priChWRetTemp:   UtahPriChWRetTemp?
     priChWSupTemp:   UtahPriChWSupTemp?
     priChWSupTempSp: UtahPriChWSupTempSp?
+    priChWFlow:      UtahPriChWFlow?
     
-    secChWRetTemp: UtahSecChWRetTemp?
-    secChWSupTemp: UtahSecChWSupTemp?
+    secChWRetTemp: UtahSecChWRetTemp
+    secChWSupTemp: UtahSecChWSupTemp
     secChWSupTempSp: UtahSecChWSupTempSp?
+    secChWFlow:      UtahSecChWFlow?
     
     // Primary/Secondary Chilled Water Flow Points
     priChWVol: UtahPriChWVol?
@@ -84,5 +87,23 @@ UtahCHWS: ChilledWaterPlant <abstract> {
     HxChWCPCmdSts: UtahHxChWCPCmdSts?
     HxCWCPCmd:     UtahHxCWCPCmd?
     HxCWCPCmdSts:  UtahHxCWCPCmdSts?
+  }
+}
+
+// Primary-only chilled water plants require the primary loop sensors.
+UtahCHWSPrimaryOnly: UtahCHWS {
+  points: {
+    priChWRetTemp: UtahPriChWRetTemp
+    priChWSupTemp: UtahPriChWSupTemp
+  }
+}
+
+// Primary-secondary chilled water plants require both plant loop sensors.
+UtahCHWSPrimarySecondary: UtahCHWS {
+  points: {
+    priChWRetTemp: UtahPriChWRetTemp
+    priChWSupTemp: UtahPriChWSupTemp
+    secChWRetTemp: UtahSecChWRetTemp
+    secChWSupTemp: UtahSecChWSupTemp
   }
 }

@@ -1,0 +1,44 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   09 Jul 2026   SkyForge   Creation
+//
+// Shared zone terminal-unit bases. Concrete types (VAV, FCU, HP terminal)
+// mixin/inherit these so point keys stay aligned.
+
+// Zone terminal without its own fan (e.g. pressure-dependent VAV).
+UtahTerminalUnit: AirTerminalUnit & UtahEquip <abstract> {
+  terminalUnit
+
+  points: {
+    occ: UtahZoneOccupiedSensor?
+    occCmd: UtahZoneOccupiedCmd?
+    occMode: UtahZoneOccupiedMode?
+
+    spcTemp: UtahZoneTemp
+    spcTempSp: UtahZoneTempSpEff?
+    coolEffSp: UtahZoneTempSpEffClg?
+    heatEffSp: UtahZoneTempSpEffHtg?
+
+    daTemp: UtahZoneDaTemp?
+    daFlow: UtahZoneDaFlow?
+    daFlowSp: UtahZoneDaFlowSp?
+
+    spcHum: UtahZoneAirHumiditySensor?
+  }
+}
+
+// Zone terminal with discharge fan (FCU, WSHP, fan-powered VAV, VRF indoor).
+UtahTerminalUnitFanPowered: UtahTerminalUnit <abstract> {
+  fanPowered
+
+  points: {
+    fanCmd: UtahZoneFanCmd?
+    fanModeCmd: UtahZoneFanModeCmd?
+    fanSpd: UtahZoneFanSpd?
+    fanSts: UtahZoneFanCmdSts?
+    fanSpdSts: UtahZoneFanSpdSts?
+  }
+}

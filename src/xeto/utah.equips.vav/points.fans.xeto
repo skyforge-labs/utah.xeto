@@ -4,16 +4,10 @@
 //
 // History:
 //   24 Nov 2025   James Gessel   Creation
+//   09 Jul 2026   SkyForge   Shared zone fan cmd/mode/spd moved to utah/points.fans.xeto
 //
-// Zone Fan points
-
-UtahZoneFanCmd: UtahZone & UtahFanCmd & UtahHisCov {
-    navName: "FanCmd"
-}
-
-UtahZoneFanModeCmd: UtahZone & UtahFanModeCmd & UtahHisCov {
-    navName: "FanSpd"
-}
+// Zone Fan points — VAV fan-powered stage cmds only.
+// UtahZoneFanCmd / FanModeCmd / FanSpd / FanSts live in utah (shared terminals).
 
 UtahFanSpdHighCmd: UtahZone & UtahFanCmd & UtahHisCov {
     high

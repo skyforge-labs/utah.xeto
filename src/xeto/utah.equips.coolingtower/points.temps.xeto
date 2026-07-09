@@ -12,11 +12,11 @@
 //////////////////////////////////////////////////////////////////////////
 
 // Condenser water entering temperature
-UtahCTCWETemp: UtahCoolingTower & UtahCW & UtahWaterTempEntering & UtahHisSampledMajorEquip {
+UtahCTCWETemp: UtahClgTower & UtahCW & UtahWaterTempEntering & UtahHisSampledMajorEquip {
   navName: "CTCWETemp"
 }
 
 // Condenser water leaving temperature
-UtahCTCWLTemp: UtahCoolingTower & UtahCW & UtahWaterTempLeaving & UtahHisSampledMajorEquip {
+UtahCTCWLTemp: UtahClgTower & UtahCW & UtahWaterTempLeaving & UtahHisSampledMajorEquip {
   navName: "CTCWLTemp"
 }

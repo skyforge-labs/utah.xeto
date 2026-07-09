@@ -22,7 +22,8 @@ UtahOccMode: UtahOccupiedModePoint & UtahHisCov {
 }
 
 // Building pressure sensor for pressurization control
-UtahBldgPress: UtahBuilding & UtahAirPressurePoint & UtahHisSampledMajorEquip {
+UtahBldgPress: UtahBuilding & UtahAirPressureSensor & UtahHisSampledMajorEquip {
+  val: Number?
   navName: "BldgPress"
 }
 

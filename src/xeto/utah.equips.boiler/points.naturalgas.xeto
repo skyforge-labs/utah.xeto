@@ -11,25 +11,25 @@
 //////////////////////////////////////////////////////////////////////////
 
 // Boiler Natural Flow
-UtahBlrNatGasFlow: UtahBoiler & UtahNatGasFlowSensor & UtahHisSampledMajorEquip {
+UtahBlrNatGasFlow: UtahBlr & UtahNatGasFlowSensor & UtahHisSampledMajorEquip {
   navName: "BlrNatGasPower"
 //  unit: "ccf/h"  // Could not find a standard unit Ccf/h
 }
 
 // Boiler Natural Volume
-UtahBlrNatGasVolume: UtahBoiler & UtahNatGasVolumeSensor & UtahHisConsumptionMajorEquip {
+UtahBlrNatGasVolume: UtahBlr & UtahNatGasVolumeSensor & UtahHisConsumptionMajorEquip {
   navName: "BlrNatGasPower"
-  unit: "Ccf"
+  unit: Unit <quantity:"volume"> "Ccf"
 }
 
 // Boiler Natural Gas Energy
-UtahBlrNatGasEnergy: UtahBoiler & UtahNatGasEnergySensor & UtahHisConsumptionMajorEquip {
+UtahBlrNatGasEnergy: UtahBlr & UtahNatGasEnergySensor & UtahHisConsumptionMajorEquip {
   navName: "BlrNatGasEnergy"
-  unit: "MMBTU"
+  unit: Unit <quantity:"energy"> "MMBTU"
 }
 
 // Boiler Natural Gas Power
-UtahBlrNatGasPower: UtahBoiler & UtahNatGasPowerSensor & UtahHisSampledMajorEquip {
+UtahBlrNatGasPower: UtahBlr & UtahNatGasPowerSensor & UtahHisSampledMajorEquip {
   navName: "BlrNatGasPower"
-  unit: "MMBTU/h"
+  unit: Unit <quantity:"power"> "MMBTU/h"
 }

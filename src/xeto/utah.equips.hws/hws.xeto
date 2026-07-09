@@ -5,28 +5,32 @@
 // History:
 //   09 Jan 2026   Paul Quinn   Creation
 //
-// Abstract Base HWS with all possible points (optional)
+// Shared HWS base with all possible points optional.
+// Plant variants below tighten loop-specific requirements.
 
-UtahHWS: HotWaterPlant <abstract> {
-
-  coolingTowerRef: Ref?
-  chilledWaterPlantRef: Ref?
+UtahHWS: HotWaterPlant {
 
   points: {
     // General Points
     hwMkupWVlvCmd: UtahHWMkupWVlvCmd?
+    hwBypVlvPos: UtahHWBypVlvPos?
+    hwBypVlvPosSts: UtahHWBypVlvPosSts?
     bldgHWVlvosMax: UtahBldgHWVlvPosMax?
 
-    // Primary/Secondary Chilled Water Points
+    // Primary/Secondary Hot Water Points
     priHWRetTemp:   UtahPriHWRetTemp?
     priHWSupTemp:   UtahPriHWSupTemp?
     priHWSupTempSp: UtahPriHWSupTempSp?
+    priHWFlow:      UtahPriHWFlow?
 
-    secHWRetTemp: UtahSecHWRetTemp?
-    secHWSupTemp: UtahSecHWSupTemp?
+    secHWRetTemp: UtahSecHWRetTemp
+    secHWSupTemp: UtahSecHWSupTemp
     secHWSupTempSp: UtahSecHWSupTempSp?
+    secHWFlow:    UtahSecHWFlow?
+    hwTankTemp:   UtahHWTankTemp?
+    hwTankTempSp: UtahHWTankTempSp?
 
-    // Primary/Secondary Chilled Water Flow Points
+    // Primary/Secondary Hot Water Flow Points
     priHWVol: UtahPriHWVol?
     secHWVol: UtahSecHWVol?
 
@@ -79,5 +83,23 @@ UtahHWS: HotWaterPlant <abstract> {
     hxStmHWCPCmd:    UtahHxStmHWCPCmd?
 
     hxStmHWCPCmdSts:    UtahHxStmHWCPCmdSts?
+  }
+}
+
+// Primary-only hot water plants require the primary loop sensors.
+UtahHWSPrimaryOnly: UtahHWS {
+  points: {
+    priHWRetTemp: UtahPriHWRetTemp
+    priHWSupTemp: UtahPriHWSupTemp
+  }
+}
+
+// Primary-secondary hot water plants require both plant loop sensors.
+UtahHWSPrimarySecondary: UtahHWS {
+  points: {
+    priHWRetTemp: UtahPriHWRetTemp
+    priHWSupTemp: UtahPriHWSupTemp
+    secHWRetTemp: UtahSecHWRetTemp
+    secHWSupTemp: UtahSecHWSupTemp
   }
 }

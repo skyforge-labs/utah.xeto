@@ -114,22 +114,6 @@ UtahSecHWDPSp: HotWater & UtahSecondary & UtahWaterDPSp & UtahHisSampledMajorEqu
 }
 
 //////////////////////////////////////////////////////////////////////////
-// hot Water Energy and Power Points
-//////////////////////////////////////////////////////////////////////////
-
-// Hot Water Energy
-UtahHWEnergy: HotWater & UtahWaterEnergySensor & UtahHisConsumptionMajorEquip {
-  navName: "HWEnergy"
-  unit: "MMBTU"
-}
-
-// Hot Water Power
-UtahHWPower: HotWater & UtahWaterPowerSensor & UtahHisSampledMajorEquip {
-  navName: "HWPower"
-  unit: "MMBTU/h"
-}
-
-//////////////////////////////////////////////////////////////////////////
 // hot Water Tank Points
 //////////////////////////////////////////////////////////////////////////
 

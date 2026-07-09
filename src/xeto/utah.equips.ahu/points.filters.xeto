@@ -21,11 +21,6 @@ UtahFilterSts: UtahAirFilter & BoolPoint & RunSensor & UtahHisCov {
   navName: "FilterSts"
 }
 
-// Overall filter differential pressure
-UtahFilterDP: UtahAirFilter & UtahAirDiffPressurePoint & SensorPoint & UtahHisSampledMajorEquip {
-  navName: "FilterDP"
-}
-
 // Pre-filter differential pressure
 UtahPreFilterDP: UtahAirFilter & UtahAirDiffPressurePoint & SensorPoint & UtahHisSampledMajorEquip {
   preliminary

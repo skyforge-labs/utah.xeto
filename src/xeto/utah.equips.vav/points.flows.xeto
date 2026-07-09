@@ -4,23 +4,14 @@
 //
 // History:
 //   24 Nov 2025   James Gessel   Creation
+//   09 Jul 2026   SkyForge   UtahZoneDaFlow / DaFlowSp moved to utah/points.air.xeto
 //
-// VAV Flows
+// VAV Flows — VAV-specific min/max and mode flow SPs.
+// Core UtahZoneDaFlow / UtahZoneDaFlowSp live in utah (shared terminals).
 
 ///////////////////////////////////////////
-// General Air Flow points
+// General Air Flow setpoints (VAV range)
 ///////////////////////////////////////////
-
-UtahZoneDaFlow: UtahZone & UtahDischarge & UtahAirFlowSensor & UtahHisSampledDefault {
-    navName: "DaFlow"
-    color: Str? "purple"
-}
-
-UtahZoneDaFlowSp: UtahZone & UtahDischarge & UtahAirFlowSp & UtahHisSampledDefault {
-    navName: "DaFlowSp"
-    color: Str? "green"
-    strokeDasharray: Str? "2,2"
-}
 
 UtahZoneDaFlowSpCov: UtahZone & UtahDischarge & UtahAirFlowSp & UtahHisCov {
     navName: "DaFlowSp"

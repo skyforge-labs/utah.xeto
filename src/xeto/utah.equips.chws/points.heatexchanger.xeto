@@ -12,17 +12,17 @@
 //////////////////////////////////////////////////////////////////////////
 
 // Heat Exchanger Enabled
-UtahHxChWEnab: UtahHeatExchangerChW & ChilledWater & EnableCmd & UtahHisCov {
+UtahHxChWEnab: UtahHxChW & ChilledWater & EnableCmd & UtahHisCov {
   navName: "HxChWEnab"
 }
 
 // Heat Exchanger Cmd
-UtahHxChWCmd: UtahHeatExchangerChW & ChilledWater & RunCmd & UtahHisCov {
+UtahHxChWCmd: UtahHxChW & ChilledWater & RunCmd & UtahHisCov {
   navName: "HxChWCmd"
 }
 
 // Heat Exchanger Runtime hours
-UtahHxChWHours: UtahHeatExchangerChW & ChilledWater & UtahHoursSensor & UtahHisCov {
+UtahHxChWHours: UtahHxChW & ChilledWater & UtahHoursSensor & UtahHisCov {
   navName: "HxChWHours"
 //  unit: "_hours"  // What is the format for non-standard UoM?
 }
@@ -32,17 +32,17 @@ UtahHxChWHours: UtahHeatExchangerChW & ChilledWater & UtahHoursSensor & UtahHisC
 //////////////////////////////////////////////////////////////////////////
 
 // Condensor water return temperature
-UtahPriCWRetTemp: UtahHeatExchangerChW & CondenserWater & UtahPrimary & UtahWaterTempReturn & UtahHisSampledMajorEquip {
+UtahPriCWRetTemp: UtahHxChW & CondenserWater & UtahPrimary & UtahWaterTempReturn & UtahHisSampledMajorEquip {
   navName: "PriCWRetTemp"
 }
 
 // Condenser water supply temperature
-UtahPriCWSupTemp: UtahHeatExchangerChW & CondenserWater & UtahPrimary & UtahWaterTempSupply & UtahHisSampledMajorEquip {
+UtahPriCWSupTemp: UtahHxChW & CondenserWater & UtahPrimary & UtahWaterTempSupply & UtahHisSampledMajorEquip {
   navName: "PriCWSupTemp"
 }
 
 // Condenser water supply temperature setpoint
-UtahPriCWSupTempSp: UtahHeatExchangerChW & CondenserWater & UtahPrimary & UtahWaterTempSupplySp & UtahHisSampledMajorEquip {
+UtahPriCWSupTempSp: UtahHxChW & CondenserWater & UtahPrimary & UtahWaterTempSupplySp & UtahHisSampledMajorEquip {
   navName: "PriCWSupTempSp"
 }
 //////////////////////////////////////////////////////////////////////////
@@ -50,17 +50,17 @@ UtahPriCWSupTempSp: UtahHeatExchangerChW & CondenserWater & UtahPrimary & UtahWa
 //////////////////////////////////////////////////////////////////////////
 
 // Chilled water return temperature
-UtahHxChWRetTemp: UtahHeatExchangerChW & ChilledWater & UtahWaterTempReturn & UtahHisSampledMajorEquip {
+UtahHxChWRetTemp: UtahHxChW & ChilledWater & UtahWaterTempReturn & UtahHisSampledMajorEquip {
   navName: "HxChWRetTemp"
 }
 
 // Chilled water supply temperature
-UtahHxChWSupTemp: UtahHeatExchangerChW & ChilledWater & UtahWaterTempSupply & UtahHisSampledMajorEquip {
+UtahHxChWSupTemp: UtahHxChW & ChilledWater & UtahWaterTempSupply & UtahHisSampledMajorEquip {
   navName: "HxChWSupTemp"
 }
 
 // Chilled water supply temperature setpoint
-UtahHxChWSupTempSp: UtahHeatExchangerChW & ChilledWater & UtahWaterTempSupplySp & UtahHisCov {
+UtahHxChWSupTempSp: UtahHxChW & ChilledWater & UtahWaterTempSupplySp & UtahHisCov {
   navName: "HxChWSupTempSp"
 }
 
@@ -69,12 +69,12 @@ UtahHxChWSupTempSp: UtahHeatExchangerChW & ChilledWater & UtahWaterTempSupplySp 
 //////////////////////////////////////////////////////////////////////////
 
 //  Chilled water isolation valve command
-UtahHxChWIsoVlvCmd: UtahHeatExchangerChW & ChilledWater & UtahIsoValveCmd & UtahHisCov {
+UtahHxChWIsoVlvCmd: UtahHxChW & ChilledWater & UtahIsoValveCmd & UtahHisCov {
   navName: "HxChWIsoVlvCmd"
 }
 
 //  Condenser water isolation valve command
-UtahHxCWIsoVlvCmd: UtahHeatExchangerChW & CondenserWater & UtahIsoValveCmd & UtahHisCov {
+UtahHxCWIsoVlvCmd: UtahHxChW & CondenserWater & UtahIsoValveCmd & UtahHisCov {
   navName: "HxCWIsoVlvCmd"
 }
 //////////////////////////////////////////////////////////////////////////
@@ -82,21 +82,21 @@ UtahHxCWIsoVlvCmd: UtahHeatExchangerChW & CondenserWater & UtahIsoValveCmd & Uta
 //////////////////////////////////////////////////////////////////////////
 
 // Chilled water circulation pump command
-UtahHxChWCPCmd: UtahHeatExchangerChW & ChilledWater & UtahCPCmd & UtahHisCov {
+UtahHxChWCPCmd: UtahHxChW & ChilledWater & UtahCPCmd & UtahHisCov {
   navName: "HxChWCPCmd"
 }
 
 // Chilled water circulation pump command status
-UtahHxChWCPCmdSts: UtahHeatExchangerChW & ChilledWater & UtahCPCmdSts & UtahHisCov {
+UtahHxChWCPCmdSts: UtahHxChW & ChilledWater & UtahCPCmdSts & UtahHisCov {
   navName: "HxChWCPCmdSts"
 }
 
 // Condenser water circulation pump command
-UtahHxCWCPCmd: UtahHeatExchangerChW & CondenserWater & UtahCPCmd & UtahHisCov {
+UtahHxCWCPCmd: UtahHxChW & CondenserWater & UtahCPCmd & UtahHisCov {
   navName: "HxCWCPCmd"
 }
 
 // Condenser water circulation pump command status
-UtahHxCWCPCmdSts: UtahHeatExchangerChW & CondenserWater & UtahCPCmdSts & UtahHisCov {
+UtahHxCWCPCmdSts: UtahHxChW & CondenserWater & UtahCPCmdSts & UtahHisCov {
   navName: "HxCWCPCmdSts"
 }

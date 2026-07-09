@@ -11,17 +11,6 @@
 // Isolation Valve Points
 //////////////////////////////////////////////////////////////////////////
 
-//  Hot water isolation valve command
-UtahHWIsoVlvCmd: HotWater & UtahIsoValveCmd & UtahHisCov {
-  navName: "HWIsoVlvCmd"
-}
-
-// Hot water isolation valve position
-UtahHWIsoVlvPos: HotWater & UtahIsoValvePos & UtahHisSampledMajorEquip {
-  isolation
-  navName: "HWIsoVlvPos"
-}
-
 // Hot water isolation valve position status
 UtahHWIsoVlvPosSts: HotWater & UtahIsoValvePosSts & UtahHisCov {
   isolation
@@ -51,11 +40,6 @@ UtahHWLTempSp: HotWater & UtahWaterTempLeavingSp & UtahHisCov {
 // Pump Command Points
 //////////////////////////////////////////////////////////////////////////
 
-// Hot water circulation pump command
-UtahHWCPCmd: HotWater & UtahCPCmd & UtahHisCov {
-  navName: "HWCPCmd"
-}
-
 // Hot water circulation pump command status
 UtahHWCPCmdSts: HotWater & UtahCPCmdSts & UtahHisCov {
   navName: "HWCPCmdSts"
@@ -84,22 +68,14 @@ UtahHWVolume: HotWater & UtahWaterVolumeSensor & UtahHisSampledMajorEquip {
 //////////////////////////////////////////////////////////////////////////
 
 // Hot Water Diff Pressure
-UtahHWDP: HotWater & UtahWaterDP & UtahHisSampledMajorEquip {
+UtahHWDP: HotWater & UtahWaterDPSensor & UtahHisSampledMajorEquip {
   navName: "HWDP"
   unit: "psi"
 }
 
-//////////////////////////////////////////////////////////////////////////
-// Hot Water Energy and Power Points
-//////////////////////////////////////////////////////////////////////////
+// Hot Water Diff Pressure Setpoint
+UtahHWDPSp: HotWater & UtahWaterDPSp & UtahHisSampledMajorEquip {
+  navName: "HWDP"
+  unit: "psi"
+}
 
-// Hot Water Energy
-UtahHWEnergy: HotWater & UtahWaterEnergySensor & UtahHisConsumptionMajorEquip {
-  navName: "HWEnergy"
-  unit: "MMBTU"
-}
-// Hot Water Power
-UtahHWPower: HotWater & UtahWaterPowerSensor & UtahHisSampledMajorEquip {
-  navName: "HWPower"
-  unit: "MMBTU/h"
-}

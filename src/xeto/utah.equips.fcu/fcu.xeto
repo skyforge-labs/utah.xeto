@@ -4,22 +4,24 @@
 //
 // History:
 //   14 Jan 2026   Paul Quinn   Creation
+//   09 Jul 2026   SkyForge   Align terminal keys/specs (occ, zone DAT, fans)
 //
 // Abstract Base FCU with all possible points (optional)
 
-UtahFCU: Fcu <abstract> {
+UtahFCU: Fcu {
 
     chilledWaterPlantRef: Ref?
-    HotWaterPlantRef: Ref?
+    hotWaterPlantRef: Ref?
 
   points: {
-    //  Occupancy
+    // Occupancy (terminal convention)
+    occ: UtahZoneOccupiedSensor?
+    occCmd: UtahZoneOccupiedCmd?
     occMode: UtahZoneOccupiedMode?
 
-    // Temperature Points
-    spcTemp:    UtahZoneTemp?
-    spcTempSp:  UtahZoneTempSp?
-
+    // Zone temperature / setpoints
+    spcTemp:    UtahZoneTemp
+    spcTempSp:  UtahZoneTempSpEff?
     coolEffSp: UtahZoneTempSpEffClg?
     heatEffSp: UtahZoneTempSpEffHtg?
     occCoolSp: UtahOccCoolSp?
@@ -27,33 +29,42 @@ UtahFCU: Fcu <abstract> {
     unoccCoolSp: UtahUnoccCoolSp?
     unoccHeatSp: UtahUnoccHeatSp?
 
-  //  Discharge Air Points
-    DaFanCmd:     UtahDaFanCmd?
-    DaFanCmdSts:  UtahDaFanCmdSts?
-    DaFanAlrm:    UtahDaFanAlrm?
-    DaFanSpd:     UtahDaFanSpd?
-    DaFanSpdSts:     UtahDaFanSpdSts?
-    DaTemp:       UtahDaTemp?
-    DaTempSp:     UtahDaTempSp?
+    // Zone discharge air
+    daTemp:       UtahZoneDaTemp?
+    daTempSp:     UtahZoneDaTempSp?
+    daFlow:       UtahZoneDaFlow?
+    daFlowSp:     UtahZoneDaFlowSp?
+    spcHum:       UtahZoneAirHumiditySensor?
 
-  //  Chilled Water Points
-    ChWVlvPos:    UtahChWVlvPos?
-    ChWVlvPosSts: UtahChWVlvPosSts?
+    // Discharge fan (terminal convention)
+    fanCmd:     UtahZoneFanCmd
+    fanSts:     UtahZoneFanCmdSts?
+    fanModeCmd: UtahZoneFanModeCmd?
+    fanSpd:     UtahZoneFanSpd?
+    fanSpdSts:  UtahZoneFanSpdSts?
+    daFanAlrm:  UtahDaFanAlrm?
 
-  //  Hot Water Points
-    HWVlvPos:    UtahHWVlvPos?
-    HWVlvPosSts: UtahHWVlvPosSts?
+    // Chilled Water
+    chWVlvPos:    UtahChWVlvPos?
+    chWVlvPosSts: UtahChWVlvPosSts?
+    clgCmd: UtahClgCmd?
 
-  //  DX Cooling Stages
-    ClgStg1Cmd:      UtahDxClgStageCmd?
-    ClgStg1CmdSts:   UtahDxClgStageCmdSts?
-    ClgStg2Cmd:      UtahDxClgStageCmd?
-    ClgStg2CmdSts:   UtahDxClgStageCmdSts?
-    ClgStg3Cmd:      UtahDxClgStageCmd?
-    ClgStg3CmdSts:   UtahDxClgStageCmdSts?
-    ClgStg4Cmd:      UtahDxClgStageCmd?
-    ClgStg4CmdSts:   UtahDxClgStageCmdSts?
+    // Hot Water
+    hWVlvPos:    UtahHWVlvPos?
+    hWVlvPosSts: UtahHWVlvPosSts?
+    htgCmd: UtahHtgCmd?
 
+    // Filter
+    fltrDp: UtahFilterDP?
 
-    }
+    // DX Cooling Stages
+    clgStg1Cmd:      UtahDxClgStageCmd?
+    clgStg1CmdSts:   UtahDxClgStageCmdSts?
+    clgStg2Cmd:      UtahDxClgStageCmd?
+    clgStg2CmdSts:   UtahDxClgStageCmdSts?
+    clgStg3Cmd:      UtahDxClgStageCmd?
+    clgStg3CmdSts:   UtahDxClgStageCmdSts?
+    clgStg4Cmd:      UtahDxClgStageCmd?
+    clgStg4CmdSts:   UtahDxClgStageCmdSts?
+  }
 }

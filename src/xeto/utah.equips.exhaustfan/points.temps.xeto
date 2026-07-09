@@ -1,0 +1,50 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   21 Apr 2026   Paul Quinn   Creation
+//
+// Exhaust fan temperature enable/disable setpoints (hysteresis control)
+
+// Turn-on temperature setpoint — fan starts when space/duct temp crosses this (application-defined)
+UtahTempOnSp: UtahExhaust & UtahAirTempSp & UtahHisCov {
+  onsp
+  navName: "TempOnSp"
+}
+
+// Turn-off temperature setpoint — fan stops when temp crosses this (application-defined)
+UtahTempOffSp: UtahExhaust & UtahAirTempSp & UtahHisCov {
+  offsp
+  navName: "TempOffSp"
+}
+
+UtahRFTempOnSp: UtahRelief & UtahAirTempSp & UtahHisCov {
+  onsp
+  navName: "RFTempOnSp"
+}
+
+UtahRFTempOffSp: UtahRelief & UtahAirTempSp & UtahHisCov {
+  offsp
+  navName: "RFTempOffSp"
+}
+
+UtahSFTempOnSp: UtahSupply & UtahAirTempSp & UtahHisCov {
+  onsp
+  navName: "SFTempOnSp"
+}
+
+UtahSFTempOffSp: UtahSupply & UtahAirTempSp & UtahHisCov {
+  offsp
+  navName: "SFTempOffSp"
+}
+
+UtahTFTempOnSp: UtahTransfer & UtahAirTempSp & UtahHisCov {
+  onsp
+  navName: "TFTempOnSp"
+}
+
+UtahTFTempOffSp: UtahTransfer & UtahAirTempSp & UtahHisCov {
+  offsp
+  navName: "TFTempOffSp"
+}

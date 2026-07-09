@@ -11,15 +11,15 @@
 // Chiller Oil Temperatures
 //////////////////////////////////////////////////////////////////////////
 
-UtahChlrOilTemp: UtahChillerOil & Temp  & UtahHisSampledMajorEquip{
-  unit: "°F"
+UtahChlrOilTemp: UtahChlrOil & NumberPoint & SensorPoint & Temp & UtahHisSampledMajorEquip {
+  unit: Unit <quantity:"temperature"> "°F"
   navName: "ChlrOilTemp"
 }
 
-UtahChlrOilHeatCmd: UtahChillerOil & HeatCmd & CmdPoint & UtahHisCov {
+UtahChlrOilHeatCmd: UtahChlrOil & HeatCmd & CmdPoint & UtahHisCov {
   navName: "ChlrOilHeatCmd"
 }
 
-UtahChlrOilHeatCmdSts: UtahChillerOil & HeatCmd & SensorPoint & UtahHisCov {
+UtahChlrOilHeatCmdSts: UtahChlrOil & HeatCmd & SensorPoint & UtahHisCov {
   navName: "ChlrOilHeatCmdSts"
 }

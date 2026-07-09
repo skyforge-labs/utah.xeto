@@ -7,25 +7,29 @@
 //
 // Abstract Base Exhaust with all possible points (optional)
 
-UtahExhFan: UtahExhaustFan <abstract> {
-
+UtahExhaustFan: UtahEquip & UtahExhaust & UtahFan {
+  
   points: {
 
   //  Exhaust Air Points
-    EFEnab:       UtahEFEnab?
-    EFFanCmd:     UtahEFanCmd?
-    EFFanCmdSts:  UtahEFanCmdSts?
-    EFFanSpd:     UtahEFanSpd?
-    EFFanSpdSts:  UtahEFanSpdSts?
-    EFFanPower:   UtahEFanPower?
-    EFFanEnergy:  UtahEFanEnergy?
+    fanEnab:    UtahEFEnab?
+    fanCmd:     UtahEFanCmd
+    fanCmdSts:  UtahEFanCmdSts?
+    fanSpd:     UtahEFanSpd?
+    fanSpdSts:  UtahEFanSpdSts?
+    fanPower:   UtahEFanPower?
+    fanEnergy:  UtahEFanEnergy?
 
-    EFEaFlow:     UtahEFEaFlow?
+    eaFlow:     UtahEFEaFlow?
 
   //  Exhaust Damper Points
-    EFDmprCmd:    UtahEFDamperCmd?
-    EFDmprPos:    UtahEFDamperPos?
-    EFDmprPosSts: UtahEFDamperPosSts?
+    dmprCmd:    UtahEFDamperCmd?
+    dmprPos:    UtahEFDamperPos?
+    dmprPosSts: UtahEFDamperPosSts?
+
+  // Temp On/Off Setpoints 
+  tempOnSp: UtahTempOnSp?
+  tempOffSp: UtahTempOffSp?
 
     }
 }

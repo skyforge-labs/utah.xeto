@@ -6,54 +6,56 @@
 //   07 Jan 2026   Paul Quinn   Creation
 //
 // Abstract Base Cooling Tower with all possible points (optional)
-
-UtahClgTower: ChilledWaterPlant <abstract> {
+UtahCoolingTower: ChilledWaterPlant {
 
   chilledWaterPlantRef: Ref?
+  coolingTower
 
   points: {
     // General Points
-    CTEnab:       UtahCTEnab?
+    enab:       UtahCTEnab?
     
 // Outside Air Temps
-    OaTemp:       UtahOaTemp?
-    OaWBTemp:     UtahOaWetBulbTemp?
-    OaDewPTemp:   UtahOaDewPointTemp?
+    oaTemp:       UtahOaTemp?
+    oaWBTemp:     UtahOaWetBulbTemp?
+    oaDewPTemp:   UtahOaDewPointTemp?
     
 // Condenser Water
-    CTCWETemp:    UtahCTCWETemp?
-    CTCWLTemp:    UtahCTCWLTemp?
+    cwETemp:    UtahCTCWETemp?
+    cwLTemp:    UtahCTCWLTemp
     
 // Sump
-    CTSumpTemp:   UtahSumpTemp?
-    CTSumpHtrCmd: UtahSumpHtrCmd?
-    CTSumpHtrSts: UtahSumpHtrCmdSts?
+    sumpTemp:   UtahSumpTemp?
+    sumpHtrCmd: UtahSumpHtrCmd?
+    sumpHtrSts: UtahSumpHtrCmdSts?
     
 // Fans
-    CTFanEnab:    UtahCTFanEnab?
-    CTFanCmd:     UtahCTFanCmd?
-    CTFanCmdSts:  UtahCTFanCmdSts?
-    CTFanSpd:     UtahCTFanSpd?
-    CTFanSpdSts:  UtahCTFanSpdSts?
-    CTFanVFDFreq: UtahCTFanFreq?
-    CTFanVFDPower:  UtahCTFanPower?  
-    CTFanVFDEnergy: UtahCTFanEnergy?
+    fanEnab:    UtahCTFanEnab?
+    fanCmd:     UtahCTFanCmd?
+    fanCmdSts:  UtahCTFanCmdSts?
+    fanSpd:     UtahCTFanSpd?
+    fanSpdSts:  UtahCTFanSpdSts?
+    fanVFDFreq: UtahCTFanFreq?
+    fanVFDPower:  UtahCTFanPower?  
+    fanVFDEnergy: UtahCTFanEnergy?
 
 //  Circ Pumps
-    CTCPEnab:      UtahCTCPEnab?
-    CTCPCmd:       UtahCTCPCmd?
-    CTCPCmdSts:    UtahCTCPCmdSts?
-    CTCPSpd:       UtahCTCPSpd?
-    CTCPSpdSts:    UtahCTCPSpdSts?
-    CTCPVFDFreq:   UtahCTCPFreq?
-    CTPVFDPower:   UtahCTCPPower?
-    CTPVFDEnergy:  UtahCTCPEnergy?
+    cpEnab:      UtahCTCPEnab?
+    cpCmd:       UtahCTCPCmd?
+    cpCmdSts:    UtahCTCPCmdSts?
+    cpSpd:       UtahCTCPSpd?
+    cpSpdSts:    UtahCTCPSpdSts?
+    cpVFDFreq:   UtahCTCPFreq?
+    cpPower:     UtahCTCPPower?
+    cpEnergy:    UtahCTCPEnergy?
 
 // Valves
-    CTMkupWVlvCmd: UtahCTMkupWVlvCmd?
-    CTIsoVlvCmd:   UtahCTIsoVlvCmd?
-    CTIsoVlvCmdSts: UtahCTIsoVlvCmdSts?
-    CTBypVlvCmd:   UtahCTBypVlvCmd?
-    CTBypVlvPos:   UtahCTBypVlvPos?
+    mkupWVlvCmd: UtahCTMkupWVlvCmd?
+    isoVlvCmd:   UtahCTIsoVlvCmd?
+    isoVlvCmdSts: UtahCTIsoVlvCmdSts?
+    bypVlvCmd:   UtahCTBypVlvCmd?
+    bypVlvCmdSts: UtahCTBypVlvCmdSts?
+    bypVlvPos:   UtahCTBypVlvPos?
+    bypVlvPosSts: UtahCTBypVlvPosSts?
   }
 }

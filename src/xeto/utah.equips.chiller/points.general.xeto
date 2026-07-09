@@ -12,34 +12,46 @@
 //////////////////////////////////////////////////////////////////////////
 
 // Chiller Enabled
-UtahChlrEnab: UtahChiller & EnableCmd & UtahHisCov {
+UtahChlrEnab: UtahChlr & EnableCmd & UtahHisCov {
   navName: "ChlrEnab"
 }
 
 // Chiller Run Cmd
-UtahChlrCmd: UtahChiller & RunCmd & UtahHisCov {
+UtahChlrCmd: UtahChlr & RunCmd & UtahHisCov {
   navName: "ChlrCmd"
 }
 
 // Chiller Run Status
-UtahChlrCmdSts: UtahChiller & RunSensor & UtahHisCov {
+UtahChlrCmdSts: UtahChlr & RunSensor & UtahHisCov {
   navName: "ChlrCmdSts"
 }
 
 // Emergency kill switch for Chiller shutdown
-UtahChlrKillSwitch: UtahChiller & RunCmd & UtahHisCov {
+UtahChlrKillSwitch: UtahChlr & RunCmd & UtahHisCov {
   killSwitch
   navName: "ChlrKillSwitch"
 }
 
 // Chiller Load
-UtahChlrLoad: UtahChiller & UtahLoad & UtahHisSampledMajorEquip {
+UtahChlrLoad: UtahChlr & UtahLoadSensor & UtahHisSampledMajorEquip {
   navName: "ChlrLoad"
-  unit: "%"
+  unit: Unit <fixed> "%"
 }
 
 //  Chiller Tons
-UtahChlrTons: UtahChiller & UtahTons & UtahHisSampledMajorEquip {
+UtahChlrTons: UtahChlr & UtahTonsSensor & UtahHisSampledMajorEquip {
   navName: "ChlrTons"
-  unit: "tonref"
+  unit: Unit <quantity:"power"> "tonref"
+}
+
+// Chiller Power
+UtahChlrPower: UtahChlr & Power & NumberPoint & SensorPoint & UtahHisSampledMajorEquip {
+  navName: "ChlrPower"
+  unit: Unit <quantity:"power"> "kW"
+}
+
+// Chiller Energy
+UtahChlrEnergy: UtahChlr & Energy & NumberPoint & SensorPoint & UtahHisConsumptionMajorEquip {
+  navName: "ChlrEnergy"
+  unit: Unit <quantity:"energy"> "kWh"
 }

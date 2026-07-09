@@ -1,0 +1,39 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   07 May 2026   SkyForge   Creation
+//
+
+// Commands not already covered by reusable utah.points specs.
+
+UtahHeatPumpModeCmd: UtahHeatPumpModePoint & CmdPoint & UtahHisCov {
+  navName: "ModeCmd"
+}
+
+UtahHeatPumpCompressorCmd: UtahHeatPumpCompressor & RunCmd & UtahHisCov {
+  navName: "CompressorCmd"
+}
+
+UtahHeatPumpReversingValveCmd: UtahHeatPumpReversingValve & UtahValveCmd & UtahHisCov {
+  navName: "ReversingValveCmd"
+}
+
+UtahHeatPumpAuxHeatCmd: UtahHeatPumpAuxHeat & RunCmd & UtahHisCov {
+  navName: "AuxHeatCmd"
+}
+
+UtahHeatPumpEmergencyHeatCmd: UtahHeatPumpEmergencyHeat & RunCmd & UtahHisCov {
+  navName: "EmergencyHeatCmd"
+}
+
+UtahEconomizerCmd: UtahEconomizer & RunCmd & UtahHisCov {
+  navName: "EconomizerCmd"
+}
+
+UtahCapacityCmd: NumberPoint & CmdPoint & UtahHisCov {
+  capacity
+  unit: Unit <fixed> "%"
+  navName: "CapacityCmd"
+}
