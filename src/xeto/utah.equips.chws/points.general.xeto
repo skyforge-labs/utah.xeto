@@ -22,3 +22,13 @@ UtahBldgChWVlvPosMax: ChilledWater & UtahValvePos & UtahHisCov {
   max
   navName: "BldgChWVlvPosMax"
 }
+
+// Secondary-loop bypass valve command
+UtahChWBypVlvCmd: ChilledWater & UtahBypassValveCmd & UtahHisCov {
+  navName: "ChWBypVlvCmd"
+}
+
+// Secondary-loop bypass valve position
+UtahChWBypVlvPos: ChilledWater & UtahBypassValvePos & UtahHisSampledMajorEquip {
+  navName: "ChWBypVlvPos"
+}

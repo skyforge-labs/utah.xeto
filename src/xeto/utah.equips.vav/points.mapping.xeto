@@ -1,0 +1,40 @@
+// Distinct configuration points must not be treated as effective setpoints.
+// Output percentage does not imply a valve, damper, or measured feedback.
+UtahVavClgOutput: UtahZone & NumberPoint & CmdPoint & UtahHisSampledDefault {
+  cooling
+  output
+  unit: Unit <fixed> "%"
+  navName: "ClgOutput"
+}
+UtahVavEffectiveOccupiedCmd: UtahZoneOccupiedCmd {
+  effective
+  enum: Str?
+  navName: "EffectiveOccupied"
+}
+UtahVavRaFlow: UtahZone & UtahReturn & UtahAirFlowSensor & UtahHisSampledDefault {
+  navName: "RaFlow"
+}
+UtahVavRaValvePos: UtahZone & UtahReturn & UtahValvePos & UtahHisSampledDefault {
+  navName: "RaValvePos"
+}
+UtahVavSaOccFlowSp: UtahZone & UtahSupply & UtahAirFlowSp & UtahOccupied & UtahHisCov {
+  navName: "SaOccFlowSp"
+}
+UtahVavSaUnoccFlowSp: UtahZone & UtahSupply & UtahAirFlowSp & UtahUnoccupied & UtahHisCov {
+  navName: "SaUnoccFlowSp"
+}
+UtahVavEaOccFlowSp: UtahZone & UtahExhaust & UtahAirFlowSp & UtahOccupied & UtahHisCov {
+  navName: "EaOccFlowSp"
+}
+UtahVavEaUnoccFlowSp: UtahZone & UtahExhaust & UtahAirFlowSp & UtahUnoccupied & UtahHisCov {
+  navName: "EaUnoccFlowSp"
+}
+UtahVavRaOccFlowSp: UtahZone & UtahReturn & UtahAirFlowSp & UtahOccupied & UtahHisCov {
+  navName: "RaOccFlowSp"
+}
+UtahVavRaUnoccFlowSp: UtahZone & UtahReturn & UtahAirFlowSp & UtahUnoccupied & UtahHisCov {
+  navName: "RaUnoccFlowSp"
+}
+UtahReheatValvePosOvrd: UtahZone & UtahReheat & UtahValvePos & UtahOverridePoint & UtahHisSampledDefault {
+  navName: "ReheatValvePosOvrd"
+}

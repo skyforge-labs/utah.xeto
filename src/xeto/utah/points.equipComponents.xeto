@@ -47,6 +47,15 @@ UtahCondenser: UtahEquipComponent <abstract> {
   condenser
 }
 
+// Shared compressor / reversing valve (AHU DX, HP, etc.)
+UtahCompressor: UtahEquipComponent <abstract> {
+  compressor
+}
+
+UtahReversingValve: UtahEquipComponent <abstract> {
+  reversingValve
+}
+
 UtahCW: Water & UtahCondenser {
   navName: "CW"
 }
@@ -201,5 +210,14 @@ UtahValve: UtahEquipComponent <abstract> {
 
 UtahZone: UtahEquipComponent <abstract> {
   zone
+}
+
+// Steam plant / HX helpers
+UtahFlue: UtahEquipComponent <abstract> {
+  flue
+}
+
+UtahCondensate: UtahEquipComponent <abstract> {
+  condensate
 }
 

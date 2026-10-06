@@ -84,3 +84,35 @@ UtahZoneDaFlowSpRHMin: UtahZoneDaFlowSpRH & UtahHisCov {
     min
     navName: "DaFlowSpRHMin"
 }
+
+///////////////////////////////////////////
+// Unoccupied cooling / heating flow SPs
+///////////////////////////////////////////
+
+UtahZoneDaFlowSpClgUnoccMax: UtahZone & UtahDischarge & UtahAirFlowSpClg & UtahUnoccupied & UtahHisCov {
+    max
+    navName: "DaFlowSpClgUnoccMax"
+}
+
+UtahZoneDaFlowSpClgUnoccMin: UtahZone & UtahDischarge & UtahAirFlowSpClg & UtahUnoccupied & UtahHisCov {
+    min
+    navName: "DaFlowSpClgUnoccMin"
+}
+
+UtahZoneDaFlowSpHtgUnoccMax: UtahZone & UtahDischarge & UtahAirFlowSpHtg & UtahUnoccupied & UtahHisCov {
+    max
+    navName: "DaFlowSpHtgUnoccMax"
+}
+
+UtahZoneDaFlowSpHtgUnoccMin: UtahZone & UtahDischarge & UtahAirFlowSpHtg & UtahUnoccupied & UtahHisCov {
+    min
+    navName: "DaFlowSpHtgUnoccMin"
+}
+
+///////////////////////////////////////////
+// Standby discharge airflow SP
+///////////////////////////////////////////
+
+UtahZoneDaFlowSpStandby: UtahZone & UtahDischarge & UtahAirFlowSp & UtahStandby & UtahHisCov {
+    navName: "DaFlowSpStandby"
+}

@@ -14,3 +14,12 @@ UtahDaDamperPos: UtahDischarge & UtahDamperPos & UtahHisSampledDefault {
 UtahDaDamperCmd: UtahDischarge & UtahDamperCmd & UtahHisCov {
     navName: "DmprCmd"
 }
+
+// Actual feedback, distinct from the existing percentage/Boolean commands.
+UtahDaDamperPosSts: UtahDischarge & UtahDamperPosSts & UtahHisSampledDefault {
+    navName: "DmprPosSts"
+}
+
+UtahDaDamperCmdSts: UtahDischarge & UtahDamperCmdSts & UtahHisCov {
+    navName: "DmprCmdSts"
+}

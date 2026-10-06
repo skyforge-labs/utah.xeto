@@ -61,7 +61,7 @@ UtahChWCAETemp: ChilledWater & UtahCoolingCoil & UtahAirTempEntering & UtahHisSa
 }
 
 // Chilled water coil air leaving temperature
-UtahChWCALTemp: ChilledWater & UtahCoolingCoil & UtahAirTempLeaving & UtahHisSampledMajorEquip {
+UtahChWCALTemp: UtahCoolingCoil & UtahAirTempLeaving & UtahHisSampledMajorEquip {
   navName: "ChWCALTemp"
 }
 
@@ -81,4 +81,24 @@ UtahChWCALHum: ChilledWater & UtahCoolingCoil & UtahAirHumidityLeavinging & Utah
 
 UtahClgCmd: ChilledWater & RunCmd & UtahHisCov {
   navName: "ClgCmd"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Cooling coil flow / DP / power / energy (AHU-scoped)
+//////////////////////////////////////////////////////////////////////////
+
+UtahChWCFlow: ChilledWater & UtahCoolingCoil & UtahWaterFlowSensor & UtahHisSampledMajorEquip {
+  navName: "ChWCFlow"
+}
+
+UtahChWCDP: ChilledWater & UtahCoolingCoil & UtahWaterDPSensor & UtahHisSampledMajorEquip {
+  navName: "ChWCDP"
+}
+
+UtahChWCPower: ChilledWater & UtahCoolingCoil & UtahWaterPowerSensor & UtahHisSampledMajorEquip {
+  navName: "ChWCPower"
+}
+
+UtahChWCEnergy: ChilledWater & UtahCoolingCoil & UtahWaterEnergySensor & UtahHisConsumptionMajorEquip {
+  navName: "ChWCEnergy"
 }

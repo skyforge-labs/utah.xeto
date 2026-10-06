@@ -20,6 +20,38 @@ UtahOaHum: UtahOutside & UtahAirHumiditySensor & UtahHisSampledMajorEquip  {
 }
 
 ///////////////////////////////////////
+// Outside / OA fan
+///////////////////////////////////////
+
+UtahOaFanCmd: UtahOutside & UtahFanCmd & UtahHisCov {
+  navName: "OaFanCmd"
+}
+
+UtahOaFanCmdSts: UtahOutside & UtahFanCmdSts & UtahHisCov {
+  navName: "OaFanSts"
+}
+
+UtahOaFanEnab: UtahOutside & UtahFanEnabCmd & UtahHisCov {
+  navName: "OaFanEnab"
+}
+
+UtahOaFanSpd: UtahOutside & UtahFanSpd & UtahHisSampledMajorEquip {
+  navName: "OaFanSpd"
+}
+
+UtahOaFanSpdSts: UtahOutside & UtahFanSpdSts & UtahHisSampledMajorEquip {
+  navName: "OaFanSpdSts"
+}
+
+UtahOaFanFreq: UtahOutside & UtahFanFreqSensor & UtahHisSampledMajorEquip {
+  navName: "OaFanFreq"
+}
+
+UtahOaFanPower: UtahOutside & UtahFanPowerPoint & UtahHisSampledMajorEquip {
+  navName: "OaFanPower"
+}
+
+///////////////////////////////////////
 // Outside air damper
 ///////////////////////////////////////
 
@@ -39,13 +71,19 @@ UtahOaDmprCmd: UtahOutside & UtahDamperCmd & UtahHisCov {
 
 // Outside air damper status
 UtahOaDmprCmdSts: UtahOutside & UtahDamperCmdSts & UtahHisCov {
-  navName: "OaDmprCmd"
+  navName: "OaDmprCmdSts"
 }
 
 // Outside air minimum damper position
 UtahOaMinDmprPos: UtahOutside & UtahDamperPos & UtahHisCov {
   min
   navName: "OaMinDmprPos"
+}
+
+// Outside air minimum damper open/close command
+UtahOaMinDmprCmd: UtahOutside & UtahDamperCmd & UtahHisCov {
+  min
+  navName: "OaMinDmprCmd"
 }
 
 ///////////////////////////////////////
@@ -59,6 +97,12 @@ UtahOaFlow: UtahOutside & UtahAirFlowSensor & UtahHisSampledMajorEquip {
 // Outside air flow setpoint
 UtahOaFlowSp: UtahOutside & UtahAirFlowSp & UtahHisSampledMajorEquip {
   navName: "OaFlowSp"
+}
+
+// Outside air minimum flow setpoint
+UtahOaFlowSpMin: UtahOutside & UtahAirFlowSp & UtahHisCov {
+  min
+  navName: "OaFlowSpMin"
 }
 
 ///////////////////////////////////////

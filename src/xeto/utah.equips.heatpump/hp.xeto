@@ -8,17 +8,19 @@
 
 // Heat pump equipment.  Use existing Utah point specs first; only define
 // heat-pump-specific specs where no shared Utah point currently exists.
-
-UtahHeatPump: UtahEquip {
+UtahHeatPumpTerminal: AirTerminalUnit {
   heatPump
+  terminalUnit 
 
   points: {
     // Occupancy / setpoints (terminal convention)
     occ: UtahZoneOccupiedSensor?
     occCmd: UtahZoneOccupiedCmd?
     occMode: UtahZoneOccupiedMode?
-    enableCmd: EnableCmd?
+
+    enableCmd: UtahHeatPumpEnableCmd?
     modeCmd: UtahHeatPumpModeCmd?
+
     spcTempSp: UtahZoneTempSpEff?
     coolEffSp: UtahZoneTempSpEffClg?
     heatEffSp: UtahZoneTempSpEffHtg?
@@ -35,21 +37,27 @@ UtahHeatPump: UtahEquip {
 
     // Discharge fan (terminal convention)
     fanCmd: UtahZoneFanCmd?
+    fanSts: UtahZoneFanCmdSts?
     fanModeCmd: UtahZoneFanModeCmd?
     fanSpd: UtahZoneFanSpd?
-    fanSts: UtahZoneFanCmdSts?
     fanSpdSts: UtahZoneFanSpdSts?
-    fanRuntime: UtahHoursSensor?
+    fanRuntime: UtahHeatPumpFanRuntime?
 
     // Compressor / heating / cooling
     compressorCmd: UtahHeatPumpCompressorCmd?
     compressorSts: UtahHeatPumpCompressorSts?
     compressorSpeed: UtahHeatPumpCompressorPct?
-    compressorRuntime: UtahHoursSensor?
+    compressorRuntime: UtahHeatPumpCompressorRuntime?
     heatingSts: UtahHeatPumpHeatingSts?
     coolingSts: UtahHeatPumpCoolingSts?
     currentMode: UtahHeatPumpCurrentMode?
     operatingState: UtahHeatPumpOperatingState?
+
+    // Reversing valve: bool open/close + % modulate
+    reversingValveCmd: UtahHeatPumpReversingValveCmd?
+    reversingValveSts: UtahHeatPumpReversingValveSts?
+    reversingValvePos: UtahHeatPumpReversingValvePos?
+    reversingValvePosCmd: UtahHeatPumpReversingValvePosCmd?
 
     // Alarms
     faultAlrm: UtahHeatPumpFaultAlrm?
@@ -62,6 +70,9 @@ UtahHeatPump: UtahEquip {
   }
 }
 
+UtahHeatPump: UtahEquip {
+  heatPump 
+}
 
 // -----------------------------------------------------------------------------
 // Water-source heat pump terminal unit
@@ -75,12 +86,12 @@ UtahWaterSourceHeatPump: UtahHeatPump {
     // Water loop
     enteringWaterTemp: UtahWaterTempEntering
     leavingWaterTemp: UtahWaterTempLeaving
-    waterValveCmd: UtahValveCmd?
-    waterValvePos: UtahValvePos?
+    waterValveCmd: UtahHeatPumpValveCmd?
+    waterValvePos: UtahHeatPumpValvePosCmd?
 
     // Unit details
     filterAlrm: UtahHeatPumpFilterAlrm?
-    filterHours: UtahHoursSensor?
+    filterHours: UtahHeatPumpFilterHours?
     filterHoursSp: UtahHeatPumpFilterHoursSp?
 
     // Staging (compressorSpeed inherited from UtahHeatPump)
@@ -103,9 +114,7 @@ UtahAirSourceHeatPump: UtahHeatPump {
     // Outdoor air / ambient
     oaTemp: UtahOaTemp
 
-    // Reversing / defrost
-    reversingValveCmd: UtahHeatPumpReversingValveCmd?
-    reversingValveSts: UtahHeatPumpReversingValveSts?
+    // Defrost
     defrostSts: UtahHeatPumpDefrostSts?
     defrostMode: UtahHeatPumpDefrostMode?
 
@@ -239,7 +248,7 @@ UtahVrfIndoorUnit: UtahEquip {
     occ: UtahZoneOccupiedSensor?
     occCmd: UtahZoneOccupiedCmd?
     occMode: UtahZoneOccupiedMode?
-    enableCmd: EnableCmd?
+    enableCmd: UtahHeatPumpEnableCmd?
     modeCmd: UtahHeatPumpModeCmd?
     spcTempSp: UtahZoneTempSpEff?
     coolEffSp: UtahZoneTempSpEffClg?
@@ -307,7 +316,7 @@ UtahHeatPumpChiller: UtahEquip {
 
   points: {
     // Commands / mode
-    enableCmd: EnableCmd?
+    enableCmd: UtahHeatPumpEnableCmd?
     modeCmd: UtahHeatPumpModeCmd?
     currentMode: UtahHeatPumpCurrentMode?
     operatingState: UtahHeatPumpOperatingState?

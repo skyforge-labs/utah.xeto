@@ -17,3 +17,8 @@ UtahReheatValveCmd: UtahZone & UtahReheat & UtahValveCmd & UtahHisCov {
     color: Str? "red"
     strokeDasharray: Str? "2,2"
 }
+
+// Actual percentage feedback; UtahReheatValvePos remains a command type.
+UtahReheatValvePosSts: UtahZone & UtahReheat & UtahValvePosSts & UtahHisSampledDefault {
+    navName: "ReheatVlvPosSts"
+}

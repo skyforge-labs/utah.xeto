@@ -60,7 +60,7 @@ UtahCRAC: Crac <abstract> {
     EconMode:        UtahEconModeEnum?
     
   //  Humidifier Points
-    HumidifierEnab:    UtahHumidifierEnable?
+    HumidifierEnab:    UtahHumidifierEnab?
     HumidifierCmd:     UtahHumidifierCmd?
     HumidifierVlvPos:  UtahHumidifierStmVlvPos?
     HumidifierFanCmd:  UtahHumidifierFanCmd?

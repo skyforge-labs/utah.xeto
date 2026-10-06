@@ -7,6 +7,7 @@
 //
 
 UtahVav: Vav {
+  terminalUnit 
   airRef: MultiRef?<of:Ahu>
   siteRef: Ref<of:Site>
   navName: Str
@@ -15,6 +16,8 @@ UtahVav: Vav {
 
     occ: UtahZoneOccupiedSensor?
     occCmd: UtahZoneOccupiedCmd?
+    effectiveOccCmd: UtahVavEffectiveOccupiedCmd?
+    clgOutput: UtahVavClgOutput?
     occMode: UtahZoneOccupiedMode?
     hvacMode: UtahZoneAirHvacModeSp?
 
@@ -29,12 +32,32 @@ UtahVav: Vav {
 
     dmprPos: UtahDaDamperPos
     dmprCmd: UtahDaDamperCmd?
+    dmprPosSts: UtahDaDamperPosSts?
+    dmprCmdSts: UtahDaDamperCmdSts?
     dmprPosOvrd: UtahDmprPosOvrd?
 
     reheatVlvPos: UtahReheatValvePos
+    reheatVlvPosSts: UtahReheatValvePosSts?
     reheatVlvCmd: UtahReheatValveCmd?
+    reheatVlvPosOvrd: UtahReheatValvePosOvrd?
+
+    // Optional multi-stream terminal points; does not assert venturi hardware.
+    saFlow: UtahVavSaFlow?
+    saFlowSp: UtahVavSaFlowSp?
+    eaFlow: UtahVavEaFlow?
+    raFlow: UtahVavRaFlow?
+    saValvePos: UtahVavSaValvePos?
+    eaValvePos: UtahVavEaValvePos?
+    raValvePos: UtahVavRaValvePos?
+    saOccFlowSp: UtahVavSaOccFlowSp?
+    saUnoccFlowSp: UtahVavSaUnoccFlowSp?
+    eaOccFlowSp: UtahVavEaOccFlowSp?
+    eaUnoccFlowSp: UtahVavEaUnoccFlowSp?
+    raOccFlowSp: UtahVavRaOccFlowSp?
+    raUnoccFlowSp: UtahVavRaUnoccFlowSp?
 
     daTemp: UtahZoneDaTemp
+    inletTemp: UtahVavInletTemp?
     daTempSp: UtahZoneDaTempSp?
     spcTemp: UtahZoneTemp
     spcTempSp: UtahZoneTempSpEff?
@@ -70,12 +93,18 @@ UtahVav: Vav {
     reheatFlowSp: UtahZoneDaFlowSpRH?
     reheatMaxFlow: UtahZoneDaFlowSpRHMax?
     reheatMinFlow: UtahZoneDaFlowSpRHMin?
+    coolUnoccMaxFlow: UtahZoneDaFlowSpClgUnoccMax?
+    coolUnoccMinFlow: UtahZoneDaFlowSpClgUnoccMin?
+    heatUnoccMaxFlow: UtahZoneDaFlowSpHtgUnoccMax?
+    heatUnoccMinFlow: UtahZoneDaFlowSpHtgUnoccMin?
+    stbyFlowSp: UtahZoneDaFlowSpStandby?
 
     load: UtahHvacLoad?
     bypTime: UtahBypassTime?
 
-    // Fan (terminal convention; used by fan-powered boxes)
+    // Fan Powered Box Points
     fanCmd: UtahZoneFanCmd?
+    fanEnab: UtahZoneFanEnab?
     fanModeCmd: UtahZoneFanModeCmd?
     fanSpd: UtahZoneFanSpd?
     fanSts: UtahZoneFanCmdSts?
@@ -85,7 +114,7 @@ UtahVav: Vav {
     fanSpdLow: UtahFanSpdLowCmd?
   }
 
-  attrs: Query <of:Attr>{
+  attrs: Query <of:Attr, inverse:"utah::UtahEquip.attrs">{
     designMinFlow: DesignMinFlowAttr?
     designMaxFlow: DesignMaxFlowAttr?
     designMaxFlowCooling: DesignMaxFlowCoolingAttr?

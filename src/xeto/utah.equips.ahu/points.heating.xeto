@@ -56,17 +56,88 @@ UtahHWCPSts: HotWater & UtahCPCmdSts & UtahHisCov {
 // Hot water Electric Heating
 ///////////////////////////////////////////
 
+// Legacy names (HotWater tag retained for existing tagged points)
 UtahHWElecHtgCmd: HotWater & UtahElecCmd & UtahHisCov {
   heating
   navName: "HWElecHtgCmd"
 }
 
-// Hot water circulation pump status
 UtahHWElecHtgCmdSts: HotWater & UtahElecCmdSts & UtahHisCov {
   heating
   navName: "HWElecHtgCmdSts"
 }
 
+// Preferred electric heat (no HotWater)
+UtahElecHtgCmd: UtahElecCmd & UtahHisCov {
+  heating
+  navName: "ElecHtgCmd"
+}
+
+UtahElecHtgCmdSts: UtahElecCmdSts & UtahHisCov {
+  heating
+  navName: "ElecHtgSts"
+}
+
+UtahElecHtgPower: Elec & Power & NumberPoint & SensorPoint & UtahHisSampledMajorEquip {
+  heating
+  unit: Unit <quantity:"power"> "kW"
+  navName: "ElecHtgPower"
+}
+
+UtahElecHtgLAT: Elec & UtahHeatingCoil & UtahAirTempLeaving & UtahHisSampledMajorEquip {
+  navName: "ElecHtgLAT"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Natural gas heat
+//////////////////////////////////////////////////////////////////////////
+
+UtahGasHtgCmd: NaturalGas & RunCmd & UtahHisCov {
+  heating
+  navName: "GasHtgCmd"
+}
+
+UtahGasHtgCmdSts: NaturalGas & RunSensor & UtahHisCov {
+  heating
+  navName: "GasHtgSts"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Steam heat
+//////////////////////////////////////////////////////////////////////////
+
+UtahStmHtgVlvCmd: Steam & UtahHeatingCoil & UtahStmVlvCmd & UtahHisCov {
+  navName: "StmHtgVlvCmd"
+}
+
+UtahStmHtgVlvPos: Steam & UtahHeatingCoil & UtahStmVlvPos & UtahHisSampledMajorEquip {
+  navName: "StmHtgVlvPos"
+}
+
+UtahStmHtgLAT: Steam & UtahHeatingCoil & UtahAirTempLeaving & UtahHisSampledMajorEquip {
+  navName: "StmHtgLAT"
+}
+
 UtahHtgCmd: HotWater & RunCmd & UtahHisCov {
   navName: "HtgCmd"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Heating coil flow / DP / power / energy (AHU-scoped)
+//////////////////////////////////////////////////////////////////////////
+
+UtahHWCFlow: HotWater & UtahHeatingCoil & UtahWaterFlowSensor & UtahHisSampledMajorEquip {
+  navName: "HWCFlow"
+}
+
+UtahHWCDP: HotWater & UtahHeatingCoil & UtahWaterDPSensor & UtahHisSampledMajorEquip {
+  navName: "HWCDP"
+}
+
+UtahHWCPower: HotWater & UtahHeatingCoil & UtahWaterPowerSensor & UtahHisSampledMajorEquip {
+  navName: "HWCPower"
+}
+
+UtahHWCEnergy: HotWater & UtahHeatingCoil & UtahWaterEnergySensor & UtahHisConsumptionMajorEquip {
+  navName: "HWCEnergy"
 }

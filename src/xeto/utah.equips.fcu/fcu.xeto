@@ -9,7 +9,7 @@
 // Abstract Base FCU with all possible points (optional)
 
 UtahFCU: Fcu {
-
+    terminalUnit 
     chilledWaterPlantRef: Ref?
     hotWaterPlantRef: Ref?
 

@@ -10,7 +10,7 @@
 UtahHumidifier: HumidifierEquip {
 
   points: {
-    humEnable: UtahHumidifierEnable?
+    humEnab: UtahHumidifierEnab?
     humCmd: UtahHumidifierCmd
     humSts: UtahHumidifierCmdSts?
     humOutput: UtahHumidifierOutput?

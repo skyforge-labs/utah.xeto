@@ -22,6 +22,11 @@ UtahTerminalUnit: AirTerminalUnit & UtahEquip <abstract> {
     coolEffSp: UtahZoneTempSpEffClg?
     heatEffSp: UtahZoneTempSpEffHtg?
 
+    occCoolSp: UtahOccCoolSp?
+    occHeatSp: UtahOccHeatSp?
+    unoccCoolSp: UtahUnoccCoolSp? 
+    unoccHeatSp: UtahUnoccHeatSp?
+
     daTemp: UtahZoneDaTemp?
     daFlow: UtahZoneDaFlow?
     daFlowSp: UtahZoneDaFlowSp?

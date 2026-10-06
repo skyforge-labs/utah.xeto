@@ -14,6 +14,8 @@
 //////////////////////////////////////////////////////////////////////////
 
 UtahDaFanCmd: UtahDischarge & UtahFanCmd & UtahHisCov {
+  // A Boolean does not require display labels to retain its native value.
+  enum: Str?
   run
   navName: "DaFanCmd"
 }
@@ -43,6 +45,16 @@ UtahDaFanSpdSts: UtahDischarge & UtahFanSpdSts & UtahHisSampledMajorEquip {
 // Discharge air fan frequency
 UtahDaFanFreq: UtahDischarge & UtahFanFreqSensor & UtahHisSampledMajorEquip {
   navName: "DaFanFreq"
+}
+
+// Discharge / supply fan enable
+UtahDaFanEnab: UtahDischarge & UtahFanEnabCmd & UtahHisCov {
+  navName: "DaFanEnab"
+}
+
+// Discharge / supply fan electrical power
+UtahDaFanPower: UtahDischarge & UtahFanPowerPoint & UtahHisSampledMajorEquip {
+  navName: "DaFanPower"
 }
 
 //////////////////////////////////////////////////////////////////////////

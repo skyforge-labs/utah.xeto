@@ -84,6 +84,11 @@ UtahZoneFanCmdSts: UtahZone & UtahFanCmdSts & UtahHisCov {
     navName: "FanSts"
 }
 
+// Zone / FPB fan enable
+UtahZoneFanEnab: UtahZone & UtahFanEnabCmd & UtahHisCov {
+    navName: "FanEnab"
+}
+
 UtahZoneFanModeCmd: UtahZone & UtahFanModeCmd & UtahHisCov {
     navName: "FanMode"
 }

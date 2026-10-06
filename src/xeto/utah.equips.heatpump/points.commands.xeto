@@ -8,6 +8,10 @@
 
 // Commands not already covered by reusable utah.points specs.
 
+UtahHeatPumpEnableCmd: EnableCmd & UtahHisCov {
+  navName: "EnableCmd"
+}
+
 UtahHeatPumpModeCmd: UtahHeatPumpModePoint & CmdPoint & UtahHisCov {
   navName: "ModeCmd"
 }
@@ -16,8 +20,23 @@ UtahHeatPumpCompressorCmd: UtahHeatPumpCompressor & RunCmd & UtahHisCov {
   navName: "CompressorCmd"
 }
 
+// Water-loop valve cmd (WSHP); reversing valve uses UtahHeatPumpReversingValveCmd
+UtahHeatPumpValveCmd: UtahValveCmd & UtahHisCov {
+  navName: "ValveCmd"
+}
+
+// Water-loop valve position cmd (0-100%)
+UtahHeatPumpValvePosCmd: UtahValvePos & UtahHisCov {
+  navName: "ValvePosCmd"
+}
+
 UtahHeatPumpReversingValveCmd: UtahHeatPumpReversingValve & UtahValveCmd & UtahHisCov {
   navName: "ReversingValveCmd"
+}
+
+// Reversing valve position cmd (0-100%)
+UtahHeatPumpReversingValvePosCmd: UtahHeatPumpReversingValve & UtahValvePos & UtahHisCov {
+  navName: "ReversingValvePosCmd"
 }
 
 UtahHeatPumpAuxHeatCmd: UtahHeatPumpAuxHeat & RunCmd & UtahHisCov {

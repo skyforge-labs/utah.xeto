@@ -19,6 +19,21 @@ UtahHeatPumpFilterHoursSp: UtahHoursPoint & SpPoint & UtahHisCov {
   navName: "FilterHoursSp"
 }
 
+// Zone discharge fan runtime hours
+UtahHeatPumpFanRuntime: UtahZone & UtahFan & UtahHoursSensor & UtahHisSampledMajorEquip {
+  navName: "FanRuntime"
+}
+
+// Compressor runtime hours
+UtahHeatPumpCompressorRuntime: UtahHeatPumpCompressor & UtahHoursSensor & UtahHisSampledMajorEquip {
+  navName: "CompressorRuntime"
+}
+
+// Filter runtime hours (WSHP)
+UtahHeatPumpFilterHours: UtahAirFilter & UtahHoursSensor & UtahHisSampledMajorEquip {
+  navName: "FilterHours"
+}
+
 UtahHeatPumpPercentPoint: NumberPoint <abstract> {
   unit: Unit <fixed> "%"
 }

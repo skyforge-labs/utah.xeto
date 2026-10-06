@@ -103,3 +103,27 @@ UtahHWSPrimarySecondary: UtahHWS {
     secHWSupTemp: UtahSecHWSupTemp
   }
 }
+
+// Secondary hot water loop as its own equip (SEC / secondaryLoop).
+UtahHWSSecondaryLoop: UtahEquip & UtahSecondary {
+  hvac
+  hot
+  water
+
+  hotWaterPlantRef: Ref?
+
+  points: {
+    secHWRetTemp:   UtahSecHWRetTemp?
+    secHWSupTemp:   UtahSecHWSupTemp?
+    secHWETempSp:   UtahSecHWETempSp?
+    secHWFlow:      UtahSecHWFlow?
+    secHWDP:        UtahSecHWDP?
+    secHWDPSp:      UtahSecHWDPSp?
+    hwPower:        UtahHWPower?
+
+    hwIsoVlvCmd:    UtahHWIsoVlvCmd?
+    hwIsoVlvCmdSts: UtahHWIsoVlvCmdSts?
+    bypVlvCmd:      UtahHWBypVlvCmd?
+    bypVlvPos:      UtahHWBypVlvPos?
+  }
+}

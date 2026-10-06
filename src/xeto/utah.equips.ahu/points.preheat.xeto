@@ -1,0 +1,41 @@
+//
+// Copyright (c) 2025, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   14 Jul 2026   SkyForge   Creation — P1 AHU preheat coil gaps
+//
+// Preheat Coil Points - Valve, Water/Air Temperatures
+
+//////////////////////////////////////////////////////////////////////////
+// Preheat valve
+//////////////////////////////////////////////////////////////////////////
+
+// Preheat valve position command (%)
+UtahPhVlvPos: HotWater & UtahPreheatCoil & UtahValvePos & UtahHisSampledMajorEquip {
+  navName: "PhVlvPos"
+}
+
+// Preheat valve position feedback
+UtahPhVlvPosSts: HotWater & UtahPreheatCoil & UtahValvePosSts & UtahHisSampledMajorEquip {
+  navName: "PhVlvPosSts"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Preheat coil temperatures
+//////////////////////////////////////////////////////////////////////////
+
+// Preheat coil water entering temperature
+UtahPhCWETemp: HotWater & UtahPreheatCoil & UtahWaterTempEntering & UtahHisSampledMajorEquip {
+  navName: "PhCWETemp"
+}
+
+// Preheat coil water leaving temperature
+UtahPhCWLTemp: HotWater & UtahPreheatCoil & UtahWaterTempLeaving & UtahHisSampledMajorEquip {
+  navName: "PhCWLTemp"
+}
+
+// Preheat coil air leaving temperature
+UtahPhCALTemp: UtahPreheatCoil & UtahAirTempLeaving & UtahHisSampledMajorEquip {
+  navName: "PhCALTemp"
+}

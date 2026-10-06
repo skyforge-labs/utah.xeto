@@ -107,3 +107,25 @@ UtahCHWSPrimarySecondary: UtahCHWS {
     secChWSupTemp: UtahSecChWSupTemp
   }
 }
+
+// Secondary chilled water loop as its own equip (SEC / secondaryLoop).
+UtahCHWSSecondaryLoop: UtahEquip & UtahSecondary {
+  hvac
+  chilled
+  water
+
+  chilledWaterPlantRef: Ref?
+
+  points: {
+    secChWRetTemp: UtahSecChWRetTemp?
+    secChWSupTemp: UtahSecChWSupTemp?
+    secChWSupTempSp: UtahSecChWSupTempSp?
+    secChWFlow:    UtahSecChWFlow?
+    secChWDP:      UtahSecChWDP?
+    secChWDPSp:    UtahSecChWDPSp?
+    chWPower:      UtahChWPower?
+
+    bypVlvCmd: UtahChWBypVlvCmd?
+    bypVlvPos: UtahChWBypVlvPos?
+  }
+}

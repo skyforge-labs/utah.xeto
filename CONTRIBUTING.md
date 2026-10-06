@@ -24,9 +24,11 @@ Thank you for your interest in contributing to the Utah Xeto Libraries! These li
 ## Contribution Guidelines
 
 ### Code Style
-- **Composition first**: Build types by composing lower-level specs from `ph.*`, `utah`, and `utah.points` rather than redefining semantics
-- **Consistent naming**: Utah-specific types prefixed with `Utah` (e.g., `UtahAhu`, `UtahChWFlow`)
-- **Stable conventions**: Use consistent `navName`, units, precision, and history settings
+Follow **[CONVENTIONS.md](CONVENTIONS.md)** (roles, naming triad, docs, history, checklist).
+
+- **Composition first**: Build types by composing lower-level specs from `ph.*` / `utah` rather than redefining semantics
+- **Consistent naming**: `Utah` prefix; aligned type / slot / navName
+- **Docs**: Every spec needs a distinguishing `doc`; leading `//` becomes doc — no section banners as leading comments
 
 ### Library Structure
 Each Utah library should include:

@@ -11,22 +11,19 @@
 // Humidifier Points
 //////////////////////////////////////////////////////////////////////////
 
-// Humidifier enable command
-UtahHumidifierEnable: UtahHumid & BoolPoint & EnableCmd {
-  navName: "HumidifierEnable"
-  hisMode: "cov"
-  hisCollectInterval: Number "24hr"
+// Humidifier enable (permission to run). Not cmd or proven status.
+UtahHumidifierEnab: UtahHumid & BoolPoint & EnableCmd & UtahHisCov {
+  navName: "HumidifierEnab"
 }
 
-// Humidifier command
-UtahHumidifierCmd: UtahHumid & BoolPoint  & RunCmd {
+// Humidifier run command (desired on/off). Not enable or proven status.
+UtahHumidifierCmd: UtahHumid & BoolPoint & RunCmd & UtahHisCov {
+  enum: Str?
   run
   navName: "HumidifierCmd"
-  hisMode: "cov"
-  hisCollectInterval: Number "24hr"
 }
 
-// Humidifier run/status feedback (matches command)
+// Humidifier run feedback (actual on/off). Matches HumidifierCmd.
 UtahHumidifierCmdSts: UtahHumid & RunSensor & UtahHisCov {
   navName: "HumidifierCmdSts"
 }

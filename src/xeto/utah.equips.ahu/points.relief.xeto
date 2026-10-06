@@ -33,6 +33,21 @@ UtahRlfFanSpdSts: UtahRelief & UtahFanSpdSts & UtahHisSampledMajorEquip {
   navName: "RlfFanSpdSts"
 }
 
+// Relief fan enable
+UtahRlfFanEnab: UtahRelief & UtahFanEnabCmd & UtahHisCov {
+  navName: "RlfFanEnab"
+}
+
+// Relief fan frequency
+UtahRlfFanFreq: UtahRelief & UtahFanFreqSensor & UtahHisSampledMajorEquip {
+  navName: "RlfFanFreq"
+}
+
+// Relief fan electrical power (AHU-scoped; distinct from exhaustfan UtahRFanPower)
+UtahRlfFanPower: UtahRelief & UtahFanPowerPoint & UtahHisSampledMajorEquip {
+  navName: "RlfFanPower"
+}
+
 //////////////////////////////////////////////////////////////////////////
 // Relief damper
 //////////////////////////////////////////////////////////////////////////
@@ -71,4 +86,24 @@ UtahRlfAirFlow: UtahRelief & UtahAirFlowSensor & UtahHisSampledMajorEquip {
 // Relief Air Flow setpoint
 UtahRlfAirFlowSp: UtahRelief & UtahAirFlowSp & UtahHisSampledMajorEquip {
   navName: "RlfAirFlowSp"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Relief air sensors
+//////////////////////////////////////////////////////////////////////////
+
+UtahRlfTemp: UtahRelief & UtahAirTempSensor & UtahHisSampledMajorEquip {
+  navName: "RlfTemp"
+}
+
+UtahRlfHum: UtahRelief & UtahAirHumiditySensor & UtahHisSampledMajorEquip {
+  navName: "RlfHum"
+}
+
+UtahRlfCO2: UtahRelief & UtahAirCo2Sensor & UtahHisSampledMajorEquip {
+  navName: "RlfCO2"
+}
+
+UtahRlfCO2Sp: UtahRelief & UtahAirCo2Sp & UtahHisCov {
+  navName: "RlfCO2Sp"
 }

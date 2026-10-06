@@ -13,7 +13,7 @@
 
 // Heat recovery water circ pump command
 UtahHRWCPCmd: UtahHeatRecovery & UtahCPCmd & UtahHisCov {
-  navName: "HRWCPmd"
+  navName: "HRWCPCmd"
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -30,6 +30,25 @@ UtahHRCWLTemp:  UtahHeatRecovery & UtahHeatRecoveryCoil & UtahWaterTempLeaving &
   navName: "HRCWLTemp"
 }
 
+// Heat recovery coil air leaving temperature
+UtahHRCALTemp: UtahHeatRecovery & UtahHeatRecoveryCoil & UtahAirTempLeaving & UtahHisSampledMajorEquip {
+  navName: "HRCALTemp"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Heat recovery valve
+//////////////////////////////////////////////////////////////////////////
+
+// Heat recovery valve position command (%)
+UtahHRVlvPos: UtahHeatRecovery & UtahValvePos & UtahHisSampledMajorEquip {
+  navName: "HRVlvPos"
+}
+
+// Heat recovery valve position feedback
+UtahHRVlvPosSts: UtahHeatRecovery & UtahValvePosSts & UtahHisSampledMajorEquip {
+  navName: "HRVlvPosSts"
+}
+
 //////////////////////////////////////////////////////////////////////////
 // Heat recovery water flow
 //////////////////////////////////////////////////////////////////////////
@@ -43,7 +62,7 @@ UtahHRWFlow: UtahHeatRecovery & WaterFlowSensor & UtahHisSampledMajorEquip {
 //////////////////////////////////////////////////////////////////////////
 
 UtahHRWVolFlow: UtahHeatRecovery & WaterVolumeSensor & UtahHisSampledMajorEquip {
-  navName: "HRWVol"
+  navName: "HRWVolFlow"
 }
 
 //////////////////////////////////////////////////////////////////////////

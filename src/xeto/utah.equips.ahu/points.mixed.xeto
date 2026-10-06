@@ -16,9 +16,30 @@ UtahMaTemp: UtahMixed & UtahAirTempSensor & UtahHisSampledMajorEquip {
   navName: "MaTemp"
 }
 
-// Mixed air damper position
+// Mixed air temperature setpoint
+UtahMaTempSp: UtahMixed & UtahAirTempSp & UtahHisCov {
+  navName: "MaTempSp"
+}
+
+// Mixed air damper open/close command
+UtahMaDmprCmd: UtahMixed & UtahDamperCmd & UtahHisCov {
+  navName: "MaDmprCmd"
+}
+
+// Mixed air damper position command (%)
 UtahMaDmprPos: UtahMixed & UtahDamperPos & UtahHisSampledMajorEquip {
   navName: "MaDmprPos"
+}
+
+// Mixed air damper position feedback
+UtahMaDmprPosSts: UtahMixed & UtahDamperPosSts & UtahHisSampledMajorEquip {
+  navName: "MaDmprPosSts"
+}
+
+// Mixed air damper minimum position setpoint
+UtahMaDmprPosMin: UtahMixed & UtahDamperPos & UtahHisCov {
+  min
+  navName: "MaDmprPosMin"
 }
 
 // Mixed air flow

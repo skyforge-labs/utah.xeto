@@ -78,3 +78,37 @@ UtahSteamPressurePoint: UtahSteamPressure & NumberPoint <abstract>{
 UtahSteamPressureSensor: UtahSteamPressurePoint & SensorPoint <abstract>{
   navName: "SteamPress"
     }
+
+// Steam leaving pressure
+UtahSteamPressureLeaving: UtahSteamPressureSensor <abstract>{
+  leaving
+  }
+
+// Steam pressure setpoint
+UtahSteamPressureSp: UtahSteamPressurePoint & SpPoint <abstract>{
+  }
+
+////////////////////////////////////
+// Steam Flow / Power
+////////////////////////////////////
+
+UtahSteamFlow: Steam & Flow <abstract>{
+  }
+
+UtahSteamFlowPoint: UtahSteamFlow & NumberPoint <abstract>{
+  unit: Unit <quantity:"massFlow"> "lb/h"
+  }
+
+UtahSteamFlowSensor: UtahSteamFlowPoint & SensorPoint <abstract>{
+  }
+
+UtahSteamFlowLeaving: UtahSteamFlowSensor <abstract>{
+  leaving
+  }
+
+UtahSteamPower: Steam & Power <abstract>{
+  }
+
+UtahSteamPowerSensor: UtahSteamPower & NumberPoint & SensorPoint <abstract>{
+  unit: Unit <quantity:"power"> "MMBTU/h"
+  }

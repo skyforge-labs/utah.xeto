@@ -16,6 +16,11 @@ UtahHWMkupWVlvCmd: HotWater & UtahMakeupValveCmd & UtahHisSampledMajorEquip {
   navName: "HWMkupWVlvCmd"
 }
 
+// Bypass Water Valve command
+UtahHWBypVlvCmd: HotWater & UtahBypassValveCmd & UtahHisCov {
+  navName: "HWBypVlvCmd"
+}
+
 // Bypass Water Valve
 UtahHWBypVlvPos: HotWater & UtahBypassValvePos & UtahHisSampledMajorEquip {
   navName: "HWBypVlvPos"
@@ -24,6 +29,17 @@ UtahHWBypVlvPos: HotWater & UtahBypassValvePos & UtahHisSampledMajorEquip {
 // Bypass Water Valve status
 UtahHWBypVlvPosSts: HotWater & UtahBypassValvePosSts & UtahHisSampledMajorEquip {
   navName: "HWBypVlvPosSts"
+}
+
+// Hot water isolation valve command status (secondary loop SEC)
+UtahHWIsoVlvCmdSts: HotWater & UtahIsoValveCmdSts & UtahHisCov {
+  navName: "HWIsoVlvCmdSts"
+}
+
+// Secondary hot water entering temp setpoint
+UtahSecHWETempSp: HotWater & UtahSecondary & UtahWaterTempSp & UtahHisCov {
+  entering
+  navName: "SecHWETempSp"
 }
 // Building Max Hot Water Valve Position
 UtahBldgHWVlvPosMax: HotWater & UtahValvePos & UtahHisCov {

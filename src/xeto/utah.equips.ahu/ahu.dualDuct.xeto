@@ -23,5 +23,21 @@ DualDuctAhu: UtahAhu {
     hdPressSp: UtahHDDaPressSp?
     hdFlow: UtahHDDaFlow?
     hdFlowSp: UtahHDDaFlowSp?
+
+    // Deck fans
+    cdFanCmd: UtahCDFanCmd?
+    cdFanCmdSts: UtahCDFanCmdSts?
+    cdFanEnab: UtahCDFanEnab?
+    cdFanSpd: UtahCDFanSpd?
+    cdFanSpdSts: UtahCDFanSpdSts?
+    cdFanFreq: UtahCDFanFreq?
+    cdFanPower: UtahCDFanPower?
+    hdFanCmd: UtahHDFanCmd?
+    hdFanCmdSts: UtahHDFanCmdSts?
+    hdFanEnab: UtahHDFanEnab?
+    hdFanSpd: UtahHDFanSpd?
+    hdFanSpdSts: UtahHDFanSpdSts?
+    hdFanFreq: UtahHDFanFreq?
+    hdFanPower: UtahHDFanPower?
   }
 }

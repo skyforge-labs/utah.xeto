@@ -16,6 +16,11 @@ UtahHeatPumpReversingValveSts: UtahHeatPumpReversingValve & UtahValveCmdSts & Ut
   navName: "ReversingValveSts"
 }
 
+// Reversing valve position feedback (0-100%)
+UtahHeatPumpReversingValvePos: UtahHeatPumpReversingValve & UtahValvePosSts & UtahHisSampledMajorEquip {
+  navName: "ReversingValvePos"
+}
+
 UtahHeatPumpHeatingSts: BoolPoint & SensorPoint & UtahHisCov {
   heating
   run

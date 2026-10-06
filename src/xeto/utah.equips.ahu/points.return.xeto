@@ -60,6 +60,7 @@ UtahRaDmprPosSts: UtahReturn & UtahDamperPosSts & UtahHisSampledMajorEquip {
 //////////////////////////////////////////////////////////////////////////
 
 UtahRaFanCmd: UtahReturn & UtahFanCmd & UtahHisCov {
+  enum: Str?
   navName: "RaFanCmd"
 }
 
@@ -82,9 +83,43 @@ UtahRaFanFreq: UtahReturn & UtahFanFreqSensor & UtahHisSampledMajorEquip {
   navName: "RaFanFreq"
 }
 
+// Return air fan enable
+UtahRaFanEnab: UtahReturn & UtahFanEnabCmd & UtahHisCov {
+  navName: "RaFanEnab"
+}
+
+// Return air fan electrical power
+UtahRaFanPower: UtahReturn & UtahFanPowerPoint & UtahHisSampledMajorEquip {
+  navName: "RaFanPower"
+}
+
 // Return air fan alarm
 UtahRaFanAlrm: UtahReturn & UtahFanAlarmPoint & UtahHisCov {
   navName: "RaFanAlrm"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Return air flow
+//////////////////////////////////////////////////////////////////////////
+
+UtahRaFlow: UtahReturn & UtahAirFlowSensor & UtahHisSampledMajorEquip {
+  navName: "RaFlow"
+}
+
+UtahRaFlowSp: UtahReturn & UtahAirFlowSp & UtahHisCov {
+  navName: "RaFlowSp"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Return air CO2
+//////////////////////////////////////////////////////////////////////////
+
+UtahRaCO2: UtahReturn & UtahAirCo2Sensor & UtahHisSampledMajorEquip {
+  navName: "RaCO2"
+}
+
+UtahRaCO2Sp: UtahReturn & UtahAirCo2Sp & UtahHisCov {
+  navName: "RaCO2Sp"
 }
 
 //////////////////////////////////////////////////////////////////////////

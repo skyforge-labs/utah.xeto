@@ -21,12 +21,10 @@ It provides reusable libraries for **Utah-specific metadata, points, and equipme
 
 ### General conventions
 
-- **Composition first**
-  - Types are built by composing lower-level spcs from `ph.*`, `utah`, and `utah.points` rather than redefining semantics.
+See **[CONVENTIONS.md](CONVENTIONS.md)** for the normative rules (roles, naming triad, docs, history, layout).
 
-- **Consistent naming**
-  - Utah-specific types are prefixed with `Utah` (for example `UtahAhu`, `UtahChWFlow`).
-  - `navName`, units, precision, and history settings are chosen to be stable and analytics-friendly.
+- **Composition first** — compose `ph.*` / `utah` specs; do not redefine semantics.
+- **Consistent naming** — `Utah` prefix; aligned type / slot / navName; stable units and history.
 
 ### How to use these libraries
 
