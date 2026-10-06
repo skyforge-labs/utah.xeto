@@ -1,0 +1,118 @@
+//
+// Copyright (c) 2025, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   24 Nov 2025   James Gessel   Creation
+//   09 Jul 2026   SkyForge   UtahZoneDaFlow / DaFlowSp moved to utah/points.air.xeto
+//
+// VAV Flows — VAV-specific min/max and mode flow SPs.
+// Core UtahZoneDaFlow / UtahZoneDaFlowSp live in utah (shared terminals).
+
+///////////////////////////////////////////
+// General Air Flow setpoints (VAV range)
+///////////////////////////////////////////
+
+UtahZoneDaFlowSpCov: UtahZone & UtahDischarge & UtahAirFlowSp & UtahHisCov {
+    navName: "DaFlowSp"
+    color: Str? "green"
+    strokeDasharray: Str? "2,2"
+}
+
+UtahZoneDaFlowSpMax: UtahZoneDaFlowSpCov & UtahHisCov {
+    max
+    navName: "DaFlowSpMax"
+}
+
+UtahZoneDaFlowSpMin: UtahZoneDaFlowSpCov & UtahHisCov {
+    min
+    navName: "DaFlowSpMin"
+}
+
+///////////////////////////////////////////
+// Cooling Air Flow setpoints
+///////////////////////////////////////////
+
+UtahZoneDaFlowSpClgCov: UtahZone & UtahDischarge & UtahAirFlowSpClg & UtahHisCov {
+    max
+    navName: "DaFlowSpClgMax"
+}
+
+UtahZoneDaFlowSpClgMax: UtahZoneDaFlowSpClgCov & UtahHisCov {
+    max
+    navName: "DaFlowSpClgMax"
+}
+
+UtahZoneDaFlowSpClgMin:  UtahZoneDaFlowSpClgCov & UtahHisCov {
+    min
+    navName: "DaFlowSpClgMin"
+}
+
+///////////////////////////////////////////
+// Heating Air Flow setpoints
+///////////////////////////////////////////
+
+UtahZoneDaFlowSpHtgCov: UtahZone & UtahDischarge & UtahAirFlowSpHtg & UtahHisCov {
+    max
+    navName: "DaFlowSPHtgMax"
+}
+
+UtahZoneDaFlowSpHtgMax: UtahZoneDaFlowSpHtgCov & UtahHisCov {
+    max
+    navName: "DaFlowSPHtgMax"
+}
+
+UtahZoneDaFlowSpHtgMin: UtahZoneDaFlowSpHtgCov & UtahHisCov {
+    min
+    navName: "DaFlowSpHtgMin"
+}
+
+///////////////////////////////////////////
+// Reheating Air Flow setpoints
+///////////////////////////////////////////
+
+UtahZoneDaFlowSpRH: UtahZone & UtahReheat & UtahDischarge & UtahAirFlowSp & UtahHisCov {
+    navName: "DaFlowSpRH"
+}
+
+UtahZoneDaFlowSpRHMax: UtahZoneDaFlowSpRH & UtahHisCov {
+    max
+    navName: "DaFlowSpRHMax"
+}
+
+UtahZoneDaFlowSpRHMin: UtahZoneDaFlowSpRH & UtahHisCov {
+    min
+    navName: "DaFlowSpRHMin"
+}
+
+///////////////////////////////////////////
+// Unoccupied cooling / heating flow SPs
+///////////////////////////////////////////
+
+UtahZoneDaFlowSpClgUnoccMax: UtahZone & UtahDischarge & UtahAirFlowSpClg & UtahUnoccupied & UtahHisCov {
+    max
+    navName: "DaFlowSpClgUnoccMax"
+}
+
+UtahZoneDaFlowSpClgUnoccMin: UtahZone & UtahDischarge & UtahAirFlowSpClg & UtahUnoccupied & UtahHisCov {
+    min
+    navName: "DaFlowSpClgUnoccMin"
+}
+
+UtahZoneDaFlowSpHtgUnoccMax: UtahZone & UtahDischarge & UtahAirFlowSpHtg & UtahUnoccupied & UtahHisCov {
+    max
+    navName: "DaFlowSpHtgUnoccMax"
+}
+
+UtahZoneDaFlowSpHtgUnoccMin: UtahZone & UtahDischarge & UtahAirFlowSpHtg & UtahUnoccupied & UtahHisCov {
+    min
+    navName: "DaFlowSpHtgUnoccMin"
+}
+
+///////////////////////////////////////////
+// Standby discharge airflow SP
+///////////////////////////////////////////
+
+UtahZoneDaFlowSpStandby: UtahZone & UtahDischarge & UtahAirFlowSp & UtahStandby & UtahHisCov {
+    navName: "DaFlowSpStandby"
+}

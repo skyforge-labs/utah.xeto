@@ -1,0 +1,67 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   14 Jan 2026   Paul Quinn   Creation
+//   09 Jul 2026   SkyForge   Align terminal keys/specs (occ, zone DAT, fans)
+//
+
+UtahMiniSplit: VrfIndoorUnit & Fcu {
+
+    chilledWaterPlantRef: Ref?
+    hotWaterPlantRef: Ref?
+
+  points: {
+    // Occupancy (terminal convention)
+    occ: UtahZoneOccupiedSensor?
+    occCmd: UtahZoneOccupiedCmd?
+    occMode: UtahZoneOccupiedMode?
+
+    // Zone temperature / setpoints
+    spcTemp:    UtahZoneTemp
+    spcTempSp:  UtahZoneTempSpEff?
+    coolEffSp: UtahZoneTempSpEffClg?
+    heatEffSp: UtahZoneTempSpEffHtg?
+    occCoolSp: UtahOccCoolSp?
+    occHeatSp: UtahOccHeatSp?
+    unoccCoolSp: UtahUnoccCoolSp?
+    unoccHeatSp: UtahUnoccHeatSp?
+
+    // Zone discharge air
+    daTemp:       UtahZoneDaTemp?
+    daTempSp:     UtahZoneDaTempSp?
+    daFlow:       UtahZoneDaFlow?
+    daFlowSp:     UtahZoneDaFlowSp?
+    spcHum:       UtahZoneAirHumiditySensor?
+
+    // Discharge fan (terminal convention)
+    fanCmd:     UtahZoneFanCmd?
+    fanSts:     UtahZoneFanCmdSts?
+    fanModeCmd: UtahZoneFanModeCmd?
+    fanSpd:     UtahZoneFanSpd?
+    fanSpdSts:  UtahZoneFanSpdSts?
+    daFanAlrm:  UtahDaFanAlrm?
+
+    // Chilled Water
+    chWVlvPos:    UtahChWVlvPos?
+    chWVlvPosSts: UtahChWVlvPosSts?
+
+    // Hot Water
+    hWVlvPos:    UtahHWVlvPos?
+    hWVlvPosSts: UtahHWVlvPosSts?
+
+    // Filter
+    fltrDp: UtahFilterDP?
+
+    // DX Cooling Stages
+    clgStg1Cmd:      UtahDxClgStageCmd?
+    clgStg1CmdSts:   UtahDxClgStageCmdSts?
+    clgStg2Cmd:      UtahDxClgStageCmd?
+    clgStg2CmdSts:   UtahDxClgStageCmdSts?
+    clgStg3Cmd:      UtahDxClgStageCmd?
+    clgStg3CmdSts:   UtahDxClgStageCmdSts?
+    clgStg4Cmd:      UtahDxClgStageCmd?
+    clgStg4CmdSts:   UtahDxClgStageCmdSts?
+  }
+}

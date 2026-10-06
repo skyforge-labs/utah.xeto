@@ -1,0 +1,121 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   09 Jan 2026   James Gessel   Creation
+//
+
+// Steam Points
+
+////////////////////////////////////////////////////
+// Steam Temp
+////////////////////////////////////////////////////
+
+UtahSteamTemp: PhEntity <abstract> {
+  steam
+  temp
+}
+
+UtahSteamTempPoint: UtahSteamTemp & NumberPoint <abstract> {
+    unit: Unit <quantity:"temperature"> "°F"
+    doc: "Steam Temperature Point"
+    }
+
+UtahSteamTempSensor: UtahSteamTempPoint & SensorPoint <abstract> {
+    doc: "Steam Temperature Sensor"
+    }
+
+UtahSteamTempSp: UtahSteamTempPoint & SpPoint <abstract> {
+    doc: "Steam Temperature Setpoint"
+    }
+
+// Steam Temperatures
+UtahSteamTempEntering: UtahSteamTempSensor <abstract> {
+    entering
+    doc: "Steam Temperature entering a device"
+    }
+
+UtahSteamTempLeaving: UtahSteamTempSensor <abstract> {
+    leaving
+    doc: "Steam Temperature leaving a device"
+    }
+
+/////////////////////////////////////////
+// Steam Valves Position
+/////////////////////////////////////////
+
+UtahStmVlvCmd: UtahValveCmd <abstract> {
+  steam
+}
+
+UtahStmVlvPos: UtahValvePos <abstract> {
+  steam
+}
+
+UtahStm13VlvPos: UtahStmVlvPos <abstract> {
+    doc: "1/3 Steam valve 0-100% "
+    }
+
+UtahStm23VlvPos: UtahStmVlvPos <abstract> {
+    doc: "2/3 Steam valve 0-100% "
+    }
+
+////////////////////////////////////
+// Steam Pressure
+////////////////////////////////////
+
+// Generic Steam Pressure
+UtahSteamPressure: PhEntity <abstract> {
+  steam
+  pressure
+}
+
+// Generic Steam Pressure Point
+UtahSteamPressurePoint: UtahSteamPressure & NumberPoint <abstract>{
+  navName: "SteamPressPoint"
+    }
+
+// Generic Steam Pressure Sensor
+UtahSteamPressureSensor: UtahSteamPressurePoint & SensorPoint <abstract>{
+  navName: "SteamPress"
+    }
+
+// Steam leaving pressure
+UtahSteamPressureLeaving: UtahSteamPressureSensor <abstract>{
+  leaving
+  }
+
+// Steam pressure setpoint
+UtahSteamPressureSp: UtahSteamPressurePoint & SpPoint <abstract>{
+  }
+
+////////////////////////////////////
+// Steam Flow / Power
+////////////////////////////////////
+
+// ph 5.0: Flow renamed to VolumetricFlow
+UtahSteamFlow: PhEntity <abstract> {
+  steam
+  flow
+}
+
+UtahSteamFlowPoint: UtahSteamFlow & NumberPoint <abstract>{
+  unit: Unit <quantity:"massFlow"> "lb/h"
+  }
+
+UtahSteamFlowSensor: UtahSteamFlowPoint & SensorPoint <abstract>{
+  }
+
+UtahSteamFlowLeaving: UtahSteamFlowSensor <abstract>{
+  leaving
+  }
+
+UtahSteamPower: PhEntity <abstract> {
+  steam
+  power
+}
+
+UtahSteamPowerSensor: UtahSteamPower & NumberPoint & SensorPoint <abstract>{
+  unit: Unit <quantity:"power"> "MMBTU/h"
+  }

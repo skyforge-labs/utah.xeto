@@ -1,0 +1,256 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// Primary/secondary plant-loop point hierarchy.
+// Abstracts carry loop role; ChW/HW concretes add fluid markers + navName.
+
+//////////////////////////////////////////////////////////////////////////
+// Abstracts — primary / secondary water loop
+//////////////////////////////////////////////////////////////////////////
+
+UtahPriRetTemp: UtahPrimary & UtahWaterTempReturn & UtahHisSampledMajorEquip <abstract> {
+  water
+}
+
+UtahPriSupTemp: UtahPrimary & UtahWaterTempSupply & UtahHisSampledMajorEquip <abstract> {
+  water
+}
+
+UtahPriSupTempSp: UtahPrimary & UtahWaterTempSupplySp & UtahHisCov <abstract> {
+  water
+}
+
+UtahSecRetTemp: UtahSecondary & UtahWaterTempReturn & UtahHisSampledMajorEquip <abstract> {
+  water
+}
+
+UtahSecSupTemp: UtahSecondary & UtahWaterTempSupply & UtahHisSampledMajorEquip <abstract> {
+  water
+}
+
+UtahSecSupTempSp: UtahSecondary & UtahWaterTempSupplySp & UtahHisCov <abstract> {
+  water
+}
+
+UtahPriFlow: UtahPrimary & UtahWaterFlowSensor & UtahHisSampledMajorEquip <abstract> {
+  water
+}
+
+UtahSecFlow: UtahSecondary & UtahWaterFlowSensor & UtahHisSampledMajorEquip <abstract> {
+  water
+}
+
+UtahPriVol: UtahPrimary & UtahWaterVolumeSensor & UtahHisSampledMajorEquip <abstract> {
+  water
+}
+
+UtahSecVol: UtahSecondary & UtahWaterVolumeSensor & UtahHisSampledMajorEquip <abstract> {
+  water
+}
+
+UtahPriPress: UtahPrimary & UtahWaterPressSensor & UtahHisSampledMajorEquip <abstract> {
+  water
+}
+
+UtahPriPressSp: UtahPrimary & UtahWaterPressSp & UtahHisSampledMajorEquip <abstract> {
+  water
+}
+
+UtahSecPress: UtahSecondary & UtahWaterPressSensor & UtahHisSampledMajorEquip <abstract> {
+  water
+}
+
+UtahSecPressSp: UtahSecondary & UtahWaterPressSp & UtahHisSampledMajorEquip <abstract> {
+  water
+}
+
+UtahPriDP: UtahPrimary & UtahWaterDPSensor & UtahHisSampledMajorEquip <abstract> {
+  water
+}
+
+UtahPriDPSp: UtahPrimary & UtahWaterDPSp & UtahHisSampledMajorEquip <abstract> {
+  water
+}
+
+UtahSecDP: UtahSecondary & UtahWaterDPSensor & UtahHisSampledMajorEquip <abstract> {
+  water
+}
+
+UtahSecDPSp: UtahSecondary & UtahWaterDPSp & UtahHisSampledMajorEquip <abstract> {
+  water
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Chilled water concretes
+//////////////////////////////////////////////////////////////////////////
+
+UtahPriChWRetTemp: UtahPriRetTemp {
+  chilled
+  navName: "PriChWRetTemp"
+}
+UtahPriChWSupTemp: UtahPriSupTemp {
+  chilled
+  navName: "PriChWSupTemp"
+}
+UtahPriChWSupTempSp: UtahPriSupTempSp {
+  chilled
+  navName: "PriChWSupTempSp"
+}
+UtahSecChWRetTemp: UtahSecRetTemp {
+  chilled
+  navName: "SecChWRetTemp"
+}
+UtahSecChWSupTemp: UtahSecSupTemp {
+  chilled
+  navName: "SecChWSupTemp"
+}
+UtahSecChWSupTempSp: UtahSecSupTempSp {
+  chilled
+  navName: "SecChWSupTempSp"
+}
+UtahPriChWFlow: UtahPriFlow {
+  chilled
+  navName: "PriChWFlow"
+}
+UtahSecChWFlow: UtahSecFlow {
+  chilled
+  navName: "SecChWFlow"
+}
+UtahPriChWVol: UtahPriVol {
+  chilled
+  navName: "PriChWVol"
+}
+UtahSecChWVol: UtahSecVol {
+  chilled
+  navName: "SecChWVol"
+}
+UtahPriChWPress: UtahPriPress {
+  chilled
+  navName: "PriChWPress"
+}
+UtahPriChWPressSp: UtahPriPressSp {
+  chilled
+  navName: "PriChWPressSp"
+}
+UtahSecChWPress: UtahSecPress {
+  chilled
+  navName: "SecChWPress"
+}
+UtahSecChWPressSp: UtahSecPressSp {
+  chilled
+  navName: "SecChWPressSp"
+}
+UtahPriChWDP: UtahPriDP {
+  chilled
+  navName: "PriChWDP"
+}
+UtahPriChWDPSp: UtahPriDPSp {
+  chilled
+  navName: "PriChWDPSp"
+}
+UtahSecChWDP: UtahSecDP {
+  chilled
+  navName: "SecChWDP"
+}
+UtahSecChWDPSp: UtahSecDPSp {
+  chilled
+  navName: "SecChWDPSp"
+}
+
+UtahChWEnergy: UtahWaterEnergySensor & UtahHisConsumptionMajorEquip {
+  chilled
+  water
+  navName: "ChWEnergy"
+  unit: Unit <quantity:"energy"> "MMBTU"
+}
+
+UtahChWPower: UtahWaterPowerSensor & UtahHisSampledMajorEquip {
+  chilled
+  water
+  navName: "ChWPower"
+}
+
+UtahChWTons: UtahTons & SensorPoint & UtahHisSampledMajorEquip {
+  chilled
+  water
+  navName: "ChWTons"
+  unit: Unit <quantity:"power"> "tonref"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Hot water concretes
+//////////////////////////////////////////////////////////////////////////
+
+UtahPriHWRetTemp: UtahPriRetTemp {
+  hot
+  navName: "PriHWRetTemp"
+}
+UtahPriHWSupTemp: UtahPriSupTemp {
+  hot
+  navName: "PriHWSupTemp"
+}
+UtahPriHWSupTempSp: UtahPriSupTempSp {
+  hot
+  navName: "PriHWSupTempSp"
+}
+UtahSecHWRetTemp: UtahSecRetTemp {
+  hot
+  navName: "SecHWRetTemp"
+}
+UtahSecHWSupTemp: UtahSecSupTemp {
+  hot
+  navName: "SecHWSupTemp"
+}
+UtahSecHWSupTempSp: UtahSecSupTempSp {
+  hot
+  navName: "SecHWSupTempSp"
+}
+UtahPriHWFlow: UtahPriFlow {
+  hot
+  navName: "PriHWFlow"
+}
+UtahSecHWFlow: UtahSecFlow {
+  hot
+  navName: "SecHWFlow"
+}
+UtahPriHWVol: UtahPriVol {
+  hot
+  navName: "PriHWVol"
+}
+UtahSecHWVol: UtahSecVol {
+  hot
+  navName: "SecHWVol"
+}
+UtahPriHWPress: UtahPriPress {
+  hot
+  navName: "PriHWPress"
+}
+UtahPriHWPressSp: UtahPriPressSp {
+  hot
+  navName: "PriHWPressSp"
+}
+UtahSecHWPress: UtahSecPress {
+  hot
+  navName: "SecHWPress"
+}
+UtahSecHWPressSp: UtahSecPressSp {
+  hot
+  navName: "SecHWPressSp"
+}
+UtahPriHWDP: UtahPriDP {
+  hot
+  navName: "PriHWDP"
+}
+UtahPriHWDPSp: UtahPriDPSp {
+  hot
+  navName: "PriHWDPSp"
+}
+UtahSecHWDP: UtahSecDP {
+  hot
+  navName: "SecHWDP"
+}
+UtahSecHWDPSp: UtahSecDPSp {
+  hot
+  navName: "SecHWDPSp"
+}

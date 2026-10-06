@@ -1,0 +1,32 @@
+//
+// Copyright (c) 2025, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   24 Nov 2025   James Gessel   Creation
+//
+
+UtahVenturiVav: UtahVav {
+  venturi
+  lab
+
+  points: {
+
+    saFlow: UtahVavSaFlow
+    saFlowSp: UtahVavSaFlowSp?
+    eaFlow: UtahVavEaFlow
+    eaFlowSp: UtahVavEaFlowSp?
+    airflowOffset: UtahVavAirflowOffset?
+    ach: UtahVavAch?
+
+    // Room pressurization
+    roomPress: UtahVavRoomPress?
+    roomPressSp: UtahVavRoomPressSp?
+    roomPressMode: UtahVavRoomPressMode?
+
+    // Venturi valves
+    saValvePos: UtahVavSaValvePos
+    eaValvePos: UtahVavEaValvePos?
+  }
+
+}

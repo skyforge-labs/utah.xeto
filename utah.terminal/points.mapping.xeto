@@ -1,0 +1,83 @@
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+
+// Point definition retained from the SkySpark 3 mapping library.
+UtahDaDamperCmdSts: UtahDischarge & UtahDamperCmdSts & UtahHisCov {
+    navName: "DmprCmdSts"
+}
+
+// Point definition retained from the SkySpark 3 mapping library.
+UtahDaDamperPosSts: UtahDischarge & UtahDamperPosSts & UtahHisSampledDefault {
+    navName: "DmprPosSts"
+}
+
+// Point definition retained from the SkySpark 3 mapping library.
+UtahReheatValvePosOvrd: UtahZone & UtahReheat & UtahValvePos & UtahOverridePoint & UtahHisSampledDefault {
+  navName: "ReheatValvePosOvrd"
+}
+
+// Point definition retained from the SkySpark 3 mapping library.
+UtahReheatValvePosSts: UtahZone & UtahReheat & UtahValvePosSts & UtahHisSampledDefault {
+    navName: "ReheatVlvPosSts"
+}
+
+// Point definition retained from the SkySpark 3 mapping library.
+UtahVavClgOutput: UtahZone & NumberPoint & CmdPoint & UtahHisSampledDefault {
+  cooling
+  output
+  unit: Unit <invariant> "%"
+  navName: "ClgOutput"
+}
+
+// Point definition retained from the SkySpark 3 mapping library.
+UtahVavEaOccFlowSp: UtahZone & UtahExhaust & UtahAirFlowSp & UtahOccupied & UtahHisCov {
+  navName: "EaOccFlowSp"
+}
+
+// Point definition retained from the SkySpark 3 mapping library.
+UtahVavEaUnoccFlowSp: UtahZone & UtahExhaust & UtahAirFlowSp & UtahUnoccupied & UtahHisCov {
+  navName: "EaUnoccFlowSp"
+}
+
+// Point definition retained from the SkySpark 3 mapping library.
+UtahVavEffectiveOccupiedCmd: UtahZoneOccupiedCmd {
+  effective
+  enum: Str?
+  navName: "EffectiveOccupied"
+}
+
+// Point definition retained from the SkySpark 3 mapping library.
+UtahVavInletTemp: InletAirTempSensor & UtahZone & UtahHisSampledDefault {
+  unit: Unit <quantity:"temperature"> "°F"
+  navName: "InletTemp"
+}
+
+// Point definition retained from the SkySpark 3 mapping library.
+UtahVavRaFlow: UtahZone & UtahReturn & UtahAirFlowSensor & UtahHisSampledDefault {
+  navName: "RaFlow"
+}
+
+// Point definition retained from the SkySpark 3 mapping library.
+UtahVavRaOccFlowSp: UtahZone & UtahReturn & UtahAirFlowSp & UtahOccupied & UtahHisCov {
+  navName: "RaOccFlowSp"
+}
+
+// Point definition retained from the SkySpark 3 mapping library.
+UtahVavRaUnoccFlowSp: UtahZone & UtahReturn & UtahAirFlowSp & UtahUnoccupied & UtahHisCov {
+  navName: "RaUnoccFlowSp"
+}
+
+// Point definition retained from the SkySpark 3 mapping library.
+UtahVavRaValvePos: UtahZone & UtahReturn & UtahValvePos & UtahHisSampledDefault {
+  navName: "RaValvePos"
+}
+
+// Point definition retained from the SkySpark 3 mapping library.
+UtahVavSaOccFlowSp: UtahZone & UtahSupply & UtahAirFlowSp & UtahOccupied & UtahHisCov {
+  navName: "SaOccFlowSp"
+}
+
+// Point definition retained from the SkySpark 3 mapping library.
+UtahVavSaUnoccFlowSp: UtahZone & UtahSupply & UtahAirFlowSp & UtahUnoccupied & UtahHisCov {
+  navName: "SaUnoccFlowSp"
+}

@@ -1,0 +1,63 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   09 Jan 2026   Paul Quinn   Creation
+//
+// General Hot Water Points - Enable, Command
+
+//////////////////////////////////////////////////////////////////////////
+// General HWS Points
+//////////////////////////////////////////////////////////////////////////
+
+// Makeup Water Valve
+UtahHWMkupWVlvCmd: UtahMakeupValveCmd & UtahHisSampledMajorEquip {
+  hot
+  water
+  navName: "HWMkupWVlvCmd"
+}
+
+// Bypass Water Valve command
+UtahHWBypVlvCmd: UtahBypassValveCmd & UtahHisCov {
+  hot
+  water
+  navName: "HWBypVlvCmd"
+}
+
+// Bypass Water Valve
+UtahHWBypVlvPos: UtahBypassValvePos & UtahHisSampledMajorEquip {
+  hot
+  water
+  navName: "HWBypVlvPos"
+}
+
+// Bypass Water Valve status
+UtahHWBypVlvPosSts: UtahBypassValvePosSts & UtahHisSampledMajorEquip {
+  hot
+  water
+  navName: "HWBypVlvPosSts"
+}
+
+// Hot water isolation valve command status (secondary loop SEC)
+UtahHWIsoVlvCmdSts: UtahIsoValveCmdSts & UtahHisCov {
+  hot
+  water
+  navName: "HWIsoVlvCmdSts"
+}
+
+// Secondary hot water entering temp setpoint
+UtahSecHWETempSp: UtahSecondary & UtahWaterTempSp & UtahHisCov {
+  hot
+  water
+  entering
+  navName: "SecHWETempSp"
+}
+// Building Max Hot Water Valve Position
+UtahBldgHWVlvPosMax: UtahValvePos & UtahHisCov {
+  hot
+  water
+  building
+  max
+  navName: "BldgChWVlvPosMax"
+}

@@ -1,0 +1,29 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   14 Jul 2026   Creation
+//
+// Steam plant under HWS lib (SP tags: hvac, plant, steam).
+
+UtahSteamPlant: SteamPlant {
+  hvac
+  hotWaterPlantRef: Ref?
+
+  points: {
+    stmLTemp:   UtahStmLTemp?
+    stmLTempSp: UtahStmLTempSp?
+    stmLPress:  UtahStmLPress?
+    stmLFlow:   UtahStmLFlow?
+    stmPower:   UtahStmPower?
+
+    condensateETemp: UtahCondensateETemp?
+    condensateFlow:  UtahCondensateFlow?
+
+    flueTemp: UtahFlueTemp?
+
+    mkupWFlow: UtahStmMkupWFlow?
+    mkupWVol:  UtahStmMkupWVol?
+  }
+}

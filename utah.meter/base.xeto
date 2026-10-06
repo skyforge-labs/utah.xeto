@@ -1,0 +1,6 @@
+UtahMeter: UtahEquip & Meter <abstract> {
+}
+
+UtahUtilityMeter: UtahMeter <abstract> {
+  utility
+}

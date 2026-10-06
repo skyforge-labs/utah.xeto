@@ -1,0 +1,49 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   07 Jan 2026   Paul Quinn   Creation
+//
+// Abstract Base Boiler with all possible points (optional)
+// Concrete implementations tighten requirements for specific Boiler types
+
+UtahBoiler: Boiler {
+  hotWaterPlantRef: Ref?
+  navName: Str
+  siteRef: Ref<of: Site>
+  points: {
+
+    // General Points
+    blrEnab: UtahBlrEnab?
+    blrCmd: UtahBlrCmd
+    blrCmdSts: UtahBlrCmdSts?
+    blrKillSwitch: UtahBlrKillSwitch?
+    blrFiringRate: UtahBlrFiringRate
+
+    // Hot Water Points
+    hwIsoVlvCmd: UtahHWIsoVlvCmd?
+    hwIsoVlvPos: UtahHWIsoVlvPos?
+    hwIsoVlvPosSts: UtahHWIsoVlvPosSts?
+    hwCPCmd: UtahHWCPCmd?
+    hwCPCmdSts: UtahHWCPCmdSts?
+    hwCPSpeed: UtahHWCPSpeed?
+    hwETemp: UtahHWETemp?
+    hwLTemp: UtahHWLTemp
+    hwLTempSp: UtahHWLTempSp?
+    hwFlow: UtahHWFlow?
+    hwDP: UtahHWDP?
+    hwDPSp: UtahHWDPSp?
+
+    // Boiler Gas Points
+    blrGasFlow: UtahBlrNatGasFlow?
+    blrGasVolume: UtahBlrNatGasVolume?
+    blrGasEnergy: UtahBlrNatGasEnergy?
+    blrGasPower: UtahBlrNatGasPower?
+
+    // Boiler Water Energy
+    blrHWVolume: UtahHWVolume?
+    blrHWEnergy: UtahHWEnergy?
+    blrHWPower: UtahHWPower?
+  }
+}

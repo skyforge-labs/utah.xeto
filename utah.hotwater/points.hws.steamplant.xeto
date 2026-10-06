@@ -1,0 +1,70 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   14 Jul 2026   Creation
+//
+// Steam plant points (SP) for UtahSteamPlant.
+
+// Steam leaving temp
+UtahStmLTemp: UtahSteamTempLeaving & UtahHisSampledMajorEquip {
+  navName: "StmLTemp"
+}
+
+// Steam leaving temp setpoint
+UtahStmLTempSp: UtahSteamTempSp & UtahHisCov {
+  leaving
+  navName: "StmLTempSp"
+}
+
+// Steam leaving pressure
+UtahStmLPress: UtahSteamPressureLeaving & UtahHisSampledMajorEquip {
+  navName: "StmLPress"
+}
+
+// Steam leaving flow
+UtahStmLFlow: UtahSteamFlowLeaving & UtahHisSampledMajorEquip {
+  navName: "StmLFlow"
+}
+
+// Steam power / load
+UtahStmPower: UtahSteamPowerSensor & UtahHisSampledMajorEquip {
+  navName: "StmPower"
+}
+
+// Condensate entering temp
+UtahCondensateETemp: UtahCondensate & NumberPoint & SensorPoint & UtahHisSampledMajorEquip {
+  temp
+  entering
+  unit: Unit <quantity:"temperature"> "°F"
+  navName: "CondensateETemp"
+}
+
+// Condensate flow
+UtahCondensateFlow: UtahCondensate & NumberPoint & SensorPoint & UtahHisSampledMajorEquip {
+  flow
+  unit: Unit <quantity:"volumetricFlow"> "gal/min"
+  navName: "CondensateFlow"
+}
+
+// Flue / stack temp
+UtahFlueTemp: UtahFlue & NumberPoint & SensorPoint & UtahHisSampledMajorEquip {
+  temp
+  unit: Unit <quantity:"temperature"> "°F"
+  navName: "FlueTemp"
+}
+
+// Makeup water flow
+UtahStmMkupWFlow: UtahWaterFlowSensor & UtahHisSampledMajorEquip {
+  makeup
+  water
+  navName: "StmMkupWFlow"
+}
+
+// Makeup water volume
+UtahStmMkupWVol: UtahWaterVolumeSensor & UtahHisConsumptionMajorEquip {
+  makeup
+  water
+  navName: "StmMkupWVol"
+}

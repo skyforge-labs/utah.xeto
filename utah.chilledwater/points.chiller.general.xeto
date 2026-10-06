@@ -1,0 +1,59 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   05 Jan 2026   Paul Quinn   Creation
+//
+// General Chiller Points - Enable, Command, Energy
+
+//////////////////////////////////////////////////////////////////////////
+// General Chiller Points
+//////////////////////////////////////////////////////////////////////////
+
+// Chiller Enabled
+UtahChlrEnab: UtahChlr & EnableCmd & UtahHisCov {
+  navName: "ChlrEnab"
+}
+
+// Chiller Run Cmd
+UtahChlrCmd: UtahChlr & RunCmd & UtahHisCov {
+  navName: "ChlrCmd"
+}
+
+// Chiller Run Status
+UtahChlrCmdSts: UtahChlr & RunSensor & UtahHisCov {
+  navName: "ChlrCmdSts"
+}
+
+// Emergency kill switch for Chiller shutdown
+UtahChlrKillSwitch: UtahChlr & RunCmd & UtahHisCov {
+  killSwitch
+  navName: "ChlrKillSwitch"
+}
+
+// Chiller Load
+UtahChlrLoad: UtahChlr & UtahLoadSensor & UtahHisSampledMajorEquip {
+  navName: "ChlrLoad"
+  unit: Unit <invariant> "%"
+}
+
+//  Chiller Tons
+UtahChlrTons: UtahChlr & UtahTonsSensor & UtahHisSampledMajorEquip {
+  navName: "ChlrTons"
+  unit: Unit <quantity:"power"> "tonref"
+}
+
+// Chiller Power
+UtahChlrPower: UtahChlr & NumberPoint & SensorPoint & UtahHisSampledMajorEquip {
+  power
+  navName: "ChlrPower"
+  unit: Unit <quantity:"power"> "kW"
+}
+
+// Chiller Energy
+UtahChlrEnergy: UtahChlr & NumberPoint & SensorPoint & UtahHisConsumptionMajorEquip {
+  energy
+  navName: "ChlrEnergy"
+  unit: Unit <quantity:"energy"> "kWh"
+}

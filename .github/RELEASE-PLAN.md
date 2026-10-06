@@ -1,30 +1,22 @@
-# Release workflow: per-version tags
+# Release process
 
-## Source of truth
+`build.props` is the version source of truth. All six libraries use
+`utah.version`; checked-in binaries and `versions.json` are no longer used.
 
-- `versions.json` only.
-- `buildVersion` is used only as a fallback when an item has no `version`.
+1. Update the version, migration notes, and `RELEASE-NOTES.md` in a pull request.
+2. Require successful Windows and Linux CI, plus review of semantic changes.
+3. Merge the pull request. Tag the merged commit `v<utah.version>` and push it.
+4. The tag workflow verifies the version and rebuilds. Only after both platforms
+   pass does it create a GitHub release from the Linux build artifacts.
 
-## Release decision
+The release includes six `.xetolib` files, a ZIP with a `lib/xeto/` layout,
+license, installation/migration docs, a commit manifest, and SHA-256 checksums.
+Missing outputs, compiler errors, or failed compiled-only loading stop packaging.
+Existing releases are not silently overwritten.
 
-- Every distinct version referenced by `pods[]` or `libs[]` gets a tag:
-  - Tag format: `v{version}`.
-- If a release for that tag already exists → skip.
-- If a release is missing → create tag + release.
+For local packaging, run `python scripts/build.py --package` from a clean commit.
+The script refuses an existing `dist/v<version>` directory to prevent mixing
+artifacts. Move an earlier output directory aside before repeating a package build.
 
-## Assets per release
-
-Each release contains only assets that match its version:
-
-- `versions.json`
-- One `.pod` per matching `pods[]` entry (if file exists).
-- One `.xetolib` per matching `libs[]` entry:
-  - Prefer exact `{name}-{version}.xetolib` if present.
-  - Otherwise zip the lib folder.
-- `all.zip` (bundle of the above).
-
-Missing artifacts are skipped (do not fail the release).
-
-## Repo root
-
-- `versions.json` is expected at the repo root.
+Never publish the surrounding SkySpark installation, Forge extensions, customer
+data, credentials, or vendor runtime archives. These are not release inputs.

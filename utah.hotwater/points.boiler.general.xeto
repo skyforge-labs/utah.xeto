@@ -1,0 +1,40 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   06 Jan 2026   Paul Quinn   Creation
+//
+// General Boiler Points - Enable, Command, Energy
+
+//////////////////////////////////////////////////////////////////////////
+// General Boiler Points
+//////////////////////////////////////////////////////////////////////////
+
+// Boiler Enabled
+UtahBlrEnab: UtahBlr & EnableCmd & UtahHisCov {
+  navName: "BlrEnab"
+}
+
+// Boiler Run Cmd
+UtahBlrCmd: UtahBlr & RunCmd & UtahHisCov {
+  navName: "BlrCmd"
+}
+
+// Boiler Run Status
+UtahBlrCmdSts: UtahBlr & RunSensor & UtahHisCov {
+  navName: "BlrCmdSts"
+}
+
+// Emergency kill switch for Boiler shutdown
+UtahBlrKillSwitch: UtahBlr & RunCmd & UtahHisCov {
+  killSwitch
+  navName: "BlrKillSwitch"
+}
+
+// Boiler Firing Rate
+UtahBlrFiringRate: UtahBlr & UtahHisSampledMajorEquip & SensorPoint & NumberPoint {
+  firingRate
+  unit: Unit <quantity:"temperature"> "°F"
+  navName: "BlrFiringRate"
+}

@@ -1,0 +1,113 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// Cross-domain concrete points (AHU + terminal + plants). Keep here so
+// domain libs do not depend on each other.
+
+//////////////////////////////////////////////////////////////////////////
+// Coil valves / enable cmds (used by AHU, FCU, HP, unit heater)
+//////////////////////////////////////////////////////////////////////////
+
+UtahChWVlvPos: UtahValvePos & UtahHisSampledMajorEquip {
+  chilled
+  water
+  navName: "ChWVlvPos"
+}
+
+UtahChWVlvPosSts: UtahValvePosSts & UtahHisSampledMajorEquip {
+  chilled
+  water
+  navName: "ChWVlvPosSts"
+}
+
+UtahHWVlvPos: UtahValvePos & UtahHisSampledMajorEquip {
+  hot
+  water
+  navName: "HWVlvPos"
+}
+
+UtahHWVlvPosSts: UtahValvePosSts & UtahHisSampledMajorEquip {
+  hot
+  water
+  navName: "HWVlvPosSts"
+}
+
+UtahClgCmd: RunCmd & UtahHisCov {
+  chilled
+  water
+  navName: "ClgCmd"
+}
+
+UtahHtgCmd: RunCmd & UtahHisCov {
+  hot
+  water
+  navName: "HtgCmd"
+}
+
+// DX cooling stage (FCU / minisplit / AHU)
+UtahDxClgPoint: UtahStagePoint <abstract> {
+  cooling
+  navName: "Dx cooling point"
+}
+
+UtahDxClgStageCmd: UtahDxClgPoint & UtahDxStageCmd & UtahHisCov {
+  navName: "CCStageCmd"
+}
+
+UtahDxClgStageCmdSts: UtahDxClgPoint & UtahDxStageCmdSts & UtahHisCov {
+  navName: "CCStageSts"
+}
+
+// Electric heat (unit heater / AHU)
+UtahHWElecHtgCmd: UtahElecCmd & UtahHisCov {
+  hot
+  water
+  heating
+  navName: "HWElecHtgCmd"
+}
+
+UtahHWElecHtgCmdSts: UtahElecCmdSts & UtahHisCov {
+  hot
+  water
+  heating
+  navName: "HWElecHtgCmdSts"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Shared air-path sensors (AHU + terminal / HP)
+//////////////////////////////////////////////////////////////////////////
+
+UtahDaFanAlrm: UtahDischarge & UtahFanAlarmPoint & UtahHisCov {
+  navName: "DaFanAlrm"
+}
+
+UtahDaTemp: UtahDischarge & UtahAirTempSensor & UtahHisSampledMajorEquip {
+  navName: "DaTemp"
+  color: Str? "fuchsia"
+}
+
+UtahDaPress: UtahDischarge & UtahAirPressureSensor & UtahHisSampledMajorEquip {
+  navName: "DaPress"
+}
+
+UtahDaPressSp: UtahDischarge & UtahAirPressureSp & UtahHisCov {
+  navName: "DaPressSp"
+}
+
+UtahRaTemp: UtahReturn & UtahAirTempSensor & UtahHisSampledMajorEquip {
+  navName: "RaTemp"
+  color: Str? "orange"
+}
+
+UtahMaTemp: UtahMixed & UtahAirTempSensor & UtahHisSampledMajorEquip {
+  navName: "MaTemp"
+}
+
+UtahOaDmprPos: UtahOutside & UtahDamperPos & UtahHisSampledMajorEquip {
+  navName: "OaDmprPos"
+}
+
+UtahOaDmprCmd: UtahOutside & UtahDamperCmd & UtahHisCov {
+  navName: "OaDmprCmd"
+}

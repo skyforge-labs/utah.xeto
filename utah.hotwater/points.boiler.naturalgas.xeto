@@ -1,0 +1,35 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   07 Jan 2026   Paul Quinn   Creation
+//
+
+//////////////////////////////////////////////////////////////////////////
+// Boiler Natural Gas Energy and Power Points
+//////////////////////////////////////////////////////////////////////////
+
+// Boiler Natural Flow
+UtahBlrNatGasFlow: UtahBlr & UtahNatGasFlowSensor & UtahHisSampledMajorEquip {
+  navName: "BlrNatGasPower"
+//  unit: "ccf/h"  // Could not find a standard unit Ccf/h
+}
+
+// Boiler Natural Volume
+UtahBlrNatGasVolume: UtahBlr & UtahNatGasVolumeSensor & UtahHisConsumptionMajorEquip {
+  navName: "BlrNatGasPower"
+  unit: Unit <quantity:"volume"> "Ccf"
+}
+
+// Boiler Natural Gas Energy
+UtahBlrNatGasEnergy: UtahBlr & UtahNatGasEnergySensor & UtahHisConsumptionMajorEquip {
+  navName: "BlrNatGasEnergy"
+  unit: Unit <quantity:"energy"> "MMBTU"
+}
+
+// Boiler Natural Gas Power
+UtahBlrNatGasPower: UtahBlr & UtahNatGasPowerSensor & UtahHisSampledMajorEquip {
+  navName: "BlrNatGasPower"
+  unit: Unit <quantity:"power"> "MMBTU/h"
+}

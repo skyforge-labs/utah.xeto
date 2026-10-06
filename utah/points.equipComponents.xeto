@@ -1,0 +1,228 @@
+//
+// Copyright (c) 2025, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   11 Dec 2025   James Gessel   Creation
+//
+// Abstract equipment components that are unaffiliated with equip or point
+
+// ph 5.0: must extend PhEntity so marker slots unify with Point/Equip
+UtahEquipComponent: PhEntity {
+}
+
+UtahAirFilter: UtahEquipComponent <abstract> {
+  filter
+  air
+}
+
+UtahBlr: UtahEquipComponent <abstract> {
+  boiler
+}
+
+UtahBuilding: UtahEquipComponent <abstract> {
+  building
+}
+
+UtahBypass: UtahEquipComponent <abstract> {
+  bypass
+}
+
+UtahChlr: UtahEquipComponent <abstract> {
+  chiller
+}
+
+UtahChlrOil: UtahChlr <abstract> {
+  oil
+}
+
+UtahCoil: UtahEquipComponent <abstract> {
+  coil
+}
+
+UtahClgTower: UtahEquipComponent <abstract> {
+  coolingTower
+}
+
+UtahCondenser: UtahEquipComponent <abstract> {
+  condenser
+}
+
+// Shared compressor / reversing valve (AHU DX, HP, etc.)
+UtahCompressor: UtahEquipComponent <abstract> {
+  compressor
+}
+
+UtahReversingValve: UtahEquipComponent <abstract> {
+  reversingValve
+}
+
+UtahCW: UtahCondenser {
+  water
+  navName: "CW"
+}
+
+UtahColdDeck: UtahEquipComponent <abstract> {
+  coldDeck
+}
+
+UtahHotDeck: UtahEquipComponent <abstract> {
+  hotDeck
+}
+
+UtahDualDeck: UtahEquipComponent <abstract> {
+  dualDeck
+}
+
+UtahCrac: UtahEquipComponent <abstract> {
+  crac
+}
+
+UtahDamper: UtahEquipComponent <abstract> {
+  damper
+}
+
+UtahDischarge: UtahEquipComponent <abstract> {
+  discharge
+}
+
+UtahEconomizer: UtahEquipComponent <abstract> {
+  economizer
+}
+
+UtahExhaust: UtahEquipComponent <abstract> {
+  exhaust
+}
+
+UtahHx: UtahEquipComponent <abstract> {
+  heatExchanger
+}
+
+UtahHxChW: UtahHx <abstract> {
+  chilled
+  water
+}
+
+UtahHxSteam: UtahHx <abstract> {
+  steam
+}
+
+UtahHeatRecovery: UtahEquipComponent <abstract> {
+  heatRecovery
+}
+
+UtahHours: UtahEquipComponent <abstract> {
+  hours
+}
+
+UtahHumid: UtahEquipComponent <abstract> {
+  humidifier
+}
+
+UtahHumidify: UtahEquipComponent <abstract> {
+  humidify
+}
+
+UtahDehumidify: UtahEquipComponent <abstract> {
+  dehumidify
+}
+
+UtahFan: UtahEquipComponent <abstract> {
+  fan
+  air
+}
+
+UtahIsolation: UtahEquipComponent <abstract> {
+  isolation
+}
+
+UtahLoad: UtahEquipComponent <abstract> {
+  load
+}
+
+UtahMakeup: UtahEquipComponent <abstract> {
+  makeup
+}
+
+UtahMixed: UtahEquipComponent <abstract> {
+  mixed
+}
+
+UtahOccupied: UtahEquipComponent <abstract> {
+  occ
+  occupied
+}
+
+UtahPrimary: UtahEquipComponent <abstract> {
+  primaryLoop
+}
+
+UtahSecondary: UtahEquipComponent <abstract> {
+  secondaryLoop
+}
+
+UtahReheat: UtahEquipComponent <abstract> {
+  reheat
+}
+
+UtahUnoccupied: UtahEquipComponent <abstract> {
+  unocc
+  unoccupied
+}
+
+UtahOutside: UtahEquipComponent <abstract> {
+  outside
+}
+
+UtahPump: UtahEquipComponent <abstract> {
+  pump
+}
+
+UtahRelief: UtahEquipComponent <abstract> {
+  relief
+}
+
+UtahSupply: UtahEquipComponent <abstract> {
+  supply
+}
+
+UtahTransfer: UtahEquipComponent <abstract> {
+  transfer
+}
+
+UtahReturn: UtahEquipComponent <abstract> {
+  return
+}
+
+UtahStandby: UtahEquipComponent <abstract> {
+  standby
+}
+
+UtahSump: UtahEquipComponent <abstract> {
+  sump
+}
+
+UtahTank: UtahEquipComponent <abstract> {
+  tank
+}
+
+UtahTons: UtahEquipComponent <abstract> {
+  tons
+}
+
+UtahValve: UtahEquipComponent <abstract> {
+  valve
+}
+
+UtahZone: UtahEquipComponent <abstract> {
+  zone
+}
+
+// Steam plant / HX helpers
+UtahFlue: UtahEquipComponent <abstract> {
+  flue
+}
+
+UtahCondensate: UtahEquipComponent <abstract> {
+  condensate
+}

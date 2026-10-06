@@ -1,0 +1,33 @@
+//
+// Copyright (c) 2025, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   24 Nov 2025   James Gessel   Creation
+//
+// Filter Points - Alarm, Status, Pressure Differential
+
+//////////////////////////////////////////////////////////////////////////
+// Filter Points
+//////////////////////////////////////////////////////////////////////////
+
+// Filter alarm indicating maintenance required
+UtahFilterAlrm: UtahAirFilter & BoolPoint & AlarmSensor & UtahHisCov {
+  navName: "FilterAlrm"
+}
+
+// Current filter status (clean/dirty)
+UtahFilterSts: UtahAirFilter & BoolPoint & RunSensor & UtahHisCov {
+  navName: "FilterSts"
+}
+
+// Pre-filter differential pressure
+UtahPreFilterDP: UtahAirFilter & UtahAirDiffPressurePoint & SensorPoint & UtahHisSampledMajorEquip {
+  preliminary
+  navName: "PreFilterDP"
+}
+
+// Final filter differential pressure
+UtahFinalFilterDP: UtahAirFilter & UtahAirDiffPressurePoint & SensorPoint & UtahHisSampledMajorEquip {
+  navName: "FinalFilterDP"
+}

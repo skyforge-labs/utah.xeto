@@ -1,0 +1,28 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   14 Jul 2026   Creation
+//
+// Standalone HVAC pump equip. UtahPump remains the point/component marker.
+
+UtahPumpEquip: UtahEquip & UtahPump {
+  hvac
+
+  points: {
+    // Enable / run
+    pumpEnab:    UtahPumpEnab?
+    pumpCmd:     UtahPumpCmd
+    pumpCmdSts:  UtahPumpCmdSts?
+
+    // Speed / VFD
+    pumpSpd:     UtahPumpSpd?
+    pumpSpdSts:  UtahPumpSpdSts?
+    pumpFreq:    UtahPumpFreqSensor?
+
+    // Energy
+    pumpPower:   UtahPumpPowerPoint?
+    pumpEnergy:  UtahPumpEnergyPoint?
+  }
+}

@@ -1,0 +1,50 @@
+//
+// Copyright (c) 2025, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   24 Nov 2025   James Gessel   Creation
+//
+// Mixed Air Points - Temperature, Damper, Flow, Humidity
+
+//////////////////////////////////////////////////////////////////////////
+// Mixed Air Points
+//////////////////////////////////////////////////////////////////////////
+
+// UtahMaTemp → utah/points.cross.xeto
+
+// Mixed air temperature setpoint
+UtahMaTempSp: UtahMixed & UtahAirTempSp & UtahHisCov {
+  navName: "MaTempSp"
+}
+
+// Mixed air damper open/close command
+UtahMaDmprCmd: UtahMixed & UtahDamperCmd & UtahHisCov {
+  navName: "MaDmprCmd"
+}
+
+// Mixed air damper position command (%)
+UtahMaDmprPos: UtahMixed & UtahDamperPos & UtahHisSampledMajorEquip {
+  navName: "MaDmprPos"
+}
+
+// Mixed air damper position feedback
+UtahMaDmprPosSts: UtahMixed & UtahDamperPosSts & UtahHisSampledMajorEquip {
+  navName: "MaDmprPosSts"
+}
+
+// Mixed air damper minimum position setpoint
+UtahMaDmprPosMin: UtahMixed & UtahDamperPos & UtahHisCov {
+  min
+  navName: "MaDmprPosMin"
+}
+
+// Mixed air flow
+UtahMaFlow: UtahMixed & UtahAirFlowSensor & UtahHisSampledMajorEquip {
+  navName: "MaFlow"
+}
+
+// Mixed air humidity
+UtahMaHum: UtahMixed & UtahAirHumiditySensor & UtahHisSampledMajorEquip {
+  navName: "MaHum"
+}

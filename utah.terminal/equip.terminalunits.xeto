@@ -1,0 +1,57 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// Shared zone terminal bases (UtahEquip mixin — not AirTerminalUnit, so
+// Fcu/Vav can AND these without ductConfig slot conflicts).
+// Note: Xeto forbids redeclaring the same points slot across & mixins;
+// tighten required slots only on single-inheritance subtypes.
+
+// Zone terminal shared points (all optional except space temp).
+UtahTerminalUnit: UtahEquip <abstract> {
+  terminalUnit
+
+  points: {
+    occ: UtahZoneOccupiedSensor?
+    occCmd: UtahZoneOccupiedCmd?
+    occMode: UtahZoneOccupiedMode?
+
+    spcTemp: UtahZoneTemp
+    spcTempSp: UtahZoneTempSpEff?
+    coolEffSp: UtahZoneTempSpEffClg?
+    heatEffSp: UtahZoneTempSpEffHtg?
+
+    occCoolSp: UtahOccCoolSp?
+    occHeatSp: UtahOccHeatSp?
+    unoccCoolSp: UtahUnoccCoolSp?
+    unoccHeatSp: UtahUnoccHeatSp?
+    stbyCoolSp: UtahStandbyCoolingSp?
+    stbyHeatSp: UtahStandbyHeatingSp?
+
+    daTemp: UtahZoneDaTemp?
+    daTempSp: UtahZoneDaTempSp?
+    daFlow: UtahZoneDaFlow?
+    daFlowSp: UtahZoneDaFlowSp?
+
+    spcHum: UtahZoneAirHumiditySensor?
+    spcHumidifySp: UtahZoneAirHumidifySp?
+    spcDehumSp: UtahZoneAirDehumidifySp?
+    spcCO2: UtahZoneCo2Sensor?
+    spcCO2Sp: UtahZoneCo2Sp?
+  }
+}
+
+// Fan-powered terminal — fan slots optional here; require on subtype.
+UtahTerminalUnitFanPowered: UtahTerminalUnit <abstract> {
+  fanPowered
+
+  points: {
+    fanCmd: UtahZoneFanCmd?
+    fanEnab: UtahZoneFanEnab?
+    fanModeCmd: UtahZoneFanModeCmd?
+    fanSpd: UtahZoneFanSpd?
+    fanSts: UtahZoneFanCmdSts?
+    fanSpdSts: UtahZoneFanSpdSts?
+    daFanAlrm: UtahDaFanAlrm?
+  }
+}

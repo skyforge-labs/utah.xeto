@@ -1,0 +1,27 @@
+//
+// Copyright (c) 2025, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   24 Nov 2025   James Gessel   Creation
+//
+// Dual-Duct VAV
+
+UtahVavDualDuct: Vav {
+  ductConfig: DualDuctConfig
+  airRef: MultiRef?<of:Ahu>
+  points: {
+
+    cdFlow: UtahColdDeckDaFlow
+    cdFlowSp: UtahColdDeckDaFlowSp?
+    hdFlow: UtahHotDeckDaFlow
+    hdFlowSp: UtahHotDeckDaFlowSp?
+    totFlow: UtahDualDeckTotalFlow?
+    totFlowSp: UtahDualDeckTotalFlowSp?
+
+    cdDmprPos: UtahColdDeckDamperPos
+    hdDmprPos: UtahHotDeckDamperPos
+    cdPress: UtahColdDeckAirPress?
+    hdPress: UtahHotDeckAirPress?
+  }
+}

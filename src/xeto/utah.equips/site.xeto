@@ -1,8 +1,0 @@
-UtahSite: Site {
-  systems: Query<of:System, inverse:"utah.equips::UtahSystem.siteRef+"> {
-    global: GlobalSystem
-    meters: MeterSystem
-    building: BuildingSystem
-  }
-}
-

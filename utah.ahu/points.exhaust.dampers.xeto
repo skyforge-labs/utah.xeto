@@ -1,0 +1,56 @@
+//
+// Copyright (c) 2025, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   13 Nov 2026   Paul Quinn   Creation
+//
+//  Exhaust Damper points
+
+UtahEFDamperCmd: UtahExhaust & UtahDamperCmd & UtahHisCov {
+    navName: "EFDmprCmd"
+}
+
+UtahEFDamperPos: UtahExhaust & UtahDamperPos & UtahHisSampledDefault {
+    navName: "EFDmprPos"
+}
+
+UtahEFDamperPosSts: UtahExhaust & UtahDamperPosSts & UtahHisSampledDefault {
+    navName: "EFDmprPosSts"
+}
+
+UtahRFDamperCmd: UtahRelief & UtahDamperCmd & UtahHisCov {
+  navName: "RFDmprCmd"
+}
+
+UtahRFDamperPos: UtahRelief & UtahDamperPos & UtahHisSampledDefault {
+  navName: "RFDmprPos"
+}
+
+UtahRFDamperPosSts: UtahRelief & UtahDamperPosSts & UtahHisSampledDefault {
+  navName: "RFDmprPosSts"
+}
+
+UtahSFDamperCmd: UtahSupply & UtahDamperCmd & UtahHisCov {
+  navName: "SFDmprCmd"
+}
+
+UtahSFDamperPos: UtahSupply & UtahDamperPos & UtahHisSampledDefault {
+  navName: "SFDmprPos"
+}
+
+UtahSFDamperPosSts: UtahSupply & UtahDamperPosSts & UtahHisSampledDefault {
+  navName: "SFDmprPosSts"
+}
+
+UtahTFDamperCmd: UtahTransfer & UtahDamperCmd & UtahHisCov {
+  navName: "TFDmprCmd"
+}
+
+UtahTFDamperPos: UtahTransfer & UtahDamperPos & UtahHisSampledDefault {
+  navName: "TFDmprPos"
+}
+
+UtahTFDamperPosSts: UtahTransfer & UtahDamperPosSts & UtahHisSampledDefault {
+  navName: "TFDmprPosSts"
+}

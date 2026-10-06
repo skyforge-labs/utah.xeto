@@ -1,0 +1,127 @@
+//
+// Copyright (c) 2025, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   13 Jan 2026   Paul Quinn   Creation
+//
+// Exhaust Fan points
+
+// Exhaust Fan Enabled
+UtahEFEnab: UtahExhaust & EnableCmd & UtahHisCov {
+  navName: "EFEnab"
+}
+
+UtahEFanCmd: UtahExhaust & UtahFanCmd & UtahHisCov {
+    navName: "EFCmd"
+}
+
+UtahEFanCmdSts: UtahExhaust & UtahFanCmdSts & UtahHisCov {
+    navName: "EFCmdSts"
+}
+
+
+UtahEFanSpd: UtahExhaust & UtahFanSpd & UtahHisSampledDefault {
+    navName: "EFSpd"
+}
+
+UtahEFanSpdSts: UtahExhaust & UtahFanSpdSts & UtahHisSampledDefault {
+    navName: "EFSpdSts"
+}
+
+//  Fan Power
+UtahEFanPower: UtahExhaust & UtahFanPowerPoint & UtahHisSampledDefault {
+    navName: "EFFanPower"
+}
+
+//  Fan Energy
+UtahEFanEnergy: UtahExhaust & UtahFanEnergyPoint & UtahHisSampledDefault {
+    navName: "EFFanEnergy"
+}
+
+// Relief Fan Enabled
+UtahRFEnab: UtahRelief & EnableCmd & UtahHisCov {
+  navName: "RFEnab"
+}
+
+UtahRFanCmd: UtahRelief & UtahFanCmd & UtahHisCov {
+  navName: "RFCmd"
+}
+
+UtahRFanCmdSts: UtahRelief & UtahFanCmdSts & UtahHisCov {
+  navName: "RFCmdSts"
+}
+
+UtahRFanSpd: UtahRelief & UtahFanSpd & UtahHisSampledDefault {
+  navName: "RFSpd"
+}
+
+UtahRFanSpdSts: UtahRelief & UtahFanSpdSts & UtahHisSampledDefault {
+  navName: "RFSpdSts"
+}
+
+UtahRFanPower: UtahRelief & UtahFanPowerPoint & UtahHisSampledDefault {
+  navName: "RFFanPower"
+}
+
+UtahRFanEnergy: UtahRelief & UtahFanEnergyPoint & UtahHisSampledDefault {
+  navName: "RFFanEnergy"
+}
+
+// Supply Fan Enabled
+UtahSFEnab: UtahSupply & EnableCmd & UtahHisCov {
+  navName: "SFEnab"
+}
+
+UtahSFanCmd: UtahSupply & UtahFanCmd & UtahHisCov {
+  navName: "SFCmd"
+}
+
+UtahSFanCmdSts: UtahSupply & UtahFanCmdSts & UtahHisCov {
+  navName: "SFCmdSts"
+}
+
+UtahSFanSpd: UtahSupply & UtahFanSpd & UtahHisSampledDefault {
+  navName: "SFSpd"
+}
+
+UtahSFanSpdSts: UtahSupply & UtahFanSpdSts & UtahHisSampledDefault {
+  navName: "SFSpdSts"
+}
+
+UtahSFanPower: UtahSupply & UtahFanPowerPoint & UtahHisSampledDefault {
+  navName: "SFFanPower"
+}
+
+UtahSFanEnergy: UtahSupply & UtahFanEnergyPoint & UtahHisSampledDefault {
+  navName: "SFFanEnergy"
+}
+
+// Transfer Fan Enabled
+UtahTFEnab: UtahTransfer & EnableCmd & UtahHisCov {
+  navName: "TFEnab"
+}
+
+UtahTFanCmd: UtahTransfer & UtahFanCmd & UtahHisCov {
+  navName: "TFCmd"
+}
+
+UtahTFanCmdSts: UtahTransfer & UtahFanCmdSts & UtahHisCov {
+  navName: "TFCmdSts"
+}
+
+UtahTFanSpd: UtahTransfer & UtahFanSpd & UtahHisSampledDefault {
+  navName: "TFSpd"
+}
+
+UtahTFanSpdSts: UtahTransfer & UtahFanSpdSts & UtahHisSampledDefault {
+  navName: "TFSpdSts"
+}
+
+UtahTFanPower: UtahTransfer & UtahFanPowerPoint & UtahHisSampledDefault {
+  navName: "TFFanPower"
+}
+
+UtahTFanEnergy: UtahTransfer & UtahFanEnergyPoint & UtahHisSampledDefault {
+  navName: "TFFanEnergy"
+}

@@ -1,0 +1,132 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   07 Jan 2026   Paul Quinn   Creation
+//
+// General CHWS Heat Exchanger Points - Enable, Command
+
+//////////////////////////////////////////////////////////////////////////
+// General Heat Exchanger Points
+//////////////////////////////////////////////////////////////////////////
+
+// Heat Exchanger Enabled
+UtahHxChWEnab: UtahHxChW & EnableCmd & UtahHisCov {
+  chilled
+  water
+  navName: "HxChWEnab"
+}
+
+// Heat Exchanger Cmd
+UtahHxChWCmd: UtahHxChW & RunCmd & UtahHisCov {
+  chilled
+  water
+  navName: "HxChWCmd"
+}
+
+// Heat Exchanger Runtime hours
+UtahHxChWHours: UtahHxChW & UtahHoursSensor & UtahHisCov {
+  chilled
+  water
+  navName: "HxChWHours"
+//  unit: "_hours"  // What is the format for non-standard UoM?
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Condenser Water Temperature Points
+//////////////////////////////////////////////////////////////////////////
+
+// Condensor water return temperature
+UtahPriCWRetTemp: UtahHxChW & UtahPrimary & UtahWaterTempReturn & UtahHisSampledMajorEquip {
+  condenser
+  water
+  navName: "PriCWRetTemp"
+}
+
+// Condenser water supply temperature
+UtahPriCWSupTemp: UtahHxChW & UtahPrimary & UtahWaterTempSupply & UtahHisSampledMajorEquip {
+  condenser
+  water
+  navName: "PriCWSupTemp"
+}
+
+// Condenser water supply temperature setpoint
+UtahPriCWSupTempSp: UtahHxChW & UtahPrimary & UtahWaterTempSupplySp & UtahHisSampledMajorEquip {
+  condenser
+  water
+  navName: "PriCWSupTempSp"
+}
+//////////////////////////////////////////////////////////////////////////
+// Chilled Water Temperature Points
+//////////////////////////////////////////////////////////////////////////
+
+// Chilled water return temperature
+UtahHxChWRetTemp: UtahHxChW & UtahWaterTempReturn & UtahHisSampledMajorEquip {
+  chilled
+  water
+  navName: "HxChWRetTemp"
+}
+
+// Chilled water supply temperature
+UtahHxChWSupTemp: UtahHxChW & UtahWaterTempSupply & UtahHisSampledMajorEquip {
+  chilled
+  water
+  navName: "HxChWSupTemp"
+}
+
+// Chilled water supply temperature setpoint
+UtahHxChWSupTempSp: UtahHxChW & UtahWaterTempSupplySp & UtahHisCov {
+  chilled
+  water
+  navName: "HxChWSupTempSp"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Isolation Valve Points - Chilled & Condenser
+//////////////////////////////////////////////////////////////////////////
+
+//  Chilled water isolation valve command
+UtahHxChWIsoVlvCmd: UtahHxChW & UtahIsoValveCmd & UtahHisCov {
+  chilled
+  water
+  navName: "HxChWIsoVlvCmd"
+}
+
+//  Condenser water isolation valve command
+UtahHxCWIsoVlvCmd: UtahHxChW & UtahIsoValveCmd & UtahHisCov {
+  condenser
+  water
+  navName: "HxCWIsoVlvCmd"
+}
+//////////////////////////////////////////////////////////////////////////
+// Pump Command Points - Chilled & Condenser
+//////////////////////////////////////////////////////////////////////////
+
+// Chilled water circulation pump command
+UtahHxChWCPCmd: UtahHxChW & UtahCPCmd & UtahHisCov {
+  chilled
+  water
+  navName: "HxChWCPCmd"
+}
+
+// Chilled water circulation pump command status
+UtahHxChWCPCmdSts: UtahHxChW & UtahCPCmdSts & UtahHisCov {
+  chilled
+  water
+  navName: "HxChWCPCmdSts"
+}
+
+// Condenser water circulation pump command
+UtahHxCWCPCmd: UtahHxChW & UtahCPCmd & UtahHisCov {
+  condenser
+  water
+  navName: "HxCWCPCmd"
+}
+
+// Condenser water circulation pump command status
+UtahHxCWCPCmdSts: UtahHxChW & UtahCPCmdSts & UtahHisCov {
+  condenser
+  water
+  navName: "HxCWCPCmdSts"
+}

@@ -1,0 +1,73 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   07 May 2026   SkyForge   Creation
+//
+
+// Heat pump status points that do not have shared Utah point specs yet.
+
+UtahHeatPumpCompressorSts: UtahHeatPumpCompressor & RunSensor & UtahHisCov {
+  navName: "CompressorSts"
+}
+
+UtahHeatPumpReversingValveSts: UtahHeatPumpReversingValve & UtahValveCmdSts & UtahHisCov {
+  navName: "ReversingValveSts"
+}
+
+// Reversing valve position feedback (0-100%)
+UtahHeatPumpReversingValvePos: UtahHeatPumpReversingValve & UtahValvePosSts & UtahHisSampledMajorEquip {
+  navName: "ReversingValvePos"
+}
+
+UtahHeatPumpHeatingSts: BoolPoint & SensorPoint & UtahHisCov {
+  heating
+  run
+  navName: "HeatingSts"
+}
+
+UtahHeatPumpCoolingSts: BoolPoint & SensorPoint & UtahHisCov {
+  cooling
+  run
+  navName: "CoolingSts"
+}
+
+UtahHeatPumpDefrostSts: UtahHeatPumpDefrost & BoolPoint & SensorPoint & UtahHisCov {
+  navName: "DefrostSts"
+}
+
+UtahHeatPumpAuxHeatSts: UtahHeatPumpAuxHeat & RunSensor & UtahHisCov {
+  navName: "AuxHeatSts"
+}
+
+UtahHeatPumpEmergencyHeatSts: UtahHeatPumpEmergencyHeat & RunSensor & UtahHisCov {
+  navName: "EmergencyHeatSts"
+}
+
+UtahEconomizerSts: UtahEconomizer & RunSensor & UtahHisCov {
+  navName: "EconomizerSts"
+}
+
+UtahCoolingStage: UtahDxClgStageCmdSts {
+  navName: "CoolingStage"
+}
+
+UtahHeatingStage: UtahStageCmdSts & UtahHisCov {
+  heating
+  navName: "HeatingStage"
+}
+
+UtahHeatPumpFaultAlrm: AlarmSensor & UtahHisCov {
+  fault
+  navName: "FaultAlrm"
+}
+
+UtahHeatPumpLockoutAlrm: AlarmSensor & UtahHisCov {
+  lockout
+  navName: "LockoutAlrm"
+}
+
+UtahHeatPumpFilterAlrm: UtahAirFilter & AlarmSensor & UtahHisCov {
+  navName: "FilterAlrm"
+}

@@ -1,0 +1,51 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   09 Jan 2026   Paul Quinn   Creation
+//
+// Standalone heat exchanger — CHWS + HWS HX point shapes (same types as plant libs)
+
+UtahHeatExchanger: HeatExchanger {
+
+  points: {
+    // CHWS heat exchanger (chilled + condenser water)
+    HxChWEnab: UtahHxChWEnab?
+    HxChWCmd: UtahHxChWCmd?
+    HxChWHours: UtahHxChWHours?
+
+    priCWRetTemp: UtahPriCWRetTemp?
+    priCWSupTemp: UtahPriCWSupTemp?
+    priCWSupTempSp: UtahPriCWSupTempSp?
+
+    HxChWRetTemp: UtahHxChWRetTemp?
+    HxChWSupTemp: UtahHxChWSupTemp?
+    HxChWSupTempSp: UtahHxChWSupTempSp?
+
+    HxChWIsoVlvCmd: UtahHxChWIsoVlvCmd?
+    HxCWIsoVlvCmd: UtahHxCWIsoVlvCmd?
+
+    HxChWCPCmd: UtahHxChWCPCmd?
+    HxChWCPCmdSts: UtahHxChWCPCmdSts?
+    HxCWCPCmd: UtahHxCWCPCmd?
+    HxCWCPCmdSts: UtahHxCWCPCmdSts?
+
+    // HWS steam heat exchanger
+    hxStmEnab: UtahHxStmEnab?
+    hxStmCmd: UtahHxStmCmd?
+    hxStmHours: UtahHxStmHours?
+
+    hxStmETemp: UtahHxStmETemp?
+    hxStmLTemp: UtahHxStmLTemp?
+    hxStmPress: UtahHxStmPress?
+
+    hxStmHWETemp: UtahHxStmHWETemp?
+    hxStmHWLTemp: UtahHxStmHWLTemp?
+    hxStmHWLTempSp: UtahHxStmHWLTempSp?
+
+    hxStmHWIsoVlvCmd: UtahHxStmHWIsoVlvCmd?
+    hxStmHWCPCmd: UtahHxStmHWCPCmd?
+    hxStmHWCPCmdSts: UtahHxStmHWCPCmdSts?
+  }
+}

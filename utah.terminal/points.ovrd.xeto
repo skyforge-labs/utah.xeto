@@ -1,0 +1,42 @@
+//
+// Copyright (c) 2025, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   24 Nov 2025   James Gessel   Creation
+//
+
+UtahOverridePoint: Point <abstract> {
+  override
+}
+
+UtahDischargeAirFlowOvrd: DischargeAirFlowSp & UtahOverridePoint {
+  navName: "DaFlowOvrd"
+  hisMode: "sampled"
+  hisCollectInterval: Number "10min"
+}
+
+UtahDischargeAirFlowPercentOvrd: DischargeAirFlowSp & UtahOverridePoint {
+  navName: "DaFlowPctOvrd"
+  hisMode: "sampled"
+  hisCollectInterval: Number "10min"
+}
+
+UtahDischargeAirFlowOvrdState: DischargeAirFlowSp & UtahOverridePoint {
+  overrideState
+  navName: "DaFlowOvrdState"
+  hisMode: "sampled"
+  hisCollectInterval: Number "10min"
+}
+
+UtahDmprPosOvrd: DischargeDamperCmd & UtahOverridePoint {
+  navName: "DmprPosOvrd"
+  hisMode: "sampled"
+  hisCollectInterval: Number "10min"
+}
+
+UtahSpcTempOvrd: ZoneAirTempSp & UtahOverridePoint {
+  navName: "SpcTempOvrd"
+  hisMode: "sampled"
+  hisCollectInterval: Number "10min"
+}

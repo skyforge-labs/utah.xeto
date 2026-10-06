@@ -1,0 +1,88 @@
+//
+// Copyright (c) 2025, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   24 Nov 2025   James Gessel   Creation
+//
+// Chilled Water System Points - Valves, Coil Temperatures, Circ Pumps, Flow
+
+// Coil valves / DX / ClgCmd live in utah/points.cross.xeto
+
+//////////////////////////////////////////////////////////////////////////
+// Coil Temperature Points (AHU-scoped)
+//////////////////////////////////////////////////////////////////////////
+
+// Chilled water coil water entering temperature
+UtahChWCWETemp: UtahCoolingCoil & UtahWaterTempEntering & UtahHisSampledMajorEquip {
+  chilled
+  water
+  navName: "ChWCWETemp"
+}
+
+// Chilled water coil water leaving temperature
+UtahChWCWLTemp: UtahCoolingCoil & UtahWaterTempLeaving & UtahHisSampledMajorEquip {
+  chilled
+  water
+  navName: "ChWCWLTemp"
+}
+
+// Chilled water coil air entering temperature
+UtahChWCAETemp: UtahCoolingCoil & UtahAirTempEntering & UtahHisSampledMajorEquip {
+  chilled
+  water
+  navName: "ChWCAETemp"
+}
+
+// Chilled water coil air leaving temperature
+UtahChWCALTemp: UtahCoolingCoil & UtahAirTempLeaving & UtahHisSampledMajorEquip {
+  chilled
+  water
+  navName: "ChWCALTemp"
+}
+
+// Chilled water coil air leaving temperature setpoint
+UtahChWCALTempSp:  UtahCoolingCoil & UtahAirTempLeavingSp & UtahHisCov {
+  chilled
+  water
+  navName: "ChWCALTempSp"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Coil Humidity Points
+//////////////////////////////////////////////////////////////////////////
+
+// Chilled water coil air leaving humidity
+UtahChWCALHum: UtahCoolingCoil & UtahAirHumidityLeavinging & UtahHisSampledMajorEquip {
+  chilled
+  water
+  navName: "CCALHum"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Cooling coil flow / DP / power / energy (AHU-scoped)
+//////////////////////////////////////////////////////////////////////////
+
+UtahChWCFlow: UtahCoolingCoil & UtahWaterFlowSensor & UtahHisSampledMajorEquip {
+  chilled
+  water
+  navName: "ChWCFlow"
+}
+
+UtahChWCDP: UtahCoolingCoil & UtahWaterDPSensor & UtahHisSampledMajorEquip {
+  chilled
+  water
+  navName: "ChWCDP"
+}
+
+UtahChWCPower: UtahCoolingCoil & UtahWaterPowerSensor & UtahHisSampledMajorEquip {
+  chilled
+  water
+  navName: "ChWCPower"
+}
+
+UtahChWCEnergy: UtahCoolingCoil & UtahWaterEnergySensor & UtahHisConsumptionMajorEquip {
+  chilled
+  water
+  navName: "ChWCEnergy"
+}

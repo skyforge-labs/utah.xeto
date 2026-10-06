@@ -1,0 +1,143 @@
+//
+// Copyright (c) 2025, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   24 Nov 2025   James Gessel   Creation
+//
+// Hot Water Heating System Points - Pump, Valve, Temperatures
+
+// HW valves / HtgCmd / HWElecHtg* live in utah/points.cross.xeto
+
+///////////////////////////////////////////
+// Heating coil water/air entering/leaving temperature
+///////////////////////////////////////////
+
+UtahHWCWETemp: UtahHeatingCoil & UtahWaterTempEntering & UtahHisSampledMajorEquip {
+  hot
+  water
+  navName: "HWCWETemp"
+}
+
+// Heating coil water leaving temperature
+UtahHWCWLTemp: UtahHeatingCoil & UtahWaterTempLeaving & UtahHisSampledMajorEquip {
+  hot
+  water
+  navName: "HCWLTemp"
+}
+
+// Heating coil air entering temperature
+UtahHWCAETemp: UtahHeatingCoil & UtahAirTempEntering & UtahHisSampledMajorEquip {
+  hot
+  water
+  navName: "HWCAETemp"
+}
+
+// Heating coil air leaving temperature
+UtahHWCALTemp: UtahHeatingCoil & UtahAirTempLeaving & UtahHisSampledMajorEquip {
+  hot
+  water
+  navName: "HWCALTemp"
+}
+
+///////////////////////////////////////////
+// Hot water circulation pump command
+///////////////////////////////////////////
+
+// Hot water circulation pump status
+UtahHWCPSts: UtahCPCmdSts & UtahHisCov {
+  hot
+  water
+  navName: "HWCPSts"
+}
+
+///////////////////////////////////////////
+// Hot water Electric Heating
+///////////////////////////////////////////
+
+// Preferred electric heat (no HotWater)
+UtahElecHtgCmd: UtahElecCmd & UtahHisCov {
+  heating
+  navName: "ElecHtgCmd"
+}
+
+UtahElecHtgCmdSts: UtahElecCmdSts & UtahHisCov {
+  heating
+  navName: "ElecHtgSts"
+}
+
+UtahElecHtgPower: NumberPoint & SensorPoint & UtahHisSampledMajorEquip {
+  elec
+  power
+  heating
+  unit: Unit <quantity:"power"> "kW"
+  navName: "ElecHtgPower"
+}
+
+UtahElecHtgLAT: UtahHeatingCoil & UtahAirTempLeaving & UtahHisSampledMajorEquip {
+  elec
+  navName: "ElecHtgLAT"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Natural gas heat
+//////////////////////////////////////////////////////////////////////////
+
+UtahGasHtgCmd: RunCmd & UtahHisCov {
+  naturalGas
+  heating
+  navName: "GasHtgCmd"
+}
+
+UtahGasHtgCmdSts: RunSensor & UtahHisCov {
+  naturalGas
+  heating
+  navName: "GasHtgSts"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Steam heat
+//////////////////////////////////////////////////////////////////////////
+
+UtahStmHtgVlvCmd: UtahHeatingCoil & UtahStmVlvCmd & UtahHisCov {
+  steam
+  navName: "StmHtgVlvCmd"
+}
+
+UtahStmHtgVlvPos: UtahHeatingCoil & UtahStmVlvPos & UtahHisSampledMajorEquip {
+  steam
+  navName: "StmHtgVlvPos"
+}
+
+UtahStmHtgLAT: UtahHeatingCoil & UtahAirTempLeaving & UtahHisSampledMajorEquip {
+  steam
+  navName: "StmHtgLAT"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Heating coil flow / DP / power / energy (AHU-scoped)
+//////////////////////////////////////////////////////////////////////////
+
+UtahHWCFlow: UtahHeatingCoil & UtahWaterFlowSensor & UtahHisSampledMajorEquip {
+  hot
+  water
+  navName: "HWCFlow"
+}
+
+UtahHWCDP: UtahHeatingCoil & UtahWaterDPSensor & UtahHisSampledMajorEquip {
+  hot
+  water
+  navName: "HWCDP"
+}
+
+UtahHWCPower: UtahHeatingCoil & UtahWaterPowerSensor & UtahHisSampledMajorEquip {
+  hot
+  water
+  navName: "HWCPower"
+}
+
+UtahHWCEnergy: UtahHeatingCoil & UtahWaterEnergySensor & UtahHisConsumptionMajorEquip {
+  hot
+  water
+  navName: "HWCEnergy"
+}

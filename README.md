@@ -1,66 +1,96 @@
+# Utah Xeto libraries
 
-## Utah Xeto Libraries
+Reusable equipment and point models implementing Utah DFCM Haystack tagging
+conventions. **SkySpark 4 is the maintained development line.** This project is
+under active development; review migration notes before upgrading.
 
-This directory contains the **State of Utah DFCM Haystack tagging standard – Xeto implementation**.
-It provides reusable libraries for **Utah-specific metadata, points, and equipment types**.
+[Releases](https://github.com/skyforge-labs/utah.xeto/releases) ·
+[Contributing](CONTRIBUTING.md) · [Migration](MIGRATION.md) · [License](LICENSE)
 
-> **Status**: These Utah libraries are **under active development**; conventions are still being set and **are subject to change**.
+## Compatibility
 
-### Utah library overview
+- Baseline: SkySpark **4.0.6** or Haxall **4.0.6**, with sys/ph **5.0.x**.
+- Java **21+** and Python **3.10+** for the portable build script.
+- Later runtime versions need their own validation; SkySpark 3 is incompatible
+  with these artifacts. Its preserved source is on
+  [`legacy/skyspark3`](https://github.com/skyforge-labs/utah.xeto/tree/legacy/skyspark3).
+- The libraries are open source under **AFL-3.0**. SkySpark itself is a separate product.
 
-- **`utah`** – Core traits and conventions capturing DFCM semantics.
-- **`utah.points`** – Shared point definitions (generic across equipment).
-- **`utah.equips`** – Base equipment traits and shared abstractions.
-- **`utah.equips.ahu`** – AHU equipment and points.
-- **`utah.equips.vav`** – VAV equipment and points.
-- **`utah.equips.boiler`** – Boiler equipment and points.
-- **`utah.equips.chiller`** – Chiller equipment and points.
-- **`utah.equips.chws`** – Chilled water system equipment and points.
-- **`utah.equips.hws`** – Hot water system equipment and points.
-- **`utah.equips.coolingtower`** – Cooling tower equipment and points.
+## Libraries
 
-### General conventions
+| Library | Contents |
+| --- | --- |
+| `utah` | Shared markers, equipment bases, points, and history policies |
+| `utah.ahu` | Air handlers, exhaust/supply/relief fans, CRACs, humidifiers |
+| `utah.terminal` | VAVs, fan coils, mini-splits, unit heaters, heat pumps |
+| `utah.hotwater` | Hot water and steam plants, boilers, domestic hot water |
+| `utah.chilledwater` | Chilled water plants, chillers, cooling towers |
+| `utah.meter` | Electricity, gas, and water meters |
 
-- **Composition first**
-  - Types are built by composing lower-level spcs from `ph.*`, `utah`, and `utah.points` rather than redefining semantics.
+Every domain library depends on `utah` and the standard libraries, not another
+Utah domain. Shared definitions belong in `utah`.
 
-- **Consistent naming**
-  - Utah-specific types are prefixed with `Utah` (for example `UtahAhu`, `UtahChWFlow`).
-  - `navName`, units, precision, and history settings are chosen to be stable and analytics-friendly.
+## Install a release
 
-### How to use these libraries
+1. Download `utah-xeto-<version>-skyspark4.zip` from a SkySpark 4 release.
+   `SHA256SUMS` lists checksums for the ZIP and individual artifacts.
+2. Back up the existing Utah libraries and project data before upgrading.
+   Stop the target runtime before replacing libraries.
+3. Extract the ZIP to a temporary directory. Copy its six files from `lib/xeto/`
+   into the target SkySpark/Haxall **work directory's** `lib/xeto/` directory.
+   Keep the flat names such as `utah.ahu.xetolib`; do not rename them to the old
+   SkySpark 3 versioned-directory layout. Preserve unrelated libraries.
+4. Start the runtime and load the required libraries in the target project's
+   library management view. Include `utah` plus the domains you need.
+5. Verify the selected library version and a representative equipment/point
+   mapping in a test project before deploying to production.
 
-- **As a user**
-  - Install & enable the relevant libraries (for example `utah`, `utah.points`, `utah.equips.ahu`) in your [Haxall](https://github.com/haxall/haxall) project.
-  - Declare equipment and points using the provided Utah types, extending abstract base types (such as `UtahAhu`) for project-specific variants.
+Use a work directory without another Utah source checkout for binary deployment.
+Source development and compiled-only installation are separate workflows.
+The release contains models, not customer records or automatic record migrations.
+See [MIGRATION.md](MIGRATION.md) for renamed library namespaces.
 
-- **As a contributor**
-  - Prefer extending or composing existing Utah traits/types instead of duplicating semantics.
-  - Follow existing naming and history conventions within the Utah libraries.
-  - Each Utah top-level library directory **should include a small `README.md`** that explains:
-    - What the library is for.
-    - What major types it defines (high level only).
-    - Any important conventions specific to that library.
+## Build from source
 
-## Contributing
+```sh
+git clone https://github.com/skyforge-labs/utah.xeto.git
+cd utah.xeto
+python scripts/build.py
+python scripts/build.py --package
+```
 
-We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details on:
+The first build downloads the [public Haxall 4.0.6 runtime](https://github.com/haxall/haxall/releases/tag/v4.0.6)
+and verifies its pinned SHA-256. The build copies only the six public libraries
+into a temporary work directory, compiles them, then loads every compiled library
+in a second environment with **no Utah source**. Packaging writes `dist/v<version>/`.
+The script never installs into a running project or modifies an existing runtime.
 
-- Development setup and guidelines
-- Code style and naming conventions
-- Pull request process
-- Types of contributions we accept
+To use an existing runtime instead of downloading Haxall:
 
-### Quick Start for Contributors
+```sh
+python scripts/build.py --runtime /path/to/skyspark-4.0.6
+```
 
-1. Read the [Contributing Guide](CONTRIBUTING.md)
-2. Check existing [issues](https://github.com/skyforge-labs/utah.xeto/issues) for opportunities
-3. Follow the [pull request template](.github/PULL_REQUEST_TEMPLATE.md) when submitting changes
+On Windows, use a quoted Windows path. `--runtime` takes the distribution directory
+containing `lib/java/sys.jar`, not your project/work directory.
 
-### Development Resources
+The repository intentionally has library folders at its root so it can also be
+checked out directly as a SkySpark work directory's `src/xeto/`. In that layout,
+the configured SkySpark 4 CLI can build the libraries directly:
 
-- **[Xeto Language](https://github.com/Project-Haystack/xeto)** - Official Xeto specification and standard libraries
-- **[Haxall Framework](https://github.com/haxall/haxall)** - IoT framework that runs Xeto libraries
-- **Xeto Tools** - Use `xeto build` to compile libraries and validate syntax
-- **Project Haystack** - Industry standard for building data semantics
+```sh
+xeto4 build utah utah.ahu utah.terminal utah.hotwater utah.chilledwater utah.meter
+```
 
+`xeto4` is a local wrapper name; the portable Python script works without it.
+
+## Use and contribute
+
+Reference qualified names such as `utah.ahu::UtahAhu` or
+`utah.terminal::UtahVav`. Extend a model for a specific equipment configuration
+and validate its required points and references against your site data.
+Compilation and binary loading do not certify conformance of a real building.
+
+Open an [issue](https://github.com/skyforge-labs/utah.xeto/issues) for missing
+equipment, mapping problems, or documentation corrections. See
+[CONTRIBUTING.md](CONTRIBUTING.md) for the development workflow.

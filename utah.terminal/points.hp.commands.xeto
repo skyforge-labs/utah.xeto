@@ -1,0 +1,58 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   07 May 2026   SkyForge   Creation
+//
+
+// Commands not already covered by reusable utah specs.
+
+UtahHeatPumpEnableCmd: EnableCmd & UtahHisCov {
+  navName: "EnableCmd"
+}
+
+UtahHeatPumpModeCmd: UtahHeatPumpModePoint & CmdPoint & UtahHisCov {
+  navName: "ModeCmd"
+}
+
+UtahHeatPumpCompressorCmd: UtahHeatPumpCompressor & RunCmd & UtahHisCov {
+  navName: "CompressorCmd"
+}
+
+// Water-loop valve cmd (WSHP); reversing valve uses UtahHeatPumpReversingValveCmd
+UtahHeatPumpValveCmd: UtahValveCmd & UtahHisCov {
+  navName: "ValveCmd"
+}
+
+// Water-loop valve position cmd (0-100%)
+UtahHeatPumpValvePosCmd: UtahValvePos & UtahHisCov {
+  navName: "ValvePosCmd"
+}
+
+UtahHeatPumpReversingValveCmd: UtahHeatPumpReversingValve & UtahValveCmd & UtahHisCov {
+  navName: "ReversingValveCmd"
+}
+
+// Reversing valve position cmd (0-100%)
+UtahHeatPumpReversingValvePosCmd: UtahHeatPumpReversingValve & UtahValvePos & UtahHisCov {
+  navName: "ReversingValvePosCmd"
+}
+
+UtahHeatPumpAuxHeatCmd: UtahHeatPumpAuxHeat & RunCmd & UtahHisCov {
+  navName: "AuxHeatCmd"
+}
+
+UtahHeatPumpEmergencyHeatCmd: UtahHeatPumpEmergencyHeat & RunCmd & UtahHisCov {
+  navName: "EmergencyHeatCmd"
+}
+
+UtahEconomizerCmd: UtahEconomizer & RunCmd & UtahHisCov {
+  navName: "EconomizerCmd"
+}
+
+UtahCapacityCmd: NumberPoint & CmdPoint & UtahHisCov {
+  capacity
+  unit: Unit <invariant> "%"
+  navName: "CapacityCmd"
+}

@@ -1,0 +1,40 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   14 Jan 2026   Paul Quinn   Creation
+//   09 Jul 2026   SkyForge   Align terminal keys/specs (zone DAT, fans)
+//
+// Abstract Base Unit Heater with all possible points (optional)
+
+UtahUnitHeater: Fcu {
+
+    hotWaterPlantRef: Ref?
+
+  points: {
+    // Zone temperature / setpoints
+    spcTemp:    UtahZoneTemp
+    spcTempSp:  UtahZoneTempSpEff?
+    heatEffSp: UtahZoneTempSpEffHtg?
+
+    // Zone discharge air
+    daTemp:       UtahZoneDaTemp?
+    daTempSp:     UtahZoneDaTempSp?
+
+    // Discharge fan (terminal convention)
+    fanCmd:     UtahZoneFanCmd?
+    fanSts:     UtahZoneFanCmdSts?
+    fanSpd:     UtahZoneFanSpd?
+    fanSpdSts:  UtahZoneFanSpdSts?
+    daFanAlrm:  UtahDaFanAlrm?
+
+    // Hot Water
+    hWVlvPos:    UtahHWVlvPos?
+    hWVlvPosSts: UtahHWVlvPosSts?
+
+    // Elec Heating Stages
+    hlecHtgStgCmd:      UtahHWElecHtgCmd?
+    hlecHtgStgCmdSts:   UtahHWElecHtgCmdSts?
+  }
+}

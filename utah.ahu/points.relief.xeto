@@ -1,0 +1,109 @@
+//
+// Copyright (c) 2025, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   24 Nov 2025   James Gessel   Creation
+//
+// Relief/Exhaust Air Points - Fan, Damper,Flow
+
+// Relief/Exhaust Air Points
+
+//////////////////////////////////////////////////////////////////////////
+// Relief Fan
+//////////////////////////////////////////////////////////////////////////
+
+// Relief fan command
+UtahRlfFanCmd: UtahRelief & UtahFanCmd & UtahHisCov {
+  navName: "RlfFanCmd"
+}
+
+// Relief fan status
+UtahRlfFanCmdSts: UtahRelief & UtahFanCmdSts & UtahHisCov {
+  navName: "RlfFanSts"
+}
+
+// Relief fan speed
+UtahRlfFanSpd: UtahRelief & UtahFanSpd & UtahHisSampledMajorEquip {
+  navName: "RlfFanSpd"
+}
+
+// Relief fan speed status
+UtahRlfFanSpdSts: UtahRelief & UtahFanSpdSts & UtahHisSampledMajorEquip {
+  navName: "RlfFanSpdSts"
+}
+
+// Relief fan enable
+UtahRlfFanEnab: UtahRelief & UtahFanEnabCmd & UtahHisCov {
+  navName: "RlfFanEnab"
+}
+
+// Relief fan frequency
+UtahRlfFanFreq: UtahRelief & UtahFanFreqSensor & UtahHisSampledMajorEquip {
+  navName: "RlfFanFreq"
+}
+
+// Relief fan electrical power (AHU-scoped; distinct from exhaustfan UtahRFanPower)
+UtahRlfFanPower: UtahRelief & UtahFanPowerPoint & UtahHisSampledMajorEquip {
+  navName: "RlfFanPower"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Relief damper
+//////////////////////////////////////////////////////////////////////////
+
+// Relief Damper Position
+UtahRlfDmprPos: UtahRelief & UtahDamperPos & UtahHisSampledMajorEquip {
+  navName: "RlfDmprPos"
+}
+
+// Relief Damper Position status
+UtahRlfDmprPosSts: UtahRelief & UtahDamperPosSts & UtahHisSampledMajorEquip {
+  navName: "RlfDmprPosSts"
+}
+
+// Relief damper command
+UtahRlfDmprCmd: UtahRelief & UtahDamperCmd & UtahHisCov {
+  navName: "RlfDmprCmd"
+}
+
+// Relief damper command status
+UtahRlfDmprCmdSts: UtahRelief & UtahDamperCmdSts & UtahHisCov {
+  navName: "RlfDmprCmdSts"
+}
+
+
+//////////////////////////////////////////////////////////////////////////
+// Relief Air Flow
+//////////////////////////////////////////////////////////////////////////
+
+// Relief Air Flow
+UtahRlfAirFlow: UtahRelief & UtahAirFlowSensor & UtahHisSampledMajorEquip {
+  navName: "RlfAirFlow"
+}
+
+
+// Relief Air Flow setpoint
+UtahRlfAirFlowSp: UtahRelief & UtahAirFlowSp & UtahHisSampledMajorEquip {
+  navName: "RlfAirFlowSp"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Relief air sensors
+//////////////////////////////////////////////////////////////////////////
+
+UtahRlfTemp: UtahRelief & UtahAirTempSensor & UtahHisSampledMajorEquip {
+  navName: "RlfTemp"
+}
+
+UtahRlfHum: UtahRelief & UtahAirHumiditySensor & UtahHisSampledMajorEquip {
+  navName: "RlfHum"
+}
+
+UtahRlfCO2: UtahRelief & UtahAirCo2Sensor & UtahHisSampledMajorEquip {
+  navName: "RlfCO2"
+}
+
+UtahRlfCO2Sp: UtahRelief & UtahAirCo2Sp & UtahHisCov {
+  navName: "RlfCO2Sp"
+}

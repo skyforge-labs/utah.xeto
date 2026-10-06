@@ -1,0 +1,25 @@
+UtahElecSiteMeter: UtahUtilityMeter & ElecMeter {
+  siteMeter
+  points: {
+    // Core totals expected on most electric meters.
+    power: UtahElecPower
+    energy: UtahElecEnergy?
+    reactivePower: UtahElecReactivePower?
+    apparentPower: UtahElecApparentPower?
+    powerFactor: UtahElecPowerFactor?
+
+    // Useful health/context points without modeling every line or phase.
+    frequency: UtahElecFrequency?
+    avgCurrent: UtahElecAvgCurrent?
+    avgVoltage: UtahElecAvgVoltage?
+  }
+}
+
+// Branch/tenant electric submeter (not the utility revenue meter).
+UtahElecSubmeter: UtahMeter & ElecMeter {
+  submeter
+  points: {
+    power: UtahElecPower
+    energy: UtahElecEnergy?
+  }
+}

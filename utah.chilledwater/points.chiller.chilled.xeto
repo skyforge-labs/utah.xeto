@@ -1,0 +1,64 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   05 Jan 2026   Paul Quinn   Creation
+//
+// Chilled Water System Points - Valves, Coil Temperatures, Circ Pumps, Flow
+
+//////////////////////////////////////////////////////////////////////////
+// Isolation Valve Points
+//////////////////////////////////////////////////////////////////////////
+
+// Chilled water isolation valve position
+UtahChWIsoVlvPos: UtahIsoValvePos & UtahHisSampledMajorEquip {
+  chilled
+  water
+  isolation
+  navName: "ChWIsoVlvPos"
+}
+
+// Chilled water isolation valve position status
+UtahChWIsoVlvPosSts: UtahIsoValvePosSts & UtahHisCov {
+  chilled
+  water
+  isolation
+  navName: "ChWIsoVlvPosSts"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Chilled Water Temperature Points
+//////////////////////////////////////////////////////////////////////////
+
+// Chilled water entering temperature
+UtahChWETemp: UtahWaterTempEntering & UtahHisSampledMajorEquip {
+  chilled
+  water
+  navName: "ChWETemp"
+}
+
+// Chilled water leaving temperature
+UtahChWLTemp: UtahWaterTempLeaving & UtahHisSampledMajorEquip {
+  chilled
+  water
+  navName: "ChWLTemp"
+}
+
+// Chilled water leaving temperature setpoint
+UtahChWLTempSp: UtahWaterTempLeavingSp & UtahHisCov {
+  chilled
+  water
+  navName: "ChWLTempSp"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Chilled Water Diff Pressure Points
+//////////////////////////////////////////////////////////////////////////
+
+// Chilled Water Diff Pressure
+UtahChWDP: UtahWaterDPSensor & UtahHisSampledMajorEquip {
+  chilled
+  water
+  navName: "ChWDP"
+}
