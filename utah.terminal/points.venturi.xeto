@@ -1,0 +1,84 @@
+//
+// Copyright (c) 2025, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   08 Jul 2026   SkyForge   Creation
+//
+// Venturi / lab VAV points — supply & exhaust flows, pressurization, valve positions
+
+///////////////////////////////////////////
+// Supply / exhaust air flows
+///////////////////////////////////////////
+
+UtahVavSaFlow: UtahZone & UtahSupply & UtahAirFlowSensor & UtahHisSampledDefault {
+  navName: "SaFlow"
+  color: Str? "purple"
+}
+
+UtahVavSaFlowSp: UtahZone & UtahSupply & UtahAirFlowSp & UtahHisCov {
+  navName: "SaFlowSp"
+  color: Str? "green"
+  strokeDasharray: Str? "2,2"
+}
+
+UtahVavEaFlow: UtahZone & UtahExhaust & UtahAirFlowSensor & UtahHisSampledDefault {
+  navName: "EaFlow"
+  color: Str? "purple"
+}
+
+UtahVavEaFlowSp: UtahZone & UtahExhaust & UtahAirFlowSp & UtahHisCov {
+  navName: "EaFlowSp"
+  color: Str? "green"
+  strokeDasharray: Str? "2,2"
+}
+
+///////////////////////////////////////////
+// Pressurization trim and ACH
+///////////////////////////////////////////
+
+// CFM trim offset for room pressurization balance
+UtahVavAirflowOffset: UtahZone & UtahAirFlowSp & UtahHisCov {
+  navName: "AirflowOffset"
+  color: Str? "green"
+  strokeDasharray: Str? "2,2"
+}
+
+// Calculated or measured air changes per hour
+UtahVavAch: UtahZone & UtahAirFlowPoint & SensorPoint & UtahHisSampledDefault {
+  unit: Unit <invariant> "ACH"
+  navName: "ACH"
+}
+
+///////////////////////////////////////////
+// Room pressurization
+///////////////////////////////////////////
+
+UtahVavRoomPress: UtahZone & UtahAirPressureSensor & UtahHisSampledDefault {
+  navName: "RoomPress"
+}
+
+UtahVavRoomPressSp: UtahZone & UtahAirPressureSp & UtahHisCov {
+  navName: "RoomPressSp"
+  color: Str? "green"
+  strokeDasharray: Str? "2,2"
+}
+
+UtahVavRoomPressMode: UtahZone & EnumPoint & SpPoint & UtahHisCov {
+  navName: "RoomPressMode"
+  enum: Str? "Pressurize,Depressurize,Neutral"
+}
+
+///////////////////////////////////////////
+// Venturi valve positions
+///////////////////////////////////////////
+
+UtahVavSaValvePos: UtahZone & UtahSupply & UtahValvePos & UtahHisSampledDefault {
+  navName: "SaValvePos"
+  color: Str? "blue"
+}
+
+UtahVavEaValvePos: UtahZone & UtahExhaust & UtahValvePos & UtahHisSampledDefault {
+  navName: "EaValvePos"
+  color: Str? "orange"
+}

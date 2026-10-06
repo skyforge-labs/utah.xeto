@@ -1,0 +1,17 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// Hot-water plant tank points (domain-specific)
+
+UtahHWTankTemp: UtahTank & UtahWaterTempSensor & UtahHisSampledMajorEquip {
+  hot
+  water
+  navName: "HWTankTemp"
+}
+
+UtahHWTankTempSp: UtahTank & UtahWaterTempSp & UtahHisSampledMajorEquip {
+  hot
+  water
+  navName: "HWTankTempSp"
+}

@@ -1,0 +1,26 @@
+//
+// Copyright (c) 2025, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   24 Nov 2025   James Gessel   Creation
+//
+
+pragma: Lib <
+  doc: "Utah Haystack Tagging Standard - Base"
+  version: BuildVar "utah.version"
+  depends: {
+    { lib: "sys", versions: BuildVar "utah.ph.depend" }
+    { lib: "ph", versions: BuildVar "utah.ph.depend" }
+    { lib: "ph.equips", versions: BuildVar "utah.ph.depend" }
+    { lib: "ph.points", versions: BuildVar "utah.ph.depend" }
+    { lib: "ph.elec", versions: BuildVar "utah.ph.depend" }
+    { lib: "ph.attrs", versions: BuildVar "utah.ph.depend" }
+  }
+  license: BuildVar "utah.license"
+  org: {
+    dis: BuildVar "utah.org.dis"
+    uri: BuildVar "utah.org.uri"
+  }
+  categories: {"utah"}
+>

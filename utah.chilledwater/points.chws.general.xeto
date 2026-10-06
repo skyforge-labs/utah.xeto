@@ -1,0 +1,42 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   07 Jan 2026   Paul Quinn   Creation
+//
+// General Chiller Points - Enable, Command, Energy
+
+//////////////////////////////////////////////////////////////////////////
+// General CHWS Points
+//////////////////////////////////////////////////////////////////////////
+
+// Makeup Water Valve
+UtahChWMkupWVlvCmd: UtahMakeupValveCmd & UtahHisSampledMajorEquip {
+  chilled
+  water
+  navName: "ChWMkupWVlvCmd"
+}
+
+// Building Max Chilled Water Valve Position
+UtahBldgChWVlvPosMax: UtahValvePos & UtahHisCov {
+  chilled
+  water
+  building
+  max
+  navName: "BldgChWVlvPosMax"
+}
+
+// Secondary-loop bypass valve command
+UtahChWBypVlvCmd: UtahBypassValveCmd & UtahHisCov {
+  chilled
+  water
+  navName: "ChWBypVlvCmd"
+}
+
+// Secondary-loop bypass valve position
+UtahChWBypVlvPos: UtahBypassValvePos & UtahHisSampledMajorEquip {
+  chilled
+  water
+  navName: "ChWBypVlvPos"
+}

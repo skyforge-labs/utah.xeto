@@ -1,0 +1,7 @@
+UtahZoneAirPress: AirPressureSensor {
+  zone
+}
+
+UtahZoneAirPressSp: AirPressureSp {
+  zone
+}

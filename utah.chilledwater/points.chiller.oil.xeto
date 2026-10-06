@@ -1,0 +1,28 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   05 Jan 2026   Paul Quinn   Creation
+//
+// Chiller Oil Points -  Oil Temperatures
+
+//////////////////////////////////////////////////////////////////////////
+// Chiller Oil Temperatures
+//////////////////////////////////////////////////////////////////////////
+
+UtahChlrOilTemp: UtahChlrOil & NumberPoint & SensorPoint & UtahHisSampledMajorEquip {
+  temp
+  unit: Unit <quantity:"temperature"> "°F"
+  navName: "ChlrOilTemp"
+}
+
+// ph 5.0: HeatCmd → HeatRunCmd
+UtahChlrOilHeatCmd: UtahChlrOil & HeatRunCmd & UtahHisCov {
+  navName: "ChlrOilHeatCmd"
+}
+
+// ph 5.0: HeatCmd status → HeatRunSensor
+UtahChlrOilHeatCmdSts: UtahChlrOil & HeatRunSensor & UtahHisCov {
+  navName: "ChlrOilHeatCmdSts"
+}

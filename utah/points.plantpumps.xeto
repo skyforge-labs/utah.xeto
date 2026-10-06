@@ -1,0 +1,149 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// Primary/secondary plant pump hierarchy (ChW + HW share abstracts).
+
+//////////////////////////////////////////////////////////////////////////
+// Abstracts
+//////////////////////////////////////////////////////////////////////////
+
+UtahPriPumpCmd: UtahPrimary & UtahPumpCmd & UtahHisCov <abstract> { water }
+UtahPriPumpCmdSts: UtahPrimary & UtahPumpCmdSts & UtahHisCov <abstract> { water }
+UtahPriPumpSpd: UtahPrimary & UtahPumpSpd & UtahHisSampledMajorEquip <abstract> { water }
+UtahPriPumpSpdSts: UtahPrimary & UtahPumpSpdSts & UtahHisSampledMajorEquip <abstract> { water }
+UtahPriPumpFreq: UtahPrimary & UtahPumpFreqSensor & UtahHisSampledMajorEquip <abstract> { water }
+UtahPriPumpPower: UtahPrimary & UtahPumpPowerPoint & UtahHisSampledMajorEquip <abstract> { water }
+UtahPriPumpEnergy: UtahPrimary & UtahPumpEnergyPoint & UtahHisConsumptionMajorEquip <abstract> { water }
+
+UtahSecPumpCmd: UtahSecondary & UtahPumpCmd & UtahHisCov <abstract> { water }
+UtahSecPumpCmdSts: UtahSecondary & UtahPumpCmdSts & UtahHisCov <abstract> { water }
+UtahSecPumpSpd: UtahSecondary & UtahPumpSpd & UtahHisSampledMajorEquip <abstract> { water }
+UtahSecPumpSpdSts: UtahSecondary & UtahPumpSpdSts & UtahHisSampledMajorEquip <abstract> { water }
+UtahSecPumpFreq: UtahSecondary & UtahPumpFreqSensor & UtahHisSampledMajorEquip <abstract> { water }
+UtahSecPumpPower: UtahSecondary & UtahPumpPowerPoint & UtahHisSampledMajorEquip <abstract> { water }
+UtahSecPumpEnergy: UtahSecondary & UtahPumpEnergyPoint & UtahHisConsumptionMajorEquip <abstract> { water }
+
+//////////////////////////////////////////////////////////////////////////
+// Chilled water
+//////////////////////////////////////////////////////////////////////////
+
+UtahPriChWPCmd: UtahPriPumpCmd {
+  chilled
+  navName: "PriChWPCmd"
+}
+UtahPriChWPCmdSts: UtahPriPumpCmdSts {
+  chilled
+  navName: "PriChWPCmdSts"
+}
+UtahPriChWPSpd: UtahPriPumpSpd {
+  chilled
+  navName: "PriChWPSpd"
+}
+UtahPriChWPSpdSts: UtahPriPumpSpdSts {
+  chilled
+  navName: "PriChWPSpdSts"
+}
+UtahPriChWPFreq: UtahPriPumpFreq {
+  chilled
+  navName: "PriChWPFreq"
+}
+UtahPriChWPPower: UtahPriPumpPower {
+  chilled
+  navName: "PriChWPPower"
+}
+UtahPriChWPEnergy: UtahPriPumpEnergy {
+  chilled
+  navName: "PriChWPEnergy"
+}
+
+UtahSecChWPCmd: UtahSecPumpCmd {
+  chilled
+  navName: "SecChWPCmd"
+}
+UtahSecChWPCmdSts: UtahSecPumpCmdSts {
+  chilled
+  navName: "SecChWPCmdSts"
+}
+UtahSecChWPSpd: UtahSecPumpSpd {
+  chilled
+  navName: "SecChWPSpd"
+}
+UtahSecChWPSpdSts: UtahSecPumpSpdSts {
+  chilled
+  navName: "SecChWPSpdSts"
+}
+UtahSecChWPFreq: UtahSecPumpFreq {
+  chilled
+  navName: "SecChWPFreq"
+}
+UtahSecChWPPower: UtahSecPumpPower {
+  chilled
+  navName: "SecChWPPower"
+}
+UtahSecChWPEnergy: UtahSecPumpEnergy {
+  chilled
+  navName: "SecChWPEnergy"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Hot water
+//////////////////////////////////////////////////////////////////////////
+
+UtahPriHWPCmd: UtahPriPumpCmd {
+  hot
+  navName: "PriHWPCmd"
+}
+UtahPriHWPCmdSts: UtahPriPumpCmdSts {
+  hot
+  navName: "PriHWPCmdSts"
+}
+UtahPriHWPSpd: UtahPriPumpSpd {
+  hot
+  navName: "PriHWPSpd"
+}
+UtahPriHWPSpdSts: UtahPriPumpSpdSts {
+  hot
+  navName: "PriHWPSpdSts"
+}
+UtahPriHWPFreq: UtahPriPumpFreq {
+  hot
+  navName: "PriHWPFreq"
+}
+UtahPriHWPPower: UtahPriPumpPower {
+  hot
+  navName: "PriHWPPower"
+}
+UtahPriHWPEnergy: UtahPriPumpEnergy {
+  hot
+  navName: "PriHWPEnergy"
+}
+
+UtahSecHWPCmd: UtahSecPumpCmd {
+  hot
+  navName: "SecHWPCmd"
+}
+UtahSecHWPCmdSts: UtahSecPumpCmdSts {
+  hot
+  navName: "SecHWPCmdSts"
+}
+UtahSecHWPSpd: UtahSecPumpSpd {
+  hot
+  navName: "SecHWPSpd"
+}
+UtahSecHWPSpdSts: UtahSecPumpSpdSts {
+  hot
+  navName: "SecHWPSpdSts"
+}
+UtahSecHWPFreq: UtahSecPumpFreq {
+  hot
+  navName: "SecHWPFreq"
+}
+UtahSecHWPPower: UtahSecPumpPower {
+  hot
+  navName: "SecHWPPower"
+}
+UtahSecHWPEnergy: UtahSecPumpEnergy {
+  hot
+  navName: "SecHWPEnergy"
+}

@@ -1,0 +1,143 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   07 May 2026   SkyForge   Creation
+//
+
+// Heat pump performance points not covered by generic electric or runtime specs.
+
+UtahHeatPumpCurrentDraw: NumberPoint & SensorPoint & UtahHisSampledMajorEquip {
+  elec
+  current
+  unit: Unit <quantity:"electricCurrent"> "A"
+  navName: "CurrentDraw"
+}
+
+UtahHeatPumpFilterHoursSp: UtahHoursPoint & SpPoint & UtahHisCov {
+  unit: Unit <quantity:"time"> "hr"
+  navName: "FilterHoursSp"
+}
+
+// Zone discharge fan runtime hours
+UtahHeatPumpFanRuntime: UtahZone & UtahFan & UtahHoursSensor & UtahHisSampledMajorEquip {
+  navName: "FanRuntime"
+}
+
+// Compressor runtime hours
+UtahHeatPumpCompressorRuntime: UtahHeatPumpCompressor & UtahHoursSensor & UtahHisSampledMajorEquip {
+  navName: "CompressorRuntime"
+}
+
+// Filter runtime hours (WSHP)
+UtahHeatPumpFilterHours: UtahAirFilter & UtahHoursSensor & UtahHisSampledMajorEquip {
+  navName: "FilterHours"
+}
+
+UtahHeatPumpPercentPoint: NumberPoint <abstract> {
+  unit: Unit <invariant> "%"
+}
+
+UtahHeatPumpCompressorPct: UtahHeatPumpCompressor & UtahHeatPumpPercentPoint & SensorPoint & UtahHisSampledMajorEquip {
+  navName: "CompressorPct"
+}
+
+UtahCapacity: UtahHeatPumpPercentPoint & SensorPoint & UtahHisSampledMajorEquip {
+  capacity
+  navName: "Capacity"
+}
+
+UtahHeatPumpCop: NumberPoint & SensorPoint & UtahHisSampledMajorEquip {
+  efficiency
+  unit: Unit <invariant> "COP"
+  navName: "COP"
+}
+
+UtahHeatPumpRefrigerantTempPoint: UtahHeatPumpRefrigerant & NumberPoint & SensorPoint <abstract> {
+  temp
+  unit: Unit <quantity:"temperature"> "°F"
+}
+
+UtahHeatPumpSuctionTemp: UtahHeatPumpRefrigerantTempPoint & UtahHisSampledMajorEquip {
+  suction
+  navName: "SuctionTemp"
+}
+
+UtahHeatPumpDischargeTemp: UtahHeatPumpRefrigerantTempPoint & UtahHisSampledMajorEquip {
+  discharge
+  navName: "DischargeTemp"
+}
+
+UtahHeatPumpRefrigerantPressPoint: UtahHeatPumpRefrigerant & NumberPoint & SensorPoint <abstract> {
+  pressure
+  unit: Unit <quantity:"pressure"> "psi"
+}
+
+UtahHeatPumpSuctionPress: UtahHeatPumpRefrigerantPressPoint & UtahHisSampledMajorEquip {
+  suction
+  navName: "SuctionPress"
+}
+
+UtahHeatPumpDischargePress: UtahHeatPumpRefrigerantPressPoint & UtahHisSampledMajorEquip {
+  discharge
+  navName: "DischargePress"
+}
+
+UtahVanePos: UtahHeatPumpVane & UtahHeatPumpPercentPoint & SensorPoint & UtahHisSampledMajorEquip {
+  navName: "VanePos"
+}
+
+UtahExpansionValvePos: UtahHeatPumpExpansionValve & UtahValvePosSts & UtahHisSampledMajorEquip {
+  navName: "ExpansionValvePos"
+}
+
+UtahSaTemp: UtahSupply & UtahAirTempSensor & UtahHisSampledMajorEquip {
+  navName: "SaTemp"
+}
+
+UtahEaTemp: UtahExhaust & UtahAirTempSensor & UtahHisSampledMajorEquip {
+  navName: "EaTemp"
+}
+
+UtahChwSupplyTemp: UtahWaterTempSupply & UtahHisSampledMajorEquip {
+  chilled
+  water
+  navName: "ChwSupplyTemp"
+}
+
+UtahChwReturnTemp: UtahWaterTempReturn & UtahHisSampledMajorEquip {
+  chilled
+  water
+  navName: "ChwReturnTemp"
+}
+
+UtahChwSupplyTempSp: UtahWaterTempSupplySp & UtahHisCov {
+  chilled
+  water
+  navName: "ChwSupplyTempSp"
+}
+
+UtahHhwSupplyTemp: UtahWaterTempSupply & UtahHisSampledMajorEquip {
+  hot
+  water
+  navName: "HhwSupplyTemp"
+}
+
+UtahHhwReturnTemp: UtahWaterTempReturn & UtahHisSampledMajorEquip {
+  hot
+  water
+  navName: "HhwReturnTemp"
+}
+
+UtahHhwSupplyTempSp: UtahWaterTempSupplySp & UtahHisCov {
+  hot
+  water
+  navName: "HhwSupplyTempSp"
+}
+
+UtahHhwFlow: UtahWaterFlowSensor & UtahHisSampledMajorEquip {
+  hot
+  water
+  navName: "HhwFlow"
+}

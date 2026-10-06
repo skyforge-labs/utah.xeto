@@ -1,0 +1,36 @@
+//
+// Copyright (c) 2025, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   05 Dec 2025   James Gessel   Creation
+//
+//Developer License – Not for production use –More Info
+
+// Utah Abstract points
+
+// Coils
+
+UtahCoolingCoil: UtahCoil <abstract> {
+    coolingCoil
+//    doc: "Cooling Coil, typically an air handler"
+    }
+
+UtahHeatingCoil: UtahCoil <abstract> {
+    heatingCoil
+//    doc: "Heating Coil, typically an air handler"
+    }
+
+UtahPreheatCoil: UtahCoil <abstract> {
+    preheatCoil
+//    doc: "Preheat Coil, typically an air handler"
+    }
+
+UtahReheatCoil: UtahCoil <abstract> {
+    reheatCoil
+//    doc: "Reheat Coil, air handler or VAV"
+    }
+UtahHeatRecoveryCoil: UtahCoil <abstract> {
+    heatRecoveryCoil
+//    doc: "Heat Recovery Coil, air handler or VAV"
+    }

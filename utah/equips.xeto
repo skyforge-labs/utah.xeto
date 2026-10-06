@@ -1,0 +1,4 @@
+UtahEquip: Equip <abstract> {
+  attrs: Query<of:Attr, via:"equipRef+"> {}
+  navName: Str
+}

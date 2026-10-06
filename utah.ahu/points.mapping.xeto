@@ -1,0 +1,110 @@
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+
+// Point definition retained from the SkySpark 3 mapping library.
+UtahAhuHvacModeSts: EnumPoint & SensorPoint & UtahHisCov {
+  hvac
+  mode
+  enum: Str?
+  navName: "HvacModeSts"
+}
+
+// Point definition retained from the SkySpark 3 mapping library.
+UtahAhuState: EnumPoint & SensorPoint & UtahHisCov {
+  state
+  enum: Str?
+  navName: "AhuState"
+}
+
+// Point definition retained from the SkySpark 3 mapping library.
+UtahChWReturnTemp: UtahWaterTempReturn & UtahHisSampledMajorEquip {
+  chilled
+  navName: "ChWReturnTemp"
+}
+
+// Point definition retained from the SkySpark 3 mapping library.
+UtahClgDemand: NumberPoint & CmdPoint & UtahHisSampledMajorEquip {
+  cooling
+  demand
+  unit: Unit <invariant> "%"
+  navName: "ClgDemand"
+}
+
+// Point definition retained from the SkySpark 3 mapping library.
+UtahClgOutput: NumberPoint & CmdPoint & UtahHisSampledMajorEquip {
+  cooling
+  output
+  unit: Unit <invariant> "%"
+  navName: "ClgOutput"
+}
+
+// Point definition retained from the SkySpark 3 mapping library.
+UtahDaFanElecPower: UtahElecPower & UtahHisSampledMajorEquip {
+  fan
+  discharge
+  navName: "DaFanElecPower"
+}
+
+// Point definition retained from the SkySpark 3 mapping library.
+UtahDaHumSp: UtahDischarge & UtahAirHumiditySp & UtahHisCov {
+  navName: "DaHumSp"
+}
+
+// Point definition retained from the SkySpark 3 mapping library.
+UtahEaDmprPos: UtahExhaust & UtahDamperPos & UtahHisSampledMajorEquip { navName: "EaDmprPos" }
+
+// Point definition retained from the SkySpark 3 mapping library.
+UtahEaFanCmd: UtahExhaust & UtahFanCmd & UtahHisCov {
+  navName: "EaFanCmd"
+  enum: Str?
+}
+
+// Point definition retained from the SkySpark 3 mapping library.
+UtahEaFanCmdSts: UtahExhaust & UtahFanCmdSts & UtahHisCov { navName: "EaFanSts" }
+
+// Point definition retained from the SkySpark 3 mapping library.
+UtahEaFanSpdSts: UtahExhaust & UtahFanSpdSts & UtahHisSampledMajorEquip { navName: "EaFanSpdSts" }
+
+// Point definition retained from the SkySpark 3 mapping library.
+UtahEconAvailable: BoolPoint & SensorPoint & UtahHisCov {
+  economizing
+  available
+  enum: Str?
+  navName: "EconAvailable"
+}
+
+// Point definition retained from the SkySpark 3 mapping library.
+UtahEffectiveOccCmd: UtahOccCmd {
+  effective
+  navName: "EffectiveOccupied"
+}
+
+// Point definition retained from the SkySpark 3 mapping library.
+UtahHumidifierOutputCmd: UtahHumid & NumberPoint & CmdPoint & UtahHisSampledMajorEquip {
+  output
+  unit: Unit <invariant> "%"
+  navName: "HumidifierOutputCmd"
+}
+
+// Point definition retained from the SkySpark 3 mapping library.
+UtahHwDP: UtahWaterDPSensor & UtahHisSampledMajorEquip {
+  hot
+  navName: "HwDP"
+}
+
+// Point definition retained from the SkySpark 3 mapping library.
+UtahOaCO2: UtahOutside & UtahAirCo2Sensor & UtahHisSampledMajorEquip { navName: "OaCO2" }
+
+// Point definition retained from the SkySpark 3 mapping library.
+UtahPreheatPumpCmd: UtahCPCmd & UtahHisCov {
+  preheat
+  enum: Str?
+  navName: "PreheatPumpCmd"
+}
+
+// Point definition retained from the SkySpark 3 mapping library.
+UtahRaFanElecPower: UtahElecPower & UtahHisSampledMajorEquip {
+  fan
+  return
+  navName: "RaFanElecPower"
+}

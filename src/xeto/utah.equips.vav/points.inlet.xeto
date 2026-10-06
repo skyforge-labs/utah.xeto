@@ -1,5 +1,0 @@
-// Optional measured VAV inlet temperature; not AHU discharge or room temperature.
-UtahVavInletTemp: InletAirTempSensor & UtahZone & UtahHisSampledDefault {
-  unit: Unit <quantity:"temperature"> "°F"
-  navName: "InletTemp"
-}

@@ -1,0 +1,131 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   07 Jan 2026   Paul Quinn   Creation
+//
+// Shared CHWS base with all possible points optional.
+// Plant variants below tighten loop-specific requirements.
+
+UtahCHWS: ChilledWaterPlant {
+
+  coolingTowerRef: Ref?
+  chilledWaterPlantRef: Ref?
+
+  points: {
+    // General Points
+    chWMkupWVlvCmd: UtahChWMkupWVlvCmd?
+    bldgChWVlvosMax: UtahBldgChWVlvPosMax?
+
+    // Primary/Secondary Chilled Water Points
+    priChWRetTemp:   UtahPriChWRetTemp?
+    priChWSupTemp:   UtahPriChWSupTemp?
+    priChWSupTempSp: UtahPriChWSupTempSp?
+    priChWFlow:      UtahPriChWFlow?
+
+    secChWRetTemp: UtahSecChWRetTemp?
+    secChWSupTemp: UtahSecChWSupTemp?
+    secChWSupTempSp: UtahSecChWSupTempSp?
+    secChWFlow:      UtahSecChWFlow?
+
+    // Primary/Secondary Chilled Water Flow Points
+    priChWVol: UtahPriChWVol?
+    secChWVol: UtahSecChWVol?
+
+    //  Primary/Secondary Pressure and Delta Pressure
+    priChWPress:   UtahPriChWPress?
+    priChWPressSp: UtahPriChWPressSp?
+    secChWPress:   UtahSecChWPress?
+    secChWPressSp: UtahSecChWPressSp?
+
+    priChWDP:    UtahPriChWDP?
+    priChWDPSp:  UtahPriChWDPSp?
+    secChWDP:    UtahSecChWDP?
+    secChWDPSp:  UtahSecChWDPSp?
+
+    //  Power and Energy Points
+    chWEnergy:  UtahChWEnergy?
+    chWPower:   UtahChWPower?
+    chWTons:    UtahChWTons?
+
+    //  Primary pumps
+    priChWPCmd:    UtahPriChWPCmd?
+    priChWPCmdSts: UtahPriChWPCmdSts?
+    priChWPSpd:    UtahPriChWPSpd?
+    priChWPSpdSts: UtahPriChWPSpdSts?
+    priChWPFreq:   UtahPriChWPFreq?
+    priChWPPower:  UtahPriChWPPower?
+    priChWPEnergy: UtahPriChWPEnergy?
+
+    //  Secondary pumps
+    secChWPCmd:    UtahSecChWPCmd?
+    secChWPCmdSts: UtahSecChWPCmdSts?
+    secChWPSpd:    UtahSecChWPSpd?
+    secChWPSpdSts: UtahSecChWPSpdSts?
+    secChWPFreq:   UtahSecChWPFreq?
+    secChWPPower:  UtahSecChWPPower?
+    secChWPEnergy: UtahSecChWPEnergy?
+
+    // Condensor Water Points
+    HxChWEnab:   UtahHxChWEnab?
+    HxChWCmd:    UtahHxChWCmd?
+    HxChWHours:  UtahHxChWHours?
+
+    priCWRetTemp: UtahPriCWRetTemp?
+    priCWSupTemp: UtahPriCWSupTemp?
+    priCWSupTempSp: UtahPriCWSupTempSp?
+
+    HxChWRetTemp:  UtahHxChWRetTemp?
+    HxChWSupTemp:  UtahHxChWSupTemp?
+    HxChWSupTempSp: UtahHxChWSupTempSp?
+
+    HxChWIsoVlvCmd:  UtahHxChWIsoVlvCmd?
+    HxCWIsoVlvCmd:   UtahHxCWIsoVlvCmd?
+
+    HxChWCPCmd:    UtahHxChWCPCmd?
+    HxChWCPCmdSts: UtahHxChWCPCmdSts?
+    HxCWCPCmd:     UtahHxCWCPCmd?
+    HxCWCPCmdSts:  UtahHxCWCPCmdSts?
+  }
+}
+
+// Primary-only chilled water plants require the primary loop sensors.
+UtahCHWSPrimaryOnly: UtahCHWS {
+  points: {
+    priChWRetTemp: UtahPriChWRetTemp
+    priChWSupTemp: UtahPriChWSupTemp
+  }
+}
+
+// Primary-secondary chilled water plants require both plant loop sensors.
+UtahCHWSPrimarySecondary: UtahCHWS {
+  points: {
+    priChWRetTemp: UtahPriChWRetTemp
+    priChWSupTemp: UtahPriChWSupTemp
+    secChWRetTemp: UtahSecChWRetTemp
+    secChWSupTemp: UtahSecChWSupTemp
+  }
+}
+
+// Secondary chilled water loop as its own equip (SEC / secondaryLoop).
+UtahCHWSSecondaryLoop: UtahEquip & UtahSecondary {
+  hvac
+  chilled
+  water
+
+  chilledWaterPlantRef: Ref?
+
+  points: {
+    secChWRetTemp: UtahSecChWRetTemp?
+    secChWSupTemp: UtahSecChWSupTemp?
+    secChWSupTempSp: UtahSecChWSupTempSp?
+    secChWFlow:    UtahSecChWFlow?
+    secChWDP:      UtahSecChWDP?
+    secChWDPSp:    UtahSecChWDPSp?
+    chWPower:      UtahChWPower?
+
+    bypVlvCmd: UtahChWBypVlvCmd?
+    bypVlvPos: UtahChWBypVlvPos?
+  }
+}

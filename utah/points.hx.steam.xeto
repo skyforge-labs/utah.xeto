@@ -1,0 +1,107 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   09 Jan 2026   James Gessel   Creation
+//
+
+// General HWS Steam Heat Exchanger Points - Enable, Command, Temperatures
+
+//////////////////////////////////////////////////////////////////////////
+// General Steam Heat Exchanger Points
+//////////////////////////////////////////////////////////////////////////
+
+// Heat Exchanger Enabled
+UtahHxStmEnab: UtahHxSteam & EnableCmd & UtahHisCov {
+  navName: "HxStmEnab"
+}
+
+// Heat Exchanger Cmd
+UtahHxStmCmd: UtahHxSteam & RunCmd & UtahHisCov {
+  navName: "HxStmCmd"
+}
+
+// Heat Exchanger Runtime hours
+UtahHxStmHours: UtahHxSteam & UtahHoursSensor & UtahHisSampledMajorEquip {
+  navName: "HxStmHours"
+}
+
+
+//////////////////////////////////////////////////////////////////////////
+// Steam Temperature Points
+//////////////////////////////////////////////////////////////////////////
+
+// Steam entering temperature
+UtahHxStmETemp: UtahHxSteam & UtahSteamTempEntering & UtahHisSampledMajorEquip {
+  navName: "HxStmETemp"
+}
+
+// Steam leaving temperature
+UtahHxStmLTemp: UtahHxSteam & UtahSteamTempLeaving & UtahHisSampledMajorEquip {
+  navName: "HxStmLTemp"
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Hot Water Temperature Points
+//////////////////////////////////////////////////////////////////////////
+
+// Hot water entering temperature
+UtahHxStmHWETemp: UtahHxSteam & UtahWaterTempEntering & UtahHisSampledMajorEquip {
+  hot
+  water
+  navName: "HxStmHWETemp"
+}
+
+// Hot water leaving temperature
+UtahHxStmHWLTemp: UtahHxSteam & UtahWaterTempLeaving & UtahHisSampledMajorEquip {
+  hot
+  water
+  navName: "HxStmHWLTemp"
+}
+
+// Hot water leaving temperature setpoint
+UtahHxStmHWLTempSp: UtahHxSteam & UtahWaterTempLeavingSp & UtahHisSampledMajorEquip {
+  hot
+  water
+  navName: "HxStmHWLTempSp"
+}
+
+////////////////////////////////////
+// Steam Pressure
+////////////////////////////////////
+
+// Steam Pressure Sensor
+UtahHxStmPress: UtahHxSteam & UtahSteamPressureSensor  & UtahHisSampledMajorEquip<abstract>{
+  navName: "HxStmPress"
+  unit: "psi"
+    }
+
+////////////////////////////////////
+// Hot Water Valve
+////////////////////////////////////
+
+// Hot Water Isolation Valve
+UtahHxStmHWIsoVlvCmd: UtahHxSteam & UtahIsoValveCmd & UtahHisCov <abstract>{
+  hot
+  water
+  navName: "HxStmHWIsoVlvCmd"
+    }
+
+//////////////////////////////////////////////////////////////////////////
+//  Hot Water Circulation Pumps
+//////////////////////////////////////////////////////////////////////////
+
+// Primary Hot water pump command
+UtahHxStmHWCPCmd: UtahHxSteam & UtahCPCmd & UtahHisCov {
+  hot
+  water
+  navName: "HxStmHWCPCmd"
+}
+
+// Primary Hot water pump command status
+UtahHxStmHWCPCmdSts: UtahHxSteam & UtahCPCmdSts & UtahHisCov {
+  hot
+  water
+  navName: "HxStmHWCPCmdSts"
+}

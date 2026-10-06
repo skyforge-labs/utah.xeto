@@ -1,0 +1,112 @@
+//
+// Copyright (c) 2025, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   24 Nov 2025   James Gessel   Creation
+//
+// Outside Air Points - Temperature, Humidity, Damper, Flow, Pressure
+
+///////////////////////////////////////
+// Outside Air Points
+///////////////////////////////////////
+
+///////////////////////////////////////
+// Outside air humidity
+///////////////////////////////////////
+
+UtahOaHum: UtahOutside & UtahAirHumiditySensor & UtahHisSampledMajorEquip  {
+  navName: "OaHum"
+}
+
+///////////////////////////////////////
+// Outside / OA fan
+///////////////////////////////////////
+
+UtahOaFanCmd: UtahOutside & UtahFanCmd & UtahHisCov {
+  navName: "OaFanCmd"
+}
+
+UtahOaFanCmdSts: UtahOutside & UtahFanCmdSts & UtahHisCov {
+  navName: "OaFanSts"
+}
+
+UtahOaFanEnab: UtahOutside & UtahFanEnabCmd & UtahHisCov {
+  navName: "OaFanEnab"
+}
+
+UtahOaFanSpd: UtahOutside & UtahFanSpd & UtahHisSampledMajorEquip {
+  navName: "OaFanSpd"
+}
+
+UtahOaFanSpdSts: UtahOutside & UtahFanSpdSts & UtahHisSampledMajorEquip {
+  navName: "OaFanSpdSts"
+}
+
+UtahOaFanFreq: UtahOutside & UtahFanFreqSensor & UtahHisSampledMajorEquip {
+  navName: "OaFanFreq"
+}
+
+UtahOaFanPower: UtahOutside & UtahFanPowerPoint & UtahHisSampledMajorEquip {
+  navName: "OaFanPower"
+}
+
+///////////////////////////////////////
+// Outside air damper
+///////////////////////////////////////
+
+// UtahOaDmprPos / UtahOaDmprCmd → utah/points.cross.xeto
+
+// Outside air damper position status
+UtahOaDmprPosSts: UtahOutside & UtahDamperPosSts & UtahHisSampledMajorEquip {
+  navName: "OaDmprPosSts"
+}
+
+// Outside air damper status
+UtahOaDmprCmdSts: UtahOutside & UtahDamperCmdSts & UtahHisCov {
+  navName: "OaDmprCmdSts"
+}
+
+// Outside air minimum damper position
+UtahOaMinDmprPos: UtahOutside & UtahDamperPos & UtahHisCov {
+  min
+  navName: "OaMinDmprPos"
+}
+
+// Outside air minimum damper open/close command
+UtahOaMinDmprCmd: UtahOutside & UtahDamperCmd & UtahHisCov {
+  min
+  navName: "OaMinDmprCmd"
+}
+
+///////////////////////////////////////
+// Outside air flow
+///////////////////////////////////////
+
+UtahOaFlow: UtahOutside & UtahAirFlowSensor & UtahHisSampledMajorEquip {
+  navName: "OaFlow"
+}
+
+// Outside air flow setpoint
+UtahOaFlowSp: UtahOutside & UtahAirFlowSp & UtahHisSampledMajorEquip {
+  navName: "OaFlowSp"
+}
+
+// Outside air minimum flow setpoint
+UtahOaFlowSpMin: UtahOutside & UtahAirFlowSp & UtahHisCov {
+  min
+  navName: "OaFlowSpMin"
+}
+
+///////////////////////////////////////
+// Outside air pressure
+///////////////////////////////////////
+
+UtahOaPress: UtahOutside & UtahAirPressureSensor & UtahHisSampledMajorEquip {
+  navName: "OaPress"
+}
+
+// Outside air pressure setpoint
+UtahOaPressSp: UtahOutside & UtahAirPressureSp & UtahHisCov {
+  navName: "OaPressSp"
+}

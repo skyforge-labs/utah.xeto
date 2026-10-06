@@ -1,0 +1,23 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+
+pragma: Lib <
+  doc: "Utah hot water / steam plants and boilers"
+  version: BuildVar "utah.version"
+  depends: {
+    { lib: "sys", versions: BuildVar "utah.ph.depend" }
+    { lib: "ph", versions: BuildVar "utah.ph.depend" }
+    { lib: "ph.equips", versions: BuildVar "utah.ph.depend" }
+    { lib: "ph.points", versions: BuildVar "utah.ph.depend" }
+    { lib: "ph.attrs", versions: BuildVar "utah.ph.depend" }
+    { lib: "utah", versions: BuildVar "utah.depend" }
+  }
+  license: BuildVar "utah.license"
+  org: {
+    dis: BuildVar "utah.org.dis"
+    uri: BuildVar "utah.org.uri"
+  }
+  categories: {"utah"}
+>

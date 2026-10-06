@@ -1,0 +1,89 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   07 Jan 2026   James Gessel   Creation
+//
+// Utah Natural Gas Abstract points
+
+////////////////////////////////////////////////////
+// Natural Gas Flow
+////////////////////////////////////////////////////
+
+// Natural Gas Flow
+// ph 5.0: Flow renamed to VolumetricFlow
+UtahNatGasFlow: PhEntity <abstract> {
+  naturalGas
+  flow
+}
+
+// Natural Gas Flow Point
+UtahNatGasFlowPoint: UtahNatGasFlow & NumberPoint <abstract>{
+
+    }
+
+// Natural Gas Flow Sensor
+UtahNatGasFlowSensor: UtahNatGasFlowPoint & SensorPoint <abstract>{
+
+    }
+
+////////////////////////////////////////////////////
+// Natural Gas Volume
+////////////////////////////////////////////////////
+
+// Natural Gas Volume
+UtahNatGasVolume: PhEntity <abstract> {
+  naturalGas
+  volume
+}
+
+// Natural Gas Volume Point
+UtahNatGasVolumePoint: UtahNatGasVolume & NumberPoint <abstract>{
+
+    }
+
+// Natural Gas Volume Sensor
+UtahNatGasVolumeSensor: UtahNatGasVolumePoint & SensorPoint <abstract>{
+
+    }
+
+////////////////////////////////////////////////////
+// Natural Gas Energy
+////////////////////////////////////////////////////
+
+// Natural Gas Energy
+UtahNatGasEnergy: PhEntity <abstract> {
+  naturalGas
+  energy
+}
+
+// Natural Gas Energy Point
+UtahNatGasEnergyPoint: UtahNatGasEnergy & NumberPoint <abstract>{
+
+    }
+
+// Natural Gas Energy Sensor
+UtahNatGasEnergySensor: UtahNatGasEnergyPoint & SensorPoint <abstract>{
+
+    }
+
+////////////////////////////////////////////////////
+// Natural Gas Power
+////////////////////////////////////////////////////
+
+// Natural Gas Power
+UtahNatGasPower: PhEntity <abstract> {
+  naturalGas
+  power
+}
+
+// Natural Gas Energy Point
+UtahNatGasPowerPoint: UtahNatGasPower & NumberPoint <abstract>{
+
+    }
+
+// Natural Gas Energy Sensor
+UtahNatGasPowerSensor: UtahNatGasPowerPoint & SensorPoint <abstract>{
+
+    }

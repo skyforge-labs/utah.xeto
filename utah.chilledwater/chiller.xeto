@@ -1,0 +1,65 @@
+//
+// Copyright (c) 2025, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   27 Dec 2025   Paul Quinn   Creation
+//
+// Abstract Base AHU with all possible points (optional)
+// Concrete implementations tighten requirements for specific AHU types
+
+UtahChiller: Chiller {
+  coolingTowerRef: Ref?
+  chilledWaterPlantRef: Ref?
+
+  points: {
+    // General Points
+    chlrEnab: UtahChlrEnab?
+    chlrCmd: UtahChlrCmd
+    chlrSts: UtahChlrCmdSts?
+
+    chlrKillSwitch: UtahChlrKillSwitch?
+    chlrLoad: UtahChlrLoad?
+    chlrTons: UtahChlrTons?
+    chlrPower: UtahChlrPower?
+    chlrEnergy: UtahChlrEnergy?
+
+    // Stages
+    chlrStg1Cmd: UtahChlrStg1Cmd?
+    chlrStg1CmdSts: UtahChlrStg1CmdSts?
+    chlrStg2Cmd: UtahChlrStg2Cmd?
+    chlrStg2CmdSts: UtahChlrStg2CmdSts?
+    chlrStg3Cmd: UtahChlrStg3Cmd?
+    chlrStg3CmdSts: UtahChlrStg3CmdSts?
+    chlrStgSp: UtahChlrStgSp?
+
+    // Condensor Water Points
+    cwIsoVlvCmd: UtahCWIsoVlvCmd?
+    cwIsoVlvPos: UtahCWIsoVlvPos?
+    cwIsoVlvPosSts: UtahCWIsoVlvPosSts?
+    cwCPCmd: UtahCWCPCmd?
+    cwCPCmdSts: UtahCWCPCmdSts?
+    cwETemp: UtahCWETemp?
+    cwLTemp: UtahCWLTemp?
+    cwLTempSp: UtahCWLTempSp?
+    cwFlow: UtahCWFlow?
+    cWDP: UtahCWDP?
+
+    // Chilled Water Points
+    chWIsoVlvCmd: UtahChWIsoVlvCmd?
+    chWIsoVlvPos: UtahChWIsoVlvPos?
+    chWIsoVlvPosSts: UtahChWIsoVlvPosSts?
+    chWCPCmd: UtahChWCPCmd?
+    chWCPCmdSts: UtahChWCPCmdSts?
+    chWETemp: UtahChWETemp?
+    chWLTemp: UtahChWLTemp?
+    chWLTempSp: UtahChWLTempSp?
+    chWFlow: UtahChWFlow?
+    chWDP: UtahChWDP?
+
+    // Oil Points
+    chlrOilTemp: UtahChlrOilTemp?
+    chlrOilHeatCmd: UtahChlrOilHeatCmd?
+    chlrOilHeatCmdSts: UtahChlrOilHeatCmdSts?
+  }
+}

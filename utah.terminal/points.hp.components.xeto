@@ -1,0 +1,43 @@
+//
+// Copyright (c) 2026, SkyForge Labs
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   07 May 2026   SkyForge   Creation
+//
+
+// Heat-pump-only components used to scope commands, status, and performance points.
+
+UtahHeatPumpCompressor: UtahEquipComponent <abstract> {
+  compressor
+}
+
+UtahHeatPumpDefrost: UtahEquipComponent <abstract> {
+  defrost
+}
+
+UtahHeatPumpRefrigerant: UtahEquipComponent <abstract> {
+  refrigerant
+}
+
+UtahHeatPumpReversingValve: UtahEquipComponent <abstract> {
+  reversingValve
+}
+
+UtahHeatPumpAuxHeat: UtahEquipComponent <abstract> {
+  aux
+  heat
+}
+
+UtahHeatPumpEmergencyHeat: UtahEquipComponent <abstract> {
+  emergency
+  heat
+}
+
+UtahHeatPumpVane: UtahEquipComponent <abstract> {
+  vane
+}
+
+UtahHeatPumpExpansionValve: UtahEquipComponent <abstract> {
+  expansion
+}
